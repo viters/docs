@@ -246,10 +246,10 @@ export default ({ filter }, { services, exceptions }) => {
 	const { ServiceUnavailableException, ForbiddenException } = exceptions;
 
 	// Sync with external recipes service, cancel creation on failure
-	filter('items.create', async (input, { collection }, { schema }) => {
+	filter('items.create', async (input, { collection }, { schema, database }) => {
 		if (collection !== 'recipes') return input;
 
-		const mailService = new MailService({ schema });
+		const mailService = new MailService({ schema, knex: database });
 
 		try {
 			await axios.post('https://example.com/recipes', input);
