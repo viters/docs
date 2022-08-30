@@ -818,6 +818,7 @@ Based on the `EMAIL_TRANSPORT` used, you must also provide the following configu
 
 | Variable                | Description      | Default Value |
 | ----------------------- | ---------------- | ------------- |
+| `EMAIL_SMTP_NAME`       | SMTP Name        | --            |
 | `EMAIL_SMTP_HOST`       | SMTP Host        | --            |
 | `EMAIL_SMTP_PORT`       | SMTP Port        | --            |
 | `EMAIL_SMTP_USER`       | SMTP User        | --            |
