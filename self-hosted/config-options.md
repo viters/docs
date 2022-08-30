@@ -239,20 +239,21 @@ into unexpected behaviors.
 
 ## Database
 
-| Variable               | Description                                                                                                                                        | Default Value                 |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| `DB_CLIENT`            | **Required**. What database client to use. One of `pg` or `postgres`, `mysql`, `oracledb`, `mssql`, `sqlite3`, `cockroachdb`.                      | --                            |
-| `DB_HOST`              | Database host. **Required** when using `pg`, `mysql`, `oracledb`, or `mssql`.                                                                      | --                            |
-| `DB_PORT`              | Database port. **Required** when using `pg`, `mysql`, `oracledb`, or `mssql`.                                                                      | --                            |
-| `DB_DATABASE`          | Database name. **Required** when using `pg`, `mysql`, `oracledb`, or `mssql`.                                                                      | --                            |
-| `DB_USER`              | Database user. **Required** when using `pg`, `mysql`, `oracledb`, or `mssql`.                                                                      | --                            |
-| `DB_PASSWORD`          | Database user's password. **Required** when using `pg`, `mysql`, `oracledb`, or `mssql`.                                                           | --                            |
-| `DB_FILENAME`          | Where to read/write the SQLite database. **Required** when using `sqlite3`.                                                                        | --                            |
-| `DB_CONNECTION_STRING` | When using `pg`, you can submit a connection string instead of individual properties. Using this will ignore any of the other connection settings. | --                            |
-| `DB_POOL__*`           | Pooling settings. Passed on to [the `tarn.js`](https://github.com/vincit/tarn.js#usage) library.                                                   | --                            |
-| `DB_EXCLUDE_TABLES`    | CSV of tables you want Directus to ignore completely                                                                                               | `spatial_ref_sys,sysdiagrams` |
-| `DB_CHARSET`           | Charset/collation to use in the connection to MySQL/MariaDB                                                                                        | `UTF8_GENERAL_CI`             |
-| `DB_VERSION`           | Database version, in case you use the PostgreSQL adapter to connect a non-standard database. Not normally required.                                | --                            |
+| Variable                   | Description                                                                                                                                        | Default Value                 |
+|----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------|
+| `DB_CLIENT`                | **Required**. What database client to use. One of `pg` or `postgres`, `mysql`, `oracledb`, `mssql`, `sqlite3`, `cockroachdb`.                      | --                            |
+| `DB_HOST`                  | Database host. **Required** when using `pg`, `mysql`, `oracledb`, or `mssql`.                                                                      | --                            |
+| `DB_PORT`                  | Database port. **Required** when using `pg`, `mysql`, `oracledb`, or `mssql`.                                                                      | --                            |
+| `DB_DATABASE`              | Database name. **Required** when using `pg`, `mysql`, `oracledb`, or `mssql`.                                                                      | --                            |
+| `DB_USER`                  | Database user. **Required** when using `pg`, `mysql`, `oracledb`, or `mssql`.                                                                      | --                            |
+| `DB_PASSWORD`              | Database user's password. **Required** when using `pg`, `mysql`, `oracledb`, or `mssql`.                                                           | --                            |
+| `DB_FILENAME`              | Where to read/write the SQLite database. **Required** when using `sqlite3`.                                                                        | --                            |
+| `DB_CONNECTION_STRING`     | When using `pg`, you can submit a connection string instead of individual properties. Using this will ignore any of the other connection settings. | --                            |
+| `DB_POOL__*`               | Pooling settings. Passed on to [the `tarn.js`](https://github.com/vincit/tarn.js#usage) library.                                                   | --                            |
+| `DB_EXCLUDE_TABLES`        | CSV of tables you want Directus to ignore completely                                                                                               | `spatial_ref_sys,sysdiagrams` |
+| `DB_CHARSET`               | Charset/collation to use in the connection to MySQL/MariaDB                                                                                        | `UTF8_GENERAL_CI`             |
+| `DB_VERSION`               | Database version, in case you use the PostgreSQL adapter to connect a non-standard database. Not normally required.                                | --                            |
+| `DB_HEALTHCHECK_THRESHOLD` | Healthcheck timeout threshold in ms.                                                                                                               | `150`                         |
 
 ::: tip Additional Database Variables
 
@@ -345,12 +346,13 @@ will set a default maximum of 50 requests per second, tracked in memory. Once yo
 running under a load balancer, or your user base grows so much that memory is no longer a viable place to store the rate
 limiter information, you can use an external `memcache` or `redis` instance to store the rate limiter data.
 
-| Variable                | Description                                                                      | Default Value |
-| ----------------------- | -------------------------------------------------------------------------------- | ------------- |
-| `RATE_LIMITER_ENABLED`  | Whether or not to enable rate limiting on the API.                               | `false`       |
-| `RATE_LIMITER_POINTS`   | The amount of allowed hits per duration.                                         | `50`          |
-| `RATE_LIMITER_DURATION` | The time window in seconds in which the points are counted.                      | `1`           |
-| `RATE_LIMITER_STORE`    | Where to store the rate limiter counts. One of `memory`, `redis`, or `memcache`. | `memory`      |
+| Variable                             | Description                                                                      | Default Value |
+|--------------------------------------|----------------------------------------------------------------------------------|---------------|
+| `RATE_LIMITER_ENABLED`               | Whether or not to enable rate limiting on the API.                               | `false`       |
+| `RATE_LIMITER_POINTS`                | The amount of allowed hits per duration.                                         | `50`          |
+| `RATE_LIMITER_DURATION`              | The time window in seconds in which the points are counted.                      | `1`           |
+| `RATE_LIMITER_STORE`                 | Where to store the rate limiter counts. One of `memory`, `redis`, or `memcache`. | `memory`      |
+| `RATE_LIMITER_HEALTHCHECK_THRESHOLD` | Healthcheck timeout threshold in ms.                                             | `150`         |
 
 Based on the `RATE_LIMITER_STORE` used, you must also provide the following configurations:
 
@@ -434,7 +436,7 @@ than you would cache database content. To learn more, see [Assets](#assets).
 :::
 
 | Variable                          | Description                                                                                                             | Default Value    |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| --------------------------------- |-------------------------------------------------------------------------------------------------------------------------|------------------|
 | `CACHE_ENABLED`                   | Whether or not data caching is enabled.                                                                                 | `false`          |
 | `CACHE_TTL`<sup>[1]</sup>         | How long the data cache is persisted.                                                                                   | `5m`             |
 | `CACHE_CONTROL_S_MAXAGE`          | Whether to not to add the `s-maxage` expiration flag. Set to a number for a custom value.                               | `0`              |
@@ -446,6 +448,7 @@ than you would cache database content. To learn more, see [Assets](#assets).
 | `CACHE_STORE`<sup>[4]</sup>       | Where to store the cache data. Either `memory`, `redis`, or `memcache`.                                                 | `memory`         |
 | `CACHE_STATUS_HEADER`             | If set, returns the cache status in the configured header. One of `HIT`, `MISS`.                                        | --               |
 | `CACHE_VALUE_MAX_SIZE`            | Maximum size of values that will be cached. Accepts number of bytes, or human readable string. Use `false` for no limit | false            |
+| `CACHE_HEALTHCHECK_THRESHOLD`     | Healthcheck timeout threshold in ms.                                                                                    | `150`            |
 
 <sup>[1]</sup> `CACHE_TTL` Based on your project's needs, you might be able to aggressively cache your data, only
 requiring new data to be fetched every hour or so. This allows you to squeeze the most performance out of your Directus
@@ -530,10 +533,12 @@ STORAGE_S3_DRIVER="s3" # Will work, "s3" is uppercased ✅
 
 For each of the storage locations listed, you must provide the following configuration:
 
-| Variable                    | Description                                               | Default Value |
-| --------------------------- | --------------------------------------------------------- | ------------- |
-| `STORAGE_<LOCATION>_DRIVER` | Which driver to use, either `local`, `s3`, `gcs`, `azure` |               |
-| `STORAGE_<LOCATION>_ROOT`   | Where to store the files on disk                          | `''`          |
+| Variable                                   | Description                                               | Default Value |
+|--------------------------------------------| --------------------------------------------------------- |---------------|
+| `STORAGE_<LOCATION>_DRIVER`                | Which driver to use, either `local`, `s3`, `gcs`, `azure` |               |
+| `STORAGE_<LOCATION>_ROOT`                  | Where to store the files on disk                          | `''`          |
+| `STORAGE_<LOCATION>_HEALTHCHECK_THRESHOLD` | Healthcheck timeout threshold in ms.                      | `750`         |
+
 
 Based on your configured driver, you must also provide the following configurations:
 
