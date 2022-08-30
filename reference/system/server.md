@@ -110,7 +110,7 @@ type Query {
 
 ```graphql
 query {
-	server_specs_graphql(scope: "system")
+	server_specs_graphql(scope: system)
 }
 ```
 
