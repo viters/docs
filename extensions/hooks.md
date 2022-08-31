@@ -177,6 +177,7 @@ export default ({ schedule }) => {
 | `response`                    | `request`, `response`, `ip`, `duration`, `finished` |
 | `auth.login`                  | `payload`, `status`, `user`, `provider`             |
 | `files.upload`                | `payload`, `key`, `collection`                      |
+| `(<collection>.)items.query`   | `payload`, `query`, `collection`                    |
 | `(<collection>.)items.read`   | `payload`, `query`, `collection`                    |
 | `(<collection>.)items.create` | `payload`, `key`, `collection`                      |
 | `(<collection>.)items.update` | `payload`, `keys`, `collection`                     |
