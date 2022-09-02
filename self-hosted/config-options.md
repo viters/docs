@@ -240,7 +240,7 @@ into unexpected behaviors.
 ## Database
 
 | Variable                   | Description                                                                                                                                        | Default Value                 |
-|----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------|
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
 | `DB_CLIENT`                | **Required**. What database client to use. One of `pg` or `postgres`, `mysql`, `oracledb`, `mssql`, `sqlite3`, `cockroachdb`.                      | --                            |
 | `DB_HOST`                  | Database host. **Required** when using `pg`, `mysql`, `oracledb`, or `mssql`.                                                                      | --                            |
 | `DB_PORT`                  | Database port. **Required** when using `pg`, `mysql`, `oracledb`, or `mssql`.                                                                      | --                            |
@@ -347,7 +347,7 @@ running under a load balancer, or your user base grows so much that memory is no
 limiter information, you can use an external `memcache` or `redis` instance to store the rate limiter data.
 
 | Variable                             | Description                                                                      | Default Value |
-|--------------------------------------|----------------------------------------------------------------------------------|---------------|
+| ------------------------------------ | -------------------------------------------------------------------------------- | ------------- |
 | `RATE_LIMITER_ENABLED`               | Whether or not to enable rate limiting on the API.                               | `false`       |
 | `RATE_LIMITER_POINTS`                | The amount of allowed hits per duration.                                         | `50`          |
 | `RATE_LIMITER_DURATION`              | The time window in seconds in which the points are counted.                      | `1`           |
@@ -436,7 +436,7 @@ than you would cache database content. To learn more, see [Assets](#assets).
 :::
 
 | Variable                          | Description                                                                                                             | Default Value    |
-| --------------------------------- |-------------------------------------------------------------------------------------------------------------------------|------------------|
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ---------------- |
 | `CACHE_ENABLED`                   | Whether or not data caching is enabled.                                                                                 | `false`          |
 | `CACHE_TTL`<sup>[1]</sup>         | How long the data cache is persisted.                                                                                   | `5m`             |
 | `CACHE_CONTROL_S_MAXAGE`          | Whether to not to add the `s-maxage` expiration flag. Set to a number for a custom value.                               | `0`              |
@@ -534,11 +534,10 @@ STORAGE_S3_DRIVER="s3" # Will work, "s3" is uppercased ✅
 For each of the storage locations listed, you must provide the following configuration:
 
 | Variable                                   | Description                                               | Default Value |
-|--------------------------------------------| --------------------------------------------------------- |---------------|
+| ------------------------------------------ | --------------------------------------------------------- | ------------- |
 | `STORAGE_<LOCATION>_DRIVER`                | Which driver to use, either `local`, `s3`, `gcs`, `azure` |               |
 | `STORAGE_<LOCATION>_ROOT`                  | Where to store the files on disk                          | `''`          |
 | `STORAGE_<LOCATION>_HEALTHCHECK_THRESHOLD` | Healthcheck timeout threshold in ms.                      | `750`         |
-
 
 Based on your configured driver, you must also provide the following configurations:
 

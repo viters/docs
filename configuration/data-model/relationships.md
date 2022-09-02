@@ -144,11 +144,11 @@ For example, each country has one capital city, and vice versa. This is an O2O. 
 this O2O to the `cities` and `countries` example relationship used in the previous sections.
 
 The first strategy you may think of it to add a new `capital_city` field on the `countries` collection, storing the name
-of the capital city directly. But this would create [data redundancy](/configuration/data-model#avoid-data-redundancy),
+of the capital city directly. But this would create [duplicate data](/configuration/data-model#avoid-data-duplication),
 because the same city would exist in both `countries.capital_city` as well as `cities.name`. But remember, we want to
-_avoid data redundancy!_
+_avoid duplicate data!_
 
-![Capital Cities Redundancy](https://cdn.directus.io/docs/v9/configuration/data-model/relationships/relationships-20220805/o2o-redundant-20220805A.webp)
+![Duplicate Data from Capital Cities](https://cdn.directus.io/docs/v9/configuration/data-model/relationships/relationships-20220805/o2o-redundant-20220805A.webp)
 
 Instead, we want to use an O2O relationship. Let's try adding a `cities.capital_of` field.
 

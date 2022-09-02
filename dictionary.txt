@@ -22,6 +22,7 @@
 (F|f)rontend
 (F|f)rontmatter
 (H|h)ardcode
+(H|h)ealthcheck
 (H|h)ostname
 (I|i)nit
 (I|i)ntegrations

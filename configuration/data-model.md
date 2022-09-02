@@ -207,10 +207,10 @@ tables, you usually include datatype information as well as a visualization of h
 
 ![A Complex Schema](https://cdn.directus.io/docs/v9/configuration/data-model/data-model-20220805/complex-schema.webp)
 
-### Avoid Data Redundancy
+### Avoid Data Duplication
 
-Relational databases allow us to build data models that avoid redundant data. Data redundancy is when you have the same
-data stored in multiple locations in your database. This is inefficient and dangerous.
+Relational databases allow us to build data models that avoid data duplication, or in other words, when you have the
+same data stored in multiple locations in your database. Data Duplication is inefficient and dangerous.
 
 To give an example, let's consider a `blog` table. In a blog, you may want to display the author's details, so you add
 an `author_name` column.
@@ -245,14 +245,14 @@ data is displayed on each user profile page, for chat messaging and other types 
 situation in many projects_. In this case, the author name and other details would also need to exist in the `users`
 table.
 
-![Data Redundancy](https://cdn.directus.io/docs/v9/configuration/data-model/data-model-20220805/data-redundancy-20220805A.webp)
+![Duplicate Data](https://cdn.directus.io/docs/v9/configuration/data-model/data-model-20220805/duplicate-data-20220829A.webp)
 
-This creates data redundancy. There are two big problems with data redundancy:
+This creates duplicate data. There are two big problems with this:
 
 First, it becomes difficult or impossible to maintain accurate information. If the author decides to change their social
 media information under `users`, someone would have to go through and update author details on every single row
 containing their blog posts. With just 10 or even 100 blog posts, this would be annoying but perhaps not a massive
-problem. However, as volume of data grows to millions or billions of rows, updating redundant data becomes a serious
+problem. However, as volume of data grows to millions or billions of rows, updating duplicate data becomes a serious
 problem.
 
 Furthermore, an error on an author's name and personal information may not be a truly dangerous situation, but
@@ -265,7 +265,7 @@ information repeated again and again over millions or billions of rows, storage 
 ### Why We Use Relational Data Models
 
 As shown from the previous section, you want to make sure that every single data point is unique. This is where the
-_relational_ part of relational data models comes into play. To avoid data redundancy, it is always best practice to
+_relational_ part of relational data models comes into play. To avoid data duplication, it is always best practice to
 _normalize your data model_, which is the technical term used to describe designing a data model so that there is no
 duplicate information stored _at all_. Instead of storing all information needed in a given situation in one table, like
 we saw when mixing up blog and author information above, database normalization is the process of splitting up this
@@ -273,7 +273,7 @@ information across tables and relationally linking it all together so that infor
 
 There is a lot to learn to master database normalization and a thorough education in the practice goes beyond the scope
 of this document. There are plenty of resources to learn about it online. However, to provide one simple example by
-improving the example `blog` data table provided in the previous [Avoid Data Redundancy](#avoid-data-redundancy)
+improving the example `blog` data table provided in the previous [Avoid Data Duplication](#avoid-data-duplication)
 section:
 
 ```
@@ -309,9 +309,9 @@ users
 ```
 
 Notice the difference. Previously, we placed the author's name directly into a column on the `blog` data table
-_(creating redundancy)_. Here, we replaced `author_name`, `author_email` and `author_img`, with the `author_id` column,
-which contains foreign keys from `users`. From here, we can use the foreign key to relationally link data between `blog`
-and `users`.
+_(creating duplicate data)_. Here, we replaced `author_name`, `author_email` and `author_img`, with the `author_id`
+column, which contains foreign keys from `users`. From here, we can use the foreign key to relationally link data
+between `blog` and `users`.
 
 ### Working With Relational Data Models
 
