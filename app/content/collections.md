@@ -22,6 +22,29 @@ Link to tutorial
 
 :::
 
+## Toggle Hidden Collections
+
+<video autoplay playsinline muted loop controls title="Toggle Hidden Collections">
+	<source src="https://cdn.directus.io/docs/v9/app-guide/content/content-collections/content-collections-20220816/toggle-hidden-collections-20220816A.mp4" type="video/mp4" />
+</video>
+
+Some projects may have dozens or even hundreds of collections, which can be overwhelming to sort through. To ease this
+problem, Admins can choose to
+[hide collections by default](/configuration/data-model/collections.html#toggle-collection-visibility) on the Navigation
+bar. Users can then show or hide hidden collections as desired. To toggle collection visibility, follow these steps.
+
+1. Navigate to the Content Module.
+2. Right-click in the Navigation Bar.
+3. Click **Show/Hide Hidden Collections** to toggle visibility.
+
+:::tip
+
+This functionality is purely aesthetic, provided to help you _visually cleanup_ the Navigation Bar. For admins who'd
+like to block users' access permissions, please see
+[users, roles and permissions](/configuration/users-roles-permissions).
+
+:::
+
 ## Adjust Page Layout
 
 <video autoplay playsinline muted loop controls title="Layouts">
