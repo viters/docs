@@ -261,6 +261,7 @@ Scalable
 SCSS
 SDK
 SDL
+SendGrid
 semver
 SEO
 serverless
