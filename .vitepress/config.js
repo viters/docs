@@ -192,8 +192,8 @@ function sidebar() {
 							// type: "page",
 						},
 						{
-							link: '/app/content/data-sharing',
-							text: 'Data Sharing',
+							link: '/app/content/shares',
+							text: 'Shares',
 							// type: "page",
 						},
 					],
