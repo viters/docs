@@ -312,6 +312,8 @@ WebDAV
 webhosting
 webpage
 whitelabeling
+xml
+XML
 XSS
 yaml
 YAML
