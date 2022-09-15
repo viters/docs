@@ -269,6 +269,79 @@ n/a
 
 ---
 
+## Transform Export Data
+
+Transform data to be exported through the `export.transform` filter event.
+
+Use `multipart/form-data` as the encoding type, instead of JSON.
+
+In JavaScript, this can be achieved using the native `FormData` class:
+
+```js
+import axios from 'axios';
+
+const formData = new FormData();
+
+formData.append('input', JSON.stringify([{ user: 1 }, { user: 2 }]));
+
+await axios.post('/utils/transform-export?export=csv', formData);
+```
+
+### Query Parameters
+
+`format` **Required**\
+What file format to transform the export to. One of `csv`, `xml`, `json`.
+
+### Request Body
+
+`input` **Required**\
+The JSON object to be transformed and exported.
+
+### Returns
+
+The transformed data in the body with the respective content type based on the chosen format.
+
+| Format | Content-Type     |
+| ------ | ---------------- |
+| csv    | text/csv         |
+| json   | application/json |
+| xml    | text/xml         |
+
+### REST API
+
+```
+POST /utils/transform-export
+```
+
+##### Example
+
+```
+POST /utils/transform-export
+```
+
+```json
+[
+	{
+		"name": "John",
+		"age": 32
+	},
+	{
+		"name": "Mary",
+		"age": 29
+	},
+	{
+		"name": "Tom",
+		"age": 38
+	}
+]
+```
+
+### GraphQL
+
+n/a
+
+---
+
 ## Clear the Internal Cache
 
 Resets both the data and schema cache of Directus. This endpoint is only available to admin users.
