@@ -19,9 +19,7 @@ pageClass: page-reference
 - [Deep](#deep)
 - [Aliases](#aliases)
 - [Export](#export)
-<p></p>
 - [Functions](#functions)
-<p></p>
 - [Metadata](#metadata)
   - [Total Count](#total-count)
   - [Filter Count](#filter-count)
