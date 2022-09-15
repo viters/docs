@@ -289,7 +289,7 @@ await axios.post('/utils/transform-export?export=csv', formData);
 
 ### Query Parameters
 
-`format` **Required**\
+`export` **Required**\
 What file format to transform the export to. One of `csv`, `xml`, `json`.
 
 ### Request Body
