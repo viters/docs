@@ -2,6 +2,7 @@
 // const x = {
 // 	"key": "value"
 // }
+
 import json from './glossary.json';
 const glossary = json;
 
