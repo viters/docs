@@ -37,7 +37,7 @@ Title of the user.
 `description` **string**\
 Description of the user.
 
-`tags` **csv**\
+`tags` **array**\
 Tags for the user.
 
 `avatar` **many-to-one**\
