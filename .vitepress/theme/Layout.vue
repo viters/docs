@@ -74,3 +74,11 @@ useHead({ meta });
 </script>
 
 <template><Layout /></template>
+
+<style>
+	.rest {
+		background-color: green;
+		display: none;
+		}
+
+</style>
