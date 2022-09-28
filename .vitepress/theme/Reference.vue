@@ -1,22 +1,25 @@
 <script setup>
+
 import { ref } from 'vue'
+import { types } from './store.js';
+// const apiTypes = ['REST', 'GraphQL', 'SDK', 'CLI'];
 
-function changeContent() {
-	console.log();
+function changeContent(apiPref) {
+	types.setPreference(apiPref);
+	// console.log(apiType);
+	// console.log(types)
 }
-
-const apiTypes = ['REST', 'GraphQL', 'SDK'];
 
 </script>
 
 <template>
-	<div class="button-container">
-		<button v-for="(apiType) in apiTypes" class="api-button" @click="changeContent">{{apiType}}</button>
+	<div class="api-button-container">
+			<button v-for="type in types.list" class="api-button" @click="changeContent(type)">{{type}}</button>
 	</div>
 </template>
 
 <style scoped>
-.button-container {
+.api-button-container {
 	border: solid;
 	border-radius: 8px;
 }
