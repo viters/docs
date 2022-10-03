@@ -687,6 +687,7 @@ These flows rely on the `PUBLIC_URL` variable for redirecting. Ensure the variab
 | `AUTH_<PROVIDER>_ALLOW_PUBLIC_REGISTRATION` | Automatically create accounts for authenticating users.                                       | `false`          |
 | `AUTH_<PROVIDER>_DEFAULT_ROLE_ID`           | A Directus role ID to assign created users.                                                   | --               |
 | `AUTH_<PROVIDER>_ICON`                      | SVG icon to display with the login link. [See options here](/getting-started/glossary#icons). | `account_circle` |
+| `AUTH_<PROVIDER>_LABEL`                     | Text to be presented on SSO button within App.                                                | `<PROVIDER>`     |
 | `AUTH_<PROVIDER>_PARAMS`                    | Custom query parameters applied to the authorization URL.                                     | --               |
 
 <sup>[1]</sup> When authenticating, Directus will match the identifier value from the external user profile to a
@@ -707,6 +708,7 @@ OpenID is an authentication protocol built on OAuth 2.0, and should be preferred
 | `AUTH_<PROVIDER>_REQUIRE_VERIFIED_EMAIL`    | Require created users to have a verified email address.                                       | `false`                |
 | `AUTH_<PROVIDER>_DEFAULT_ROLE_ID`           | A Directus role ID to assign created users.                                                   | --                     |
 | `AUTH_<PROVIDER>_ICON`                      | SVG icon to display with the login link. [See options here](/getting-started/glossary#icons). | `account_circle`       |
+| `AUTH_<PROVIDER>_LABEL`                     | Text to be presented on SSO button within App.                                                | `<PROVIDER>`           |
 | `AUTH_<PROVIDER>_PARAMS`                    | Custom query parameters applied to the authorization URL.                                     | --                     |
 
 <sup>[1]</sup> When authenticating, Directus will match the identifier value from the external user profile to a
@@ -775,6 +777,7 @@ AUTH_GOOGLE_CLIENT_SECRET="la23...4k2l"
 AUTH_GOOGLE_ISSUER_URL="https://accounts.google.com/.well-known/openid-configuration"
 AUTH_GOOGLE_IDENTIFIER_KEY="email"
 AUTH_GOOGLE_ICON="google"
+AUTH_GOOGLE_LABEL="Google"
 
 AUTH_FACEBOOK_DRIVER="oauth2"
 AUTH_FACEBOOK_CLIENT_ID="830d...29sd"
@@ -783,6 +786,7 @@ AUTH_FACEBOOK_AUTHORIZE_URL="https://www.facebook.com/dialog/oauth"
 AUTH_FACEBOOK_ACCESS_URL="https://graph.facebook.com/oauth/access_token"
 AUTH_FACEBOOK_PROFILE_URL="https://graph.facebook.com/me?fields=email"
 AUTH_FACEBOOK_ICON="facebook"
+AUTH_FACEBOOK_LABEL="Facebook"
 ```
 
 ## Extensions
