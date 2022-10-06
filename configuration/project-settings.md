@@ -146,7 +146,7 @@ To learn more, please see the API guide on [transformation presets](/reference/f
 <source src="https://cdn.directus.io/docs/v9/configuration/project-settings/project-settings-20220815/image-editor-20220815A.mp4" type="video/mp4" />
 </video>
 
-- **Custom Aspect Ratios** — Overrides the default aspect ratios in the [image editor](/app/file-library#edit-an-image).
+- **Custom Aspect Ratios** — Adds custom aspect ratios in the [image editor](/app/file-library#edit-an-image).
   - **Text** — Sets a name to identify the aspect ratio.
   - **Value** — Sets the aspect ratio with a fraction.
 

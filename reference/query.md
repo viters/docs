@@ -173,6 +173,29 @@ query {
 
 ---
 
+::: tip Filtering M2A fields
+
+Because attribute names in GraphQL cannot contain the `:` character, you will need to replace it with a double underscore.
+For example, instead of using `sections.item:heading` in your filter, you will need to use `sections.item__heading` (see the full example below).
+
+```graphql
+query {
+    articles(filter: {
+        sections: {
+            item__headings: {  # Instead of: item:headings
+                title: {
+                    _eq: "Section 1"
+                }
+            }
+        }
+    }): {
+        id
+    }
+}
+```
+
+:::
+
 ## Search
 
 The search parameter allows you to perform a search on all string and text type fields within a collection. It's an easy

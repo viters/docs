@@ -77,7 +77,7 @@ AUTH_OKTA_IDENTIFIER_KEY="email"
 AUTH_AUTH0_DRIVER="openid"
 AUTH_AUTH0_CLIENT_ID="..."
 AUTH_AUTH0_CLIENT_SECRET="..."
-AUTH_AUTH0_ISSUER_URL="https://<your_auth0_domain>/.well-known/openid-configuration
+AUTH_AUTH0_ISSUER_URL="https://<your_auth0_domain>/.well-known/openid-configuration"
 AUTH_AUTH0_IDENTIFIER_KEY="email"
 ```
 
