@@ -135,15 +135,14 @@ Active and Standby Nodes.
 
 :::tip Node Pricing
 
-**General Purpose:** $0.03424657534 / hour\
-**Performance Tier:** $0.06849315068 / hour
+**Lite:** $0.03424657534 / hour\
+**General Purpose Tier:** $0.06849315068 / hour
 
 :::
 
-This means the monthly prices given for Active Nodes, _$25/month for General Purpose and $50/month for Performance
-tier_, are actually estimates based on the cost per hour times the average length of a month (730 hours). So, the
-pricing shown for one Active General Purpose Node is `$0.03424657534 x 730hrs = $25`, however the actual bill will vary
-slightly each month.
+This means the monthly prices given for Active Nodes, _$25/month for Lite and $50/month for General Purpose tier_, are
+actually estimates based on the cost per hour times the average length of a month (730 hours). So, the pricing shown for
+one Active Lite Node is `$0.03424657534 x 730hrs = $25`, however the actual bill will vary slightly each month.
 
 Keep in mind that a Standard Project's Nodes can be reconfigured at any time. You can upgrade and downgrade Node Types
 add and remove Nodes, or destroy your Project as you please. In the end, _you simply pay for the actual Node-hours used
@@ -152,32 +151,32 @@ by your Project_.
 The following four examples demonstrate this billing system:
 
 **Hourly Pricing**\
-A Project is configured to use General Purpose Nodes, with one Active Node and zero Standby Nodes. The Project runs for 3
-days and 3.5 hours (75.5 hours total, rounded to 76 hours) and is then destroyed, costing `1 Node x $0.03424657534/hr x 76 hrs = $2.60`.
+A Project is configured to use Lite Nodes, with one Active Node and zero Standby Nodes. The Project runs for 3 days and 3.5
+hours (75.5 hours total, rounded to 76 hours) and is then destroyed, costing `1 Node x $0.03424657534/hr x 76 hrs = $2.60`.
 
 The bill will be `$2.60` plus Tax/VAT, charged at Project destruction.
 
 **Active Nodes**\
-A Project is configured to use Performance Tier Nodes, with two Active Nodes and zero Standby Nodes. The Project runs the
-full month (730 hours). For this billing cycle, the two Active Nodes will cost `2 Nodes x $0.06849315068/hr x 730 hrs = $100`.
+A Project is configured to use General Purpose Tier Nodes, with two Active Nodes and zero Standby Nodes. The Project runs
+the full month (730 hours). For this billing cycle, the two Active Nodes will cost `2 Nodes x $0.06849315068/hr x 730 hrs = $100`.
 
 The monthly bill will be `$100` plus Tax/VAT.
 
 **Overages on Standby Nodes**\
-A Project is configured to use General Purpose Nodes, with three Active Nodes and two Standby Nodes. The Project runs the
-full month (730 hours). There are two traffic spikes. The first spike is smaller and only activates one Standby Node for
-6.5 hours. The second spike is larger and activates the first Node from 4pm to 12am (eight hours), and the second Node from
-6pm to 11pm (five hours), for a total of `8 + 5 = 13` hours. Between both spikes, Standby Nodes run for a total of 19.5 hours
-(rounds to 20 hrs). Active Nodes will cost `3 Nodes x $0.03424657534/hr x 730 hrs = $75.00` plus Standby Node overages `20 Node-hrs x $0.03424657534/hr = $0.68`.
+A Project is configured to use Lite Nodes, with three Active Nodes and two Standby Nodes. The Project runs the full month
+(730 hours). There are two traffic spikes. The first spike is smaller and only activates one Standby Node for 6.5 hours.
+The second spike is larger and activates the first Node from 4pm to 12am (eight hours), and the second Node from 6pm to 11pm
+(five hours), for a total of `8 + 5 = 13` hours. Between both spikes, Standby Nodes run for a total of 19.5 hours (rounds
+to 20 hrs). Active Nodes will cost `3 Nodes x $0.03424657534/hr x 730 hrs = $75.00` plus Standby Node overages `20 Node-hrs x $0.03424657534/hr = $0.68`.
 
 The monthly bill will be `$75.68` plus VAT/Tax.
 
 **Pro-rated Changes**\
-A Project begins the billing cycle configured to use General Purpose Nodes, one Active and zero Standby. A massive traffic
-spike is expected from marketing activities this month and 200 hours into the month, the Project is reconfigured. The Node
-Type is now Performance Tier, using two Active Nodes and five Standby Nodes. In the end, the marketing event was a failure,
-and traffic was just slightly above average. The five Standby Nodes were not needed and never activated. The first 200 hours
-cost `(1 General Purpose Node x $0.03424657534/hr x 200hrs) = $6.85`. The other 530 hours cost `(2 Performance Nodes x $0.06849315068/hr x 530hrs) = 72.60`.
+A Project begins the billing cycle configured to use Lite Nodes, one Active and zero Standby. A massive traffic spike is
+expected from marketing activities this month and 200 hours into the month, the Project is reconfigured. The Node Type is
+now General Purpose Tier, using two Active Nodes and five Standby Nodes. In the end, the marketing event was a failure, and
+traffic was just slightly above average. The five Standby Nodes were not needed and never activated. The first 200 hours
+cost `(1 Lite Node x $0.03424657534/hr x 200hrs) = $6.85`. The other 530 hours cost `(2 General Purpose Nodes x $0.06849315068/hr x 530hrs) = 72.60`.
 
 The monthly bill will be `$79.45` plus VAT/Tax.
 

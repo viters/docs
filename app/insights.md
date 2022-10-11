@@ -26,7 +26,7 @@ First, create a Dashboard, then fill the Dashboard with Panels.
 3. Click "Save".
 4. Click the edit icon in the page header.
 5. Hit the "Create Panel" <span mi btn >add</span> in the page header.
-6. Select a Panel type. [Learn More about panel types.](#panels-overview)
+6. Select a Panel type. [Learn More about panel types](#panels-overview).
 7. Adjust the Panel Options to customize the analytics metric.
 8. Click <span mi btn>check</span> in the drawer header to create the panel.
 9. Click <span mi btn>check</span> in the page header to confirm all edits.
@@ -168,7 +168,7 @@ The Time Series Panel allows you to build graphs and see how data changes over t
 
 - **Collection** – Selects the Collection you want to analyze.
 - **Color** – Sets color of your graph curve.
-- **Group Aggregation** – Selects the type of aggregation to perform. [Learn more.](#more-on-aggregate-functions)
+- **Group Aggregation** – Selects the type of aggregation to perform. [Learn more](#more-on-aggregate-functions).
 - **Group Precision** – Sets the time interval to aggregate by _(days, weeks, months, etc.)_.
 - **Date Field** – Selects the datetime Field used along the x-axis.
 - **Date Range** – Sets the time range from which data should be displayed, can be customized.

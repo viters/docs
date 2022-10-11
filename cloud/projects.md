@@ -49,7 +49,7 @@ the following configurations:
 - [Load Balancing](/cloud/glossary#load-balancing) — One Active Node.
 - **Starting Template** — Create an Empty Project or a Demo Project with dummy data.
 
-Note that [Auto-Scaling](/cloud/glossary#auto-scaling)is not available with the Community tier.
+Note that [Auto-Scaling](/cloud/glossary#auto-scaling) is not available with the Community tier.
 
 To create a Community Project:
 
@@ -89,7 +89,7 @@ Standard Projects come with the following configuration options:
 - **Project URL** — Custom URL: `your-custom-url.directus.app`. _This cannot be changed_.
 - [Datacenter Region](/cloud/glossary#datacenter-regions) — `United States, East`, `Europe, Frankfurt` or
   `Asia Pacific, Singapore`.
-- [Node Type](/cloud/glossary#node-types) — General Purpose or Performance Tier Nodes.
+- [Node Type](/cloud/glossary#node-types) — Lite or General Purpose Tier Nodes.
 - [Load Balancing](/cloud/glossary#load-balancing) — 1-6 Active Nodes.
 - [Auto-Scaling](/cloud/glossary#auto-scaling) — 0-5 Standby Nodes.
 
@@ -165,7 +165,7 @@ may help inform your decisions around configuring Nodes.
   Number of API requests. This provides basic insight into traffic cycles, including overall volatility. If there are huge
   spikes in traffic, it may be wise to configure more Standby Nodes.
 - **API Bandwidth**\
-  The read/write bandwidth. If bandwidth is high, it may be beneficial to vertically scale with Performance Tier or Enterprise
+  The read/write bandwidth. If bandwidth is high, it may be beneficial to vertically scale with General Purpose Tier or Enterprise
   Nodes, to better manage a larger volume of data.
 
 To access the Project Monitor Page:
@@ -215,9 +215,10 @@ tandem with the Directus Core Team.
 
 ## Resume a Community Project
 
-![Resume Paused Project](https://cdn.directus.io/docs/v9/cloud/projects/projects-20220322A/resume-paused-project-20220322A.webp)
+![Resume Paused Project](https://cdn.directus.io/docs/v9/cloud/projects/projects-20221011A/resume-paused-project-20221011A.webp)
 
-If there is no app activity for 3 days on a Community Project, the [Infrastructure](/cloud/glossary#infrastructure) gets
+After creation, your Community Project will run for 14 days. At that point, you can manually extend time by seven days,
+forever. However, if you do not manually extend this time, the [Infrastructure](/cloud/glossary#infrastructure) gets
 paused. Projects that remain paused for a certain duration will be automatically deleted (see details in
 [Cloud Policies](https://directus.io/cloud-policies#)). To avoid deletion, you have to manually resume the Project
 within the Cloud Dashboard, because requests to the app will not resume the Project. To resume a paused Community
@@ -225,8 +226,14 @@ Project:
 
 1. Open the Team Menu in the Dashboard Header and click the desired Team.
 2. Click **"Projects"** to enter the Projects page.
-3. Click the paused Project to enter the Project Monitor page.
-4. Click **"Resume Project"**.
+3. Click the desired Project to enter its Project Monitor page.
+4. Click **"Extend Time"**.
+
+:::tip
+
+You can extend time on a project days before it pauses to help you avoid any real downtime.
+
+:::
 
 ## Destroy a Project
 
