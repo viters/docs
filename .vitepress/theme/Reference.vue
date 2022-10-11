@@ -1,32 +1,72 @@
 <script setup>
 	import { types } from './store.js';
+	import { useAttrs } from 'vue'
 
-	const btnType = 'api';
-	const toggleOptions = ['REST', 'GraphQL', 'SDK', 'CLI'];
-	const defaultType = toggleOptions[0];
 
-	function getPref() {
-		let usrPref = localStorage.getItem('apiType');
-		if (usrPref) {
-			types.pref = usrPref
-		} else {
-			types.pref = defaultType;
+	const btnTypes = [
+		{
+			btnType: 'api',
+			label: "The API",
+			contentTypes: ['REST', 'GraphQL', 'SDK', 'CLI'],
+			defaultType: 'REST',
+			pref: types.pref,
+		},
+		{
+			btnType: 'stack',
+			label: "The Stack",
+			contentTypes: ['JAM', 'MEAN', 'MERN', 'LAMP'],
+			defaultType: 'JAM',
+			pref: types.pref,
+		},
+	]
+
+	function defineButtonType(theBtnType, theBtnTypeList) {
+		console.log("inside DefineBtnType:", theBtnType);
+		// console.log(theBtnType.btnType);
+		for (let i of theBtnTypeList) {
+			if (theBtnType == i.btnType) {
+				return i;
+			}
 		}
 	}
 
+	function getPref(btn) {
+		// console.log("btn's default type, in getpref scope:", btn.defaultType);
+		let btnType = btn.btnType;
+		let usrPref = localStorage.getItem(btnType);
+		if (usrPref) {
+			types[btnType] = usrPref;
+		} else {
+			types[btnType] = btn.defaultType;
+		}
+		console.log(types);
+	}
+
 	function setPref(apiPref) {
-		localStorage.setItem('apiType', apiPref);
-		types.pref = localStorage.getItem('apiType');
+		localStorage.setItem(btnDetails.btnType, apiPref);
+		// types.pref = localStorage.getItem(btnDetails.btnType);
+		types[btnDetails.btnType] = localStorage.getItem(btnDetails.btnType);
+		console.log("setting Pref:", btnDetails.btnType, types.pref, "DONE");
 		// console.log(localStorage.getItem('apiType'));
 	}
 
-	getPref();
+	const whatsThisBtn = useAttrs().btnType;
+	const btnDetails = defineButtonType(whatsThisBtn, btnTypes);
+	console.log("logging the assigned btn details:", btnDetails);
+	getPref(btnDetails);
+
+</script>
+
+<script>
+	export default {
+		inheritAttrs: false
+	}
 </script>
 
 <template>
 	<div class="api-button-container">
-		<button v-for="t in toggleOptions" class="api-button" @click="setPref(t)"> {{t}} </button>
-		<slot :pref="types.pref"></slot>
+		<button :theBtnType="$attrs.btnType" v-for="b in btnDetails.contentTypes" class="api-button" @click="setPref(b)"> {{b}} </button>
+		<slot :pref="types"></slot>
 	</div>
 </template>
 
@@ -43,17 +83,10 @@
 		}
 </style>
 
-
 <!--
 	TODO:
-	Add a "name/label" to the btn?? "The API" or "Skill Level" (added below)
-	DUse Obj name to assign btnType directly on the button in the  md file (e.g., :type="apiBtn")
-	Combine the type list and the types.pref into a single object, see below.
-
-	const apiBtn = {
-		btnType: "api",
-		btnLabel: "The API"
-		toggleOptions: ["REST", "GraphQL",  "SDK", "CLI"],
-		default: toggleOptions[0],
-	}
+	Improve how fallthrough attribute is passed  -> from (:type="`api`") to (:type="api")
+	Improve how slot elements pass vals to parent component -> from ( :v-if="types.pref.api == 'CLI'" ) to ( v-if="typeIs.CLI" ) || ( :typeIs.CLI )
+	Consider refactoring logic: What to put in between Reference.vue and what to put in store.js?
+	Add a CSS system
 -->
