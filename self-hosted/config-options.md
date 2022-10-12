@@ -369,11 +369,13 @@ No additional configuration required.
 
 Alternatively, you can provide the individual connection parameters:
 
-| Variable                      | Description                      | Default Value |
-| ----------------------------- | -------------------------------- | ------------- |
-| `RATE_LIMITER_REDIS_HOST`     | Hostname of the Redis instance   | --            |
-| `RATE_LIMITER_REDIS_PORT`     | Port of the Redis instance       | --            |
-| `RATE_LIMITER_REDIS_PASSWORD` | Password for your Redis instance | --            |
+| Variable                      | Description                      									| Default Value |
+| ----------------------------- | ----------------------------------------------------------------- | ------------- |
+| `RATE_LIMITER_REDIS_HOST`     | Hostname of the Redis instance, e.g., `"127.0.0.1"`   			| --            |
+| `RATE_LIMITER_REDIS_PORT`     | Port of the Redis instance, e.g., `6379`       					| --            |
+| `RATE_LIMITER_REDIS_USERNAME` | Username for your Redis instance, e.g., `"default"` 			 	| --            |
+| `RATE_LIMITER_REDIS_PASSWORD` | Password for your Redis instance, e.g., `"yourRedisPassword"` 	| --            |
+| `RATE_LIMITER_REDIS_DB` 		| Database of your Redis instance to connect, e.g., `1` 			| --            |
 
 ### Memcache
 
@@ -409,6 +411,13 @@ RATE_LIMITER_DURATION="5"
 RATE_LIMITER_STORE="redis"
 
 RATE_LIMITER_REDIS="redis://@127.0.0.1"
+
+# If you are using Redis ACL
+RATE_LIMITER_REDIS_USERNAME="default"
+RATE_LIMITER_REDIS_PASSWORD="yourRedisPassword"
+RATE_LIMITER_REDIS_HOST="127.0.0.1"
+RATE_LIMITER_REDIS_PORT=6379
+RATE_LIMITER_REDIS_DB=0
 ```
 
 ## Cache
@@ -478,11 +487,13 @@ No additional configuration required.
 
 Alternatively, you can provide the individual connection parameters:
 
-| Variable               | Description                      | Default Value |
-| ---------------------- | -------------------------------- | ------------- |
-| `CACHE_REDIS_HOST`     | Hostname of the Redis instance   | --            |
-| `CACHE_REDIS_PORT`     | Port of the Redis instance       | --            |
-| `CACHE_REDIS_PASSWORD` | Password for your Redis instance | --            |
+| Variable                      | Description                      							| Default Value |
+| ----------------------------- | --------------------------------------------------------- | ------------- |
+| `CACHE_REDIS_HOST`     | Hostname of the Redis instance, e.g., `"127.0.0.1"`   			| --            |
+| `CACHE_REDIS_PORT`     | Port of the Redis instance, e.g., `6379`       					| --            |
+| `CACHE_REDIS_USERNAME` | Username for your Redis instance, e.g., `"default"` 			 	| --            |
+| `CACHE_REDIS_PASSWORD` | Password for your Redis instance, e.g., `"yourRedisPassword"` 	| --            |
+| `CACHE_REDIS_DB` 		| Database of your Redis instance to connect, e.g., `1` 			| --            |
 
 ### Memcache
 
