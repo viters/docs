@@ -1,5 +1,3 @@
 import { reactive } from 'vue';
 
-export const types = reactive({
-	// pref: '',
-});
+export const types = reactive({});
