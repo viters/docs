@@ -236,12 +236,13 @@ section on the [Pricing page](https://directus.io/pricing) for side-by-side comp
 
 ## Nodes
 
-Directus Cloud provides you with options for configuring processing power of your Node as well as the number of Nodes
-your Project runs on. You can configure and reconfigure Nodes to meet traffic needs at any scale. In general, there are
-two approaches to scale performance: vertical-scaling and horizontal-scaling. Vertical-scaling refers to the use of
-improved hardware _(e.g. better CPUs and more RAM)_ to scale up. In Directus Cloud, configuring the Node Type will
-provide vertical-scaling. Horizontal-scaling refers to increasing the number of Nodes to scale up. In Directus Cloud,
-adding more Active and Standby Nodes will provide horizontal-scaling.
+When you configure a project on Directus Cloud, you get to choose processing power of its Nodes as well as the number of
+Nodes it runs on. You can configure and reconfigure Nodes to meet traffic needs at any scale.
+
+In general, there are two approaches to scale performance: vertical-scaling and horizontal-scaling. Vertical-scaling
+refers to the use of improved hardware _(e.g. better CPUs and more RAM)_ to scale up. In Directus Cloud, configuring the
+Node Type will provide vertical-scaling. Horizontal-scaling refers to increasing the number of Nodes to scale up. In
+Directus Cloud, adding more Reserved Nodes will provide horizontal-scaling.
 
 ### Node Types
 
@@ -257,56 +258,16 @@ Each Node Type provides a different level of processing power.
   scale, production-ready use cases.
 
 - **General Purpose Tier**\
-  General Purpose Tier Nodes are the upgraded Node Type offered on Standard Projects, which may provide better performance
-  under certain conditions, such as for handling Image transformations as well as fetching deeply nested or complex relationships
-  via the API.
+  General Purpose Tier Nodes provide better performance under certain conditions, such as for handling Image transformations
+  as well as fetching deeply nested or complex relationships via the API.
 
 - **Enterprise**\
-  Node configuration options are flexible and customizable, tailored to your Project's needs.
+  Configuration options are flexible and customizable, tailored to your Project's needs.
 
-:::tip
+### Reserved Nodes
 
-In Standard Projects, the Node Type configured [and associated cost per hour](/cloud/teams#manage-billing) will apply to
-both Active and Standby Nodes.
-
-:::
-
-### Active Nodes
-
-Active Nodes stay on constantly. Projects must have at least one Active Node in order to function.
-
-:::warning
-
-Community Nodes paused due to [inactivity](/cloud/projects#resume-a-community-project) can't receive requests until
-unpaused.
-
-:::
-
-### Load Balancing
-
-Similar to the term horizontal scaling, the term load balancing refers to the instantaneous distribution of load across
-the Active Nodes on which your Project is running.
-
-### Standby Nodes
-
-Standby Nodes stay turned-off until traffic starts to take up significant system capacity, at which point Standby Nodes
-activate one-by-one, as needed, to safely handle the increase in traffic. Activation occurs within just a few moments.
-
-Standby Nodes are not required, however you don't pay for usage when Standby Nodes are disabled. For more pricing
-information, see [billing](/cloud/teams#manage-billing).
-
-### Auto-scaling
-
-Auto-scaling refers to the automatic horizontal scaling provided by Standby Nodes, which helps to keep system capacity
-at safe levels.
-
-:::tip Optimal Node Configuration
-
-As noted under [Billing](/cloud/teams#manage-billing), Projects can be reconfigured as needed. Check out the
-[Project Monitor page](/cloud/projects#monitor-a-project) for performance analytics that can help inform Node
-configuration decisions.
-
-:::
+The term **Reserved Nodes** indicates the number of nodes available to immediately handle incoming requests, including
+rapid spikes.This determines your base [monthly billing](/cloud/teams.md#manage-billing).
 
 ## Quotas
 
