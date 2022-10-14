@@ -1,6 +1,6 @@
 ## Choose your API
 
-<Reference v-slot="types" :btnType="`api`">
+<Reference v-slot="btn" :btnType="`api`">
 
 :::tip
 
@@ -8,7 +8,7 @@ aloha
 
 :::
 
-<div v-if="types.pref.api == 'REST'">
+<div v-if="btn.pref.api == 'REST'">
 
 ```
 REST
@@ -16,7 +16,7 @@ REST
 
 </div>
 
-<div v-if="types.pref.api == 'GraphQL'">
+<div v-if="btn.pref.api == 'GraphQL'">
 
 ```
 GraphQL
@@ -24,7 +24,7 @@ GraphQL
 
 </div>
 
-<div v-if="types.pref.api == 'SDK'">
+<div v-if="btn.pref.api == 'SDK'">
 
 ```
 SDK
@@ -32,7 +32,7 @@ SDK
 
 </div>
 
-<div v-if="types.pref.api == 'CLI'">
+<div v-if="btn.pref.api == 'CLI'">
 
 ```
 CLI
@@ -44,7 +44,7 @@ CLI
 
 ## Choose your Stack
 
-<Reference v-slot="types" :btnType="`stack`">
+<Reference v-slot="btn" :btnType="`stack`">
 
 :::tip
 
@@ -52,7 +52,7 @@ aloha
 
 :::
 
-<div v-if="types.pref.stack == 'JAM'">
+<div v-if="btn.pref.stack == 'JAM'">
 
 ```
 JAM
@@ -60,7 +60,7 @@ JAM
 
 </div>
 
-<div v-if="types.pref.stack == 'MEAN'">
+<div v-if="btn.pref.stack == 'MEAN'">
 
 ```
 MEAN
@@ -68,7 +68,7 @@ MEAN
 
 </div>
 
-<div v-if="types.pref.stack == 'MERN'">
+<div v-if="btn.pref.stack == 'MERN'">
 
 ```
 MERN
@@ -76,7 +76,7 @@ MERN
 
 </div>
 
-<div v-if="types.pref.stack == 'LAMP'">
+<div v-if="btn.pref.stack == 'LAMP'">
 
 ```
 LAMP
