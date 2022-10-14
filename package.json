@@ -27,7 +27,7 @@
 		"reading-time": "^1.5.0",
 		"simple-git-hooks": "^2.8.0",
 		"spellchecker-cli": "^6.0.2",
-		"vitepress": "1.0.0-alpha.17",
+		"vitepress": "^1.0.0-alpha.21",
 		"vue": "^3.2.37"
 	},
 	"simple-git-hooks": {
