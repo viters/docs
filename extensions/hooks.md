@@ -163,9 +163,10 @@ export default ({ schedule }) => {
 
 ::: tip System Collections
 
-`<system-collection>` should be replaced with one of the system collection names `activity`, `collections`, `fields`,
-`files` (except create/update), `folders`, `permissions`, `presets`, `relations`, `revisions`, `roles`, `settings`,
-`users` or `webhooks`.
+`<system-collection>` should be replaced with one of the system collection names `activity`, `collections`,
+`dashboards`, `fields`, `files` (except create/update), `flows`, `folders`, `migrations`, `notifications`,
+`operations`, `panels`, `permissions`, `presets`, `relations`, `revisions`, `roles`, `sessions`, `settings`,
+`shares`, `users` or `webhooks`.
 
 :::
 
@@ -189,9 +190,10 @@ export default ({ schedule }) => {
 
 ::: tip System Collections
 
-`<system-collection>` should be replaced with one of the system collection names `activity`, `collections`, `fields`,
-`files` (except create/update), `folders`, `permissions`, `presets`, `relations`, `revisions`, `roles`, `settings`,
-`users` or `webhooks`.
+`<system-collection>` should be replaced with one of the system collection names `activity`, `collections`,
+`dashboards`, `fields`, `files` (except create/update), `flows`, `folders`, `migrations`, `notifications`,
+`operations`, `panels`, `permissions`, `presets`, `relations`, `revisions`, `roles`, `sessions`, `settings`,
+`shares`, `users` or `webhooks`.
 
 :::
 
