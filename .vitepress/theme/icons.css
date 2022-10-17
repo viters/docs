@@ -30,6 +30,10 @@ span[mi][warn] {
 	color: var(--vp-c-yellow);
 }
 
+span[mi][muted] {
+	color: var(--vp-c-gray);
+}
+
 span[mi][btn] {
 	color: var(--vp-c-text-inverse-1);
 	background-color: var(--vp-c-brand);

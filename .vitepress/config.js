@@ -259,6 +259,24 @@ function sidebar() {
 				{
 					link: '/configuration/users-roles-permissions',
 					text: 'Users, Roles & Permissions',
+					items: [
+						{
+							link: '/configuration/users-roles-permissions/users',
+							text: 'Users',
+						},
+						{
+							link: '/configuration/users-roles-permissions/roles',
+							text: 'Roles',
+						},
+						{
+							link: '/configuration/users-roles-permissions/permissions',
+							text: 'Permissions',
+						},
+						{
+							link: '/configuration/users-roles-permissions/workflows',
+							text: 'Workflows',
+						},
+					],
 				},
 				{
 					link: '/configuration/presets-bookmarks',
