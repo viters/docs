@@ -1,21 +1,6 @@
 <script setup>
-	import { types } from './store.js';
+	import { types, btnTypes } from './store.js';
 	import { useAttrs } from 'vue'
-
-	const btnTypes = [
-		{
-			btnType: 'api',
-			label: "The API",
-			contentTypes: ['REST', 'GraphQL', 'SDK', 'CLI'],
-			defaultType: 'REST',
-		},
-		{
-			btnType: 'stack',
-			label: "The Stack",
-			contentTypes: ['JAM', 'MEAN', 'MERN', 'LAMP'],
-			defaultType: 'JAM',
-		},
-	]
 
 	function defineButtonType(theBtnType, theBtnTypeList) {
 		for (let i of theBtnTypeList) {
