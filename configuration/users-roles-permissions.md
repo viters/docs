@@ -120,7 +120,7 @@ users, roles, and permissions without writing a single line of SQL. The process 
 
 1. [Create a Role](/configuration/users-roles-permissions/roles.md#create-a-role)
 2. [Configure its Permissions](/configuration/users-roles-permissions/permissions.md#configure-role-permissions)
-3. [Assign Role to User](/configuration/users-roles-permissions/roles.md#assign-role-to-user) —
+3. [Assign Role to User](/configuration/users-roles-permissions/roles.md#assign-role-to-user)
 
 :::tip No Artificial Limits
 
