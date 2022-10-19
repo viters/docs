@@ -2,8 +2,8 @@
 	import { types, btnTypes } from './store.js';
 	import { useAttrs } from 'vue'
 
-	function defineButtonType(theBtnType, theBtnTypeList) {
-		for (let i of theBtnTypeList) {
+	function defineButtonType(theBtnType, btnTypeList) {
+		for (let i of btnTypeList) {
 			if (theBtnType == i.btnType) {
 				return i;
 			}
@@ -21,8 +21,8 @@
 		types[btnDetails.btnType] = localStorage.getItem(btnDetails.btnType); // Sets pref in store.js, to reactively update all btns
 	}
 
-	const whatsThisBtnType = useAttrs().btnType; // gets val passed to component (from :btnType) at instantiation. Lets us defines which btn data to use "on the fly".
-	const btnDetails = defineButtonType(whatsThisBtnType, btnTypes); // gets the relevant button data. vals get used in getPref, setPref and template.
+	const btnGroup = useAttrs().group; // gets val passed to component (from :btnType) at instantiation. Lets us defines which btn data to use "on the fly".
+	const btnDetails = defineButtonType(btnGroup, btnTypes); // gets the relevant button data. vals get used in getPref, setPref and template.
 	getPref(btnDetails); // called here to render content on instantiation.
 
 </script>
@@ -35,7 +35,7 @@
 
 <template>
 	<div class="api-button-container">
-		<button :theBtnType="$attrs.btnType" v-for="btn in btnDetails.contentTypes" class="api-button" @click="setPref(btn)"> {{btn}} </button>
+		<button :theBtnType="$attrs.group" v-for="choice in btnDetails.choices" class="api-button" @click="setPref(choice)"> {{choice}} </button>
 		<slot :pref="types"></slot>
 	</div>
 </template>
@@ -55,8 +55,7 @@
 
 <!--
 	TODO:
-	Improve how fallthrough attribute is passed  -> from (:btnType="`api`") to (:btnType="api")
-	Improve how slot elements pass vals to parent component -> from ( :v-if="types.pref.api == 'CLI'" ) to ( v-if="typeIs.CLI" ) || ( :typeIs.CLI )
+	Improve how slot elements pass vals to parent component -> from ( :v-if="types.pref.api == 'CLI'" ) to ( v-if="typeIs.CLI" ) || ( :typeIs=CLI )
 	Consider refactoring logic: What to put in between Reference.vue and what to put in store.js?
 	Add a CSS system
 -->

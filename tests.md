@@ -1,6 +1,6 @@
 ## Choose your API
 
-<Reference v-slot="btn" :btnType="`api`">
+<Reference v-slot="btn" :group="`api`" >
 
 :::tip
 
@@ -8,7 +8,7 @@ aloha
 
 :::
 
-<div v-if="btn.pref.api == 'REST'">
+<div v-if="btn.pref.api == 'REST'" >
 
 ```
 REST
@@ -44,7 +44,7 @@ CLI
 
 ## Choose your Stack
 
-<Reference v-slot="btn" :btnType="`stack`">
+<Reference v-slot="btn" :group="`stack`">
 
 :::tip
 
