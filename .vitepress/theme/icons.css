@@ -19,7 +19,7 @@ span[mi][prmry] {
 }
 
 span[mi][dark] {
-	color: var(--vp-c-black-pure);
+	color: var(--vp-c-gray);
 }
 
 span[mi][dngr] {
@@ -28,6 +28,10 @@ span[mi][dngr] {
 
 span[mi][warn] {
 	color: var(--vp-c-yellow);
+}
+
+span[mi][muted] {
+	color: var(--vp-c-gray);
 }
 
 span[mi][btn] {

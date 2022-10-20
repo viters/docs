@@ -9,7 +9,7 @@ readTime: 10 min read
 
 Directus Core allows asset storage for any type of file. This applies to all Cloud Projects. However, on Directus Cloud,
 certain hard technical limits apply to file uploads, such as limits on size per asset and total asset storage per
-Project. For more details, see [Cloud Policies](https://directus.io/cloud-policies#)
+Project. For more details, see [Cloud Policies](https://directus.io/cloud-policies#).
 
 ## Automatic Updates
 
@@ -29,7 +29,7 @@ Version-locking is available on Enterprise Projects.
 By default, file assets and databases are backed up once per day on all Standard and Enterprise Projects. Additionally,
 Enterprise customers can work with our team for more tailored backup solutions. In the event of an emergency, such as
 your Node crashing, don't worry! Your data will be safe. If you need access to your backed-up data,
-[contact us](https://directus.io/contact)
+[contact us](https://directus.io/contact).
 
 :::warning
 
@@ -55,7 +55,7 @@ and greatest features! Cloud Exclusives development is managed by the Core Team,
 
 :::tip
 
-Looking to sponsor development of an Extension or Cloud Exclusive? [Contact Us](https://directus.io/contact)
+Looking to sponsor development of an Extension or Cloud Exclusive? [Contact Us](https://directus.io/contact).
 
 :::
 
@@ -66,7 +66,7 @@ via the schema endpoints.
 
 :::tip Enterprise Clients
 
-The Directus Team will help you work through this process on all [Enterprise Projects](https://directus.io/contact)
+The Directus Team will help you work through this process on all [Enterprise Projects](https://directus.io/contact).
 
 :::
 
@@ -236,12 +236,13 @@ section on the [Pricing page](https://directus.io/pricing) for side-by-side comp
 
 ## Nodes
 
-Directus Cloud provides you with options for configuring processing power of your Node as well as the number of Nodes
-your Project runs on. You can configure and reconfigure Nodes to meet traffic needs at any scale. In general, there are
-two approaches to scale performance: vertical-scaling and horizontal-scaling. Vertical-scaling refers to the use of
-improved hardware _(e.g. better CPUs and more RAM)_ to scale up. In Directus Cloud, configuring the Node Type will
-provide vertical-scaling. Horizontal-scaling refers to increasing the number of Nodes to scale up. In Directus Cloud,
-adding more Active and Standby Nodes will provide horizontal-scaling.
+When you configure a project on Directus Cloud, you get to choose processing power of its Nodes as well as the number of
+Nodes it runs on. You can configure and reconfigure Nodes to meet traffic needs at any scale.
+
+In general, there are two approaches to scale performance: vertical-scaling and horizontal-scaling. Vertical-scaling
+refers to the use of improved hardware _(e.g. better CPUs and more RAM)_ to scale up. In Directus Cloud, configuring the
+Node Type will provide vertical-scaling. Horizontal-scaling refers to increasing the number of Nodes to scale up. In
+Directus Cloud, adding more Reserved Nodes will provide horizontal-scaling.
 
 ### Node Types
 
@@ -249,70 +250,31 @@ Each Node Type provides a different level of processing power.
 
 - **Community**\
   Community Projects come equipped with one Node, which can handle basic web traffic required for hobby projects, learning
-  and demoing Directus Cloud, and other non-production use cases. Community Nodes will pause after 3 days of [inactivity](/cloud/projects#resume-a-community-project).
+  and demoing Directus Cloud, and other non-production use cases. Community Nodes are paused after a certain duration of
+  runtime. However, you can [extend this period](/cloud/projects#resume-a-community-project) forever.
 
-- **General Purpose**\
-   General Purpose Nodes are the basic Node Type offered on Standard Projects. These Nodes are the right choice for most
-  small- to medium- scale, production-ready use cases.
+- **Lite**\
+  Lite Nodes are the basic Node Type offered on Standard Projects. These Nodes are the right choice for most small- to medium-
+  scale, production-ready use cases.
 
-- **Performance Tier**\
-  Performance Tier Nodes are the upgraded Node Type offered on Standard Projects, which may provide better performance under
-  certain conditions, such as for handling Image transformations as well as fetching deeply nested or complex relationships
-  via the API.
+- **General Purpose Tier**\
+  General Purpose Tier Nodes provide better performance under certain conditions, such as for handling Image transformations
+  as well as fetching deeply nested or complex relationships via the API.
 
 - **Enterprise**\
-  Node configuration options are flexible and customizable, tailored to your Project's needs.
+  Configuration options are flexible and customizable, tailored to your Project's needs.
 
-:::tip
+### Reserved Nodes
 
-In Standard Projects, the Node Type configured [and associated cost per hour](/cloud/teams#manage-billing) will apply to
-both Active and Standby Nodes.
-
-:::
-
-### Active Nodes
-
-Active Nodes stay on constantly. Projects must have at least one Active Node in order to function.
-
-:::warning
-
-Community Nodes paused due to [inactivity](/cloud/projects#resume-a-community-project) can't receive requests until
-unpaused.
-
-:::
-
-### Load Balancing
-
-Similar to the term horizontal scaling, the term load balancing refers to the instantaneous distribution of load across
-the Active Nodes on which your Project is running.
-
-### Standby Nodes
-
-Standby Nodes stay turned-off until traffic starts to take up significant system capacity, at which point Standby Nodes
-activate one-by-one, as needed, to safely handle the increase in traffic. Activation occurs within just a few moments.
-
-Standby Nodes are not required, however you don't pay for usage when Standby Nodes are disabled. For more pricing
-information, see [billing](/cloud/teams#manage-billing).
-
-### Auto-scaling
-
-Auto-scaling refers to the automatic horizontal scaling provided by Standby Nodes, which helps to keep system capacity
-at safe levels.
-
-:::tip Optimal Node Configuration
-
-As noted under [Billing](/cloud/teams#manage-billing), Projects can be reconfigured as needed. Check out the
-[Project Monitor page](/cloud/projects#monitor-a-project) for performance analytics that can help inform Node
-configuration decisions.
-
-:::
+The term **Reserved Nodes** indicates the number of nodes available to immediately handle incoming requests, including
+rapid spikes.This determines your base [monthly billing](/cloud/teams.md#manage-billing).
 
 ## Quotas
 
 Directus does not impose _arbitrary_ software-based limits of any kind. So for things like Collections, Roles or Users -
 whether you have 10 or 10,000 of them - you are free to build out your Project as needed, with no up-charge. However,
 actual Project performance is going to depend on Node configuration, so there are hard technical limits. For details,
-see [Cloud Policies](https://directus.io/cloud-policies)
+see [Cloud Policies](https://directus.io/cloud-policies).
 
 ## Rate Limiting
 
@@ -322,20 +284,20 @@ following API request limits at each node tier.
 | Tier                       | Limit                                               |
 | -------------------------- | --------------------------------------------------- |
 | Community                  | 10 requests per second per IP _(50 per second max)_ |
-| Standard (General Purpose) | 25 requests per second per node per IP              |
-| Standard (Performance)     | 50 requests per second per node per IP              |
+| Standard (Lite)            | 25 requests per second per node per IP              |
+| Standard (General Purpose) | 50 requests per second per node per IP              |
 | Enterprise                 | 100 requests per second per node per IP             |
 
 :::tip
 
-These limits are additive and load balanced. For example, a Standard Project with two Performance nodes would get 100
-requests per second per IP `50 requests * 2 nodes = 100`.
+These limits are additive and load balanced. For example, a Standard Project with two General Purpose nodes would get
+100 requests per second per IP `50 requests * 2 nodes = 100`.
 
 :::
 
 :::tip Learn More
 
-For details on other limitations, please see [Cloud Policies](https://directus.io/cloud-policies/#)
+For details on other limitations, please see [Cloud Policies](https://directus.io/cloud-policies/#).
 
 :::
 
@@ -364,7 +326,7 @@ Enterprise Projects, and Premium Support adds 24/7 response times for critical s
 
 :::tip Add-on Support
 
-Looking for Basic or Premium Support on a self-hosted Project? [Contact Sales](https://directus.io/contact)
+Looking for Basic or Premium Support on a self-hosted Project? [Contact Sales](https://directus.io/contact).
 
 :::
 
@@ -377,7 +339,7 @@ Looking for Basic or Premium Support on a self-hosted Project? [Contact Sales](h
 Click <span mi icon>check</span> in the Dashboard Header to navigate to the System Status page. This page is where to
 _find out what happened_ in the super rare event that the network slows down or goes offline. Here you can view the
 current connectivity status of Directus Cloud, the status on individual Projects by URL and a daily Incidents log. For
-more information, see [Cloud Policies](https://directus.io/cloud-policies#)
+more information, see [Cloud Policies](https://directus.io/cloud-policies#).
 
 ## Multi-tenancy
 

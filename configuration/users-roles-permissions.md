@@ -7,199 +7,183 @@ readTime: 7 min read
 
 # Users, Roles & Permissions
 
-> [Users](/getting-started/glossary#users) are the individual accounts for authenticating into the API and App. Each
-> user belongs to a [Role](/getting-started/glossary#roles) which defines its access
-> [Permissions](/getting-started/glossary#permissions).
+> Users, roles, and permissions work together to determine _who can access what_ inside your database.
+> [Users](/getting-started/glossary#users) are the individual accounts for authenticating into the project. Each user is
+> assigned a [role](/getting-started/glossary#roles) which defines its
+> [access permissions](/getting-started/glossary#permissions).
 
-<!--
+![Users, Roles and Permissions](https://cdn.directus.io/docs/v9/configuration/users-roles-permissions/users-roles-permissions-20220909/users-roles-permissions-20220907A.webp)
 
 :::tip Before You Begin
 
-
-:::
--->
-
-## Overview
-
-While this page focuses on configuration of Roles and Permissions, it is important to remember that Roles and
-Permissions are inherently intwined with Users. This is because every User must be assigned a Role to define their
-access permissions.
-
-Directus comes with two Roles out of the box, Admin and Public. The Admin role provides full Permissions for all data in
-the app, and this cannot be limited. This Admin Role provides full, app-wide control to the Project owners,
-administrators, and creators. The Public role comes with all permissions turned off by default and these can be fully
-reconfigured as needed. This Public role determines the access permissions given for any unauthenticated request to app
-data including unauthenticated users, visitors to your website or any other web request to your Directus Project's API.
-
-In addition, Admins can create as many Roles as they wish and configure permissions granularly.
-
-<!--
-Roles with _App Access_ enabled are created with some limited Permissions configured by default, so they can access the app and their own profile information.
-Roles that have neither _Admin_ nor _App Access_ enabled (such as the built-in _Public_ Role) are created with Public access permissions.
-### Configure Public Permissions
-
-The Public permissions control what project data is accessible without authentication. This is managed via the Public
-"role", which is included in the system by default and can not be deleted.
-
-::: warning Private by Default
-
-All of the data within the platform is private by default. Permissions for the public role can be granted on a
-case-by-case basis by administrators.
+We recommend you try the [Quickstart Guide](/getting-started/quickstart.md) to get an overview of the platform.
 
 :::
 
--->
+:::tip Learn More
 
-## Create a Role
-
-1. Navigate to **Settings <span mi icon dark>chevron_right</span> Roles & Permissions**
-2. Click <span mi btn>add</span> in the header
-3. Enter a unique **Role Name**
-4. Enabling **App Access** allows logging in to the App
-5. Enabling **Admin Access** gives full permission to project data and Settings
-6. Click on **Save** to save the role
-
-## Configure a Role
-
-- **Permissions** — Configure [access permissions](#configure-permissions) for the role
-- **Role Name** — This is the name of the role
-- **Role Icon** — The icon used throughout the App when referencing this role
-- **Description** — A helpful note that explains the role's purpose
-- **App Access** — Allows logging in to the App
-- **Admin Access** — Gives full permission to project data and Settings
-- **IP Access** — An allow-list of IP addresses from which the platform can be accessed, empty allows all
-- **Require MFA** — Forces all users within this role to use two-factor authentication
-- **Users in Role** — A list of all users within this role
-
-## Delete a Role
-
-1. Navigate to **Settings <span mi icon dark>chevron_right</span> Roles & Permissions
-   <span mi icon dark>chevron_right</span> [Role Name]**
-2. Click <span mi btn dngr>delete</span> in the header
-3. Confirm this decision by clicking **Delete** in the dialog
-
-::: warning Users in a Deleted Role
-
-If you delete a role that still has users in it, those users will be given a `NULL` role, which denies their App access
-and limits them to Public permissions. They can then be reassigned to a new role by an admin.
+To manage users, role and permissions programmatically via the API, please see our API guides on
+[users](/reference/system/users.md), [roles](/reference/system/roles.md), and
+[permissions](/reference/system/permissions.md).
 
 :::
 
-::: warning Last Admin
+In order to understand how users, roles, and permissions work in Directus, a conceptual understanding of _how they work
+in general_ will be helpful. The following few paragraphs will introduce you to how users, roles, and permissions work
+within a relational database. If you're already familiar with these concepts, feel free to skip to
+[How it Works in Directus](#how-it-works-in-directus).
 
-You must maintain at least one role/user with Admin Access so that you can still properly manage the project.
+### Users
 
-:::
+Remember, [users are data](/reference/system/users.md). They are simply rows in a `users` data table. It may be easy to
+forget this if you are new to working with data models, as the term _users_ can create a warm place in our hearts which
+distinguishes or elevates it above and beyond term _"data"_. But from the perspective of the data model, that's not the
+case. Users are still just data.
 
-::: warning Public Role
+Projects typically have many different kinds of users. For example, you'll need developers and administrators to design
+the data model as well as manage all its data. Your team may have other users, such as data analysts, content writers,
+or managers who need to access to some sensitive data, but not the entire data model. Finally, you might have end-users,
+such as customers, subscribers, 3rd party sellers, _and beyond_ who need access to their own personal data, but should
+not be able to access any other business data. Therefore, we need to be able to create permissions to define what a user
+can and can't access.
 
-You can not delete the Public role, as it is part of the core platform. To disable it completely, simply turn off all
-Public access permissions.
+:::tip
 
-:::
-
-## Configure Permissions
-
-Directus possesses an extremely granular, yet easy to configure, permissions system. When creating a new role,
-permissions are disabled for all project collections by default — allowing you to give explicit access to only what is
-required. Individual permissions are applied to the role, and each is scoped to a specific collection and CRUD action
-(create, read, update, delete).
-
-::: warning Saves Automatically
-
-Every change made to the permissions of a role is saved automatically and instantly.
-
-:::
-
-::: warning Admin Roles
-
-If a role is set to **Admin Access** then it is granted complete access to the platform, and Permission configuration is
-disabled.
+Another key point is that a user _does not need to be a person at all_. A user could be an AI bot, chat bot, API, or any
+other entity that can login and interact with the database.
 
 :::
 
-1. Navigate to **Settings <span mi icon dark>chevron_right</span> Roles & Permissions
-   <span mi icon dark>chevron_right</span> [Role Name]**
-2. Scroll to the **Permissions** section
-3. **Click the icon** for the collection (row) and action (column) you want to set
-4. Choose the desired permission level: <span mi icon>check</span> **All Access**, <span mi icon>block</span> **No
-   Access**, or <span mi icon>rule</span> **Use Custom**
+### Roles
 
-If you selected **"<span mi icon>check</span> All Access"** or **"<span mi icon>block</span> No Access"** then setup is
-complete. If you chose to customize permissions then continue with the appropriate guide below based on the relevant
-_action_.
+In many cases, your project will have multiple users doing the same thing _(managers, writers, subscribers, etc)_. If we
+assigned permissions directly to the user, we would have to configure the same permissions over and over, which makes it
+tedious to change configurations for all users doing the same job and also leads to a higher chance of misconfiguration.
+This problem is an example of [data duplication](/configuration/data-model.md#avoid-data-duplication). To avoid this, we
+create roles, configure the role's permissions once, then assign the role to users as desired.
 
-### Create (Custom Access)
+Regardless of your project, your SQL database will _always_ need an administrator role and a public role. In addition,
+you may need any number of custom roles.
 
-5. **Field Permissions** control which fields accept a value on create. Fields are individually toggled.
-6. **Field Validation** define the rules for field values on create
-7. **Field Presets** control the field defaults when creating an item
+**Administrators**\
+An administrator role provides complete, unrestricted control over the database, including the data model and all it data.
+This cannot be limited, as by definition it would no longer be an administrator role. You need at least one user in an administrator
+role. Otherwise, it would be impossible to fully manage the database.
 
-### Read (Custom Access)
+**Public**\
+A public role defines access permissions for unauthenticated requests to the database. That means that if you enable an access
+permission for this role, _everybody has that permission enabled_. Remember, the database has no idea which data you'd want
+the public to see. So to be safe, all permissions begin turned off by default. It is up to the administrators to re-configure
+these and define exactly what the public role has access to.
 
-5. **Item Permissions** control which items can be read, as defined by the [Filter Rules](/reference/filter-rules)
-   entered.
-6. **Field Permissions** control which fields can be read. Fields are individually toggled.
+**Custom Roles**\
+In addition to these two extreme types of roles, you may need to create more roles each with their own unique set of permissions.
+The roles you create and the permissions you configure for them are completely open-ended and dependent on your project's
+needs.
 
-::: warning Read Field Permissions
+### Permissions
 
-The Directus App always requires read access to the Primary Key field (e.g., `id`) so it can uniquely identify items.
-Also, if a Collection has "Archive" or "Sort" fields configured, those fields will also need read access to use the
-App's soft-delete and manual sorting features.
+Remember, for the majority of projects, it wouldn't be safe or ethical to give every user full access to the data. Users
+could accidentally damage data or even take malicious actions against the project and its users. For example, a student
+may need to be able to _see their grade, but not be able to change it_.
+
+Thus, there are four types of permissions for each data table, based on the four CRUD actions you can do to data in a
+database: _create, read, update, and delete_... Hence you often hear the term CRUD permissions. You can configure CRUD
+permissions on each data table as desired. For example, you can grant:
+
+- read-only permission
+- read and write but not update or delete permissions
+- _any other combination of the four_
+
+### Business Rules
+
+In many cases, you will need to grant permissions to data based on its value, or by some other conditional logic. This
+type of conditional permission is often called a business rule.
+
+To give an example, students should be able to read to their own grades, but not the grades of other students. So you
+could create a business rule for the `student` role, so that a user can only see his or her own grade.
+
+Taking this example one step further, we'd also want to allow students to read and create answers to an online test, but
+not update or delete their test answers once submitted. Then you may need a business rule to crate a submission
+deadline. Finally, you likely want to restrict each student's CRUD access to all other student tests.
+
+It is common to have multiple, complex business rules in a project.
+
+## How it Works in Directus
+
+<video title="How Users, Roles, & Permissions Work" autoplay playsinline muted loop controls>
+	<source src="https://cdn.directus.io/docs/v9/configuration/users-roles-permissions/users-roles-permissions-20220909/how-users-roles-and-permissions-work-20220909A.mp4" type="video/mp4" />
+</video>
+
+While you have full reign to configure these using SQL, Directus also provides a complete system to configure and manage
+users, roles, and permissions without writing a single line of SQL. The process has three key steps.
+
+1. [Create a Role](/configuration/users-roles-permissions/roles.md#create-a-role)
+2. [Configure its Permissions](/configuration/users-roles-permissions/permissions.md#configure-role-permissions)
+3. [Assign Role to User](/configuration/users-roles-permissions/roles.md#assign-role-to-user)
+
+:::tip No Artificial Limits
+
+You can create as many roles as you need, (re)assign them to as many users as many times you please, and configure
+complex granular permissions as desired.
 
 :::
 
-### Update (Custom Access)
+:::tip
 
-5. **Item Permissions** control which items can be updated, as defined by [Filter Rules](/reference/filter-rules).
-6. **Field Permissions** control which fields can be updated. Fields are individually toggled.
-7. **Field Validation** define the rules for field values on update, as defined by
-   [Filter Rules](/reference/filter-rules).
-8. **Field Presets** control the field defaults when updating an item
-
-### Delete (Custom Access)
-
-5. **Item Permissions** control which items can be deleted, as defined by the [Filter Rules](/reference/filter-rules)
-   entered.
-
----
-
-### Configure System Permissions
-
-In addition to permissions for _your_ custom collections, you can also customize the permissions for _system_
-collections. To edit system permissions, follow these steps:
-
-1. Go to **Roles and Permissions** and select the desired Role.\
-   _You will be taken to the permissions configuration page._
-2. Click **System Collections** at the bottom of the page.
-3. Find the desired System Collection.
-4. Set permissions as desired.
-
-There are two pre-configured options you can use for resetting the role's system permissions and ensure proper App
-access. To access these, click "System Collections" to expand, and then click one of the buttons at the bottom of the
-listing.
-
-- **App Access Minimum** — The minimum permissions required to properly access the App
-- **Recommended Defaults** — More permissive but balanced for a better App user experience
-
-:::tip Remember
-
-When App Access is enabled, Directus will automatically add _(and hardcode)_ permissions for the necessary system
-collections for that Role.
+Remember, the following users, role and permissions systems built into Directus cannot be deleted, however using them is
+optional. You may configure your own system as desired.
 
 :::
 
-## Configure Workflows
+## Directus Users
 
-Workflows are a way to add structured stages to the flow of content authoring. They are primarily defined through the
-permissions for a Collection, but can be further enhanced via email notifications, custom interfaces, and automation.
-Directus supports endlessly configurable workflows, so we will only cover one simple example below.
+![Users in the Directus Data Studio](https://cdn.directus.io/docs/v9/configuration/users-roles-permissions/users-roles-permissions-20220909/users-20220807A.webp)
 
-1. To create a structured workflow for **Articles**, the first step is
-   [Creating a Field](/configuration/data-model#creating-a-field) to track the article "status" — we'll call it
-   **Status**, but it can be named anything.
-2. Next, create different Roles for each stage of the workflow, such as `author` and `manager`.
-3. Finally, configure the Role permissions based on the possible values of that Status field, such as `draft`, `review`,
-   `approved`, and `published`, so that they are properly restricted to create content and update the status.
-   - The Author can create content, but only save a status of `draft` or `review`.
-   - The Manager has additional permissions that allow them to save statuses of `approved` or `published`.
+Within the Data Studio, users are managed within the [User Directory](/app/user-directory.md). However, there are some
+controls available to assign users to roles in **Settings > Roles and Permissions**.
+
+To learn more, please see our guide on [users](/configuration/users-roles-permissions/users.md).
+
+## Directus Roles
+
+![Roles in the Directus Data Studio](https://cdn.directus.io/docs/v9/configuration/users-roles-permissions/users-roles-permissions-20220909/roles-20220907A.webp)
+
+You can create as many roles as you need for your project. Directus also comes with built-in administrator and public
+roles, which cannot be deleted.
+
+The administrator role provides full permissions for all data in the app, and this cannot be limited. You must always
+have at least one user with an administrator role.
+
+The public role comes with all access permissions turned off by default, but this can be reconfigured as desired.
+Remember, any access permissions granted to this role will apply to everyone, including unauthenticated web traffic _and
+all existing users_. If you wish to keep the project private, simply keep all permissions turned off.
+
+To learn more, see our guide on [roles](/configuration/users-roles-permissions/roles.md).
+
+## Directus Permissions
+
+![Roles in the Directus Data Studio](https://cdn.directus.io/docs/v9/configuration/users-roles-permissions/users-roles-permissions-20220909/permissions-20220907A.webp)
+
+Directus offers an extremely granular, yet easy to configure permissions system. When you
+[create a role](#create-a-role), all permissions are turned off by default, allowing you to explicitly grant permissions
+as desired.
+
+There are two other key points to note about Directus. First, the term
+[custom access permissions](/configuration/users-roles-permissions/permissions.md#configure-custom-permissions) is used
+in place of [business rules](#business-rules), however the concept is the same. Second, instead of the standard CRUD
+permissions, Directus provides CRUDS permissions: _create, read, update, delete, and share_. This _fifth_ type of
+permission, share, defines whether a user has permissions to perform [data sharing](/app/content/shares.md) on items in
+a collection.
+
+To learn more, see our guide on [permissions](/configuration/users-roles-permissions/permissions.md).
+
+## Workflows
+
+![Workflows in the Directus](https://cdn.directus.io/docs/v9/configuration/users-roles-permissions/workflows-20220909/workflows-20220909B.webp)
+
+Workflows are a way to setup structured stages to content authoring and data management. They are created primarily with
+custom access permissions, but can be enhanced with email notifications, custom [Interfaces](/extensions/interfaces.md)
+as well as [flows](/configuration/flows.md). Directus supports endlessly configurable workflows.
+
+To learn more, see our guide on [Workflows](/configuration/users-roles-permissions/workflows.md).

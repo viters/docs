@@ -185,6 +185,7 @@ prefixing the value with `{type}:`. The following types are available:
 | `number`      | `number:3306`                                                                                                   | `3306`                                                                                                                       |
 | `regex`       | `regex:\.example\.com$`                                                                                         | `/\.example\.com$/`                                                                                                          |
 | `array`       | `array:https://example.com,https://example2.com` <br> `array:string:https://example.com,regex:\.example3\.com$` | `["https://example.com", "https://example2.com"]` <br> `["https://example.com", "https://example2.com", /\.example3\.com$/]` |
+| `json`        | `json:{"items": ["example1", "example2"]}`                                                                      | `{"items": ["example1", "example2"]}`                                                                                        |
 
 ---
 
@@ -198,7 +199,7 @@ prefixing the value with `{type}:`. The following types are available:
 | `PUBLIC_URL`<sup>[1]</sup> | URL where your API can be reached on the web.                                                              | `/`           |
 | `LOG_LEVEL`                | What level of detail to log. One of `fatal`, `error`, `warn`, `info`, `debug`, `trace` or `silent`.        | `info`        |
 | `LOG_STYLE`                | Render the logs human readable (pretty) or as JSON. One of `pretty`, `raw`.                                | `pretty`      |
-| `MAX_PAYLOAD_SIZE`         | Controls the maximum request body size. Accepts number of bytes, or human readable string.                 | `100kb`       |
+| `MAX_PAYLOAD_SIZE`         | Controls the maximum request body size. Accepts number of bytes, or human readable string.                 | `1mb`         |
 | `ROOT_REDIRECT`            | Where to redirect to when navigating to `/`. Accepts a relative path, absolute URL, or `false` to disable. | `./admin`     |
 | `SERVE_APP`                | Whether or not to serve the Admin App under `/admin`.                                                      | `true`        |
 | `GRAPHQL_INTROSPECTION`    | Whether or not to enable GraphQL Introspection                                                             | `true`        |
@@ -309,7 +310,7 @@ your project and API on different domains, make sure to verify your configuratio
 | `HASH_LENGTH`          | The length of the hash function output in bytes.                                                                                 | `32`                |
 | `HASH_TIME_COST`       | The amount of passes (iterations) used by the hash function. It increases hash strength at the cost of time required to compute. | `3`                 |
 | `HASH_PARALLELISM`     | The amount of threads to compute the hash on. Each thread has a memory pool with `HASH_MEMORY_COST` size.                        | `1` (single thread) |
-| `HASH_TYPE`            | The variant of the hash function (`0`: argon2d, `1`: argon2i, or `2`: argon2id).                                                 | `1` (argon2i)       |
+| `HASH_TYPE`            | The variant of the hash function (`0`: argon2d, `1`: argon2i, or `2`: argon2id).                                                 | `2` (argon2id)      |
 | `HASH_ASSOCIATED_DATA` | An extra and optional non-secret value. The value will be included Base64 encoded in the parameters portion of the digest.       | --                  |
 
 Argon2's hashing function is used by Directus for three purposes: 1) hashing user passwords, 2) generating hashes for
@@ -368,11 +369,13 @@ No additional configuration required.
 
 Alternatively, you can provide the individual connection parameters:
 
-| Variable                      | Description                      | Default Value |
-| ----------------------------- | -------------------------------- | ------------- |
-| `RATE_LIMITER_REDIS_HOST`     | Hostname of the Redis instance   | --            |
-| `RATE_LIMITER_REDIS_PORT`     | Port of the Redis instance       | --            |
-| `RATE_LIMITER_REDIS_PASSWORD` | Password for your Redis instance | --            |
+| Variable                      | Description                                                   | Default Value |
+| ----------------------------- | ------------------------------------------------------------- | ------------- |
+| `RATE_LIMITER_REDIS_HOST`     | Hostname of the Redis instance, e.g., `"127.0.0.1"`           | --            |
+| `RATE_LIMITER_REDIS_PORT`     | Port of the Redis instance, e.g., `6379`                      | --            |
+| `RATE_LIMITER_REDIS_USERNAME` | Username for your Redis instance, e.g., `"default"`           | --            |
+| `RATE_LIMITER_REDIS_PASSWORD` | Password for your Redis instance, e.g., `"yourRedisPassword"` | --            |
+| `RATE_LIMITER_REDIS_DB`       | Database of your Redis instance to connect, e.g., `1`         | --            |
 
 ### Memcache
 
@@ -408,6 +411,13 @@ RATE_LIMITER_DURATION="5"
 RATE_LIMITER_STORE="redis"
 
 RATE_LIMITER_REDIS="redis://@127.0.0.1"
+
+# If you are using Redis ACL
+RATE_LIMITER_REDIS_USERNAME="default"
+RATE_LIMITER_REDIS_PASSWORD="yourRedisPassword"
+RATE_LIMITER_REDIS_HOST="127.0.0.1"
+RATE_LIMITER_REDIS_PORT=6379
+RATE_LIMITER_REDIS_DB=0
 ```
 
 ## Cache
@@ -477,11 +487,13 @@ No additional configuration required.
 
 Alternatively, you can provide the individual connection parameters:
 
-| Variable               | Description                      | Default Value |
-| ---------------------- | -------------------------------- | ------------- |
-| `CACHE_REDIS_HOST`     | Hostname of the Redis instance   | --            |
-| `CACHE_REDIS_PORT`     | Port of the Redis instance       | --            |
-| `CACHE_REDIS_PASSWORD` | Password for your Redis instance | --            |
+| Variable               | Description                                                   | Default Value |
+| ---------------------- | ------------------------------------------------------------- | ------------- |
+| `CACHE_REDIS_HOST`     | Hostname of the Redis instance, e.g., `"127.0.0.1"`           | --            |
+| `CACHE_REDIS_PORT`     | Port of the Redis instance, e.g., `6379`                      | --            |
+| `CACHE_REDIS_USERNAME` | Username for your Redis instance, e.g., `"default"`           | --            |
+| `CACHE_REDIS_PASSWORD` | Password for your Redis instance, e.g., `"yourRedisPassword"` | --            |
+| `CACHE_REDIS_DB`       | Database of your Redis instance to connect, e.g., `1`         | --            |
 
 ### Memcache
 
@@ -549,14 +561,15 @@ Based on your configured driver, you must also provide the following configurati
 
 ### S3 (`s3`)
 
-| Variable                      | Description | Default Value      |
-| ----------------------------- | ----------- | ------------------ |
-| `STORAGE_<LOCATION>_KEY`      | User key    | --                 |
-| `STORAGE_<LOCATION>_SECRET`   | User secret | --                 |
-| `STORAGE_<LOCATION>_BUCKET`   | S3 Bucket   | --                 |
-| `STORAGE_<LOCATION>_REGION`   | S3 Region   | --                 |
-| `STORAGE_<LOCATION>_ENDPOINT` | S3 Endpoint | `s3.amazonaws.com` |
-| `STORAGE_<LOCATION>_ACL`      | S3 ACL      | --                 |
+| Variable                                    | Description               | Default Value      |
+| ------------------------------------------- | ------------------------- | ------------------ |
+| `STORAGE_<LOCATION>_KEY`                    | User key                  | --                 |
+| `STORAGE_<LOCATION>_SECRET`                 | User secret               | --                 |
+| `STORAGE_<LOCATION>_BUCKET`                 | S3 Bucket                 | --                 |
+| `STORAGE_<LOCATION>_REGION`                 | S3 Region                 | --                 |
+| `STORAGE_<LOCATION>_ENDPOINT`               | S3 Endpoint               | `s3.amazonaws.com` |
+| `STORAGE_<LOCATION>_ACL`                    | S3 ACL                    | --                 |
+| `STORAGE_<LOCATION>_SERVER_SIDE_ENCRYPTION` | S3 Server Side Encryption | --                 |
 
 ### Azure (`azure`)
 
@@ -686,6 +699,7 @@ These flows rely on the `PUBLIC_URL` variable for redirecting. Ensure the variab
 | `AUTH_<PROVIDER>_ALLOW_PUBLIC_REGISTRATION` | Automatically create accounts for authenticating users.                                       | `false`          |
 | `AUTH_<PROVIDER>_DEFAULT_ROLE_ID`           | A Directus role ID to assign created users.                                                   | --               |
 | `AUTH_<PROVIDER>_ICON`                      | SVG icon to display with the login link. [See options here](/getting-started/glossary#icons). | `account_circle` |
+| `AUTH_<PROVIDER>_LABEL`                     | Text to be presented on SSO button within App.                                                | `<PROVIDER>`     |
 | `AUTH_<PROVIDER>_PARAMS`                    | Custom query parameters applied to the authorization URL.                                     | --               |
 
 <sup>[1]</sup> When authenticating, Directus will match the identifier value from the external user profile to a
@@ -706,6 +720,7 @@ OpenID is an authentication protocol built on OAuth 2.0, and should be preferred
 | `AUTH_<PROVIDER>_REQUIRE_VERIFIED_EMAIL`    | Require created users to have a verified email address.                                       | `false`                |
 | `AUTH_<PROVIDER>_DEFAULT_ROLE_ID`           | A Directus role ID to assign created users.                                                   | --                     |
 | `AUTH_<PROVIDER>_ICON`                      | SVG icon to display with the login link. [See options here](/getting-started/glossary#icons). | `account_circle`       |
+| `AUTH_<PROVIDER>_LABEL`                     | Text to be presented on SSO button within App.                                                | `<PROVIDER>`           |
 | `AUTH_<PROVIDER>_PARAMS`                    | Custom query parameters applied to the authorization URL.                                     | --                     |
 
 <sup>[1]</sup> When authenticating, Directus will match the identifier value from the external user profile to a
@@ -774,6 +789,7 @@ AUTH_GOOGLE_CLIENT_SECRET="la23...4k2l"
 AUTH_GOOGLE_ISSUER_URL="https://accounts.google.com/.well-known/openid-configuration"
 AUTH_GOOGLE_IDENTIFIER_KEY="email"
 AUTH_GOOGLE_ICON="google"
+AUTH_GOOGLE_LABEL="Google"
 
 AUTH_FACEBOOK_DRIVER="oauth2"
 AUTH_FACEBOOK_CLIENT_ID="830d...29sd"
@@ -782,6 +798,7 @@ AUTH_FACEBOOK_AUTHORIZE_URL="https://www.facebook.com/dialog/oauth"
 AUTH_FACEBOOK_ACCESS_URL="https://graph.facebook.com/oauth/access_token"
 AUTH_FACEBOOK_PROFILE_URL="https://graph.facebook.com/me?fields=email"
 AUTH_FACEBOOK_ICON="facebook"
+AUTH_FACEBOOK_LABEL="Facebook"
 ```
 
 ## Extensions
@@ -841,9 +858,9 @@ Based on the `EMAIL_TRANSPORT` used, you must also provide the following configu
 
 ### SendGrid (`sendgrid`)
 
-| Variable                 | Description            | Default Value     |
-| ------------------------ | ---------------------- | ----------------- |
-| `EMAIL_SENDGRID_API_KEY` | Your SendGrid API key. | --                |
+| Variable                 | Description            | Default Value |
+| ------------------------ | ---------------------- | ------------- |
+| `EMAIL_SENDGRID_API_KEY` | Your SendGrid API key. | --            |
 
 ### AWS SES (`ses`)
 

@@ -39,17 +39,16 @@ view a Team's Projects:
 ![Create a Community Project](https://cdn.directus.io/docs/v9/cloud/projects/projects-20220329A/create-a-community-project-20220329A.webp)
 
 The Community tier offers a completely free Directus Project, perfect for spinning up hobby projects, trying out
-Directus Cloud, testing a proof-of-concept or performing any other non-production activity. Community Projects come with
-the following configurations:
+Directus Cloud, testing a proof-of-concept or performing any other non-production activity.
 
-- **Project Name** — Custom. _This can be changed at any time with no impact on the Project_.
+Community Projects come with the following configurations:
+
+- **Project Name** — Custom. This can be changed at any time.
 - **Project URL** — Random URL: `aa3i82.directus.app`. _This cannot be changed_.
 - [Datacenter Region](/cloud/glossary#datacenter-regions) — `United States, East`.
 - [Node Type](/cloud/glossary#node-types) — Community Node.
-- [Load Balancing](/cloud/glossary#load-balancing) — One Active Node.
+- [Reserved Nodes](/cloud/glossary#nodes) — One Node.
 - **Starting Template** — Create an Empty Project or a Demo Project with dummy data.
-
-Note that [Auto-Scaling](/cloud/glossary#auto-scaling)is not available with the Community tier.
 
 To create a Community Project:
 
@@ -85,13 +84,12 @@ as needed.
 
 Standard Projects come with the following configuration options:
 
-- **Project Name** — Custom. _This can be changed at any time with no impact on the Project_.
+- **Project Name** — Custom. This can be changed at any time.
 - **Project URL** — Custom URL: `your-custom-url.directus.app`. _This cannot be changed_.
 - [Datacenter Region](/cloud/glossary#datacenter-regions) — `United States, East`, `Europe, Frankfurt` or
   `Asia Pacific, Singapore`.
-- [Node Type](/cloud/glossary#node-types) — General Purpose or Performance Tier Nodes.
-- [Load Balancing](/cloud/glossary#load-balancing) — 1-6 Active Nodes.
-- [Auto-Scaling](/cloud/glossary#auto-scaling) — 0-5 Standby Nodes.
+- [Node Type](/cloud/glossary#node-types) — Lite or General Purpose Tier Nodes.
+- [Infrastructure](/cloud/glossary#nodes) — 1-6 Reserved Nodes.
 
 To create a Standard Project:
 
@@ -156,17 +154,19 @@ Graphs on the Project Monitor page display daily Project information over the la
 may help inform your decisions around configuring Nodes.
 
 - **Combined Node Usage**\
-  Total load placed on all Nodes. If CPU or memory are overloaded, the Node could crash! High usage is a sign that it's time
-  to scale up.
+  Total load placed on all Nodes. If CPU or memory are overloaded, the Nodes could crash! High usage is a sign that it's
+  time to scale up.
+
 - **Horizontal Scaling**\
-  Number of Standby Nodes activated. If one or more Standby Nodes are frequently activated, it may be time to add more Active
-  Nodes.
+  Number of Reserved Nodes activated to handle traffic to your instance.
+
 - **API Requests**\
-  Number of API requests. This provides basic insight into traffic cycles, including overall volatility. If there are huge
-  spikes in traffic, it may be wise to configure more Standby Nodes.
+  Number of API requests. This provides basic insight into traffic cycles, including overall volatility. If your Project
+  experiences higher volumes of traffic, it may be best to add more Reserved Nodes.
+
 - **API Bandwidth**\
-  The read/write bandwidth. If bandwidth is high, it may be beneficial to vertically scale with Performance Tier or Enterprise
-  Nodes, to better manage a larger volume of data.
+  The read/write bandwidth of all requests. If bandwidth is higher, it may be best to vertically scale with General Purpose
+  Tier or Enterprise Nodes.
 
 To access the Project Monitor Page:
 
@@ -192,8 +192,7 @@ On Community Projects, the only option available is to change the Project's Name
 ![Manage a Project](https://cdn.directus.io/docs/v9/cloud/projects/projects-20220322A/manage-a-project-20220322A.webp)
 
 On Standard Projects, it's possible to change the Project Name as well as reconfigure the
-[Node Type](/cloud/glossary#node-types), number of [Active Nodes](/cloud/glossary#active-nodes) and number of
-[Standby Nodes](/cloud/glossary#standby-nodes).
+[Node Type](/cloud/glossary#node-types) or number of [Reserved Nodes](/cloud/glossary#reserved-nodes).
 
 1. Open the Team Menu in the Dashboard Header and click the desired Team.
 2. Click **"Projects"** to enter the Projects page.
@@ -215,18 +214,25 @@ tandem with the Directus Core Team.
 
 ## Resume a Community Project
 
-![Resume Paused Project](https://cdn.directus.io/docs/v9/cloud/projects/projects-20220322A/resume-paused-project-20220322A.webp)
+![Resume Paused Project](https://cdn.directus.io/docs/v9/cloud/projects/projects-20221011A/resume-paused-project-20221011A.webp)
 
-If there is no app activity for 3 days on a Community Project, the [Infrastructure](/cloud/glossary#infrastructure) gets
-paused. Projects that remain paused for a certain duration will be automatically deleted (see details in
-[Cloud Policies](https://directus.io/cloud-policies#)). To avoid deletion, you have to manually resume the Project
-within the Cloud Dashboard, because requests to the app will not resume the Project. To resume a paused Community
-Project:
+After creation, your Community Project will run for seven days. At that point, you can manually extend time by seven
+more days, indefinitely. However, if you do not manually extend this time, the
+[Infrastructure](/cloud/glossary#infrastructure) gets paused. Projects that remain paused for 30 days will be
+automatically deleted (see details in [Cloud Policies](https://directus.io/cloud-policies#)). To avoid deletion, you
+have to manually resume the Project within the Cloud Dashboard, because requests to the app will not resume the Project.
+To resume a paused Community Project:
 
 1. Open the Team Menu in the Dashboard Header and click the desired Team.
 2. Click **"Projects"** to enter the Projects page.
-3. Click the paused Project to enter the Project Monitor page.
-4. Click **"Resume Project"**.
+3. Click the desired Project to enter its Project Monitor page.
+4. Click **"Extend Time"**.
+
+:::tip
+
+You can extend time on a project days before it pauses to help you avoid any real downtime.
+
+:::
 
 ## Destroy a Project
 

@@ -312,6 +312,9 @@ await directus.auth.password.request(
 );
 ```
 
+**Note**: To use a custom address you need to configure the
+[`PASSWORD_RESET_URL_ALLOW_LIST` environment variable](/self-hosted/config-options#security) to enable this feature.
+
 ### Reset a Password
 
 ```js
@@ -420,6 +423,13 @@ again.
 
 If you want to use multiple instances of the SDK you should set a different [`prefix`](#options.storage.prefix) for each
 one.
+
+::: tip
+
+The axios instance can be used for custom requests by calling
+`await directus.transport.<method>('/path/to/endpoint', { /* body, params, ... */ })`
+
+:::
 
 ## Items
 

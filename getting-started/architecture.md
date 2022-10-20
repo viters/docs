@@ -34,7 +34,7 @@ can set SSO and allow login through Google, Facebook, etc.
 Finally, a complete set of REST and GraphQL endpoints are generated dynamically, based on your data model as well as
 your configured roles and their associated access permissions.
 
-The Directus SDK is [available via NPM.](https://www.npmjs.com/package/directus) You also have access to two
+The Directus SDK is [available via NPM](https://www.npmjs.com/package/directus). You also have access to two
 Command-Line Interfaces (CLI). One enables server-side actions relating to your on-prem instance, like migrating the
 database or resetting a user. The other allows you to interact with a Directus instance as you would with an SDK.
 

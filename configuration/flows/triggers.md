@@ -71,3 +71,5 @@ based on your **Location** configuration.
 - **Collections** — Choose the Collection(s) to add the Button to.
 - **Location** — Choose to add the button into the Item Page, Collection Page, or both.
 - **Asynchronous** — Toggle whether or not the Flow executes asynchronously.
+- **Collection Page (Requires Selection)** — Toggle whether a selection is required in the Collection Page to trigger
+  the Flow.

@@ -26,7 +26,7 @@ First, create a Dashboard, then fill the Dashboard with Panels.
 3. Click "Save".
 4. Click the edit icon in the page header.
 5. Hit the "Create Panel" <span mi btn >add</span> in the page header.
-6. Select a Panel type. [Learn More about panel types.](#panels-overview)
+6. Select a Panel type. [Learn More about panel types](#panels-overview).
 7. Adjust the Panel Options to customize the analytics metric.
 8. Click <span mi btn>check</span> in the drawer header to create the panel.
 9. Click <span mi btn>check</span> in the page header to confirm all edits.
@@ -168,7 +168,7 @@ The Time Series Panel allows you to build graphs and see how data changes over t
 
 - **Collection** – Selects the Collection you want to analyze.
 - **Color** – Sets color of your graph curve.
-- **Group Aggregation** – Selects the type of aggregation to perform. [Learn more.](#more-on-aggregate-functions)
+- **Group Aggregation** – Selects the type of aggregation to perform. [Learn more](#more-on-aggregate-functions).
 - **Group Precision** – Sets the time interval to aggregate by _(days, weeks, months, etc.)_.
 - **Date Field** – Selects the datetime Field used along the x-axis.
 - **Date Range** – Sets the time range from which data should be displayed, can be customized.
@@ -219,6 +219,37 @@ Panels:
 
 You will notice that the Global Variable Panel is an interface in the Dashboard, allowing you to modify the value of
 this variable. If you change its value, all panels referencing the variable will update automatically.
+
+:::warning Must be Valid Data Type
+
+Your variable's data type will need to be a valid match to wherever you are using it. For example, do not apply a string
+or JSON variable in a place that requires Datetime data.
+
+:::
+
+## Global Relational Variable
+
+- **Variable Key** — Sets your variable. Use this key to access the variable in other Insights panels.
+- **Collection** — The collection to get the item IDs from.
+- **Multiple** — Allow selection of multiple items when enabled.
+- **Limit** — Limits the number of items that can be selected.
+- **Display Template** — Defines how the items will be represented. Allows use of Field Item values as well as custom
+  text.
+- **Filter** — Sets filters to allow selection of items that meet some criteria.
+
+This panel allows you to create a variable which is globally accessible across other panels. You can use this to do
+things like select single or multiple items and pass their IDs as a value into a Filter to query results.
+
+To create and assign a Global Relational Variable, follow the steps from [How it Works](#how-it-works), selecting the
+Global Relational Variable panel. Wrap the variable key in double-moustache syntax to access and assign it throughout
+other Insights Panels:
+
+```
+{{ your_variable_key }}
+```
+
+You will notice that the Global Relational Variable Panel is an interface in the Dashboard, allowing you to modify the
+value of this variable. If you change its value, all panels referencing the variable will update automatically.
 
 :::warning Must be Valid Data Type
 

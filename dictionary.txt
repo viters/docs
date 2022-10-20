@@ -1,12 +1,14 @@
 
 
 
+
 .env
 .npmrc
 (A|a)sync
 (A|a)xios
 (B|b)ackend
 (B|b)alancer
+(B|b)asemap
 (C|c)harset
 (C|c)odebase
 (C|c)onfigs?
@@ -30,6 +32,7 @@
 (M|m)ultitenancy
 (N|n)atively
 (Q|q)uickstart
+(R|r)econfigures
 (R|r)epo
 (R|r)ollup
 (S|s)chemas?
@@ -74,7 +77,6 @@ authenticator
 autoscaling
 backend
 Base64
-(B|b)asemap
 buildout
 camelCase
 Capterra
@@ -99,6 +101,7 @@ Crowdin
 CrowdIn
 Crowdin.
 Crowdin's
+CRUDS
 cryptographic
 csv
 CSV
@@ -191,6 +194,7 @@ Memorystore
 MiB
 middleware
 Mimetype
+misconfiguration
 Mongo
 monorepo's
 more_horiz
@@ -261,8 +265,8 @@ Scalable
 SCSS
 SDK
 SDL
-SendGrid
 semver
+SendGrid
 SEO
 serverless
 SES
@@ -281,9 +285,9 @@ superset
 Superset
 SVG
 TablePlus
-TileJSON
 tfa
 TFA
+TileJSON
 TLS
 toc
 TrustRadius

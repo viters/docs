@@ -124,7 +124,6 @@ it here.
 
 `mode`\
 Whether to retrieve the refresh token in the JSON response, or in a `httpOnly` `secure` cookie. One of `json`, `cookie`.
-Defaults to `json`.
 
 ### Response Attributes
 
@@ -146,7 +145,8 @@ POST /auth/refresh
 
 ```json
 {
-	"refresh_token": "gmPd...8wuB"
+	"refresh_token": "gmPd...8wuB",
+	"mode": "json"
 }
 ```
 
