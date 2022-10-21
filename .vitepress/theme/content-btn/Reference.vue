@@ -1,42 +1,44 @@
-<script setup>
-	import { types, btnTypes } from './store.js';
-	import { useAttrs } from 'vue'
-
-	function defineButtonType(theBtnType, btnTypeList) {
-		for (let i of btnTypeList) {
-			if (theBtnType == i.btnType) {
-				return i;
-			}
-		}
-	}
-
-	function getPref(btn) {
-		let btnType = btn.btnType;
-		let usrPref = localStorage.getItem(btnType);
-		types[btnType] = usrPref ? usrPref : btn.defaultType;
-	}
-
-	function setPref(apiPref) {
-		localStorage.setItem(btnDetails.btnType, apiPref); // Set pref in localStorage, to save for future use.
-		types[btnDetails.btnType] = localStorage.getItem(btnDetails.btnType); // Sets pref in store.js, to reactively update all btns
-	}
-
-	const btnGroup = useAttrs().group; // gets val passed to component (from :btnType) at instantiation. Lets us defines which btn data to use "on the fly".
-	const btnDetails = defineButtonType(btnGroup, btnTypes); // gets the relevant button data. vals get used in getPref, setPref and template.
-	getPref(btnDetails); // called here to render content on instantiation.
-
-</script>
-
 <script>
 	export default {
 		inheritAttrs: false
 	}
 </script>
 
+<script setup>
+	import { groups } from './store.js';
+	import { useAttrs } from 'vue';
+
+	function defineButtonType(group, groups) {
+		for (let i of groups) {
+			if (group == i.group) {
+				console.log("value of defineButtonType:", i);
+				return i;
+			}
+		}
+	}
+
+	function getPref(btn) {
+		console.log("getPref:", btn);
+		// let usrPref = localStorage.getItem(btnType);
+		// types[btnType] = usrPref ? usrPref : btn.defaultType;
+	}
+
+	function setPref(apiPref) {
+		console.log("setPref:", apiPref);
+		// localStorage.setItem(btnDetails.btnType, apiPref);
+		// types[btnDetails.btnType] = localStorage.getItem(btnDetails.btnType);
+	}
+
+	const group = useAttrs().group;
+	const groupDetails = defineButtonType(group, groups);
+	getPref(groupDetails);
+
+</script>
+
 <template>
 	<div class="api-button-container">
-		<button :theBtnType="$attrs.group" v-for="choice in btnDetails.choices" class="api-button" @click="setPref(choice)"> {{choice}} </button>
-		<slot :pref="types"></slot>
+		<button v-for="choice in groupDetails.choices" class="api-button" @click="setPref(choice)"> {{choice}} </button>
+		<slot style="color:red"></slot>
 	</div>
 </template>
 

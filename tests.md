@@ -1,6 +1,6 @@
 ## Choose your API
 
-<Reference v-slot="btn" :group="`api`" >
+<Reference v-slot="btn" group="api" >
 
 :::tip
 
@@ -8,15 +8,17 @@ aloha
 
 :::
 
-<div v-if="btn.pref.api == 'REST'" >
+<div>
 
 ```
 REST
 ```
 
+okook
+
 </div>
 
-<div v-if="btn.pref.api == 'GraphQL'">
+<div>
 
 ```
 GraphQL
@@ -24,7 +26,7 @@ GraphQL
 
 </div>
 
-<div v-if="btn.pref.api == 'SDK'">
+<div>
 
 ```
 SDK
@@ -32,7 +34,7 @@ SDK
 
 </div>
 
-<div v-if="btn.pref.api == 'CLI'">
+<div>
 
 ```
 CLI
@@ -41,6 +43,9 @@ CLI
 </div>
 
 </Reference>
+
+<!--
+
 
 ## Choose your Stack
 
@@ -85,3 +90,5 @@ LAMP
 </div>
 
 </Reference>
+
+ -->

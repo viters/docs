@@ -1,36 +1,20 @@
-import { reactive } from 'vue';
+import { ref } from 'vue';
 
-export const types = reactive({});
+// export const types = reactive({}); // stores "group":"pref" as k:v pairs
 
-export const btnTypes = [
+export const groups = [
 	{
-		btnType: 'api',
+		group: 'api',
 		label: 'The API',
 		choices: ['REST', 'GraphQL', 'SDK', 'CLI'],
 		defaultType: 'REST',
-		pref: '',
+		pref: ref(''),
 	},
 	{
-		btnType: 'stack',
+		group: 'stack',
 		label: 'The Stack',
 		choices: ['JAM', 'MEAN', 'MERN', 'LAMP'],
 		defaultType: 'JAM',
-		pref: '',
+		pref: ref(''),
 	},
 ];
-
-// export const api = {
-// 	group: 'api',
-// 	label: 'The API',
-// 	contentTypes: ['REST', 'GraphQL', 'SDK', 'CLI'],
-// 	defaultType: 'REST',
-// 	pref: '',
-// };
-
-// export const stack = {
-// 	group: 'stack',
-// 	label: 'The Stack',
-// 	contentTypes: ['JAM', 'MEAN', 'MERN', 'LAMP'],
-// 	defaultType: 'JAM',
-// 	pref: '',
-// };
