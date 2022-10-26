@@ -2,13 +2,7 @@
 
 <Reference group="api">
 
-:::tip
-
-Aloha from outside the snippets!
-
-:::
-
-<RefSnippet>
+<RefSnippet group="api" choice="REST">
 
 ```
 REST
