@@ -1,8 +1,8 @@
-<!-- <script>
+<script>
 	export default {
 		inheritAttrs: false
 	}
-</script> -->
+</script>
 
 <script setup>
 	import { groups } from './store.js';
@@ -42,7 +42,9 @@
 <template>
 	<div class="api-button-container">
 		<button v-for="choice in groupDetails.choices" class="api-button" @click="setPref(choice)"> {{choice}} </button>
-		<slot :options="true"></slot>
+		<div v-for="choice in groupDetails.choices" >
+			<slot :name="choice"></slot>
+		</div>
 	</div>
 </template>
 

@@ -1,14 +1,16 @@
 <script setup>
-// import { groups } from './store.js';
-// get group
 
+import { useAttrs } from 'vue';
+
+const choice = useAttrs().choice;
+console.log("the choice:", choice);
 
 </script>
 
 <template>
-	<!-- <div v-show="choice == pref"> -->
-		<slot></slot>
-	<!-- </div> -->
+	<div>
+		<p>{{choice}}</p>
+	</div>
 </template>
 
 <style scoped>

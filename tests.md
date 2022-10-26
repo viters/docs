@@ -2,7 +2,43 @@
 
 <Reference group="api">
 
-<RefSnippet group="api" choice="REST">
+<template #REST>
+
+```
+REST!
+```
+
+</template>
+
+<template #GraphQL>
+
+```
+GraphQL!
+```
+
+</template>
+
+<template #SDK>
+
+```
+SDK!
+```
+
+</template>
+
+<template #CLI>
+
+```
+CLI!
+```
+
+</template>
+
+</Reference>
+
+<!-- <Reference group="api">
+
+<RefSnippet choice="REST">
 
 ```
 REST
@@ -10,7 +46,7 @@ REST
 
 </RefSnippet>
 
-<RefSnippet>
+<RefSnippet choice="GraphQL">
 
 ```
 GraphQL
@@ -18,7 +54,7 @@ GraphQL
 
 </RefSnippet>
 
-<RefSnippet>
+<RefSnippet choice="SDK">
 
 ```
 SDK
@@ -26,7 +62,7 @@ SDK
 
 </RefSnippet>
 
-<RefSnippet>
+<RefSnippet choice="CLI">
 
 ```
 CLI
@@ -34,7 +70,7 @@ CLI
 
 </RefSnippet>
 
-</Reference>
+</Reference> -->
 
 <!--
 
