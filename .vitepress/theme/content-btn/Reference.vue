@@ -1,8 +1,8 @@
-<script>
+<!-- <script>
 	export default {
 		inheritAttrs: false
 	}
-</script>
+</script> -->
 
 <script setup>
 	import { groups } from './store.js';
@@ -33,16 +33,25 @@
 	const groupDetails = defineButtonType(group, groups);
 	getPref(groupDetails);
 
+	const rest = {
+		display: "none",
+	}
+
 </script>
 
 <template>
 	<div class="api-button-container">
 		<button v-for="choice in groupDetails.choices" class="api-button" @click="setPref(choice)"> {{choice}} </button>
-		<slot style="color:red"></slot>
+		<slot :options="true"></slot>
 	</div>
 </template>
 
 <style scoped>
+
+	.inactive {
+		display: none;
+	}
+
 	.api-button-container {
 		border: solid;
 		border-radius: 8px;

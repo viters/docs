@@ -1,46 +1,44 @@
 ## Choose your API
 
-<Reference v-slot="btn" group="api" >
+<Reference group="api">
 
 :::tip
 
-aloha
+Aloha from outside the snippets!
 
 :::
 
-<div>
+<RefSnippet>
 
 ```
 REST
 ```
 
-okook
+</RefSnippet>
 
-</div>
-
-<div>
+<RefSnippet>
 
 ```
 GraphQL
 ```
 
-</div>
+</RefSnippet>
 
-<div>
+<RefSnippet>
 
 ```
 SDK
 ```
 
-</div>
+</RefSnippet>
 
-<div>
+<RefSnippet>
 
 ```
 CLI
 ```
 
-</div>
+</RefSnippet>
 
 </Reference>
 

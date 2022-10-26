@@ -1,12 +1,15 @@
 <script setup>
-	import { types, btnTypes } from './store.js';
+// import { groups } from './store.js';
+// get group
+// v-for to create slots with dynamic names
+// v-show="choice == pref"
 
 </script>
 
 <template>
-	<slot></slot>
+		<slot></slot>
 </template>
 
 <style scoped>
-	/* TBD */
+/* TBD */
 </style>
