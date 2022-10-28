@@ -1,9 +1,3 @@
-<script>
-	export default {
-		inheritAttrs: false
-	}
-</script>
-
 <script setup>
 	import { groups } from './store.js';
 	import { useAttrs } from 'vue';
@@ -41,10 +35,13 @@
 
 <template>
 	<div class="api-button-container">
+
 		<button v-for="choice in groupDetails.choices" class="api-button" @click="setPref(choice)"> {{choice}} </button>
+
 		<div v-for="choice in groupDetails.choices" >
 			<slot :name="choice"></slot>
 		</div>
+
 	</div>
 </template>
 
@@ -69,7 +66,6 @@
 
 <!--
 	TODO:
-	Improve how slot elements pass vals to parent component -> from ( :v-if="types.pref.api == 'CLI'" ) to ( v-if="typeIs.CLI" ) || ( :typeIs=CLI )
-	Consider refactoring logic: What to put in between Reference.vue and what to put in store.js?
-	Add a CSS system
+		Convert <template> to a <Snippet>
+		Add a CSS System
 -->
