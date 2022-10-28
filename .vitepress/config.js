@@ -105,6 +105,7 @@ gtag('config', 'UA-24637628-7');
 			dark: '/logo-dark.svg',
 		},
 		nav: [
+			{ text: 'Cookbooks', link: 'https://docs.directus.io/cookbooks/intro' },
 			{ text: 'Website', link: 'https://directus.io/' },
 			{ text: 'Cloud', link: 'https://directus.cloud/' },
 			{ text: 'GitHub', link: 'https://github.com/directus/directus' },
@@ -114,13 +115,61 @@ gtag('config', 'UA-24637628-7');
 			apiKey: '76eb519cf1a4492777a6991f75c5252b',
 			indexName: 'directus',
 		},
-		sidebar: sidebar(),
+		sidebar: {
+			// '/': sidebar(),
+			'/cookbooks/': sidebarCookbooks(),
+		},
 		editLink: {
 			pattern: 'https://github.com/directus/docs/edit/main/:path',
 			text: 'Edit this page on GitHub',
 		},
 	},
 };
+
+function sidebarCookbooks() {
+	return [
+		{
+			text: 'Cookbooks Intro',
+			items: [{ text: 'Intro', link: '/cookbooks/intro' }],
+		},
+		// {
+		// 	text: 'Projects',
+		// 	collapsible: true,
+		// 	collapsed: true,
+		// 	items: [{ text: 'Intro', link: '/cookbooks/intro' }],
+		// },
+		{
+			text: 'Integrations',
+			collapsible: true,
+			collapsed: true,
+			items: [{ text: 'Blitz + Directus', link: '/cookbooks/integrations/blitz-plus-directus' }],
+		},
+		{
+			text: 'Data Models',
+			collapsible: true,
+			collapsed: true,
+			items: [{ text: 'Ecommerce', link: '/cookbooks/data-models/ecommerce' }],
+		},
+		{
+			text: 'Permissions',
+			collapsible: true,
+			collapsed: true,
+			items: [{ text: 'Multi-Sig Approval', link: '/cookbooks/permissions/multi-sig-approval' }],
+		},
+		{
+			text: 'Flows',
+			collapsible: true,
+			collapsed: true,
+			items: [{ text: 'For Loops', link: '/cookbooks/flows/flows-for-loop' }],
+		},
+		// {
+		// 	text: 'Websockets',
+		// 	collapsible: true,
+		// 	collapsed: true,
+		// 	items: [{ text: 'Intro', link: '/cookbooks/intro' }],
+		// },
+	];
+}
 
 function sidebar() {
 	return [
