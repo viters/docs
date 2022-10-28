@@ -138,12 +138,12 @@ function sidebarCookbooks() {
 		// 	collapsed: true,
 		// 	items: [{ text: 'Intro', link: '/cookbooks/intro' }],
 		// },
-		{
-			text: 'Integrations',
-			collapsible: true,
-			collapsed: true,
-			items: [{ text: 'Blitz + Directus', link: '/cookbooks/integrations/blitz-plus-directus' }],
-		},
+		// {
+		// 	text: 'Integrations',
+		// 	collapsible: true,
+		// 	collapsed: true,
+		// 	items: [{ text: 'Blitz + Directus', link: '/cookbooks/integrations/blitz-plus-directus' }],
+		// },
 		{
 			text: 'Data Models',
 			collapsible: true,
