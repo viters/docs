@@ -148,19 +148,26 @@ function sidebarCookbooks() {
 			text: 'Data Models',
 			collapsible: true,
 			collapsed: true,
-			items: [{ text: 'Ecommerce', link: '/cookbooks/data-models/ecommerce' }],
+			items: [{ text: 'M2A Content Builder', link: '/cookbooks/data-models/m2a-content-builder' }],
 		},
 		{
 			text: 'Permissions',
 			collapsible: true,
 			collapsed: true,
-			items: [{ text: 'Multi-Sig Approval', link: '/cookbooks/permissions/multi-sig-approval' }],
+			items: [
+				{ text: 'Content Authoring', link: '/cookbooks/permissions/content-authoring' },
+				{ text: 'Multi-Sig Signoffs', link: '/cookbooks/permissions/multi-sig-signoffs' },
+				{ text: 'Use Flows in Workflows', link: '/cookbooks/permissions/use-flows-in-workflows' },
+			],
 		},
 		{
 			text: 'Flows',
 			collapsible: true,
 			collapsed: true,
-			items: [{ text: 'For Loops', link: '/cookbooks/flows/flows-for-loop' }],
+			items: [
+				{ text: 'For Loops', link: '/cookbooks/flows/flows-for-loop' },
+				{ text: 'Slugify Text with Run Script', link: '/cookbooks/flows/slugify-text-with-run-script' },
+			],
 		},
 		// {
 		// 	text: 'Websockets',
