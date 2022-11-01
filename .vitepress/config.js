@@ -155,7 +155,7 @@ function sidebarCookbooks() {
 			collapsible: true,
 			collapsed: true,
 			items: [
-				{ text: 'Content Authoring', link: '/cookbooks/permissions/content-authoring' },
+				{ text: 'Content Authoring Workflows', link: '/cookbooks/permissions/workflows' },
 				{ text: 'Multi-Sig Signoffs', link: '/cookbooks/permissions/multi-sig-signoffs' },
 				{ text: 'Use Flows in Workflows', link: '/cookbooks/permissions/use-flows-in-workflows' },
 			],
@@ -327,10 +327,6 @@ function sidebar() {
 						{
 							link: '/configuration/users-roles-permissions/permissions',
 							text: 'Permissions',
-						},
-						{
-							link: '/configuration/users-roles-permissions/workflows',
-							text: 'Workflows',
 						},
 					],
 				},
