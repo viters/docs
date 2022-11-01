@@ -1,6 +1,6 @@
 {
 	"name": "@directus/docs",
-	"version": "9.19.0",
+	"version": "9.20.0",
 	"main": "dist/index.js",
 	"exports": {
 		".": "./dist/index.js",
