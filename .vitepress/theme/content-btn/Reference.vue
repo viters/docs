@@ -29,34 +29,34 @@
 </script>
 
 <template>
+	<button v-for="choice in groupDetails.choices" class="api-button" @click="setPref(choice)"> {{choice}} </button>
 	<div class="api-button-container">
-
-		<button v-for="choice in groupDetails.choices" class="api-button" @click="setPref(choice)"> {{choice}} </button>
-
-		<div v-for="choice in groupDetails.choices" >
+	<div v-for="choice in groupDetails.choices" >
 			<div v-show="choice == groupDetails.pref.value">
 				<slot :name="choice"></slot>
 			</div>
 		</div>
-
 	</div>
+
 </template>
 
 <style scoped>
 
-	.inactive {
-		display: none;
-	}
-
 	.api-button-container {
-		border: solid;
-		border-radius: 8px;
+		border: solid var(--vp-c-brand-darker);
+		border-radius: 6px;
+		padding: 2px;
 	}
 
 	.api-button {
-			padding: 10px;
-			margin: 5px;
-			background-color: red;
-		}
+		padding: 10px;
+		border-radius: 6px;
+		margin: 2px;
+		background-color: var(--vp-c-brand-light);
+	}
+
+	.api-button:active {
+		background-color: var(--vp-c-brand);
+	}
 
 </style>

@@ -1,5 +1,15 @@
 ## Choose your API
 
+List all files that exist in Directus.
+
+### Query Parameters
+
+Supports all global query parameters.
+
+### Returns
+
+An array of up to limit file objects. If no items are available, data will be an empty array.
+
 <Reference group="api">
 
 <template #REST>
@@ -35,6 +45,8 @@ CLI!
 </template>
 
 </Reference>
+
+## Choose your Stack
 
 <Reference group="stack">
 
