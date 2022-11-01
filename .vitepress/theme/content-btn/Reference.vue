@@ -5,32 +5,27 @@
 	function defineButtonType(group, groups) {
 		for (let i of groups) {
 			if (group == i.group) {
-				console.log("value of defineButtonType:", i);
+				// console.log("value of defineButtonType:", i);
 				return i;
 			}
 		}
 	}
 
-	function getPref(btn) {
-		console.log("getPref:", btn);
-		// let usrPref = localStorage.getItem(btnType);
-		// types[btnType] = usrPref ? usrPref : btn.defaultType;
+	function getPref(groupDetails) {
+		let userPref = localStorage.getItem(groupDetails.defaultType);
+		groupDetails.pref.value = userPref ? userPref : groupDetails.defaultType;
+		// console.log("getPref:", groupDetails.pref.value);
 	}
 
-	function setPref(apiPref) {
-		console.log("setPref:", apiPref);
-		// localStorage.setItem(btnDetails.btnType, apiPref);
-		// types[btnDetails.btnType] = localStorage.getItem(btnDetails.btnType);
+	function setPref(newPref) {
+		// console.log("setPref:", newPref);
+		localStorage.setItem(group, newPref);
+		groupDetails.pref.value = localStorage.getItem(group);
 	}
 
 	const group = useAttrs().group;
 	const groupDetails = defineButtonType(group, groups);
 	getPref(groupDetails);
-
-	const rest = {
-		display: "none",
-	}
-
 </script>
 
 <template>
@@ -39,7 +34,9 @@
 		<button v-for="choice in groupDetails.choices" class="api-button" @click="setPref(choice)"> {{choice}} </button>
 
 		<div v-for="choice in groupDetails.choices" >
-			<slot :name="choice"></slot>
+			<div v-show="choice == groupDetails.pref.value">
+				<slot :name="choice"></slot>
+			</div>
 		</div>
 
 	</div>
@@ -63,9 +60,3 @@
 		}
 
 </style>
-
-<!--
-	TODO:
-		Convert <template> to a <Snippet>
-		Add a CSS System
--->

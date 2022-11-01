@@ -1,7 +1,5 @@
 import { ref } from 'vue';
 
-// export const types = reactive({}); // stores "group":"pref" as k:v pairs
-
 export const groups = [
 	{
 		group: 'api',

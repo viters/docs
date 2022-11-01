@@ -35,3 +35,39 @@ CLI!
 </template>
 
 </Reference>
+
+<Reference group="stack">
+
+<template #JAM>
+
+```
+JAM!
+```
+
+</template>
+
+<template #MEAN>
+
+```
+MEAN!
+```
+
+</template>
+
+<template #MERN>
+
+```
+MERN!
+```
+
+</template>
+
+<template #LAMP>
+
+```
+LAMP!
+```
+
+</template>
+
+</Reference>
