@@ -130,7 +130,10 @@ function sidebarCookbooks() {
 	return [
 		{
 			text: 'Cookbooks Intro',
-			items: [{ text: 'Intro', link: '/cookbooks/intro' }],
+			items: [
+				{ text: 'Intro', link: '/cookbooks/intro' },
+				{ text: 'Recipe Template', link: '/cookbooks/template' },
+			],
 		},
 		// {
 		// 	text: 'Projects',

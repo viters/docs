@@ -22,9 +22,9 @@ define what a role can and can't do to all items in a collection.
 things a step further and let you define what a role can and can't do to each item in a collection, _based on its
 [field values](/configuration/data-model/fields.md)_.
 
-Workflows are when you use these permissions techniques to create structured stages to the flow of content or data
-creation. In simplest terms, its when you have two or more roles, and you give each role permissions to access items
-_only when you want them to_.
+Workflows are when you use these permissions techniques to create structured stages to content or data creation. In
+simplest terms, its when you have two or more roles, and you give them different permissions at each stage in the
+content creation process.
 
 There are an infinite number of possible workflows you could configure. But for this recipe, we will configure a simple
 workflow where `writers` and `editors` work together to create, co-edit and publish `articles`.
@@ -60,9 +60,9 @@ To implement a workflow, you'll need:
 
 :::
 
-<video autoplay playsinline muted loop controls>
+<!-- <video autoplay playsinline muted loop controls>
 	<source src="" type="video/mp4" />
-</video>
+</video> -->
 
 To create a structured workflow for `articles`, follow these steps.
 
@@ -120,15 +120,15 @@ A minor misconfiguration here could ruin academic integrity. Here's a few potent
 - teachers modify the results of students that they like or don't like.
 - _and beyond!_
 
-When creating your own workflow, its a good idea to lay out:
+When creating your own workflow, its a good idea to define:
 
 - each role involved.
 - each stage in the workflow.
-- the explicit set of permissions permissions each role has at each stage.
+- the explicit set of permissions each role has at each stage.
 
-_... just as we did in the [explanation](#explanation) at the beginning of this recipe!_
+_... just as you saw in the [Explanation](#explanation) at the beginning of this recipe!_
 
-:::tip
+:::tip Next Steps
 
 Workflows can be further enhanced with custom [Interfaces](/extensions/interfaces.md) as well as
 [flows](/configuration/flows.md).
