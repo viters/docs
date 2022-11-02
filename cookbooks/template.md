@@ -35,11 +35,11 @@ There are three key parts to to a recipe:
 
 Let's take a look at how to get your recipe written and submitted to the docs.
 
-:::warning Keep it Modular
+:::warning Keep it Simple
 
 The explanation should be about 1-5 paragraphs. If you feel like your explanation _needs_ to be longer, you might have
-_multiple separate recipes_ on your hands, and you should separate them. Or you may be explaining things that are in the
-docs, in which case you can use links.
+_multiple separate recipes_ on your hands, and you should separate them... or you may be explaining things that are in
+the docs, in which case you can use links.
 
 :::
 
@@ -111,7 +111,7 @@ to be accepted.
 We created this template is to provide a clear scope and style for all recipes. This makes things easier and more
 consistent for readers, contributors, and the Directus Core team.
 
-That said.... _it is kinda nice to break the rule sometimes._
+That said.... _it is kinda nice to break the rules sometimes!_
 
 If there's a clear, distinct reason that your recipe should deviate from this template, feel free to make some
 modifications. You can also tag the team member that approved your GitHub issue and share your draft before you get too
