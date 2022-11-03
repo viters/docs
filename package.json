@@ -19,6 +19,7 @@
 		"Eron Donevan Powell"
 	],
 	"devDependencies": {
+		"@directus/vue-snippet-toggler": "^0.0.2",
 		"@thumbsmith/url": "^0.1.2",
 		"@vueuse/core": "^9.4.0",
 		"@vueuse/head": "^0.7.8",
@@ -46,8 +47,5 @@
 				"@types/react"
 			]
 		}
-	},
-	"dependencies": {
-		"@directus/vue-snippet-toggler": "link:../vue-snippet-toggler"
 	}
 }
