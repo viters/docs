@@ -59,6 +59,28 @@
 }
 
 /**
+ * Make sure code block looks nice in @directus/vue-snippet-toggler
+ * -------------------------------------------------------------------------- */
+.vp-doc .snippet-toggler {
+	margin: 16px -24px;
+}
+
+@media (min-width: 640px) {
+	.vp-doc .snippet-toggler {
+		margin: 16px 0;
+	}
+}
+
+.vp-doc .snippet-toggler div[class*='language-'] {
+	margin: 0;
+	border-radius: 0;
+}
+
+.vp-doc .snippet-toggler div[class*='language-'] .lang {
+	display: none;
+}
+
+/**
  * Hubspot color-scheme weirdness
  * -------------------------------------------------------------------------- */
 #hubspot-messages-iframe-container {
