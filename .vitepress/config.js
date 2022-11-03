@@ -179,6 +179,12 @@ function sidebarCookbooks() {
 		// 	collapsed: true,
 		// 	items: [{ text: 'Intro', link: '/cookbooks/intro' }],
 		// },
+		// {
+		// 	text: 'Insights',
+		// 	collapsible: true,
+		// 	collapsed: true,
+		// 	items: [{ text: 'Intro', link: '/cookbooks/intro' }],
+		// },
 	];
 }
 
