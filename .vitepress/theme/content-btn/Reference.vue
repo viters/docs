@@ -11,7 +11,7 @@
 		}
 	}
 
-	function getPref(groupDetails) {
+	function getPref() { // passed-in groupDetails from file scope
 		let userPref = localStorage.getItem(groupDetails.defaultType);
 		groupDetails.pref.value = userPref ? userPref : groupDetails.defaultType;
 		// console.log("getPref:", groupDetails.pref.value);
@@ -24,7 +24,7 @@
 	}
 
 	const group = useAttrs().group;
-	const groupDetails = defineButtonType(group, groups);
+	const groupDetails = defineButtonType(group, groups); //  passed-in groupDetails from file scope
 	getPref(groupDetails);
 </script>
 
@@ -37,11 +37,9 @@
 			</div>
 		</div>
 	</div>
-
 </template>
 
 <style scoped>
-
 	.api-button-container {
 		border: solid var(--vp-c-brand-darker);
 		border-radius: 6px;
