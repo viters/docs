@@ -48,7 +48,7 @@ the docs, in which case you can use links.
 :::tip Requirements
 
 To submit recipes, you'll need to fork the docs repo. For details, see our guide on
-[running locally](contributing/running-locally.html).
+[running locally](/contributing/running-locally.html).
 
 :::
 
