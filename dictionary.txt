@@ -330,3 +330,8 @@ UUIDs
 (C|c)ancelled
 (C|)ancelling
 performant
+Heya
+PR
+PRs
+(T|t)triage
+(T|t)riaging
