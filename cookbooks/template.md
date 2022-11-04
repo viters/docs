@@ -17,16 +17,18 @@ author_override:
 
 ## Explanation
 
-Recipes are how we show off a nifty configuration, integration, or use-case for Directus. What you're reading right now
-is the _recipes template_. It is written using the recipe template itself. Keep following along to see how to purpose,
-write, and submit new ideas to the cookbooks.
+Recipes let you show off your nifty configurations, integrations, or use-cases for Directus.
+
+What you're reading right now _is the recipe on how to write recipes_. That is to say, this guide is written using the
+same template we use to write all other recipes. By the end, you'll know how to develop, purpose, write, and submit your
+recipes to the cookbooks!
 
 There are three key parts to to a recipe:
 
 - **Explanation** — Explain what the recipe is for, in conceptual terms. In this section, you want to fully prep the
-  user for what's to come in your recipe. The goal is that before they even begin the [How To Guide](#how-to-guide)
-  below, users should have a general idea of what the recipe is, what the general steps are and whether it might be
-  right for their project.
+  user for what's to come in your recipe. The goal is that before your readers even begin the
+  [How To Guide](#how-to-guide) below, they should have a general idea of what the recipe is, what the general steps are
+  and whether it might be right for their project.
 - **How To Guide** — Lays out explicit steps of the recipe. While some light explanation regarding a specific step in
   the recipe is okay here, you want to try to keep this section task-oriented.
 - **Final Tips** — Final thoughts, tips, warnings, possibilities, _and beyond!_ This is your chance to tie up any
@@ -93,6 +95,12 @@ If everything looks good, we'll merge your recipe!
 ## Final Tips
 
 A couple key points to remember when writing recipes.
+
+### The Structure
+
+- Tell them what the recipe is for, in conceptual terms.
+- Tell them the recipe, in step-by-step detail.
+- Tell them about the recipe, expanding on any possibilities, tips, or warnings.
 
 ### Redundant Recipes
 
