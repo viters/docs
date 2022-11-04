@@ -35,7 +35,7 @@ There are three key parts to to a recipe:
 
 :::warning Keep it Simple
 
-The explanation should be about 3-5 paragraphs. If you feel like your explanation _needs_ to be longer, you might
+An explanation should be roughly 1-5 paragraphs. If you feel like your explanation _needs_ to be longer, you might
 actually have _multiple separate recipes_, in which case you should separate them... Or you may be re-explaining things
 that are in the docs, in which case you can use links.
 
