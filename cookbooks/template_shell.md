@@ -24,8 +24,8 @@ https://vitepress.vuejs.org/guide/markdown
 
 :::tip Requirements
 
-Define the knowledge they need to implement the recipe. Include the collections, roles, permssions, flows, etc they need
-to use your recipe.
+Define the knowledge they need to implement the recipe. Define the pre-existing configurations such as collections,
+roles, permssions, flows, etc. that they need to use your recipe.
 
 :::
 
@@ -55,7 +55,7 @@ Once Part 1 is over, follow these steps.
 2. Do E
 3. Do F
 
-If there's a part 3, write it! If not, we're done!
+If there's a part 3, write it! If not, you're done!
 
 ## Final Tips
 
