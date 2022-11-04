@@ -20,7 +20,7 @@ See the VitePress docs to learn about its markdown options:
 https://vitepress.vuejs.org/guide/markdown
 -->
 
-<!-- ## The Recipe -->
+## The Recipe
 
 :::tip Requirements
 
