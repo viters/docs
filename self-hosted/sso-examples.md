@@ -138,5 +138,7 @@ AUTH_APPLE_DRIVER="openid"
 AUTH_APPLE_CLIENT_ID="..."
 AUTH_APPLE_CLIENT_SECRET="..."
 AUTH_APPLE_ISSUER_URL="https://appleid.apple.com/.well-known/openid-configuration"
+AUTH_APPLE_SCOPE="name email"
 AUTH_APPLE_IDENTIFIER_KEY="email"
+AUTH_APPLE_PARAMS="{"response_mode":"form_post"}"
 ```

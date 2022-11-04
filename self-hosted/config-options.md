@@ -636,9 +636,9 @@ we recommend lowering the allowed concurrent transformations to prevent you from
 
 For each auth provider you list, you must also provide the following configuration:
 
-| Variable                 | Description                                                     | Default Value |
-| ------------------------ | --------------------------------------------------------------- | ------------- |
-| `AUTH_<PROVIDER>_DRIVER` | Which driver to use, either `local`, `oauth2`, `openid`, `ldap` | --            |
+| Variable                 | Description                                                             | Default Value |
+| ------------------------ | ----------------------------------------------------------------------- | ------------- |
+| `AUTH_<PROVIDER>_DRIVER` | Which driver to use, either `local`, `oauth2`, `openid`, `ldap`, `saml` | --            |
 
 You may also be required to specify additional variables depending on the auth driver. See configuration details below.
 
@@ -774,6 +774,31 @@ AUTH_LDAP_BIND_PASSWORD="p455w0rd"
 AUTH_LDAP_USER_DN="OU=Users,DC=ldap,DC=directus,DC=io"
 AUTH_LDAP_GROUP_DN="OU=Groups,DC=ldap,DC=directus,DC=io"
 ```
+
+### SAML
+
+SAML is an open-standard, XML-based authentication framework for authentication and authorization between two entities
+without a password.
+
+- Service provider (SP) agrees to trust the identity provider to authenticate users.
+
+- Identity provider (IdP) authenticates users and provides to service providers an authentication assertion that
+  indicates a user has been authenticated.
+
+| Variable                                    | Description                                                                | Default Value |
+| ------------------------------------------- | -------------------------------------------------------------------------- | ------------- |
+| `AUTH_<PROVIDER>_SP_metadata`               | String containing XML metadata for service provider or URL to a remote URL | --            |
+| `AUTH_<PROVIDER>_IDP_metadata`              | String container XML metadata for identity provider or URL to a remote URL | --            |
+| `AUTH_<PROVIDER>_ALLOW_PUBLIC_REGISTRATION` | Automatically create accounts for authenticating users.                    | `false`       |
+| `AUTH_<PROVIDER>_DEFAULT_ROLE_ID`           | A Directus role ID to assign created users.                                | --            |
+| `AUTH_<PROVIDER>_IDENTIFIER_KEY`            | User profile identifier key <sup>[1]</sup>. Will default to `EMAIL_KEY`.   | --            |
+| `AUTH_<PROVIDER>_EMAIL_KEY`                 | User profile email key.                                                    | `email`       |
+
+<sup>[1]</sup> When authenticating, Directus will match the identifier value from the external user profile to a
+Directus users "External Identifier".
+
+The `SP_metadata` and `IDP_metadata` variables should be set to the XML metadata provided by the service provider and
+identity provider respectively or can be set to a URL that will be fetched on startup.
 
 ### Example: Multiple Auth Providers
 
