@@ -161,7 +161,6 @@ function sidebarCookbooks() {
 			items: [
 				{ text: 'Content Authoring Workflows', link: '/cookbooks/permissions/workflows' },
 				{ text: 'Multi-Sig Signoffs', link: '/cookbooks/permissions/multi-sig-signoffs' },
-				{ text: 'Use Flows in Workflows', link: '/cookbooks/permissions/use-flows-in-workflows' },
 			],
 		},
 		{
@@ -171,6 +170,7 @@ function sidebarCookbooks() {
 			items: [
 				{ text: 'For Loops', link: '/cookbooks/flows/flows-for-loop' },
 				{ text: 'Slugify Text with Run Script', link: '/cookbooks/flows/slugify-text-with-run-script' },
+				{ text: 'Generate Work Reports', link: '/cookbooks/flows/generate-work-reports' },
 			],
 		},
 		// {
