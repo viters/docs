@@ -1,6 +1,6 @@
 ---
-title: Generate Work Reports
-description: This recipe outlines a method to generate reports using Directus Flows.
+title: Multi-Signature Data Access
+description: This recipe outlines how to setup basic multi-signature sign-off within Directus.
 image:
 tags: []
 skill_level:
@@ -10,29 +10,7 @@ author_override:
 ---
 
 <!--
-Pairs well with [workflows](/cookbooks/permissions/workflows.md)
 
-:::tip Requirements
-
-You'll need something to validate against.
-
-:::
-
-- cron job
-- read data
-	- Get relevant authors/managers/etc.
-- trigger flow
-	- pass array of users/stakeholders into payload
-
-- another flow: for user in user_list
-- read data
-	- get data/content using a query
-	- get authors and managers
-	- send data
-- run script (optional)
-	- format data for report
-- email or notification
-	- send to managers or stakeholders
 -->
 
 # {{$frontmatter.title}}
@@ -51,7 +29,7 @@ https://vitepress.vuejs.org/guide/markdown
 :::tip Requirements
 
 Define the knowledge they need to implement the recipe. Define the pre-existing configurations such as collections,
-roles, permissions, flows, etc. that they need to use your recipe.
+roles, permssions, flows, etc. that they need to use your recipe.
 
 :::
 

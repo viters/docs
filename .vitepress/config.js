@@ -152,7 +152,7 @@ function sidebarCookbooks() {
 			text: 'Data Models',
 			collapsible: true,
 			collapsed: true,
-			items: [{ text: 'M2A Content Builder', link: '/cookbooks/data-models/m2a-content-builder' }],
+			items: [{ text: 'Build Content with M2A', link: '/cookbooks/data-models/build-content-with-m2a' }],
 		},
 		{
 			text: 'Permissions',
@@ -160,7 +160,7 @@ function sidebarCookbooks() {
 			collapsed: true,
 			items: [
 				{ text: 'Content Authoring Workflows', link: '/cookbooks/permissions/workflows' },
-				{ text: 'Multi-Sig Signoffs', link: '/cookbooks/permissions/multi-sig-signoffs' },
+				{ text: 'Multi-Sig Signoffs', link: '/cookbooks/permissions/multi-sig-data-access' },
 			],
 		},
 		{

@@ -1,5 +1,5 @@
 ---
-title: A Content Authoring Workflow
+title: Content Authoring Workflows
 tags: [team work, content production]
 skill_level:
 directus_version: 9.18.1
