@@ -1,7 +1,6 @@
 ---
 title: Build Content With M2A
-description:
-  This recipe expalins how to use an M2A to efficiently generate a class of content with irregular content elements.
+description: This recipe demonstrates how to use an M2A relationship to build content dynamically.
 image:
 tags: []
 skill_level:
@@ -12,7 +11,15 @@ author_override:
 
 # {{$frontmatter.title}}
 
-> {{ $frontmatter.description }}
+> {{$frontmatter.description}}
+
+:::tip Authors: [{{$frontmatter.author}}]()
+
+**Skill Level:** {{$frontmatter.skill_level}}\
+**Directus Version:** {{$frontmatter.directus_version}}\
+**Tags:** {{$frontmatter.tags.join(", ")}}
+
+:::
 
 ## Explanation
 

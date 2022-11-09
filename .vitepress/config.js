@@ -106,7 +106,7 @@ gtag('config', 'UA-24637628-7');
 		},
 		nav: [
 			{ text: 'Docs', link: 'http://docs.directus.io/' },
-			{ text: 'Cookbooks', link: 'http://docs.directus.io/cookbooks/intro', activeMatch: '/cookbooks/' },
+			{ text: 'Cookbook', link: 'http://docs.directus.io/cookbook/add-a-recipe', activeMatch: '/cookbook/' },
 			{ text: 'Website', link: 'https://directus.io/' },
 			{ text: 'Cloud', link: 'https://directus.cloud/' },
 			{ text: 'GitHub', link: 'https://github.com/directus/directus' },
@@ -117,7 +117,7 @@ gtag('config', 'UA-24637628-7');
 			indexName: 'directus',
 		},
 		sidebar: {
-			'/cookbooks/': sidebarCookbooks(),
+			'/cookbook/': sidebarCookbooks(),
 			'/': sidebar(),
 		},
 		editLink: {
@@ -130,37 +130,38 @@ gtag('config', 'UA-24637628-7');
 function sidebarCookbooks() {
 	return [
 		{
-			text: 'Cookbooks Intro',
-			items: [
-				{ text: 'Intro', link: '/cookbooks/intro' },
-				{ text: 'Recipe Template', link: '/cookbooks/template' },
-			],
+			text: 'The Cookbook',
+			items: [{ text: 'Add a Recipe', link: '/cookbook/add-a-recipe' }],
 		},
 		// {
 		// 	text: 'Projects',
 		// 	collapsible: true,
 		// 	collapsed: true,
-		// 	items: [{ text: 'Intro', link: '/cookbooks/intro' }],
+		// 	items: [{ text: 'Intro', link: '/cookbook/intro' }],
 		// },
 		// {
 		// 	text: 'Integrations',
 		// 	collapsible: true,
 		// 	collapsed: true,
-		// 	items: [{ text: 'Blitz + Directus', link: '/cookbooks/integrations/blitz-plus-directus' }],
+		// 	items: [],
 		// },
 		{
 			text: 'Data Models',
 			collapsible: true,
 			collapsed: true,
-			items: [{ text: 'Build Content with M2A', link: '/cookbooks/data-models/build-content-with-m2a' }],
+			items: [
+				{ text: 'Build Content with M2A', link: '/cookbook/data-models/build-content-with-m2a' },
+				{ text: 'Nested Website Menus', link: '/cookbook/data-models/nested-website-menus' },
+			],
 		},
 		{
 			text: 'Permissions',
 			collapsible: true,
 			collapsed: true,
 			items: [
-				{ text: 'Content Authoring Workflows', link: '/cookbooks/permissions/workflows' },
-				{ text: 'Multi-Sig Signoffs', link: '/cookbooks/permissions/multi-sig-data-access' },
+				{ text: 'Content Authoring Workflows', link: '/cookbook/permissions/workflows' },
+				{ text: 'Configure User registration', link: '/cookbook/permissions/configure-user-registration' },
+				// { text: 'Multi-Sig Data Access', link: '/cookbook/permissions/multi-sig-data-access' },
 			],
 		},
 		{
@@ -168,22 +169,22 @@ function sidebarCookbooks() {
 			collapsible: true,
 			collapsed: true,
 			items: [
-				{ text: 'For Loops', link: '/cookbooks/flows/flows-for-loop' },
-				{ text: 'Slugify Text with Run Script', link: '/cookbooks/flows/slugify-text-with-run-script' },
-				{ text: 'Generate Work Reports', link: '/cookbooks/flows/generate-work-reports' },
+				{ text: 'For Loops', link: '/cookbook/flows/flows-for-loop' },
+				{ text: 'Slugify Text with Run Script', link: '/cookbook/flows/slugify-text-with-run-script' },
+				// { text: 'Generate Work Reports', link: '/cookbook/flows/generate-work-reports' },
 			],
 		},
 		// {
 		// 	text: 'Websockets',
 		// 	collapsible: true,
 		// 	collapsed: true,
-		// 	items: [{ text: 'Intro', link: '/cookbooks/intro' }],
+		// 	items: [{ text: 'Intro', link: '/cookbook/intro' }],
 		// },
 		// {
 		// 	text: 'Insights',
 		// 	collapsible: true,
 		// 	collapsed: true,
-		// 	items: [{ text: 'Intro', link: '/cookbooks/intro' }],
+		// 	items: [{ text: 'Intro', link: '/cookbook/intro' }],
 		// },
 	];
 }

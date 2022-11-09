@@ -6,13 +6,22 @@ directus_version: 9.18.1
 one_click_cloud_install:
 image:
 author_override:
+author: Eron Powell
 ---
 
 # {{$frontmatter.title}}
 
-> Workflows are a way to add structured stages to the flow of content or data creation. This enables one to do things
-> like pass off work in progress between multiple roles, create multi-signature approvals, build decision trees, _and
-> beyond!_
+> Workflows are a way to add structured stages to the flow of content or data creation through the use of custom access
+> permissions. This enables you to do things like pass off work in progress between multiple roles, build decision
+> trees, _and beyond!_
+
+:::tip Authors: [{{$frontmatter.author}}]()
+
+**Skill Level:** {{$frontmatter.skill_level}}\
+**Directus Version:** {{$frontmatter.directus_version}}\
+**Tags:** {{$frontmatter.tags.join(", ")}}
+
+:::
 
 ## Explanation
 

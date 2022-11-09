@@ -1,5 +1,5 @@
 ---
-title: The Recipe Template
+title: Add a Recipe
 description: This is the recipe on how to create recipes in the Directus Cookbook.
 image:
 tags: []
@@ -12,6 +12,14 @@ author_override:
 # {{$frontmatter.title}}
 
 > {{ $frontmatter.description }}
+
+:::tip Authors: [{{$frontmatter.author}}]()
+
+**Skill Level:** {{$frontmatter.skill_level}}\
+**Directus Version:** {{$frontmatter.directus_version}}\
+**Tags:** {{$frontmatter.tags.join(", ")}}
+
+:::
 
 ## Explanation
 
@@ -78,14 +86,14 @@ its a viable recipe together.
 Once your issue has been approved by the Directus Core team, follow these steps.
 
 1. Fork the [docs repo](https://github.com/directus/docs/) and pull it.
-2. Copy the document you're currently reading, located at `docs/cookbooks/template.md`.
+2. Copy the starting template, located at `docs/cookbooks/template_shell.md`.
 3. Paste the file and rename it under the desired recipe section.
 4. Go into `docs/.vitepress/config.js` to add the sidebar links to the relevant section. For details, see the VitePress
    documentation on [sidebars](https://vitepress.vuejs.org/guide/theme-sidebar).
 5. Create your recipe as desired, following the template guidelines.
 6. Open a PR on the Directus [docs repo](https://github.com/directus/docs/) and reference your issue.
-7. When your PR is ready, switch from `Draft` to `Ready for Review`. A Directus Core team member will look over your
-   work, and if needed, provide last-minute edit requests.
+7. When your PR is ready, switch from **Draft** to **Open** to signal it is ready for review. A Directus Core team
+   member will look over your work, any necessary edit requests.
 8. Make final edits as requested.
 9. Run `pnpm run spellcheck` in your terminal and fix spelling issues or add unrecognized words to `/dictionary.txt`.
 10. Tag a team member for final review when you're ready.

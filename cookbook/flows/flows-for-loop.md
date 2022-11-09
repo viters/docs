@@ -15,6 +15,14 @@ author_override:
 
 > {{ $frontmatter.description }}
 
+:::tip Authors: [{{$frontmatter.author}}]()
+
+**Skill Level:** {{$frontmatter.skill_level}}\
+**Directus Version:** {{$frontmatter.directus_version}}\
+**Tags:** {{$frontmatter.tags.join(", ")}}
+
+:::
+
 ## Explanation
 
 <!--
