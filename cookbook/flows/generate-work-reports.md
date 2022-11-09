@@ -10,7 +10,7 @@ author_override:
 ---
 
 <!--
-Pairs well with [workflows](/cookbooks/permissions/workflows.md)
+Pairs well with [workflows](/cookbook/permissions/workflows.md)
 -->
 
 # {{$frontmatter.title}}

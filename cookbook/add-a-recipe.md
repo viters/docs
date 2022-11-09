@@ -27,7 +27,7 @@ Recipes let you show off your nifty configurations, integrations, or use-cases f
 
 What you're reading right now _is the recipe on how to write recipes_. It was written using the same template we use to
 write all other recipes. By the end, you'll know how to develop, purpose, write, and submit your recipes to the
-cookbooks!
+cookbook!
 
 There are three key parts to to a recipe:
 
@@ -68,7 +68,7 @@ To submit recipes, you'll need to fork the docs repo. For details, see our guide
 
 First we need to confirm your recipe is a viable candidate.
 
-If the cookbooks were filled with dozens of recipes showing how to do the exact same thing, it would be a cumbersome
+If the cookbook were filled with dozens of recipes showing how to do the exact same thing, it would be a cumbersome
 developer experience. Additionally, one's recipe might actually be an inefficient or dangerous way to handle something.
 To help avoid these types of issues, follow these steps before putting fingers to the keyboard.
 
@@ -86,7 +86,7 @@ its a viable recipe together.
 Once your issue has been approved by the Directus Core team, follow these steps.
 
 1. Fork the [docs repo](https://github.com/directus/docs/) and pull it.
-2. Copy the starting template, located at `docs/cookbooks/template_shell.md`.
+2. Copy the starting template, located at `docs/cookbook/template_shell.md`.
 3. Paste the file and rename it under the desired recipe section.
 4. Go into `docs/.vitepress/config.js` to add the sidebar links to the relevant section. For details, see the VitePress
    documentation on [sidebars](https://vitepress.vuejs.org/guide/theme-sidebar).

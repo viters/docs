@@ -186,4 +186,4 @@ Workflows are a way to setup structured stages to content authoring and data man
 custom access permissions, but can be enhanced with email notifications, custom [Interfaces](/extensions/interfaces.md)
 as well as [flows](/configuration/flows.md). Directus supports endlessly configurable workflows.
 
-To learn more, see our recipe on [Workflows](/cookbooks/permissions/workflows.md).
+To learn more, see our recipe on [Workflows](/cookbook/permissions/workflows.md).
