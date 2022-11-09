@@ -11,11 +11,12 @@ systems.
 
 ## Supported SSO mechanisms
 
-Directus supports three standard types of SSO mechanisms:
+Directus supports four standard types of SSO mechanisms:
 
 - [OpenID](https://openid.net/specs/openid-connect-core-1_0.html)
 - [OAuth 2.0](https://www.ietf.org/rfc/rfc6750.txt)
 - [LDAP](https://datatracker.ietf.org/doc/html/rfc4511)
+- [SAML](https://datatracker.ietf.org/doc/html/rfc7522)
 
 Here are the configuration allowed for each one: [SSO configuration](/self-hosted/config-options#sso-oauth2-and-openid)
 
