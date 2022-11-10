@@ -193,7 +193,7 @@ Mapbox
 Memorystore
 MiB
 middleware
-Mimetype
+(M|m)imetype
 misconfiguration
 Mongo
 monorepo's
