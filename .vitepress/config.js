@@ -20,7 +20,7 @@ export default {
 			},
 		],
 		[
-			'scripts',
+			'script',
 			{
 				type: 'text/javascript',
 				async: true,
