@@ -20,6 +20,15 @@ export default {
 			},
 		],
 		[
+			'scripts',
+			{
+				type: 'text/javascript',
+				async: true,
+				src: 'https://ws.zoominfo.com/pixel/636535e8d10f825332bbd795',
+				'referrer-policy': 'unsafe-url',
+			},
+		],
+		[
 			'script',
 			{
 				type: 'text/javascript',
