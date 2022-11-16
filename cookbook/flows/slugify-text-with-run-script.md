@@ -1,6 +1,6 @@
 ---
 title: Slugify Text
-description: A sample code-snippet demonstrating how to
+description: This is a recipe to slugify a string of text using the Run Script operation in Directus Flows.
 image:
 tags: []
 skill_level:
