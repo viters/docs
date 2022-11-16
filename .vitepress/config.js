@@ -105,8 +105,8 @@ gtag('config', 'UA-24637628-7');
 			dark: '/logo-dark.svg',
 		},
 		nav: [
-			{ text: 'Docs', link: 'http://localhost:5173/' },
-			{ text: 'Cookbook', link: 'http://localhost:5173/cookbook/add-a-recipe', activeMatch: '/cookbook/' },
+			{ text: 'Docs', link: '/' },
+			{ text: 'Cookbook', link: '/cookbook/add-a-recipe', activeMatch: '/cookbook/' },
 			{ text: 'Website', link: 'https://directus.io/' },
 			{ text: 'Cloud', link: 'https://directus.cloud/' },
 			{ text: 'GitHub', link: 'https://github.com/directus/directus' },
