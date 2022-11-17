@@ -22,33 +22,26 @@ author_override:author: Eron Powell
 
 ## Explanation
 
-<!--
-See the VitePress docs to learn about its markdown options:
-https://vitepress.vuejs.org/guide/markdown
--->
-
 Directus provides a special m2a Interface which makes it quick and easy to build data and content. This Interface is
-handy whenever you have a category of content made from varying types of sub-content.
-
-To demonstrate this, let's imagine a personal portfolio site with three pages:
+handy whenever you have a category of content made from varying types of sub-content. To demonstrate this, let's imagine
+a personal portfolio site with three pages composed of the following content:
 
 - A `Resume` page composed of:
   - `text` noting your education, work experience, and skills.
-  - `user` details, such as your email, phone number, and linkedin profile.
+  - `user` details, such as your email, phone number, social media links, etc.
 - A `Portfolio` page composed of:
-  - `text` describing work projects
-  - `images` to optionally support some work projects
-  - `video` to optionally support other work projects
+  - `text` describing work projects.
+  - `images` to demonstrate work projects.
+  - `video` to demonstrate work projects.
 - An `About` page composed of:
   - `text` to talk about your life, hobbies, or career goals.
-  - `images` to show off your life and hobbies
-  - `video` where you let your personality shine.
-  - `user` details such as your headshot or even address coordinates for a map.
+  - `images` to show off your life and highlight your personality.
+  - `video` so people can see you speak and get an idea of your personal presence.
+  - `user` details such as your headshot (linked from `images`) or location.
 
 All three pages are unique in structure, yet composed of the same basic types of content: `text`, `images`, `video`, and
-`directus_user` details.
-
-If your data or content these conditions, an M2A data model may be a suitable tool.
+`directus_user` details. For any data or content meet those same general conditions, an M2A content builder may be a
+suitable tool.
 
 ## The Recipe
 
@@ -59,13 +52,9 @@ You'll need a basic understanding of [data models](/configuration/data-model.md)
 
 :::
 
-<!-- <video autoplay playsinline muted loop controls>
+<video autoplay playsinline muted loop controls>
 	<source src="" type="video/mp4" />
-</video> -->
-
-<!--
-VIDEO IS OPTIONAL: delete if not needed
--->
+</video>
 
 ### Create the Initial Collections
 
@@ -84,13 +73,11 @@ videos
 - video_url (a standard input field)
 ```
 
-<!-- directus users needs to be modified -->
-
 :::tip
 
 In Directus, your `user` and `images` collections already exist. They are the built-in
 [system collections](/configuration/data-model/collections.html#system-collections): `directus_files` and
-`directus_users`.
+`directus_users`. If you'd like to add geo-coordinates or social media links to `directus_users`, add fields as desired.
 
 :::
 
@@ -121,7 +108,7 @@ At this point, our basic data model configurations are done.
 
 ### Build and Display Content
 
-5. [Create items](/app/content/items.md#create-an-item) for `Resume`, `Portfolio`, and `About`.
+5. [Create items](/app/content/items.md#create-an-item) for your `Resume`, `Portfolio`, and `About` pages.
 
 ## Final Tips
 
@@ -133,7 +120,7 @@ There are a few important things to keep in mind when using an m2a to build cont
 
 ### Is it necessary?
 
-The use-case in our recipe is for a three-page portfolio site. It was quite simple overall.
+The use-case in our recipe is for a three-page portfolio site, which is quite simple overall.
 
 There's a fair amount of complexity involved with an M2A in the data model, but also in the frontend, as you'll have to
 build frontend logic that iterates through each page item, identifies its constituent content types, and injects each
@@ -142,16 +129,11 @@ be more complexity than you're bargaining for. You could instead opt for a
 [Singleton](/getting-started/glossary.html#singleton) collection and then create three separate _(but less complex)_
 pages.
 
-Alternatively, if you you plan to have more and more unique pages composed of the same content-types, the m2a may be
-more efficient than using Singletons.
+Alternatively, if you you plan to have more and more unique pages composed of the same content-types, using an m2a with
+more complex frontend logic may end up being more efficient than countless Singletons.
 
 ### Is M2A only for content?
 
 Although the Directus [m2a Interface]() was designed with content building in mind, the underlying data model is not
 limited to any specific data types. You could use it for whatever you wanted, from _inventory to IoT networks and
 beyond!_
-
-<!--
-best use case:
-- Menu builder
--->

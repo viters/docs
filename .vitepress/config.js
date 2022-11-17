@@ -160,7 +160,7 @@ function sidebarCookbooks() {
 			collapsed: true,
 			items: [
 				{ text: 'Content Authoring Workflows', link: '/cookbook/permissions/workflows' },
-				{ text: 'Configure User registration', link: '/cookbook/permissions/configure-user-registration' },
+				// { text: 'Configure User registration', link: '/cookbook/permissions/configure-user-registration' },
 				// { text: 'Multi-Sig Data Access', link: '/cookbook/permissions/multi-sig-data-access' },
 			],
 		},
