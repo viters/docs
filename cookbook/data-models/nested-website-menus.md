@@ -27,8 +27,8 @@ See the VitePress docs to learn about its markdown options:
 https://vitepress.vuejs.org/guide/markdown
 -->
 
-In site navigation, documentation, and many other cases, it is common to have a hierarchy of content or data. That is: a
-parent item, with child items.
+In site navigation, documentation, and many other cases, it is common to have a hierarchy of content or data: _a parent
+item, with child items._
 
 ![Parent Child Hierarchy](image.webp)
 
@@ -170,6 +170,8 @@ call like this:
 			children.children.id,children.children.title,children.children.body,children.children.sort, children.children.children
 ```
 
+Which will return data properly nested as seen here:
+
 :::details Toggle open to view nested data
 
 ```json
@@ -218,12 +220,12 @@ call like this:
 
 :::
 
-In the call above, the `filter[parent_id][_null]=true` serves to [filter](/reference/query.md#filter) non-parents at the
-first level. The [fields](/reference/query.md#fields) lets us extract specific fields, including nested relational
-fields. There are two key things to note in the fields:
+In the call above, the `filter[parent_id][_null]=true` query parameter serves to [filter](/reference/query.md#filter)
+non-parents at the first level. The [fields](/reference/query.md#fields) query parameters let us extract specific
+fields, including nested relational fields. There are two key things to note with this type of query:
 
-- We knew our content hierarchy was three levels deep. You'll also need to be aware of _(and account for)_ the depth of
-  your content hierarchy and make the api call accordingly.
+- _We knew our content hierarchy was three levels deep._ You'll also need to be aware of _(and account for)_ the depth
+  of your content hierarchy and make the api call accordingly.
 - The `parent_id` foreign key field was not added, as it would re-nest parent item data under its own child items, which
   is duplicate and useless.
 
@@ -243,7 +245,7 @@ general approach:
 :::tip
 
 In this recipe, for the sake of a clean visual example, we created a `body` field directly on the `docs` collection.
-However, you may find it more user-friendly to keep the markdown content in another collection and simply use Tree View
-to keep track of the relational hierarchy.
+However, you may find it more user-friendly to keep the markdown content in another relationally-linked collection, then
+just use Tree View to store the path and/or keep track of the content hierarchy.
 
 :::
