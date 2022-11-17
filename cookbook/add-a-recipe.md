@@ -12,7 +12,7 @@ author: Eron Powell
 
 > {{ $frontmatter.description }}
 
-:::tip Authors: [{{$frontmatter.author}}]()
+:::tip Author: {{$frontmatter.author}}
 
 **Skill Level:** {{$frontmatter.skill_level}}\
 **Directus Version:** {{$frontmatter.directus_version}}\

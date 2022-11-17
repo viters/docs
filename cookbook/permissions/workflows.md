@@ -14,7 +14,7 @@ author: Eron Powell
 > permissions. This enables you to do things like pass off work in progress between multiple roles, build decision
 > trees, _and beyond!_
 
-:::tip Authors: [{{$frontmatter.author}}]()
+:::tip Author: {{$frontmatter.author}}
 
 **Skill Level:** {{$frontmatter.skill_level}}\
 **Directus Version:** {{$frontmatter.directus_version}}\
