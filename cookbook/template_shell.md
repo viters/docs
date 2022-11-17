@@ -1,12 +1,11 @@
 ---
 title:
 description: Try to make this description a clear, catchy, cool, 2-4 line explanation of your recipe.
-image:
 tags: []
 skill_level:
 directus_version:
-one_click_cloud_install:
 author_override:
+author: Eron Powell
 ---
 
 # {{$frontmatter.title}}

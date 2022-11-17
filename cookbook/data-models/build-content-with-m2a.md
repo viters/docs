@@ -1,19 +1,18 @@
 ---
 title: Build Content With M2A
 description: This recipe demonstrates how to use an M2A relationship to build content dynamically.
-image:
 tags: []
 skill_level: Intermediate
 directus_version: 9.18.1
 one_click_cloud_install:
-author_override:
+author_override:author: Eron Powell
 ---
 
 # {{$frontmatter.title}}
 
 > {{$frontmatter.description}}
 
-:::tip Authors: [{{$frontmatter.author}}]()
+:::tip Author: {{$frontmatter.author}}
 
 **Skill Level:** {{$frontmatter.skill_level}}\
 **Directus Version:** {{$frontmatter.directus_version}}\
@@ -85,6 +84,8 @@ videos
 - video_url (a standard input field)
 ```
 
+<!-- directus users needs to be modified -->
+
 :::tip
 
 In Directus, your `user` and `images` collections already exist. They are the built-in
@@ -149,3 +150,8 @@ more efficient than using Singletons.
 Although the Directus [m2a Interface]() was designed with content building in mind, the underlying data model is not
 limited to any specific data types. You could use it for whatever you wanted, from _inventory to IoT networks and
 beyond!_
+
+<!--
+best use case:
+- Menu builder
+-->

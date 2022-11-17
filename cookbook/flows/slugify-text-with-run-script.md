@@ -1,19 +1,18 @@
 ---
 title: Slugify Text
 description: This is a recipe to slugify a string of text using the Run Script operation in Directus Flows.
-image:
 tags: []
 skill_level:
 directus_version:
-one_click_cloud_install:
 author_override:
+author: Eron Powell
 ---
 
 # {{$frontmatter.title}}
 
 > {{ $frontmatter.description }}
 
-:::tip Authors: [{{$frontmatter.author}}]()
+:::tip Author: {{$frontmatter.author}}
 
 **Skill Level:** {{$frontmatter.skill_level}}\
 **Directus Version:** {{$frontmatter.directus_version}}\

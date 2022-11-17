@@ -3,19 +3,18 @@ title: Flows For-Loop
 description:
   When most flows begin, they pass the trigger's payload to the data chain, then execute one time. Here's how to execute
   a flow once for each element in a payload's array.
-image:
 tags: ['for-loops']
 skill_level:
 directus_version:
-one_click_cloud_install:
 author_override:
+author: Eron Powell
 ---
 
 # {{$frontmatter.title}}
 
 > {{ $frontmatter.description }}
 
-:::tip Authors: [{{$frontmatter.author}}]()
+:::tip Author: {{$frontmatter.author}}
 
 **Skill Level:** {{$frontmatter.skill_level}}\
 **Directus Version:** {{$frontmatter.directus_version}}\

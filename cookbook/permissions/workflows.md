@@ -1,10 +1,9 @@
 ---
 title: Content Authoring Workflows
+description:
 tags: [team work, content production]
 skill_level:
 directus_version: 9.18.1
-one_click_cloud_install:
-image:
 author_override:
 author: Eron Powell
 ---
