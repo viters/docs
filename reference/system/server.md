@@ -244,7 +244,7 @@ The `/server/health` endpoint shows you a general health status for the server a
 such as Redis or S3.
 
 The output is based on the "Health Check Response for HTTP APIs" draft spec:
-[Health Check Response Format for HTTP APIs Draft Specification](https://tools.ietf.org/id/draft-inadarei-api-health-check-05.html).
+[Health Check Response Format for HTTP APIs Draft Specification](https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check-06).
 
 This endpoint can be used to ensure a healthy system when running in a horizontally scaled setup, like Kubernetes,
 Google Cloud Platform or AWS Elastic Beanstalk.
