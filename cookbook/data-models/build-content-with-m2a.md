@@ -5,7 +5,8 @@ tags: []
 skill_level: Intermediate
 directus_version: 9.18.1
 one_click_cloud_install:
-author_override:author: Eron Powell
+author_override:
+author: Eron Powell
 ---
 
 # {{$frontmatter.title}}
@@ -129,8 +130,8 @@ be more complexity than you're bargaining for. You could instead opt for a
 [Singleton](/getting-started/glossary.html#singleton) collection and then create three separate _(but less complex)_
 pages.
 
-Alternatively, if you you plan to have more and more unique pages composed of the same content-types, using an m2a with
-more complex frontend logic may end up being more efficient than countless Singletons.
+Alternatively, if you plan to have more and more unique pages composed of the same content-types, using an m2a with more
+complex frontend logic may end up being more efficient than countless Singletons.
 
 ### Is M2A only for content?
 

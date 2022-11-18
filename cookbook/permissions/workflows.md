@@ -10,8 +10,8 @@ author: Eron Powell
 
 # {{$frontmatter.title}}
 
-> Workflows are a way to add structured stages to the flow of content or data creation through the use of custom access
-> permissions. This enables you to do things like pass off work in progress between multiple roles, build decision
+> Workflows are the use of custom access permissions to add structured stages to the flow of content creation or data
+> generation. Workflows enable you to do things like pass off work in progress between multiple roles, build decision
 > trees, _and beyond!_
 
 :::tip Author: {{$frontmatter.author}}
@@ -31,7 +31,7 @@ things a step further and let you define what a role can and can't do to each it
 [field values](/configuration/data-model/fields.md)_.
 
 Workflows are when you use these permissions techniques to create structured stages to content or data creation. In
-simplest terms, its when you have two or more roles, and you give them different permissions at each stage in the
+simplest terms, it is when you have two or more roles, and you give them different permissions at each stage in the
 content creation process.
 
 There are an infinite number of possible workflows you could configure. But for this recipe, we will configure a simple
@@ -39,8 +39,8 @@ workflow where `writers` and `editors` work together to create, co-edit and publ
 
 ![A Workflow](https://cdn.directus.io/docs/v9/configuration/users-roles-permissions/workflows-20220909/workflows-20220909B.webp)
 
-Our workflow will have three stages, `draft`, `under review`, and `published`, which will be defined in a `status`
-field.
+For this recipe, our workflow will have three stages, `draft`, `under review`, and `published`, which will be defined in
+a `status` field.
 
 | `status`                     | `Author`                                                                                | `Editor`                                                                      |
 | ---------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
@@ -104,8 +104,8 @@ To create a structured workflow for `articles`, follow these steps.
 
 ## Final Tips
 
-This recipe covers one simple example of a workflow. As you move forward and created your own customer-tailored
-workflows, just remember:
+This recipe covers one simple example of a workflow. As you move forward and created your own custom-tailored workflows,
+just remember:
 
 - You could use any number of roles.
 - You could use any collection or relationally linked collections.
@@ -115,7 +115,8 @@ Be sure to pay close attention to how you configure custom access permissions fo
 misconfigurations can have side-effects.
 
 In our simple `articles` workflow above, a minor misconfiguration in a co-editing workflow between two team members
-_may_ not be a big problem. But let's imagine for a second that:
+_might_ not be a big problem. But in other cases it can have big consequences. For example, let's imagine for a second
+that:
 
 - The `writer` and `editor` roles were `teacher` and `student` roles.
 - The `articles` collection was instead a `tests` collection.
@@ -128,13 +129,8 @@ A minor misconfiguration here could ruin academic integrity. Here's a few potent
 - teachers modify the results of students that they like or don't like.
 - _and beyond!_
 
-When creating your own workflow, its a good idea to define:
-
-- each role involved.
-- each stage in the workflow.
-- the explicit set of permissions each role has at each stage.
-
-_... just as you saw in the [Explanation](#explanation) at the beginning of this recipe!_
+When creating your own workflow, its a good idea to define each role involved, each stage in the workflow, and the
+explicit set of permissions each role has at each stage.
 
 :::tip Next Steps
 
@@ -142,9 +138,3 @@ Workflows can be further enhanced with custom [Interfaces](/extensions/interface
 [flows](/configuration/flows.md).
 
 :::
-
-<!--
-## One-Click Installation
-
-Cut the R&D and get this workflow installed on your Directus Cloud project in one click.
--->

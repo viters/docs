@@ -85,7 +85,7 @@ First, we need to confirm your recipe is a viable candidate.
 
 If the cookbook was filled with dozens of recipes showing how to do the exact same thing, it would be a cumbersome
 developer experience. Additionally, one's recipe might actually be an inefficient or dangerous way to handle something.
-To help avoid these types of issues, we have all potential contributors follow these steps.
+To help avoid these types of issues, we require all potential contributors follow these steps.
 
 1. Search through the Cookbooks to see if your recipe already exists.
 2. Go to the docs repo and [open an issue](https://github.com/directus/docs/issues) outlining the general purpose,
@@ -108,7 +108,7 @@ Once your issue has been approved by the Directus Core team, follow these steps.
 5. Create your recipe as desired.
 6. Open a PR on the Directus [docs repo](https://github.com/directus/docs/) and reference your issue.
 7. When your PR is ready, switch from **Draft** to **Open** to signal it is ready for review. A Directus Core team
-   member will look over your work, any necessary edit requests.
+   member will look over your work and ask for any necessary edit requests.
 8. Make final edits as requested.
 9. Run `pnpm run spellcheck` in your terminal and fix spelling issues or add unrecognized words to `/dictionary.txt`.
 10. Tag a Directus Core team member for final review when you're ready.
