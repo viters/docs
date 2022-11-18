@@ -4,7 +4,7 @@ description: This recipes explains how to enable new users to self-register thei
 image:
 tags: []
 skill_level:
-directus_version:
+directus_version: 9.18.1
 author_override:
 author: Eron Powell
 ---

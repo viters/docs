@@ -2,9 +2,8 @@
 title: Build Content With M2A
 description: This recipe demonstrates how to use an M2A relationship to build content dynamically.
 tags: []
-skill_level: Intermediate
+skill_level:
 directus_version: 9.18.1
-one_click_cloud_install:
 author_override:
 author: Eron Powell
 ---

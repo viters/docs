@@ -3,7 +3,7 @@ title: Create a Content Hierarchy with Tree View
 description:
 tags: []
 skill_level:
-directus_version:
+directus_version: 9.18.1
 author_override:
 author: Eron Powell
 ---

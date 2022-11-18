@@ -5,7 +5,7 @@ tags: []
 skill_level:
 directus_version:
 author_override:
-author: Eron Powell
+author:
 ---
 
 <!--

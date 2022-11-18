@@ -1,7 +1,7 @@
 ---
 title: Content Authoring Workflows
 description:
-tags: [team work, content production]
+tags: []
 skill_level:
 directus_version: 9.18.1
 author_override:

@@ -1,9 +1,9 @@
 ---
 title: Slugify Text
-description: This is a recipe to slugify a string of text using the Run Script operation in Directus Flows.
+description: A simple recipe to slugify a string of text using the Run Script operation.
 tags: []
 skill_level:
-directus_version:
+directus_version: 9.18.1
 author_override:
 author: Eron Powell
 ---
@@ -23,7 +23,8 @@ author: Eron Powell
 ## Explanation
 
 In some cases, you may want to take text from a title or other source and slugify it. Here's how you can implement this
-in a flow.
+in a flow. Keep in mind, slugification methods can get quite complex. This recipe is intended for basic, everyday
+English text.
 
 ## The Recipe
 
@@ -55,5 +56,6 @@ module.exports = async function (data) {
 
 ## Final Tips
 
-Remember, your function's returned value does not need to be a string. You can append any valid JavaScript onto the data
-chain.
+Remember, the returned value doesn't need to be a string. You can append any valid JSON onto the data chain. You could
+take in an array of strings, slugify all of them, push each to a new array, and append it onto the data chain... _or
+whatever your use-case calls for!_

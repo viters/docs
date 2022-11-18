@@ -3,7 +3,7 @@ title: Add a Recipe
 description: This recipe explains what a recipe is and how to add your own recipes in the Directus Cookbook.
 tags: []
 skill_level:
-directus_version:
+directus_version: All Versions
 author_override:
 author: Eron Powell
 ---
@@ -72,12 +72,6 @@ To submit recipes, you'll need to fork the docs repo. For details, see our guide
 [running locally](/contributing/running-locally.html).
 
 :::
-
-<!--
-<video autoplay playsinline muted loop controls>
-	<source src="" type="video/mp4" />
-</video>
--->
 
 ### Create an Issue
 
@@ -151,6 +145,6 @@ That said.... _it's nice to be able to break the rules sometimes!_
 
 If there's a clear, distinct reason that your recipe should deviate from this template, feel free to tag a team member
 that approved your GitHub issue and ask if you can make some modifications. In the end, we always reserve the right to
-ask you to re-edit your recipe before we merge your PR. _And with all that said...._ **_Welcome to Docs Land!_**
+ask you to re-edit your recipe before we merge your PR... Now with all that said: _Welcome to Docs Land!_ :tada:
 
-**_Cheers :tada: and Thanks for the recipe!_** :woman_cook:
+:man_cook: **We hope to see your recipe soon!** :woman_cook:
