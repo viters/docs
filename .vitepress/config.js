@@ -151,7 +151,7 @@ function sidebarCookbooks() {
 			collapsed: true,
 			items: [
 				{ text: 'Build Content with M2A', link: '/cookbook/data-models/build-content-with-m2a' },
-				{ text: 'Nested Website Menus', link: '/cookbook/data-models/nested-website-menus' },
+				{ text: 'Content Hierarchies', link: '/cookbook/data-models/recursive-content-hierarchies' },
 			],
 		},
 		{
@@ -159,7 +159,7 @@ function sidebarCookbooks() {
 			collapsible: true,
 			collapsed: true,
 			items: [
-				{ text: 'Content Authoring Workflows', link: '/cookbook/permissions/workflows' },
+				{ text: 'Basic Workflows', link: '/cookbook/permissions/basic-workflows' },
 				// { text: 'Configure User registration', link: '/cookbook/permissions/configure-user-registration' },
 				// { text: 'Multi-Sig Data Access', link: '/cookbook/permissions/multi-sig-data-access' },
 			],

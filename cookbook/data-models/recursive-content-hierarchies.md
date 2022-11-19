@@ -1,5 +1,5 @@
 ---
-title: Create a Content Hierarchy with Tree View
+title: Recursive Content Hierarchies
 description:
 tags: []
 skill_level:
