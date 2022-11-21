@@ -18,9 +18,11 @@ author:
 
 :::tip Author: {{$frontmatter.author}}
 
-**Skill Level:** {{$frontmatter.skill_level}}\
-**Directus Version:** {{$frontmatter.directus_version}}\
-**Tags:** {{$frontmatter.tags.join(", ")}}
+<!-- **Skill Level:** {{$frontmatter.skill_level}}\ -->
+
+**Directus Version:** {{$frontmatter.directus_version}}
+
+<!-- **Tags:** {{$frontmatter.tags.join(", ")}} -->
 
 :::
 

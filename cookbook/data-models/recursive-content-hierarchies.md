@@ -14,9 +14,11 @@ author: Eron Powell
 
 :::tip Author: {{$frontmatter.author}}
 
-**Skill Level:** {{$frontmatter.skill_level}}\
-**Directus Version:** {{$frontmatter.directus_version}}\
-**Tags:** {{$frontmatter.tags.join(", ")}}
+<!-- **Skill Level:** {{$frontmatter.skill_level}}\ -->
+
+**Directus Version:** {{$frontmatter.directus_version}}
+
+<!-- **Tags:** {{$frontmatter.tags.join(", ")}} -->
 
 :::
 
@@ -30,7 +32,7 @@ https://vitepress.vuejs.org/guide/markdown
 In site navigation, documentation, and many other cases, it is common to have a hierarchy of content or data: _a parent
 item, with child items._
 
-![Parent Child Hierarchy](image.webp)
+<!-- ![Parent Child Hierarchy](image.webp) -->
 
 If you're working with markdown files or an SSG, content hierarchies are created easily with files and folders. If your
 content is in a database, you can create a hierarchy of nested items with a recursive o2m relationship, which is the

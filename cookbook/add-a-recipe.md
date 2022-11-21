@@ -14,15 +14,15 @@ author: Eron Powell
 
 :::tip Author: {{$frontmatter.author}}
 
-**Skill Level:** {{$frontmatter.skill_level}}\
-**Directus Version:** {{$frontmatter.directus_version}}\
-**Tags:** {{$frontmatter.tags.join(", ")}}
+<!-- **Skill Level:** {{$frontmatter.skill_level}}\ -->
+
+**Directus Version:** {{$frontmatter.directus_version}}
+
+<!-- **Tags:** {{$frontmatter.tags.join(", ")}} -->
 
 :::
 
 ## Explanation
-
-Recipes let you show off your nifty configurations, integrations, or use-cases for Directus.
 
 What you're reading right now _is the recipe on how to write recipes_. It was written using the same template we use to
 write all the other recipes. By the end, you'll know what a recipe is as well as how to plan, propose, write, and submit

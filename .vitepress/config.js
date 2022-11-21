@@ -129,10 +129,10 @@ gtag('config', 'UA-24637628-7');
 
 function sidebarCookbooks() {
 	return [
-		{
-			text: 'The Cookbook',
-			items: [{ text: 'Add a Recipe', link: '/cookbook/add-a-recipe' }],
-		},
+		// {
+		// 	text: 'The Cookbook',
+		// 	items: [{ text: 'Add a Recipe', link: '/cookbook/add-a-recipe' }],
+		// },
 		// {
 		// 	text: 'Projects',
 		// 	collapsible: true,

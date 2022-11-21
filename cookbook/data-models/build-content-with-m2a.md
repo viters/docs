@@ -14,9 +14,11 @@ author: Eron Powell
 
 :::tip Author: {{$frontmatter.author}}
 
-**Skill Level:** {{$frontmatter.skill_level}}\
-**Directus Version:** {{$frontmatter.directus_version}}\
-**Tags:** {{$frontmatter.tags.join(", ")}}
+<!-- **Skill Level:** {{$frontmatter.skill_level}}\ -->
+
+**Directus Version:** {{$frontmatter.directus_version}}
+
+<!-- **Tags:** {{$frontmatter.tags.join(", ")}} -->
 
 :::
 
@@ -52,9 +54,10 @@ You'll need a basic understanding of [data models](/configuration/data-model.md)
 
 :::
 
+<!--
 <video autoplay playsinline muted loop controls>
 	<source src="" type="video/mp4" />
-</video>
+</video> -->
 
 ### Create the Initial Collections
 
