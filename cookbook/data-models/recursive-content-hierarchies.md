@@ -38,7 +38,7 @@ If you're working with markdown files or an SSG, content hierarchies are created
 content is in a database, you can create a hierarchy of nested items with a recursive o2m relationship, which is the
 focus of this recipe.
 
-In Directus, there is a special o2m [alias field](/getting-started/glossary.html#alias) called Tree View, which makes it
+In Directus, there is a special O2M [alias field](/getting-started/glossary.html#alias) called Tree View, which makes it
 easier to create and manage this type of recursive relationship.
 
 For this recipe, we'll use Tree View to build a simple content hierarchy for documentation.
@@ -83,7 +83,7 @@ docs
 - id
 - title (a STRING input field)
 - parent_id (an integer input field)
-- children (a Tree View o2m alias field, configured with docs.parent_id as the foreign key and the o2m Interface)
+- children (a Tree View O2M alias field, configured with docs.parent_id as the foreign key and the O2M Interface)
 - body (optional: a text input field with a Markdown interface)
 ```
 

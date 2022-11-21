@@ -24,7 +24,7 @@ author: Eron Powell
 
 ## Explanation
 
-Directus provides a special m2a Interface which makes it quick and easy to build data and content. This Interface is
+Directus provides a special M2A Interface which makes it quick and easy to build data and content. This Interface is
 handy whenever you have a category of content made from varying types of sub-content. To demonstrate this, let's imagine
 a personal portfolio site with three pages composed of the following content:
 
@@ -57,7 +57,8 @@ You'll need a basic understanding of [data models](/configuration/data-model.md)
 <!--
 <video autoplay playsinline muted loop controls>
 	<source src="" type="video/mp4" />
-</video> -->
+</video>
+-->
 
 ### Create the Initial Collections
 
@@ -119,7 +120,7 @@ Next, you'll want to access these with the API. If you try to use `/items/pages`
 IDs. Instead, you'll want to add a [field parameter](/reference/query.html#many-to-any-union-types) to get nested
 relational data.
 
-There are a few important things to keep in mind when using m2a to build content.
+There are a few important things to keep in mind when using M2A to build content.
 
 ### Is it necessary?
 
@@ -132,11 +133,10 @@ be more complexity than you're bargaining for. You could instead opt for a
 [Singleton](/getting-started/glossary.html#singleton) collection and then create three separate _(but less complex)_
 pages.
 
-Alternatively, if you plan to have more and more unique pages composed of the same content-types, using m2a with more
+Alternatively, if you plan to have more and more unique pages composed of the same content-types, using M2A with more
 complex frontend logic may end up being more efficient than countless Singletons.
 
 ### Is M2A only for content?
 
-Although the Directus [m2a Interface]() was designed with content building in mind, the underlying data model is not
-limited to any specific data types. You could use it for whatever you wanted, from _inventory to IoT networks and
-beyond!_
+Although the Directus M2A Interface was designed with content building in mind, the underlying data model is not limited
+to any specific data types. You could use it for whatever you wanted, from _inventory to IoT networks and beyond!_

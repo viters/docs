@@ -31,8 +31,8 @@ your own recipes to the cookbook!
 To begin, there are three key parts to a recipe:
 
 - **Explanation** — Explain what the recipe is for, in conceptual terms. In this section, you want to fully prepare your
-  readers for what they'll get from your recipe. The goal is that before your readers even begin the
-  [How To Guide](#how-to-guide) below, they should have a general idea of what the recipe is, the steps involved, and
+  readers for what they'll get from your recipe. The goal is that before your readers even begin
+  [the recipe](#the-recipe)) below, they should have a general idea of what the recipe is, the steps involved, and
   whether it might fit their needs.
 - **The Recipe** — Lays out the recipe itself. This section is mostly task-oriented, with some light explanation
   regarding a specific step in the recipe.
