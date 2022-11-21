@@ -35,7 +35,7 @@ item, with child items._
 <!-- ![Parent Child Hierarchy](image.webp) -->
 
 If you're working with markdown files or an SSG, content hierarchies are created easily with files and folders. If your
-content is in a database, you can create a hierarchy of nested items with a recursive o2m relationship, which is the
+content is in a database, you can create a hierarchy of nested items with a recursive O2M relationship, which is the
 focus of this recipe.
 
 In Directus, there is a special O2M [alias field](/getting-started/glossary.html#alias) called Tree View, which makes it
