@@ -117,7 +117,7 @@ At this point, our basic data model configurations are done.
 ## Final Tips
 
 Next, you'll want to access these with the API. If you try to use `/items/pages` then `page_content` returns an array of
-IDs. Instead, you'll want to add a [field parameter](/reference/query.html#many-to-any-union-types) to get nested
+IDs. Instead, you'll want to add a [field parameter](/reference/query.md#many-to-any-union-types) to get nested
 relational data.
 
 There are a few important things to keep in mind when using M2A to build content.
