@@ -204,6 +204,8 @@ const directus = new Directus(url, init);
     - `onUploadProgress` [optional] _(event:
       [ProgressEvent](https://developer.mozilla.org/en-US/docs/Web/API/ProgressEvent) => void)_ - Defines a callback
       function to indicate the upload progress.
+    - `maxBodyLength` [optional] _Number_ - The maximum body length in bytes. Set `Infinity` for no limit.
+    - `maxContentLength` [optional] _Number_ - The maximum content length in bytes. Set `Infinity` for no limit.
 
 ## Auth
 

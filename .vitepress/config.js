@@ -24,6 +24,15 @@ export default {
 			{
 				type: 'text/javascript',
 				async: true,
+				src: 'https://ws.zoominfo.com/pixel/636535e8d10f825332bbd795',
+				'referrer-policy': 'unsafe-url',
+			},
+		],
+		[
+			'script',
+			{
+				type: 'text/javascript',
+				async: true,
 				defer: false,
 				src: 'https://www.googletagmanager.com/gtag/js?id=UA-24637628-7',
 			},
