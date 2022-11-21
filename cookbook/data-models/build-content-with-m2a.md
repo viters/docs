@@ -116,7 +116,7 @@ Next, you'll want to access these with the API. If you try to use `/items/pages`
 IDs. Instead, you'll want to add a [field parameter](/reference/query.html#many-to-any-union-types) to get nested
 relational data.
 
-There are a few important things to keep in mind when using an m2a to build content.
+There are a few important things to keep in mind when using m2a to build content.
 
 ### Is it necessary?
 
@@ -129,7 +129,7 @@ be more complexity than you're bargaining for. You could instead opt for a
 [Singleton](/getting-started/glossary.html#singleton) collection and then create three separate _(but less complex)_
 pages.
 
-Alternatively, if you plan to have more and more unique pages composed of the same content-types, using an m2a with more
+Alternatively, if you plan to have more and more unique pages composed of the same content-types, using m2a with more
 complex frontend logic may end up being more efficient than countless Singletons.
 
 ### Is M2A only for content?

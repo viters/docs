@@ -1,5 +1,5 @@
 ---
-title: Content Authoring Workflows
+title: Basic Workflows
 description:
 tags: []
 skill_level:

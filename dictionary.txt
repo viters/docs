@@ -335,3 +335,14 @@ PR
 PRs
 (T|t)triage
 (T|t)riaging
+greenlight
+VitePress
+m2a
+o2m
+headshot
+SSG
+api
+slugify
+slugification
+misconfigurations
+relationally-linked

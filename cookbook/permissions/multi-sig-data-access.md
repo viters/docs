@@ -73,5 +73,5 @@ If there's a part 3, write it! If not, you're done!
 This is where you expand and solidify your reader's understanding of the recipe. Its where you fill in the gaps that
 would be overwhelming or hard to follow in the previous sections.
 
-- Release after majority of sigs
+- Release after majority of signatures
 - Release by a super signature
