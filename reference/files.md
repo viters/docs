@@ -106,7 +106,7 @@ For easier comparison, both of the examples below were requested at `200` width,
 its aspect ratio, shrinking the image to fit _within_ the dimensions and adding "letterboxing" as needed.
 
 | Cover                                                       | Contain                                                         |
-|-------------------------------------------------------------|-----------------------------------------------------------------|
+| ----------------------------------------------------------- | --------------------------------------------------------------- |
 | ![Cover](../assets/200-200-cover-75.jpg)<br>_8KB • 200x200_ | ![Contain](../assets/200-200-contain-75.jpg)<br>_6KB • 200x133_ |
 
 ::: tip Aspect Ratio
@@ -343,10 +343,12 @@ query {
 
 Upload/create a new file.
 
-To upload a file, use `multipart/form-data` as the encoding type, instead of JSON.
+To upload a file, use `multipart/form-data` as the encoding type. The file contents has to be provided in a part called
+`file`. All other properties of [the file object](#the-file-object) can be provided as parts as well, except
+`filename_disk` and `filename_download`.
 
-The file contents has to be provided in a part called `file`. All other properties of
-[the file object](#the-file-object) can be provided as parts as well, except `filename_disk` and `filename_download`.
+Alternatively, you can use `application/json` with JSON request body to associate metadata to a file that already exists
+in the storage. The `type` property will be required to specify the mimetype of that file.
 
 ::: tip Order Matters
 
