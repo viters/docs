@@ -24,9 +24,8 @@ author: Eron Powell
 
 ## Explanation
 
-Directus provides a special M2A Interface which makes it quick and easy to build data and content. This Interface is
-handy whenever you have a category of content made from varying types of sub-content. To demonstrate this, let's imagine
-a personal portfolio site with three pages composed of the following content:
+In a personal portfolio site, you'll typically have at least the following three types of pages, composed of the
+following content:
 
 - A `Resume` page composed of:
   - `text` noting your education, work experience, and skills.
@@ -41,9 +40,18 @@ a personal portfolio site with three pages composed of the following content:
   - `video` so people can see you speak and get an idea of your personal presence.
   - `user` details such as your headshot (linked from `images`) or location.
 
-All three pages are unique in structure, yet composed of the same basic types of content: `text`, `images`, `video`, and
-`directus_user` details. For any data or content meet those same general conditions, an M2A content builder may be a
-suitable tool.
+All three pages are unique in structure, yet composed of the same basic types of content from the same four collections:
+`text`, `images`, `video`, and `directus_user` details. You may also want to add on more pages over time. For example:
+multiple portfolios _(one for UX, one for development, one for design, etc)_ which again would all be composed of those
+building blocks. For this content category, _tweaks and restructures_ are quite common. Resumes need to be updated.
+Portfolios expand over time.
+
+For data or content that require the type of structural flexibility described above, an M2A relationship is one suitable
+way to manage your data. Directus provides a special M2A Interface which makes it quick and easy to build data and
+content.
+
+In this recipe, we'll explain how to build the above personal portfolio with an M2A data model. Then in the final tips,
+discuss its pros and cons to this approach, and list out other alternative approaches.
 
 ## The Recipe
 

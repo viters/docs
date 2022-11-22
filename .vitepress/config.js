@@ -395,7 +395,7 @@ function sidebar() {
 			collapsed: true,
 			items: [
 				{ text: 'Personal Portfolio Using M2A', link: '/cookbook/data-models/personal-portfolio-using-m2a.md' },
-				{ text: 'Build Content Hierarchies', link: '/cookbook/data-models/build-content-hierarchies' },
+				{ text: 'Build a Content Hierarchy', link: '/cookbook/data-models/build-a-content-hierarchy' },
 				{ text: 'Basic Workflows', link: '/cookbook/permissions/basic-workflows' },
 				{ text: 'Flows For Loops', link: '/cookbook/flows/flows-for-loop' },
 				{ text: 'Slugify Text with Run Script', link: '/cookbook/flows/slugify-text-with-run-script' },

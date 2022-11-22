@@ -1,6 +1,8 @@
 ---
-title: Build Content Hierarchies
+title: Build a Content Hierarchy
 description:
+  This recipe explains how to construct a documentation content hierarchy by using Tree View, the M2O alias for creating
+  recursive relationships.
 tags: []
 skill_level:
 directus_version: 9.18.1
@@ -29,8 +31,8 @@ See the VitePress docs to learn about its markdown options:
 https://vitepress.vuejs.org/guide/markdown
 -->
 
-In site navigation, documentation, and many other cases, it is common to have a hierarchy of content or data: _a parent
-item, with child items._
+In documentation, it is incredibly common _(if not the standard)_ to have a hierarchy of content or data: _a parent
+page, with child pages._
 
 <!-- ![Parent Child Hierarchy](image.webp) -->
 
@@ -41,7 +43,7 @@ focus of this recipe.
 In Directus, there is a special O2M [alias field](/getting-started/glossary.html#alias) called Tree View, which makes it
 easier to create and manage this type of recursive relationship.
 
-For this recipe, we'll use Tree View to build a simple content hierarchy for documentation.
+For this recipe, we'll use Tree View to build a simple content hierarchy for documentation:
 
 - `App Overview`
 - `Configuration`
@@ -56,8 +58,8 @@ Here's the general outline of what's to come:
 - Add `parent` <-> `child` items to the collection, using that recursive relationship.
 - Give the public role read permissions on `docs` , so users can access them.
 
-After that, we'll point out some following steps you can take to make your content hierarchy easier to work with in a
-frontend.
+At the end, in [Final Tips](#final-tips), we'll point out some additional steps you can take to make your content
+hierarchy easier to work with in a frontend.
 
 ## The Recipe
 
