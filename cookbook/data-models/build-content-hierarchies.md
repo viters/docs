@@ -1,5 +1,5 @@
 ---
-title: Recursive Content Hierarchies
+title: Build Content Hierarchies
 description:
 tags: []
 skill_level:
