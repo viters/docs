@@ -10,6 +10,7 @@ export default {
 	...DefaultTheme,
 	Layout,
 	enhanceApp({ app }) {
+		// DefaultTheme.enhanceApp(ctx);
 		const head = createHead();
 		app.use(head);
 	},

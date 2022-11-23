@@ -114,6 +114,8 @@ gtag('config', 'UA-24637628-7');
 			dark: '/logo-dark.svg',
 		},
 		nav: [
+			{ text: 'Docs', link: '/' },
+			// { text: 'Cookbook', link: '/cookbook/add-a-recipe', activeMatch: '/cookbook/' },
 			{ text: 'Website', link: 'https://directus.io/' },
 			{ text: 'Cloud', link: 'https://directus.cloud/' },
 			{ text: 'GitHub', link: 'https://github.com/directus/directus' },
@@ -123,13 +125,78 @@ gtag('config', 'UA-24637628-7');
 			apiKey: '76eb519cf1a4492777a6991f75c5252b',
 			indexName: 'directus',
 		},
-		sidebar: sidebar(),
+		sidebar: {
+			// '/cookbook/': sidebarCookbooks(),
+			'/': sidebar(),
+		},
 		editLink: {
 			pattern: 'https://github.com/directus/docs/edit/main/:path',
 			text: 'Edit this page on GitHub',
 		},
 	},
 };
+
+// function sidebarCookbooks() {
+// 	return [
+// {
+// 	text: 'The Cookbook',
+// 	items: [{ text: 'Add a Recipe', link: '/cookbook/add-a-recipe' }],
+// },
+// {
+// 	text: 'Projects',
+// 	collapsible: true,
+// 	collapsed: true,
+// 	items: [{ text: 'Intro', link: '/cookbook/intro' }],
+// },
+// {
+// 	text: 'Integrations',
+// 	collapsible: true,
+// 	collapsed: true,
+// 	items: [],
+// },
+// {
+// 	text: 'Data Models',
+// 	collapsible: true,
+// 	collapsed: true,
+// 	items: [
+// 		{ text: 'Build Content with M2A', link: '/cookbook/data-models/build-content-with-m2a' },
+// 		{ text: 'Content Hierarchies', link: '/cookbook/data-models/recursive-content-hierarchies' },
+// 	],
+// },
+// {
+// 	text: 'Permissions',
+// 	collapsible: true,
+// 	collapsed: true,
+// 	items: [
+// 		{ text: 'Basic Workflows', link: '/cookbook/permissions/basic-workflows' },
+// 		// { text: 'Configure User registration', link: '/cookbook/permissions/configure-user-registration' },
+// 		// { text: 'Multi-Sig Data Access', link: '/cookbook/permissions/multi-sig-data-access' },
+// 	],
+// },
+// {
+// 	text: 'Flows',
+// 	collapsible: true,
+// 	collapsed: true,
+// 	items: [
+// 		{ text: 'For Loops', link: '/cookbook/flows/flows-for-loop' },
+// 		{ text: 'Slugify Text with Run Script', link: '/cookbook/flows/slugify-text-with-run-script' },
+// 		// { text: 'Generate Work Reports', link: '/cookbook/flows/generate-work-reports' },
+// 	],
+// },
+// {
+// 	text: 'Websockets',
+// 	collapsible: true,
+// 	collapsed: true,
+// 	items: [{ text: 'Intro', link: '/cookbook/intro' }],
+// },
+// {
+// 	text: 'Insights',
+// 	collapsible: true,
+// 	collapsed: true,
+// 	items: [{ text: 'Intro', link: '/cookbook/intro' }],
+// },
+// 	];
+// }
 
 function sidebar() {
 	return [
@@ -281,10 +348,6 @@ function sidebar() {
 							link: '/configuration/users-roles-permissions/permissions',
 							text: 'Permissions',
 						},
-						{
-							link: '/configuration/users-roles-permissions/workflows',
-							text: 'Workflows',
-						},
 					],
 				},
 				{
@@ -333,6 +396,18 @@ function sidebar() {
 				// 	text: 'Frequently Asked Questions*',
 				// 	type: 'page',
 				// },
+			],
+		},
+		{
+			text: 'Cookbook',
+			collapsible: true,
+			collapsed: true,
+			items: [
+				{ text: 'Personal Portfolio Using M2A', link: '/cookbook/data-models/personal-portfolio-using-m2a.md' },
+				{ text: 'Build a Content Hierarchy', link: '/cookbook/data-models/build-a-content-hierarchy' },
+				{ text: 'Basic Workflows', link: '/cookbook/permissions/basic-workflows' },
+				{ text: 'Flows For Loops', link: '/cookbook/flows/flows-for-loop' },
+				{ text: 'Slugify Text with Run Script', link: '/cookbook/flows/slugify-text-with-run-script' },
 			],
 		},
 		{
