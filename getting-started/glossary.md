@@ -350,7 +350,7 @@ a Pull Request to the codebase, otherwise you can update this in your instance.
 
 The platform supports internationalization across its entire Admin App. Many languages are currently supported, with
 more being added all the time. Anyone can add or refine any languages through the integration with
-[CrowdIn](https://locales.directus.io).
+[Crowdin](https://locales.directus.io).
 
 In addition to the App itself being multilingual, the platform allows translating your schema too. By default,
 collections and field names come from the database's naming, but you can override this in different languages.
