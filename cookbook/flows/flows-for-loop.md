@@ -55,11 +55,11 @@ You'll need a flow with an array of data on its data chain.
 
 :::
 
+<!--
 <video autoplay playsinline muted loop controls>
 	<source src="" type="video/mp4" />
 </video>
 
-<!--
 VIDEO IS OPTIONAL: delete if not needed
 -->
 
