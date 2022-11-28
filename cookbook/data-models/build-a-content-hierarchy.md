@@ -1,5 +1,4 @@
 ---
-title: Build a Content Hierarchy
 description:
   This recipe explains how to construct a documentation content hierarchy by using Tree View, the M2O alias for creating
   recursive relationships.
@@ -10,7 +9,7 @@ author_override:
 author: Eron Powell
 ---
 
-# {{$frontmatter.title}}
+# Build a Content Hierarchy
 
 > {{ $frontmatter.description }}
 

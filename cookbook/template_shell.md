@@ -1,5 +1,4 @@
 ---
-title:
 description: Try to make this description a clear, catchy, cool, 2-4 line explanation of your recipe.
 tags: []
 skill_level:
@@ -8,7 +7,7 @@ author_override:
 author: Eron Powell
 ---
 
-# {{$frontmatter.title}}
+# Title
 
 > {{ $frontmatter.description }}
 

@@ -1,5 +1,4 @@
 ---
-title: Configure User Registration
 description: This recipes explains how to enable new users to self-register their own account in Directus.
 image:
 tags: []
@@ -9,7 +8,7 @@ author_override:
 author: Eron Powell
 ---
 
-# {{$frontmatter.title}}
+# Configure User Registration
 
 > {{ $frontmatter.description }}
 

@@ -1,5 +1,4 @@
 ---
-title: Generate Work Reports
 description: This recipe outlines a method to generate reports using Directus Flows.
 tags: []
 skill_level:
@@ -12,7 +11,7 @@ author: Eron Powell
 Pairs well with [workflows](/cookbook/permissions/workflows.md)
 -->
 
-# {{$frontmatter.title}}
+# Generate Work Reports
 
 > {{ $frontmatter.description }}
 

@@ -1,5 +1,4 @@
 ---
-title: Flows For-Loop
 description:
   When most flows begin, they pass the trigger's payload to the data chain and execute once. This recipe explains how to
   execute a flow for each element in a payload's array.
@@ -10,7 +9,7 @@ author_override:
 author: Eron Powell
 ---
 
-# {{$frontmatter.title}}
+# Flows For-Loop
 
 > {{ $frontmatter.description }}
 

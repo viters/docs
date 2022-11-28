@@ -1,5 +1,4 @@
 ---
-title: Multi-Signature Data Access
 description: This recipe outlines how to setup basic multi-signature sign-off within Directus.
 tags: []
 skill_level:
@@ -8,11 +7,7 @@ author_override:
 author:
 ---
 
-<!--
-
--->
-
-# {{$frontmatter.title}}
+# Multi-Signature Data Access
 
 > {{ $frontmatter.description }}
 

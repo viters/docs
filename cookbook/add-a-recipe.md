@@ -1,6 +1,4 @@
 ---
-title: Add a Recipe
-description: This recipe explains what a recipe is and how to add your own recipes in the Directus Cookbook.
 tags: []
 skill_level:
 directus_version: All Versions
@@ -8,9 +6,9 @@ author_override:
 author: Eron Powell
 ---
 
-# {{$frontmatter.title}}
+# Add a Recipe
 
-> {{ $frontmatter.description }}
+> This recipe explains what a recipe is and how to add your own recipes in the Directus Cookbook.
 
 :::tip Author: {{$frontmatter.author}}
 

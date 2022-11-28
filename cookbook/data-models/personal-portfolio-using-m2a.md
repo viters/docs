@@ -1,5 +1,4 @@
 ---
-title: Personal Portfolio Using M2A
 description: This recipe demonstrates how to use an M2A relationship to build content dynamically.
 tags: []
 skill_level:
@@ -8,7 +7,7 @@ author_override:
 author: Eron Powell
 ---
 
-# {{$frontmatter.title}}
+# Personal Portfolio Using M2A
 
 > {{$frontmatter.description}}
 

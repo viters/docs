@@ -1,5 +1,4 @@
 ---
-title: Basic Workflows
 description:
 tags: []
 skill_level:
@@ -8,7 +7,7 @@ author_override:
 author: Eron Powell
 ---
 
-# {{$frontmatter.title}}
+# Basic Workflows
 
 > Workflows are the use of custom access permissions to add structured stages to the flow of content creation or data
 > generation. Workflows enable you to do things like pass off work in progress between multiple roles, build decision

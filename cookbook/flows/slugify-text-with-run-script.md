@@ -1,5 +1,4 @@
 ---
-title: Slugify Text
 description: A simple recipe to slugify a string of text using the Run Script operation.
 tags: []
 skill_level:
@@ -8,7 +7,7 @@ author_override:
 author: Eron Powell
 ---
 
-# {{$frontmatter.title}}
+# Slugify Text
 
 > {{ $frontmatter.description }}
 
