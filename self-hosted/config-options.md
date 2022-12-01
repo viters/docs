@@ -430,7 +430,7 @@ middleman servers (like CDNs) and even the browser.
 
 :::tip Internal Caching
 
-In addition to data-caching, Directus also does some internal caching. Note `SCHEMA_CACHE` and `CACHE_PERMISSIONS` which
+In addition to data-caching, Directus also does some internal caching. Note `CACHE_SCHEMA` and `CACHE_PERMISSIONS` which
 are enabled by default. These speed up the overall performance of Directus, as we don't want to introspect the whole
 database or check all permissions on every request. When running Directus load balanced, you'll need to use a shared
 cache storage (like [Redis](#redis-2) or [Memcache](#memcache-2)) or else disable all caching.
