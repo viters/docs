@@ -339,7 +339,7 @@ O2M
 headshot
 SSG
 api
-slugify
+(S|s)lugify
 slugification
 misconfigurations
 relationally-linked
