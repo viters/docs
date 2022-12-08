@@ -6,7 +6,7 @@ readTime: 9 min read
 # Layouts
 
 > Layouts are customized displays for viewing and interacting with the Items in a Collection. This makes working with
-> some general category of data model, such as map locations or calendar events, a more human-friendly experience.
+> specific types of data models, such as map locations or calendar events, a more human-friendly experience.
 
 ## What's a Layout?
 
@@ -15,17 +15,8 @@ readTime: 9 min read
 </video>
 
 Data models vary drastically in shape and purpose, from eCommerce platforms to IoT fleets and everything in between.
-While your Directus Project data may be stored in Collections _(i.e. SQL data tables)_, this table representation is not
-always the most human-friendly way to interact with information. Layouts provide more human-friendly, intuitive displays
-to view and interact with Items in a Collection.
-
-The following sections detail the Layouts managed and supported by the Directus Team. Keep in mind that Directus is
-open-source, modular and extensible. You are free to create any Layout you need on self-hosted and Enterprise Cloud
-Projects. Additionally, Directus Cloud is always adding more Layouts to its
-[Cloud Exclusive Extensions](/cloud/glossary#extensions), so check back often to stay up-to-date with the latest and
-greatest. Additionally, you can join the community on [Discord](https://discord.com/invite/directus) and
-[GitHub](https://github.com/directus/directus/discussions) to find thousands of engineers guiding development of the
-Directus platform.
+While excel-style data tables often closely resemble how the data is stored in the database, this is not always the most
+human-friendly way to view the data. Layouts provide intuitive displays to view and interact with Items in a Collection.
 
 ## How it Works
 
@@ -33,9 +24,9 @@ Directus platform.
 	<source src="https://cdn.directus.io/docs/v9/app-guide/layouts/layouts-20220415A/adjust-page-layout-20220415A.mp4" type="video/mp4" />
 </video>
 
-To adjust an Item's Layout, follow the steps below.
+To adjust an Item's Layout, follow these steps.
 
-1. Navigate to the Content Module and select the desired Collection.
+1. Navigate to the [Content Module](/app/content) and select the desired Collection.
 2. In the page Sidebar, click **"Layout Options"**.
 3. Choose the desired Layout you want to use.
 4. Customize the Layout as desired.
@@ -81,7 +72,9 @@ As you go through Layouts, it may be helpful to keep the following points in min
 
 ## Table Layout
 
-![Table Layout](https://cdn.directus.io/docs/v9/app-guide/layouts/layouts-20220415A/table-layout.webp)
+<video autoplay playsinline muted loop controls title="Table Layout">
+	<source src="https://cdn.directus.io/docs/v9/app-guide/layouts/Layouts-20221205/table-layout-20221202A.mp4" type="video/mp4" />
+</video>
 
 This Layout supports all forms of data, as it directly reflects how data is stored in a Collection. This is the default
 Layout used in the Content Module. It includes the following controls.
@@ -118,7 +111,10 @@ Data Model Settings.
 
 ## Card Layout
 
-![Card Layout](https://cdn.directus.io/docs/v9/app-guide/layouts/layouts-20220415A/card-layout-20220416A.webp)
+<video autoplay playsinline muted loop controls title="Card Layout">
+	<source src="https://cdn.directus.io/docs/v9/app-guide/layouts/Layouts-20221205/card-layout-20221205A.mp4
+" type="video/mp4" />
+</video>
 
 This tiled Layout is ideal for Collections that prioritize an image _(e.g. a user or blog post)_. This is the default
 for both the [User Directory](/app/user-directory) and [File Library](/app/file-library). It includes the following
@@ -127,27 +123,28 @@ controls.
 **Layout Options**
 
 - **Image Source** — Set the Field used as the display image.
-- **Title** — Set a mix of Field values and text to use as a title.
-- **Subtitle** — Set a mix of Field values and text to use as a subtitle.
+- **Title** — Sets a display template to use as a title.
+- **Subtitle** — Sets a display template to use as a subtitle.
 - **Image Fit** — Set how an image fits inside the Card.
 - **Fallback Icon** — Set a default icon to display when an Item has no image.
 
 **Subheader**
 
 - **Card Size** — Toggle the Card size as it appears in the Page Area.
-- **Sort Field** — Click to select the Field you wish to sort by from the dropdown menu.
-- **Sort Direction** — Toggle ascending and descending sort directions.
+- **Order Field** — Click to select the Field you wish to order by from the dropdown menu.
+- **Order Direction** — Toggle ascending and descending order.
 - **Select All** — Click **"<span mi icon>check_circle</span> Select All"** in the selection column header.
 
 **Page Area**
 
 - **Select Item(s)** — Click <span mi icon>radio_button_unchecked</span> in the selection column for the desired
   Item(s).
-- **Adjust Time** — Click and drag an Item to change its time.
 
 ## Calendar Layout
 
-![Calendar Layout](https://cdn.directus.io/docs/v9/app-guide/layouts/layouts-20220415A/calendar-layout-20220416A.webp)
+<video autoplay playsinline muted loop controls title="Calendar Layout">
+	<source src="https://cdn.directus.io/docs/v9/app-guide/layouts/Layouts-20221205/calendar-layout-20221205A.mp4" type="video/mp4" />
+</video>
 
 This Layout is ideal for Collections with time-oriented data _(e.g. events and appointments)_. It includes the following
 controls.
@@ -157,6 +154,7 @@ controls.
 - **Display Template** — Set a mix of Field values and text to represent Items on the calendar.
 - **Start Date Field** — Choose Field to determine each Item's beginning time on the calendar.
 - **End Date Field** — Choose Field to determine each Item's ending time on the calendar.
+- **First Day of The Week** — Defines the beginning of the week on the calendar.
 
 **Subheader**
 
@@ -170,19 +168,16 @@ controls.
 
 :::tip Configuration Requirements
 
-To use this Layout, the Collection will need at least one datetime Field to set a start time, but ideally two _(to set a
-start and end time)_.
-
-<!--
-@TODO configuration > data-model > fields
-Link to Datetime Field
--->
+To use this Layout, the Collection will need at least one datetime [Field](/configuration/data-model/fields.md) to set a
+start time, but ideally two datetime Fields _(to set a start time and end time)_.
 
 :::
 
 ## Map Layout
 
-![Map Layout](https://cdn.directus.io/docs/v9/app-guide/layouts/layouts-20220415A/map-layout-20220416A.webp)
+<video autoplay playsinline muted loop controls title="Map Layout">
+	<source src="https://cdn.directus.io/docs/v9/app-guide/layouts/Layouts-20221205/map-layout-20221205A.mp4" type="video/mp4" />
+</video>
 
 This Layout is ideal for Collections that emphasize geospatial data. It provides a world map, with Items displayed as
 points, lines, and other geometry. The following options are available:
@@ -203,7 +198,7 @@ _There is no Subheader on the Map Layout._
 
 - **Zoom** — Click <span mi icon>add</span> and <span mi icon>remove</span> in the upper left hand corner of the Page
   Area to zoom in and out.
-- **Zoom to my Location** — Click <span mi icon>my_location</span> to zoom into your current location on the map.
+- **Find my Location** — Click <span mi icon>my_location</span> to zoom into your current location on the map.
 - **Reframe** — Click the square in the upper left-hand corner to resize and reframe the map area.
 - **Select Item** — Click a single Item to enter its Item Page.
 - **Select Items** — Click and drag to select multiple Items at once, opening the Item Page.
@@ -221,7 +216,9 @@ Link to Map Field
 
 ## Kanban Layout [Cloud Exclusive]
 
-![Kanban Layout](https://cdn.directus.io/docs/v9/app-guide/layouts/layouts-20220415A/kanban-layout-20220416A.webp)
+<video autoplay playsinline muted loop controls title="Kanban Layout">
+	<source src="https://cdn.directus.io/docs/v9/app-guide/layouts/Layouts-20221205/kanban-layout-20221205A.mp4" type="video/mp4" />
+</video>
 
 This Layout is ideal for Collections that serve as project management tools or to-do lists, where each Item represents a
 task, because it groups Items onto columns according to their status _(e.g. "Not Started", "In Progress", "Under
@@ -230,7 +227,7 @@ Review", "Complete", or any other status defined)_. The following controls are a
 **Layout Options**
 
 - **Group By** — Select the Field used to define Item status. See below for details.
-- **Card Title** — Choose a Field to serve as a title on each Item.
+- **Card Title** — Choose the Field use to serve as the title for each kanban board.
 - **Card Text** — Choose a Field to display additional text on each Item.
 
 **Layout Options > Advanced**
@@ -255,12 +252,7 @@ _There is no Subheader for the Kanban Layout._
 
 :::tip Configuration Requirements
 
-To make this Layout work, you will need to configure an appropriate status Field on the Collection, then identify this
-Field under **"Group By"** in the Layout Options menu.
-
-<!--
-@TODO configuration > data-model > fields
-Create and link to Kanban config tutorial.
--->
+To make this Layout work, you will need to configure an appropriate status [Field](/configuration/data-model/fields.md)
+on the Collection, then identify this Field under **"Group By"** in the Layout Options menu.
 
 :::

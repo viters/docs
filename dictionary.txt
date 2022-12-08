@@ -343,3 +343,4 @@ api
 slugification
 misconfigurations
 relationally-linked
+kanban
