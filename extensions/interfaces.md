@@ -43,7 +43,7 @@ export default {
 - `localTypes` — An array of local types. Accepts `standard`, `file`, `files`, `m2o`, `o2m`, `m2m`, `m2a`,
   `presentation`, `translations` and `group`. Defaults to `standard`.
 - `group` — The group this interface is shown at when creating a field. Accepts `standard`, `selection`, `relational`,
-  `presentation`, `presentation`, `group` or `other`.
+  `presentation`, `group` or `other`.
 - `relational` — A boolean that indicates if this interface is a relational interface.
 - `recommendedDisplays` — An array of display names which are recommended to be used with this interface.
 
