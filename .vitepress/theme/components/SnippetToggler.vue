@@ -44,6 +44,7 @@ const setPref = (event: Event) => emit('update:modelValue', (event?.target as HT
 </template>
 
 <style scoped>
+
 .snippet-toggler {
 	overflow: hidden;
 	background: #f7f8ff;
