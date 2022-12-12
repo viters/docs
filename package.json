@@ -45,8 +45,5 @@
 				"@types/react"
 			]
 		}
-	},
-	"dependencies": {
-		"@directus/vue-snippet-toggler": "^0.0.2"
-	}
+}
 }
