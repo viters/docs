@@ -120,38 +120,6 @@ query {
 
 </SnippetToggler>
 
-<!-- ### REST API
-
-```
-GET /activity
-SEARCH /activity
-```
-
-[Learn more about SEARCH ->](/reference/introduction#search-http-method)
-
-### GraphQL
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Query {
-	activity: [directus_activity]
-}
-```
-
-##### Example
-
-```graphql
-query {
-	activity {
-		...
-	}
-}
-```
--->
-
 ---
 
 ## Retrieve Activity Action
@@ -201,35 +169,6 @@ query {
 </template>
 
 </SnippetToggler>
-
-<!-- ### REST API
-
-```
-GET /activity/:id
-```
-
-### GraphQL
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Query {
-	activity_by_id(id: ID!): directus_activity
-}
-```
-
-##### Example
-
-```graphql
-query {
-	activity_by_id(id: 15) {
-		...
-	}
-}
-```
--->
 
 ---
 
@@ -304,48 +243,6 @@ mutation {
 
 </SnippetToggler>
 
-<!-- ### REST API
-
-```
-POST /activity/comment
-```
-
-##### Example
-
-```json
-// POST /activity/comment
-
-{
-	"collection": "pages",
-	"item": 3,
-	"comment": "Hello World"
-}
-```
-
-### GraphQL
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	create_comment(collection: String!, item: ID!, comment: String!): directus_activity
-}
-```
-
-##### Example
-
-```graphql
-mutation {
-	create_comment(
-		collection: "pages",
-		item: 3,
-		comment: "Hello World"
-	) { ... }
-}
-``` -->
-
 ---
 
 ## Update a Comment
@@ -406,47 +303,6 @@ mutation {
 
 </SnippetToggler>
 
-<!--
-### REST API
-
-```
-PATCH /activity/comment/:id
-```
-
-##### Example
-
-```json
-// PATCH /activity/comment/15
-
-{
-	"comment": "Hello World!!"
-}
-```
-
-### GraphQL
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	update_comment(id: ID!, comment: String!): directus_activity
-}
-```
-
-##### Example
-
-```graphql
-mutation {
-	update_comment(
-		id: 3,
-		comment: "Hello World",
-	) { ... }
-}
-```
--->
-
 ---
 
 ## Delete a Comment
@@ -494,37 +350,3 @@ mutation {
 </template>
 
 </SnippetToggler>
-
-<!-- ### REST API
-
-```
-DELETE /activity/comment/:id
-```
-
-##### Example
-
-```
-DELETE /activity/comment/15
-```
-
-### GraphQL
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	delete_comment(id: ID): delete_one
-}
-```
-
-##### Example
-
-```graphql
-mutation {
-	delete_comment(id: 3) {
-		id
-	}
-}
-``` -->
