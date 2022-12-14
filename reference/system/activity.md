@@ -4,6 +4,14 @@ readTime: 4 min read
 pageClass: page-reference
 ---
 
+<script setup>
+import { ref } from 'vue';
+
+import SnippetToggler from '../../.vitepress/theme/components/SnippetToggler.vue';
+
+const pref = ref('REST');
+</script>
+
 # Activity
 
 > All events within Directus are tracked and stored in the activities collection. This gives you full accountability
@@ -73,7 +81,46 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [activity objects](#the-activity-object). If no items are available,
 data will be an empty array.
 
-### REST API
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL']" label="API" >
+
+<template #rest>
+
+```
+GET /activity
+SEARCH /activity
+```
+
+[Learn more about SEARCH ->](/reference/introduction#search-http-method)
+
+</template>
+
+<template #graphql>
+
+```
+POST /graphql/system
+```
+
+```graphql
+type Query {
+	activity: [directus_activity]
+}
+```
+
+##### Example
+
+```graphql
+query {
+	activity {
+		...
+	}
+}
+```
+
+</template>
+
+</SnippetToggler>
+
+<!-- ### REST API
 
 ```
 GET /activity
@@ -103,6 +150,7 @@ query {
 	}
 }
 ```
+-->
 
 ---
 
@@ -118,7 +166,43 @@ Supports all [global query parameters](/reference/query).
 
 Returns an [activity object](#the-activity-object) if a valid identifier was provided.
 
-### REST API
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL']" label="API" >
+
+<template #rest>
+
+```
+GET /activity/:id
+```
+
+</template>
+
+<template #graphql>
+
+```
+POST /graphql/system
+```
+
+```graphql
+type Query {
+	activity_by_id(id: ID!): directus_activity
+}
+```
+
+##### Example
+
+```graphql
+query {
+	activity_by_id(id: 15) {
+		...
+	}
+}
+```
+
+</template>
+
+</SnippetToggler>
+
+<!-- ### REST API
 
 ```
 GET /activity/:id
@@ -145,6 +229,7 @@ query {
 	}
 }
 ```
+-->
 
 ---
 
@@ -167,7 +252,59 @@ The comment content. Supports Markdown.
 
 Returns the [activity object](#the-activity-object) of the created comment.
 
-### REST API
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL']" label="API" >
+
+<template #rest>
+
+```
+POST /activity/comment
+```
+
+##### Example
+
+```json
+// POST /activity/comment
+
+{
+	"collection": "pages",
+	"item": 3,
+	"comment": "Hello World"
+}
+```
+
+</template>
+
+<template #graphql>
+
+### GraphQL
+
+```
+POST /graphql/system
+```
+
+```graphql
+type Mutation {
+	create_comment(collection: String!, item: ID!, comment: String!): directus_activity
+}
+```
+
+##### Example
+
+```graphql
+mutation {
+	create_comment(
+		collection: "pages",
+		item: 3,
+		comment: "Hello World"
+	) { ... }
+}
+```
+
+</template>
+
+</SnippetToggler>
+
+<!-- ### REST API
 
 ```
 POST /activity/comment
@@ -207,7 +344,7 @@ mutation {
 		comment: "Hello World"
 	) { ... }
 }
-```
+``` -->
 
 ---
 
@@ -224,6 +361,52 @@ The updated comment content. Supports Markdown.
 
 Returns the [activity object](#the-activity-object) of the created comment.
 
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL']" label="API" >
+
+<template #rest>
+
+```
+PATCH /activity/comment/:id
+```
+
+```json
+// PATCH /activity/comment/15
+
+{
+	"comment": "Hello World!!"
+}
+```
+
+</template>
+
+<template #graphql>
+
+```
+POST /graphql/system
+```
+
+```graphql
+type Mutation {
+	update_comment(id: ID!, comment: String!): directus_activity
+}
+```
+
+##### Example
+
+```graphql
+mutation {
+	update_comment(
+		id: 3,
+		comment: "Hello World",
+	) { ... }
+}
+```
+
+</template>
+
+</SnippetToggler>
+
+<!--
 ### REST API
 
 ```
@@ -262,6 +445,7 @@ mutation {
 	) { ... }
 }
 ```
+-->
 
 ---
 
@@ -269,7 +453,49 @@ mutation {
 
 Deletes a comment.
 
-### REST API
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL']" label="API" >
+
+<template #rest>
+
+```
+DELETE /activity/comment/:id
+```
+
+##### Example
+
+```
+DELETE /activity/comment/15
+```
+
+</template>
+
+<template #graphql>
+
+```
+POST /graphql/system
+```
+
+```graphql
+type Mutation {
+	delete_comment(id: ID): delete_one
+}
+```
+
+##### Example
+
+```graphql
+mutation {
+	delete_comment(id: 3) {
+		id
+	}
+}
+```
+
+</template>
+
+</SnippetToggler>
+
+<!-- ### REST API
 
 ```
 DELETE /activity/comment/:id
@@ -301,4 +527,4 @@ mutation {
 		id
 	}
 }
-```
+``` -->

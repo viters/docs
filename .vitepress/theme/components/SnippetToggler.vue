@@ -33,7 +33,7 @@ const setPref = (event: Event) => emit('update:modelValue', (event?.target as HT
 			</svg>
 		</div>
 
-		<div>
+		<div class="content-area">
 			<template v-for="choice in choices">
 				<div v-show="choice === modelValue">
 					<slot :name="choice.toLowerCase()"></slot>
@@ -96,6 +96,10 @@ const setPref = (event: Event) => emit('update:modelValue', (event?.target as HT
 	right: 24px;
 	user-select: none;
 	pointer-events: none;
+}
+
+.content-area {
+	padding: 0px 4px;
 }
 
 @media (min-width: 640px) {
