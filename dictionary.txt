@@ -344,3 +344,4 @@ slugification
 misconfigurations
 relationally-linked
 kanban
+graphql
