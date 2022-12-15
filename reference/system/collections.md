@@ -194,38 +194,6 @@ query {
 
 </SnippetToggler>
 
-<!-- ### REST API
-
-```
-GET /collections
-SEARCH /collections
-```
-
-[Learn more about SEARCH ->](/reference/introduction#search-http-method)
-
-### GraphQL
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Query {
-	collections: [directus_collections]
-}
-```
-
-##### Example
-
-```graphql
-query {
-	collections {
-		...
-	}
-}
-```
--->
-
 ---
 
 ## Retrieve a Collection
@@ -288,40 +256,6 @@ query {
 </template>
 
 </SnippetToggler>
-
-<!-- ### REST API
-
-```
-GET /collections/:collection
-```
-
-##### Example
-
-```
-GET /collections/articles
-```
-
-### GraphQL
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Query {
-	collections_by_name(name: String!): directus_collections
-}
-```
-
-##### Example
-
-```graphql
-query {
-	collections_by_name(name: "articles") {
-		...
-	}
-}
-``` -->
 
 ---
 
@@ -414,53 +348,6 @@ mutation {
 
 </SnippetToggler>
 
-<!-- ### REST API
-
-```
-POST /collections
-```
-
-##### Example
-
-```json
-// POST /collections
-
-{
-	"collection": "testimonials",
-	"meta": {
-		"icon": "format_quote"
-	}
-}
-```
-
-### GraphQL
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	create_collections_item(data: directus_collections): directus_collections
-}
-```
-
-##### Example
-
-```graphql
-mutation {
-	create_collections_item(data: {
-		collection: "testimonials",
-		meta: {
-			icon: "format_quote"
-		}
-	}) {
-		...
-	}
-}
-```
--->
-
 ---
 
 ## Update a Collection
@@ -535,46 +422,6 @@ mutation {
 
 </SnippetToggler>
 
-<!-- ### REST API
-
-```
-PATCH /collections/:collection
-```
-
-##### Example
-
-```json
-// PATCH /collections/testimonials
-
-{
-	"meta": {
-		"note": "Short quotes from happy customers."
-	}
-}
-```
-
-### GraphQL
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	update_collections_item(collection: String!, data: update_directus_collections_input!): directus_collections
-}
-```
-
-##### Example
-
-```graphql
-mutation {
-	update_collections_item(collection: "testimonials", data: { meta: { note: "Short quotes from happy customers." } }) {
-		collection
-	}
-}
-``` -->
-
 ---
 
 ## Delete a Collection
@@ -637,37 +484,3 @@ mutation {
 </SnippetToggler>
 
 ---
-
-<!-- ### REST API
-
-```
-DELETE /collections/:collection
-```
-
-##### Example
-
-```
-DELETE /collections/articles
-```
-
-### GraphQL
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	delete_collections_item(collection: String!): delete_collection
-}
-```
-
-##### Example
-
-```graphql
-mutation {
-	delete_collections_item(collection: "articles") {
-		collection
-	}
-}
-``` -->
