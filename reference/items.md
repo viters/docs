@@ -4,6 +4,14 @@ readTime: 5 min read
 pageClass: page-reference
 ---
 
+<script setup>
+import { ref } from 'vue';
+
+import SnippetToggler from '../.vitepress/theme/components/SnippetToggler.vue';
+
+const pref = ref('REST');
+</script>
+
 # Accessing Items
 
 > Items are individual pieces of data in your database. They can be anything, from articles, to IoT status checks.
@@ -41,6 +49,13 @@ learn more.
 
 List all items that exist in Directus.
 
+:::tip Singleton
+
+If your collection is a Singleton, this endpoint will return the item. If the item doesn't exist in the database, the
+default values will be returned.
+
+:::
+
 ### Query Parameters
 
 Supports all [global query parameters](/reference/query).
@@ -56,10 +71,12 @@ The [Field Parameter](/reference/query#fields) is required to return nested rela
 An array of up to [limit](/reference/query#limit) [item objects](#the-item-object). If no items are available, data will
 be an empty array.
 
-#### Singleton
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
 
-If your collection is a singleton, this endpoint will return the item. If the item doesn't exist in the database, the
-default values will be returned.
+<template #rest>
 
 ### Syntax
 
@@ -75,6 +92,10 @@ SEARCH /items/:collection
 ```
 GET /items/articles
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -102,6 +123,10 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Get Item by ID
@@ -116,6 +141,13 @@ Supports all [global query parameters](/reference/query).
 
 Returns an [item object](#the-item-object) if a valid primary key was provided.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -127,6 +159,10 @@ GET /items/:collection/:id
 ```
 GET /items/articles/15
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -150,6 +186,10 @@ query {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
 
 ---
 
@@ -176,6 +216,13 @@ Relational data needs to be correctly nested to add new items successfully. Chec
 
 Returns the [item objects](#the-item-object) of the item that were created.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -194,6 +241,10 @@ POST /items/articles
 	"body": "This is our first article"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -218,6 +269,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Create Multiple Items
@@ -235,6 +290,13 @@ An array of partial [item objects](#the-item-object).
 ### Returns
 
 Returns the [item objects](#the-item-object) of the item that were created.
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -260,6 +322,10 @@ POST /items/articles
 	}
 ]
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -289,6 +355,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Update an Item
@@ -307,6 +377,13 @@ A partial [item object](#the-item-object).
 
 Returns the [item object](#the-item-object) of the item that was updated.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -324,6 +401,10 @@ PATCH /items/articles/15
 	"title": "An updated title"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -348,11 +429,21 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Update Multiple Items
 
 Update multiple items at the same time.
+
+:::tip Singleton
+
+If your collection is a Singleton, this endpoint will act the same as the [Update an Item](#update-an-item) endpoint.
+
+:::
 
 ### Query Parameters
 
@@ -366,9 +457,12 @@ Object containing `data` for the values to set, and either `keys` or `query` to 
 
 Returns the [item objects](#the-item-object) for the updated items.
 
-#### Singleton
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
 
-If your collection is a singleton, this endpoint will act the same as the [Update an Item](#update-an-item) endpoint.
+<template #rest>
 
 ### Syntax
 
@@ -390,6 +484,10 @@ PATCH /items/articles
 	}
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -414,6 +512,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Delete an Item
@@ -422,7 +524,12 @@ Delete an existing item.
 
 ### Returns
 
-Empty body.
+Empty body. <SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -435,6 +542,10 @@ DELETE /items/:collection/:id
 ```
 DELETE /items/articles/15
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -458,6 +569,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Delete Multiple Items
@@ -471,6 +586,13 @@ An array of item primary keys.
 ### Returns
 
 Empty body.
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -487,6 +609,10 @@ DELETE /items/articles
 ```json
 [15, 16, 21]
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -509,3 +635,7 @@ mutation {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
