@@ -4,6 +4,14 @@ readTime: 5 min read
 pageClass: page-reference
 ---
 
+<script setup>
+import { ref } from 'vue';
+
+import SnippetToggler from '../../.vitepress/theme/components/SnippetToggler.vue';
+
+const pref = ref('REST');
+</script>
+
 # Relations
 
 > What data is linked to what other data. Allows you to assign authors to articles, products to sales, and whatever
@@ -113,7 +121,7 @@ Delete trigger for the foreign key constraint.
 
 ---
 
-## List relations
+## List Relations
 
 List all relations that exist in Directus.
 
@@ -132,11 +140,22 @@ Doesn't support any query parameters.
 
 Array of [relation objects](#the-relation-object). If no items are available, data will be an empty array.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
 GET /relations
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -161,9 +180,13 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
-## List relations in collection
+## List Relations in Collection
 
 List all relations that exist in a given collection.
 
@@ -182,6 +205,13 @@ Doesn't support any query parameters.
 
 Array of [relation objects](#the-relation-object). If no items are available, data will be an empty array.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -193,6 +223,10 @@ GET /relations/:collection
 ```
 GET /relations/articles
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -217,9 +251,13 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
-## Retrieve a relation
+## Retrieve a Relation
 
 List an existing relation by collection/field name.
 
@@ -230,6 +268,13 @@ Doesn't support any query parameters.
 ### Returns
 
 Returns the requested [relation object](#the-relation-object).
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -242,6 +287,10 @@ GET /relations/:collection/:field
 ```
 GET /relations/articles/featured_image
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -267,6 +316,10 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Create a Relation
@@ -285,6 +338,13 @@ A partial [relation object](#the-relation-object).
 
 Returns the [relation object](#the-relation-object) for the created relation.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -302,6 +362,10 @@ POST /relations
 	"related_collection": "directus_files"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -329,6 +393,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Update a Relation
@@ -347,6 +415,13 @@ A partial [relation object](#the-relation-object).
 
 Returns the [relation object](#the-relation-object) for the created relation.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -364,6 +439,10 @@ PATCH /relations/:collection/:field
 	}
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -389,6 +468,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Delete a Relation
@@ -398,6 +481,13 @@ Delete an existing relation.
 ### Returns
 
 Empty body.
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -410,6 +500,10 @@ DELETE /relations/:collection/:field
 ```
 DELETE /relations/articles/author
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -433,3 +527,7 @@ mutation {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
