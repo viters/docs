@@ -4,6 +4,14 @@ readTime: 5 min read
 pageClass: page-reference
 ---
 
+<script setup>
+import { ref } from 'vue';
+
+import SnippetToggler from '../../.vitepress/theme/components/SnippetToggler.vue';
+
+const pref = ref('REST');
+</script>
+
 # Notifications
 
 > Notifications allow you to send/receive messages to/from other users of the platform.
@@ -68,6 +76,13 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [notification objects](#the-notification-object). If no items are
 available, data will be an empty array.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -76,6 +91,10 @@ SEARCH /notifications
 ```
 
 [Learn more about SEARCH ->](/reference/introduction#search-http-method)
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -101,9 +120,13 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
-## Retrieve a notification
+## Retrieve a Notification
 
 List an existing notification by primary key.
 
@@ -114,6 +137,13 @@ Supports all [global query parameters](/reference/query).
 ### Returns
 
 Returns the requested [notification object](#the-notification-object).
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -126,6 +156,10 @@ GET /notifications/:id
 ```
 GET /notifications/42
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -153,6 +187,10 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Create a Notification
@@ -171,6 +209,13 @@ A partial [notification object](#the-notification-object).
 
 Returns the [notification object](#the-notification-object) for the created notification.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -187,6 +232,10 @@ POST /notifications
 	"subject": "Hi there!"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -211,6 +260,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Create Multiple Notifications
@@ -228,6 +281,13 @@ An array of partial [notification objects](#the-notification-object).
 ### Returns
 
 Returns the [notification object](#the-notification-object) for the created notification.
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -253,6 +313,10 @@ POST /notifications
 	}
 ]
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -290,6 +354,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Update a Notification
@@ -315,6 +383,13 @@ A partial [notification object](#the-notification-object).
 
 Returns the [notification object](#the-notification-object) for the updated notification.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -330,6 +405,10 @@ PATCH /notifications/:id
 	"message": "This is my updated notification"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -354,6 +433,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Update Multiple Notifications
@@ -376,6 +459,13 @@ Any of [the notification object](#the-notification-object)'s properties.
 
 Returns the [notification objects](#the-notification-object) for the updated notifications.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -394,6 +484,10 @@ PATCH /notifications
 	}
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -418,6 +512,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Delete a Notification
@@ -427,6 +525,13 @@ Delete an existing notification.
 ### Returns
 
 Empty body.
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -439,6 +544,10 @@ DELETE /notifications/:id
 ```
 DELETE /notifications/34
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -462,6 +571,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Delete Multiple Notifications
@@ -476,6 +589,13 @@ An array of notification primary keys
 
 Empty body.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -488,6 +608,10 @@ DELETE /notifications
 // DELETE /notifications
 [15, 251, 810]
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -510,3 +634,7 @@ mutation {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
