@@ -4,6 +4,14 @@ readTime: 1 min read
 pageClass: page-reference
 ---
 
+<script setup>
+import { ref } from 'vue';
+
+import SnippetToggler from '../../.vitepress/theme/components/SnippetToggler.vue';
+
+const pref = ref('REST');
+</script>
+
 # Extensions
 
 > The extensions endpoints are used by the Admin App to retrieve what extensions to install.
@@ -24,6 +32,13 @@ This endpoint doesn't currently support any query parameters.
 
 An array of interface extension keys.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -35,6 +50,10 @@ GET /extensions/:type
 ```
 GET /extensions/interfaces
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -57,3 +76,7 @@ query {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
