@@ -18,7 +18,7 @@ const pref = ref('REST');
 
 ---
 
-## The Data Chain
+## The Flow Object
 
 `id` **uuid**\
 Primary key of the flow.
@@ -84,7 +84,7 @@ Supports all [global query parameters](/reference/query).
 
 ### Returns
 
-An array of up to [limit](/reference/query#limit) [data chains](#the-data-chain). If no items are available, data will
+An array of up to [limit](/reference/query#limit) [flow objects](#the-flow-object). If no items are available, data will
 be an empty array.
 
 <SnippetToggler
@@ -147,7 +147,7 @@ Supports all [global query parameters](/reference/query).
 
 ### Returns
 
-Returns the requested [data chain](#the-data-chain).
+Returns the requested [flow object](#the-flow-object).
 
 <SnippetToggler
 	v-model="pref"
@@ -212,11 +212,11 @@ Supports all [global query parameters](/reference/query).
 
 ### Request Body
 
-A partial [data chain](#the-data-chain).
+A partial [flow object](#the-flow-object).
 
 ### Returns
 
-Returns the [data chain](#the-data-chain) for the created flow.
+Returns the [flow object](#the-flow-object) for the created flow.
 
 <SnippetToggler
 	v-model="pref"
@@ -287,11 +287,11 @@ Supports all [global query parameters](/reference/query).
 
 ### Request Body
 
-An array of partial [data chains](#the-data-chain).
+An array of partial [flow objects](#the-flow-object).
 
 ### Returns
 
-Returns the [data chain](#the-data-chain) for the created flow.
+Returns the [flow object](#the-flow-object) for the created flow.
 
 <SnippetToggler
 	v-model="pref"
@@ -382,11 +382,11 @@ Supports all [global query parameters](/reference/query).
 
 ### Request Body
 
-A partial [data chain](#the-data-chain).
+A partial [flow object](#the-flow-object).
 
 ### Returns
 
-Returns the [data chain](#the-data-chain) for the updated flow.
+Returns the [flow object](#the-flow-object) for the updated flow.
 
 <SnippetToggler
 	v-model="pref"
@@ -458,11 +458,11 @@ Supports all [global query parameters](/reference/query).
 Array of primary keys of the flows you'd like to update.
 
 `data` **Required**\
-Any of [the data chain](#the-data-chain)'s properties.
+Any [flow object](#the-flow-object) properties.
 
 ### Returns
 
-Returns the [data chains](#the-data-chain) for the updated flows.
+Returns the [flow objects](#the-flow-object) for the updated flows.
 
 <SnippetToggler
 	v-model="pref"
