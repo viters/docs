@@ -4,6 +4,14 @@ readTime: 2 min read
 pageClass: page-reference
 ---
 
+<script setup>
+import { ref } from 'vue';
+
+import SnippetToggler from '../../.vitepress/theme/components/SnippetToggler.vue';
+
+const pref = ref('REST');
+</script>
+
 # Revisions
 
 > Revisions are individual changes to items made. Directus keeps track of changes made, so you're able to revert to a
@@ -72,6 +80,13 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [revision objects](#the-revision-object). If no items are available,
 data will be an empty array.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -80,6 +95,10 @@ SEARCH /revisions
 ```
 
 [Learn more about SEARCH ->](/reference/introduction#search-http-method)
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -105,6 +124,10 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Retrieve a revision
@@ -119,6 +142,13 @@ Supports all [global query parameters](/reference/query).
 
 Returns the requested [revision object](#the-revision-object).
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -130,6 +160,10 @@ GET /revisions/:id
 ```
 GET /revisions/322
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -154,3 +188,7 @@ query {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
