@@ -4,6 +4,14 @@ readTime: 5 min read
 pageClass: page-reference
 ---
 
+<script setup>
+import { ref } from 'vue';
+
+import SnippetToggler from '../../.vitepress/theme/components/SnippetToggler.vue';
+
+const pref = ref('REST');
+</script>
+
 # Operations
 
 > Operations are the building blocks of Data Flows within Directus.
@@ -82,6 +90,13 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [operation objects](#the-operation-object). If no items are available,
 data will be an empty array.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -90,6 +105,10 @@ SEARCH /operations
 ```
 
 [Learn more about SEARCH ->](/reference/introduction#search-http-method)
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -115,9 +134,13 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
-## Retrieve an operation
+## Retrieve an Operation
 
 List an existing operation by primary key.
 
@@ -128,6 +151,13 @@ Supports all [global query parameters](/reference/query).
 ### Returns
 
 Returns the requested [operation object](#the-operation-object).
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -140,6 +170,10 @@ GET /operations/:id
 ```
 GET /operations/3c636d1c-4eb2-49cd-8a6d-3ec571ab3390
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -165,6 +199,10 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Create an Operation
@@ -183,6 +221,13 @@ A partial [operation object](#the-operation-object).
 
 Returns the [operation object](#the-operation-object) for the created operation.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -200,6 +245,10 @@ POST /operations
 	"type": "log"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -225,6 +274,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Create Multiple Operations
@@ -242,6 +295,13 @@ An array of partial [operation objects](#the-operation-object).
 ### Returns
 
 Returns the [operation object](#the-operation-object) for the created operation.
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -267,6 +327,10 @@ POST /operations
 	}
 ]
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -305,6 +369,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Update an Operation
@@ -323,6 +391,13 @@ A partial [operation object](#the-operation-object).
 
 Returns the [operation object](#the-operation-object) for the updated operation.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -338,6 +413,10 @@ PATCH /operation/:id
 	"name": "My Updated Operation"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -362,6 +441,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Update Multiple Operations
@@ -384,6 +467,13 @@ Any of [the operation object](#the-operation-object)'s properties.
 
 Returns the [operation objects](#the-operation-object) for the updated operations.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -402,6 +492,10 @@ PATCH /operations
 	}
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -430,6 +524,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Delete an Operation
@@ -439,6 +537,13 @@ Delete an existing operation.
 ### Returns
 
 Empty body.
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -451,6 +556,10 @@ DELETE /operations/:id
 ```
 DELETE /operations/07ac467e-1900-4c62-9637-8dac2ab97f71
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -474,6 +583,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Delete Multiple Operations
@@ -488,6 +601,13 @@ An array of operations primary keys
 
 Empty body.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -500,6 +620,10 @@ DELETE /operations
 // DELETE /operations
 ["a791ce73-41a2-4fb7-8f67-c7ba176cc719", "4e57ab0e-f4ec-47b5-9dad-e36f08a25642", "5fe0a6f6-18ad-4bb3-94c6-2e033246c784"]
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -529,7 +653,11 @@ mutation {
 }
 ```
 
-## Triggering an operation
+</template>
+
+</SnippetToggler>
+
+## Triggering an Operation
 
 Trigger an operation based on primary key.
 
