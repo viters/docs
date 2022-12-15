@@ -4,6 +4,14 @@ readTime: 10 min read
 pageClass: page-reference
 ---
 
+<script setup>
+import { ref } from 'vue';
+
+import SnippetToggler from '../.vitepress/theme/components/SnippetToggler.vue';
+
+const pref = ref('REST');
+</script>
+
 # Accessing Files
 
 > Every file managed by the platform is uploaded to the configured storage adapter, and its associated metadata is
@@ -258,6 +266,13 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [file objects](#the-file-object). If no items are available, data will
 be an empty array.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -266,6 +281,10 @@ SEARCH /files
 ```
 
 [Learn more about SEARCH ->](/reference/introduction#search-http-method)
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -290,6 +309,10 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Retrieve a File
@@ -304,6 +327,13 @@ Supports all [global query parameters](/reference/query).
 
 Returns a [file object](#the-file-object) if a valid primary key was provided.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```txt
@@ -315,6 +345,10 @@ GET /files/:id
 ```txt
 GET /files/0fca80c4-d61c-4404-9fd7-6ba86b64154d
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -338,6 +372,10 @@ query {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
 
 ## Upload a File
 
@@ -444,6 +482,13 @@ Any of [the file object](#the-file-object)'s properties.
 
 Returns the [file object](#the-file-object) for the imported file.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```txt
@@ -462,6 +507,10 @@ POST /files/import
 	}
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -485,6 +534,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Update a File
@@ -505,6 +558,13 @@ information on the structure of this `multipart/form-data` request.
 
 Returns the [file object](#the-file-object) for the updated file.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```txt
@@ -520,6 +580,10 @@ PATCH /files/:id
 	"title": "Example"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -544,6 +608,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Update Multiple Files
@@ -566,6 +634,13 @@ Any of [the file object](#the-file-object)'s properties.
 
 Returns the [file objects](#the-file-object) for the updated files.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```txt
@@ -584,6 +659,10 @@ PATCH /files
 	}
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -608,6 +687,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Delete a File
@@ -628,6 +711,13 @@ Supports all [global query parameters](/reference/query).
 
 Empty response.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```txt
@@ -639,6 +729,10 @@ DELETE /files/:id
 ```txt
 DELETE /files/0fca80c4-d61c-4404-9fd7-6ba86b64154d
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -660,6 +754,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Delete Multiple Files
@@ -680,6 +778,13 @@ Array of file primary keys
 
 Empty response.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```txt
@@ -693,6 +798,10 @@ DELETE /files
 
 ["d17c10aa-0bad-4864-9296-84f522c753e5", "b6123925-2fc0-4a30-9d86-863eafc0a6e7"]
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -715,3 +824,7 @@ mutation {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
