@@ -1,7 +1,7 @@
 # Custom Operations <small></small>
 
 > Custom Operations allow you to create new types of steps for flows.
-> [Learn more about Operations](/getting-started/glossary#operations).
+> [Learn more about Operations](/configuration/flows/operations).
 
 ## Extension Entrypoints
 
