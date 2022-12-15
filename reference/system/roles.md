@@ -4,6 +4,14 @@ readTime: 5 min read
 pageClass: page-reference
 ---
 
+<script setup>
+import { ref } from 'vue';
+
+import SnippetToggler from '../../.vitepress/theme/components/SnippetToggler.vue';
+
+const pref = ref('REST');
+</script>
+
 # Roles
 
 > Roles define a specific set of access permissions, and are the primary organizational structure for Users within the
@@ -69,6 +77,13 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [role objects](#the-role-object). If no items are available, data will
 be an empty array.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -77,6 +92,10 @@ SEARCH /roles
 ```
 
 [Learn more about SEARCH ->](/reference/introduction#search-http-method)
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -104,6 +123,10 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Retrieve a Role
@@ -116,7 +139,12 @@ Supports all [global query parameters](/reference/query).
 
 ### Returns
 
-Returns the requested [role object](#the-role-object).
+Returns the requested [role object](#the-role-object). <SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -129,6 +157,10 @@ GET /roles/:id
 ```
 GET /roles/b4cb3b64-8580-4ad9-a099-eade6da24302
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -156,6 +188,10 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Create a Role
@@ -173,6 +209,13 @@ A partial [role object](#the-role-object).
 ### Returns
 
 Returns the [role object](#the-role-object) for the created role.
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -193,6 +236,10 @@ POST /roles
 	"app_access": true
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -222,6 +269,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Create Multiple Roles
@@ -239,6 +290,13 @@ An array of partial [role objects](#the-role-object).
 ### Returns
 
 Returns the [role objects](#the-role-object) for the created roles.
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -268,6 +326,10 @@ POST /roles
 	}
 ]
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -300,6 +362,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Update a Role
@@ -318,6 +384,13 @@ A partial [role object](#the-role-object).
 
 Returns the [role object](#the-role-object) for the updated role.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -333,6 +406,10 @@ PATCH /roles/:id
 	"icon": "attractions"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -360,6 +437,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Update Multiple Roles
@@ -382,6 +463,13 @@ Any of [the role object](#the-role-object)'s properties.
 
 Returns the [role objects](#the-role-object) for the updated roles.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -400,6 +488,10 @@ PATCH /roles
 	}
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -430,6 +522,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Delete a Role
@@ -439,6 +535,13 @@ Delete an existing role.
 ### Returns
 
 Empty body.
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -451,6 +554,10 @@ DELETE /roles/:id
 ```
 DELETE /roles/c86c2761-65d3-43c3-897f-6f74ad6a5bd7
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -474,6 +581,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Delete Multiple Roles
@@ -488,6 +599,13 @@ An array of role primary keys
 
 Empty body.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -498,8 +616,13 @@ DELETE /roles
 
 ```json
 // DELETE /roles
+
 ["653925a9-970e-487a-bfc0-ab6c96affcdc", "c86c2761-65d3-43c3-897f-6f74ad6a5bd7"]
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -522,5 +645,9 @@ mutation {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
 
 ---
