@@ -4,6 +4,14 @@ readTime: 5 min read
 pageClass: page-reference
 ---
 
+<script setup>
+import { ref } from 'vue';
+
+import SnippetToggler from '../../.vitepress/theme/components/SnippetToggler.vue';
+
+const pref = ref('REST');
+</script>
+
 # Preset
 
 > Presets hold the preferences of individual users of the platform. This allows Directus to show and maintain custom
@@ -95,6 +103,13 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [preset objects](#the-preset-object). If no items are available, data
 will be an empty array.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -103,6 +118,10 @@ SEARCH /presets
 ```
 
 [Learn more about SEARCH ->](/reference/introduction#search-http-method)
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -127,9 +146,13 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
-## Retrieve a preset
+## Retrieve a Preset
 
 List an existing preset by primary key.
 
@@ -140,6 +163,13 @@ Supports all [global query parameters](/reference/query).
 ### Returns
 
 Returns the requested [preset object](#the-preset-object).
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -152,6 +182,10 @@ GET /presets/:id
 ```
 GET /presets/42
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -176,6 +210,10 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Create a Preset
@@ -194,6 +232,13 @@ A partial [preset object](#the-preset-object).
 
 Returns the [preset object](#the-preset-object) for the created preset.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -211,6 +256,10 @@ POST /presets
 	"search": "Directus"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -235,6 +284,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Create Multiple Presets
@@ -252,6 +305,13 @@ An array of partial [preset objects](#the-preset-object).
 ### Returns
 
 Returns the [preset object](#the-preset-object) for the created preset.
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -278,6 +338,10 @@ POST /presets
 	}
 ]
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -312,6 +376,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Update a Preset
@@ -330,6 +398,13 @@ A partial [preset object](#the-preset-object).
 
 Returns the [preset object](#the-preset-object) for the updated preset.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -345,6 +420,10 @@ PATCH /presets/:id
 	"layout": "tabular"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -369,6 +448,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Update Multiple Presets
@@ -391,6 +474,13 @@ Any of [the preset object](#the-preset-object)'s properties.
 
 Returns the [preset objects](#the-preset-object) for the updated presets.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -409,6 +499,10 @@ PATCH /presets
 	}
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -433,6 +527,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Delete a Preset
@@ -442,6 +540,13 @@ Delete an existing preset.
 ### Returns
 
 Empty body.
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -454,6 +559,10 @@ DELETE /presets/:id
 ```
 DELETE /presets/34
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -477,6 +586,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Delete Multiple Presets
@@ -491,6 +604,13 @@ An array of preset primary keys
 
 Empty body.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -503,6 +623,10 @@ DELETE /presets
 // DELETE /presets
 [15, 251, 810]
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -525,3 +649,7 @@ mutation {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
