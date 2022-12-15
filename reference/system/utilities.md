@@ -4,6 +4,14 @@ readTime: 3 min read
 pageClass: page-reference
 ---
 
+<script setup>
+import { ref } from 'vue';
+
+import SnippetToggler from '../../.vitepress/theme/components/SnippetToggler.vue';
+
+const pref = ref('REST');
+</script>
+
 # Utilities
 
 > Utilities are the various helper endpoints located within the API.
@@ -23,6 +31,13 @@ String to hash.
 
 Hashed string.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -38,6 +53,10 @@ POST /utils/hash/generate
 	"string": "Hello World!"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -59,6 +78,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Verify a Hash
@@ -77,6 +100,13 @@ Hash you want to verify against.
 
 Boolean.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -94,6 +124,10 @@ POST /utils/hash/verify
 }
 ```
 
+</template>
+
+<template #graphql>
+
 ### Syntax
 
 ```
@@ -105,6 +139,10 @@ type Mutation {
 	utils_hash_verify(hash: String!, string: String!): Boolean
 }
 ```
+
+</template>
+
+</SnippetToggler>
 
 ---
 
@@ -124,6 +162,13 @@ Primary key of the item you're moving the source item too.
 
 Empty body.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -140,6 +185,10 @@ POST /utils/sort/:collection
 	"to": 51
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -161,6 +210,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Import Data from File
@@ -179,6 +232,13 @@ information.
 ### Returns
 
 Empty body.
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -207,9 +267,17 @@ Content-Type: text/csv
 ...
 ```
 
+</template>
+
+<template #graphql>
+
 ### Syntax
 
 n/a
+
+</template>
+
+</SnippetToggler>
 
 ---
 
@@ -235,6 +303,13 @@ Partial file object to tweak where / how the export file is saved.
 ### Returns
 
 Empty body
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -263,9 +338,17 @@ POST /utils/export/articles
 }
 ```
 
+</template>
+
+<template #graphql>
+
 ### Syntax
 
 n/a
+
+</template>
+
+</SnippetToggler>
 
 ---
 
@@ -281,16 +364,31 @@ n/a
 
 Empty body
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
 POST /utils/cache/clear
 ```
 
-### Syntax
+</template>
+
+<template #graphql>
+
+### Example
 
 ```graphql
 mutation {
 	utils_cache_clear
 }
 ```
+
+</template>
+
+</SnippetToggler>
