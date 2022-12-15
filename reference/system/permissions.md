@@ -4,6 +4,14 @@ readTime: 5 min read
 pageClass: page-reference
 ---
 
+<script setup>
+import { ref } from 'vue';
+
+import SnippetToggler from '../../.vitepress/theme/components/SnippetToggler.vue';
+
+const pref = ref('REST');
+</script>
+
 # Permissions
 
 > Permissions are assigned to Roles, and control data access throughout the platform.
@@ -78,6 +86,13 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [permission objects](#the-permission-object). If no items are
 available, data will be an empty array.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -86,6 +101,10 @@ SEARCH /permissions
 ```
 
 [Learn more about SEARCH ->](/reference/introduction#search-http-method)
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -111,6 +130,10 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Retrieve a Permission
@@ -124,6 +147,13 @@ Supports all [global query parameters](/reference/query).
 ### Returns
 
 Returns the requested [permission object](#the-permission-object).
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -156,6 +186,10 @@ GET /permissions/:id
 }
 ```
 
+</template>
+
+<template #graphql>
+
 ### Syntax
 
 ```
@@ -180,6 +214,10 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Create a Permission Rule
@@ -197,6 +235,13 @@ A partial [permissions object](#the-permission-object). `action` and `collection
 ### Returns
 
 Returns the [permission object](#the-permission-object) for the created permission.
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -216,6 +261,10 @@ POST /permissions
 	"fields": ["id", "title"]
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -243,6 +292,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Create Multiple Permission Rules
@@ -261,6 +314,13 @@ An array of partial [permissions objects](#the-permission-object). `action` and 
 
 Returns the [permission objects](#the-permission-object) for the created permissions.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -270,7 +330,7 @@ POST /permissions
 ### Example
 
 ```json
-// Request
+// POST /permissions
 
 [
 	{
@@ -287,6 +347,10 @@ POST /permissions
 	}
 ]
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -317,6 +381,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Update Permissions
@@ -335,6 +403,13 @@ A partial [permissions object](#the-permission-object).
 
 Returns the [permission object](#the-permission-object) for the updated permission.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -350,6 +425,10 @@ PATCH /permissions/:id
 	"fields": ["id", "title", "body"]
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -375,6 +454,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Update Multiple Permissions
@@ -399,6 +482,13 @@ Any of [the permission object](#the-permission-object)'s properties.
 
 Returns the [permission object](#the-permission-object) for the updated permissions.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -417,6 +507,10 @@ PATCH /permissions
 	}
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -442,6 +536,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Delete Permissions
@@ -451,6 +549,13 @@ Delete an existing permissions rule
 ### Returns
 
 Empty body.
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -463,6 +568,10 @@ DELETE /permissions/:id
 ```
 DELETE /permissions/34
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -486,6 +595,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Delete Multiple Permissions
@@ -500,6 +613,13 @@ An array of permission primary keys
 
 Empty body.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -513,6 +633,10 @@ DELETE /permissions
 
 [34, 64]
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -535,5 +659,9 @@ mutation {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
 
 ---
