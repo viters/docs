@@ -4,6 +4,14 @@ readTime: 5 min read
 pageClass: page-reference
 ---
 
+<script setup>
+import { ref } from 'vue';
+
+import SnippetToggler from '../../.vitepress/theme/components/SnippetToggler.vue';
+
+const pref = ref('REST');
+</script>
+
 # Flows
 
 > Flows enable custom, event-driven data processing and task automation within Directus.
@@ -79,6 +87,13 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [data chains](#the-data-chain). If no items are available, data will
 be an empty array.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -87,6 +102,10 @@ SEARCH /flows
 ```
 
 [Learn more about SEARCH ->](/reference/introduction#search-http-method)
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -112,6 +131,10 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Retrieve a flow
@@ -126,6 +149,13 @@ Supports all [global query parameters](/reference/query).
 
 Returns the requested [data chain](#the-data-chain).
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -137,6 +167,10 @@ GET /flows/:id
 ```
 GET /flows/2fc325fb-299b-4d20-a9e7-a34349dee8b2
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -162,6 +196,10 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Create a Flow
@@ -180,6 +218,13 @@ A partial [data chain](#the-data-chain).
 
 Returns the [data chain](#the-data-chain) for the created flow.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -197,6 +242,10 @@ POST /flows
 	"trigger": "manual"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -222,6 +271,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Create Multiple Flows
@@ -239,6 +292,13 @@ An array of partial [data chains](#the-data-chain).
 ### Returns
 
 Returns the [data chain](#the-data-chain) for the created flow.
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -264,6 +324,10 @@ POST /flows
 	}
 ]
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -302,6 +366,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Update a Flow
@@ -320,6 +388,13 @@ A partial [data chain](#the-data-chain).
 
 Returns the [data chain](#the-data-chain) for the updated flow.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -335,6 +410,10 @@ PATCH /flows/:id
 	"name": "My Updated Flow"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -359,6 +438,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Update Multiple Flows
@@ -381,6 +464,13 @@ Any of [the data chain](#the-data-chain)'s properties.
 
 Returns the [data chains](#the-data-chain) for the updated flows.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -399,6 +489,10 @@ PATCH /flows
 	}
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -427,6 +521,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Delete a Flow
@@ -436,6 +534,13 @@ Delete an existing flow.
 ### Returns
 
 Empty body.
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -448,6 +553,10 @@ DELETE /flows/:id
 ```
 DELETE /flows/12204ee2-2c82-4d9a-b044-2f4842a11dba
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -471,6 +580,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Delete Multiple Flows
@@ -485,6 +598,13 @@ An array of flows primary keys
 
 Empty body.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -497,6 +617,10 @@ DELETE /flows
 // DELETE /flows
 ["25821236-8c2a-4f89-8fdc-c7d01f35877d", "02b9486e-4273-4fd5-b94b-e18fd923d1ed", "7d62f1e9-a83f-407b-84f8-1c184f014501"]
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -525,6 +649,10 @@ mutation {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
 
 ## Flow with GET webhook trigger
 
