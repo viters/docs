@@ -216,8 +216,8 @@ tandem with the Directus Core Team.
 
 ![Resume Paused Project](https://cdn.directus.io/docs/v9/cloud/projects/projects-20221011A/resume-paused-project-20221011A.webp)
 
-After creation, your Community Project will run for seven days. At that point, you can manually extend time by seven
-more days, indefinitely. However, if you do not manually extend this time, the
+After creation, your Community Project will run for 14 days. At that point, you can manually extend time by 14 more
+days, indefinitely. However, if you do not manually extend this time, the
 [Infrastructure](/cloud/glossary#infrastructure) gets paused. Projects that remain paused for 30 days will be
 automatically deleted (see details in [Cloud Policies](https://directus.io/cloud-policies#)). To avoid deletion, you
 have to manually resume the Project within the Cloud Dashboard, because requests to the app will not resume the Project.
