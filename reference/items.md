@@ -524,7 +524,9 @@ Delete an existing item.
 
 ### Returns
 
-Empty body. <SnippetToggler
+Empty body.
+
+<SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
 	label="API" >
