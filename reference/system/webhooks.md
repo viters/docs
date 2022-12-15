@@ -4,12 +4,27 @@ readTime: 5 min read
 pageClass: page-reference
 ---
 
+<script setup>
+import { ref } from 'vue';
+
+import SnippetToggler from '../../.vitepress/theme/components/SnippetToggler.vue';
+
+const pref = ref('REST');
+</script>
+
 # Webhooks
 
 > Webhooks are configured within the App (no code required) and send HTTP requests to an external service when a
 > specific event is triggered.
 
 ---
+
+:::danger
+
+Webhooks API is no longer under active development and scheduled to be phased-out of the Directus Core platform
+entirely. To achieve webhook functionality and beyond, use [flows](/reference/system/flows.md).
+
+:::
 
 ## The Webhook Object
 
@@ -67,6 +82,13 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [webhook objects](#the-webhook-object). If no items are available,
 data will be an empty array.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -75,6 +97,10 @@ SEARCH /webhooks
 ```
 
 [Learn more about SEARCH ->](/reference/introduction#search-http-method)
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -99,6 +125,10 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Retrieve a Webhook
@@ -113,11 +143,22 @@ Supports all [global query parameters](/reference/query).
 
 Returns the requested [webhook object](#the-webhook-object).
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
 GET /webhooks/:id
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -131,7 +172,7 @@ type Query {
 }
 ```
 
-### Examples
+### Example
 
 ```graphql
 query {
@@ -142,6 +183,10 @@ query {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
 
 ---
 
@@ -163,6 +208,13 @@ A partial [webhook object](#the-webhook-object).
 
 Returns the [webhook object](#the-webhook-object) for the created webhook.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -181,6 +233,10 @@ POST /webhooks
 	"url": "https://example.com"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -207,6 +263,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Create Multiple Webhook
@@ -226,6 +286,13 @@ An array of partial [webhook object](#the-webhook-object).
 ### Returns
 
 Returns the [webhook objects](#the-webhook-object) for the created webhooks.
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -253,6 +320,10 @@ POST /webhooks
 	}
 ]
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -282,6 +353,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Update a Webhook
@@ -300,6 +375,13 @@ A partial [webhook object](#the-webhook-object).
 
 Returns the [webhook object](#the-webhook-object) for the updated webhook.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -315,6 +397,10 @@ PATCH /webhooks/:id
 	"name": "Build Website"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -338,6 +424,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Update Multiple Webhooks
@@ -360,6 +450,13 @@ Any of [the webhook object](#the-webhook-object)'s properties.
 
 Returns the [webhook objects](#the-webhook-object) for the updated webhooks.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -378,6 +475,10 @@ PATCH /webhooks
 	}
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -401,6 +502,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Delete a Webhook
@@ -410,6 +515,13 @@ Delete an existing webhook.
 ### Returns
 
 Empty body.
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -422,6 +534,10 @@ DELETE /webhooks/:id
 ```
 DELETE /webhooks/15
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -445,6 +561,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Delete Multiple Webhooks
@@ -459,6 +579,13 @@ An array of webhook primary keys
 
 Empty body.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -472,6 +599,10 @@ DELETE /webhooks
 
 [2, 15, 41]
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -494,5 +625,9 @@ mutation {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
 
 ---
