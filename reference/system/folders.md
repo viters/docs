@@ -4,6 +4,14 @@ readTime: 4 min read
 pageClass: page-reference
 ---
 
+<script setup>
+import { ref } from 'vue';
+
+import SnippetToggler from '../../.vitepress/theme/components/SnippetToggler.vue';
+
+const pref = ref('REST');
+</script>
+
 # Folders
 
 > Folders can be used to organize files within the platform. Folders are virtual, and aren't mirrored within the storage
@@ -47,6 +55,13 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [folder objects](#the-folder-object). If no items are available, data
 will be an empty array.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -55,6 +70,10 @@ SEARCH /folders
 ```
 
 [Learn more about SEARCH ->](/reference/introduction#search-http-method)
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -78,6 +97,10 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Retrieve a Folder
@@ -92,6 +115,13 @@ Supports all [global query parameters](/reference/query).
 
 Returns a [folder object](#the-folder-object) if a valid primary key was provided.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -103,6 +133,10 @@ GET /folders/:id
 ```
 GET /folders/fc02d733-95b8-4e27-bd4b-08a32cbe4e66
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -126,6 +160,10 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Create a Folder
@@ -144,6 +182,13 @@ A partial [folder object](#the-folder-object). `name` is required.
 
 Returns the [folder object](#the-folder-object) of the folder that was created.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -159,6 +204,10 @@ POST /folders
 	"name": "Nature"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -183,6 +232,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Create Multiple Folders
@@ -200,6 +253,13 @@ An array of partial [folder objects](#the-folder-object). `name` is required.
 ### Returns
 
 Returns the [folder object](#the-folder-object) of the folder that was created.
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -221,6 +281,10 @@ POST /folders
 	}
 ]
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -245,6 +309,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Update a Folder
@@ -263,6 +331,13 @@ A partial [folder object](#the-folder-object).
 
 Returns the [folder object](#the-folder-object) of the folder that was updated.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -278,6 +353,10 @@ PATCH /folders/:id
 	"parent": "d97c2e0e-293d-4eb5-9e1c-27d3460ad29d"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -305,6 +384,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Update Multiple Folders
@@ -327,6 +410,13 @@ Any of [the folder object](#the-folder-object)'s properties.
 
 Returns the [folder objects](#the-folder-object) of the folders that were updated.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -345,6 +435,10 @@ PATCH /folders
 	}
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -372,6 +466,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Delete a Folder
@@ -388,6 +486,13 @@ Any files in this folder will be moved to the root folder.
 
 Empty body.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -399,6 +504,10 @@ DELETE /folders/:id
 ```
 // DELETE /folders/a5bdb793-dd85-4ac9-882a-b42862092983
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -422,6 +531,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Delete Multiple Folders
@@ -442,6 +555,13 @@ An array of folder primary keys.
 
 Empty body.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -455,6 +575,10 @@ DELETE /folders
 
 ["d97c2e0e-293d-4eb5-9e1c-27d3460ad29d", "fc02d733-95b8-4e27-bd4b-08a32cbe4e66"]
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -477,3 +601,7 @@ mutation {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
