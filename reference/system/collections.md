@@ -4,6 +4,14 @@ readTime: 5 min read
 pageClass: page-reference
 ---
 
+<script setup>
+import { ref } from 'vue';
+
+import SnippetToggler from '../../.vitepress/theme/components/SnippetToggler.vue';
+
+const pref = ref('REST');
+</script>
+
 # Collections
 
 > Collections are the individual collections of items, similar to tables in a database. Changes to collections will
@@ -140,7 +148,53 @@ This endpoint doesn't currently support any query parameters.
 
 An array of [collection objects](#the-collection-object).
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### REST API
+
+```
+GET /collections
+SEARCH /collections
+```
+
+[Learn more about SEARCH ->](/reference/introduction#search-http-method)
+
+</template>
+
+<template #graphql>
+
+### GraphQL
+
+```
+POST /graphql/system
+```
+
+```graphql
+type Query {
+	collections: [directus_collections]
+}
+```
+
+##### Example
+
+```graphql
+query {
+	collections {
+		...
+	}
+}
+```
+
+</template>
+
+</SnippetToggler>
+
+<!-- ### REST API
 
 ```
 GET /collections
@@ -170,6 +224,7 @@ query {
 	}
 }
 ```
+-->
 
 ---
 
@@ -185,7 +240,56 @@ This endpoint doesn't currently support any query parameters.
 
 A [collection object](#the-collection-object).
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### REST API
+
+```
+GET /collections/:collection
+```
+
+##### Example
+
+```
+GET /collections/articles
+```
+
+</template>
+
+<template #graphql>
+
+### GraphQL
+
+```
+POST /graphql/system
+```
+
+```graphql
+type Query {
+	collections_by_name(name: String!): directus_collections
+}
+```
+
+##### Example
+
+```graphql
+query {
+	collections_by_name(name: "articles") {
+		...
+	}
+}
+```
+
+</template>
+
+</SnippetToggler>
+
+<!-- ### REST API
 
 ```
 GET /collections/:collection
@@ -217,7 +321,7 @@ query {
 		...
 	}
 }
-```
+``` -->
 
 ---
 
@@ -249,7 +353,68 @@ entirely or use `schema: null` to create ["folder" collections](/configuration/d
 
 :::
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### REST API
+
+```
+POST /collections
+```
+
+##### Example
+
+```json
+// POST /collections
+
+{
+	"collection": "testimonials",
+	"meta": {
+		"icon": "format_quote"
+	}
+}
+```
+
+</template>
+
+<template #graphql>
+
+### GraphQL
+
+```
+POST /graphql/system
+```
+
+```graphql
+type Mutation {
+	create_collections_item(data: directus_collections): directus_collections
+}
+```
+
+##### Example
+
+```graphql
+mutation {
+	create_collections_item(data: {
+		collection: "testimonials",
+		meta: {
+			icon: "format_quote"
+		}
+	}) {
+		...
+	}
+}
+```
+
+</template>
+
+</SnippetToggler>
+
+<!-- ### REST API
 
 ```
 POST /collections
@@ -294,6 +459,7 @@ mutation {
 	}
 }
 ```
+-->
 
 ---
 
@@ -314,7 +480,62 @@ is not supported at this time.
 
 The [collection object](#the-collection-object) for the updated collection in this request.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### REST API
+
+```
+PATCH /collections/:collection
+```
+
+##### Example
+
+```json
+// PATCH /collections/testimonials
+
+{
+	"meta": {
+		"note": "Short quotes from happy customers."
+	}
+}
+```
+
+</template>
+
+<template #graphql>
+
+### GraphQL API
+
+```
+POST /graphql/system
+```
+
+```graphql
+type Mutation {
+	update_collections_item(collection: String!, data: update_directus_collections_input!): directus_collections
+}
+```
+
+##### Example
+
+```graphql
+mutation {
+	update_collections_item(collection: "testimonials", data: { meta: { note: "Short quotes from happy customers." } }) {
+		collection
+	}
+}
+```
+
+</template>
+
+</SnippetToggler>
+
+<!-- ### REST API
 
 ```
 PATCH /collections/:collection
@@ -352,7 +573,7 @@ mutation {
 		collection
 	}
 }
-```
+``` -->
 
 ---
 
@@ -366,7 +587,58 @@ Be aware, this will delete the table from the database, including all items in i
 
 :::
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### REST API
+
+```
+DELETE /collections/:collection
+```
+
+##### Example
+
+```
+DELETE /collections/articles
+```
+
+</template>
+
+<template #graphql>
+
+### GraphQL
+
+```
+POST /graphql/system
+```
+
+```graphql
+type Mutation {
+	delete_collections_item(collection: String!): delete_collection
+}
+```
+
+##### Example
+
+```graphql
+mutation {
+	delete_collections_item(collection: "articles") {
+		collection
+	}
+}
+```
+
+</template>
+
+</SnippetToggler>
+
+---
+
+<!-- ### REST API
 
 ```
 DELETE /collections/:collection
@@ -398,6 +670,4 @@ mutation {
 		collection
 	}
 }
-```
-
----
+``` -->
