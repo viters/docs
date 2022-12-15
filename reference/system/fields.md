@@ -4,6 +4,14 @@ readTime: 7 min read
 pageClass: page-reference
 ---
 
+<script setup>
+import { ref } from 'vue';
+
+import SnippetToggler from '../../.vitepress/theme/components/SnippetToggler.vue';
+
+const pref = ref('REST');
+</script>
+
 # Fields
 
 > Fields are individual pieces of content within an item. They are mapped to columns in the database.
@@ -164,11 +172,22 @@ This endpoint doesn't currently support any query parameters.
 
 An array of [field objects](#the-field-object).
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
 GET /fields
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -193,6 +212,10 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## List Fields in Collection
@@ -207,6 +230,13 @@ This endpoint doesn't currently support any query parameters.
 
 An array of [field objects](#the-field-object).
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -218,6 +248,10 @@ GET /fields/:collection
 ```
 GET /fields/articles
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -242,6 +276,10 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Retrieve a Field
@@ -256,6 +294,13 @@ This endpoint doesn't currently support any query parameters.
 
 A [field object](#the-field-object).
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -267,6 +312,10 @@ GET /fields/:collection/:field
 ```
 GET /fields/articles/title
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -290,6 +339,10 @@ query {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
 
 ---
 
@@ -320,6 +373,13 @@ Any of the optional schema values in the [field object](#the-field-object).
 
 The [field object](#the-field-object) for the created field.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -342,6 +402,10 @@ POST /fields/:collection
 	}
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -368,6 +432,10 @@ mutation {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
 
 ---
 
@@ -403,6 +471,13 @@ Updating the field name is not supported at this time.
 
 The [field object](#the-field-object) for the updated field.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -423,6 +498,10 @@ PATCH /fields/:collection/:field
 	}
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -451,6 +530,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Delete a Field
@@ -463,6 +546,13 @@ Be aware, this will delete the column from the database, including all data in i
 
 :::
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -474,6 +564,10 @@ DELETE /fields/:collection/:field
 ```
 DELETE /fields/articles/title
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -497,3 +591,7 @@ mutation {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>

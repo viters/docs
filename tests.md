@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 
-import SnippetToggler from '.vitepress/theme/components/SnippetToggler.vue';
+import SnippetToggler from '../../.vitepress/theme/components/SnippetToggler.vue';
 
 const pref = ref('REST');
 </script>
