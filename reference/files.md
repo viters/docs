@@ -106,7 +106,7 @@ For easier comparison, both of the examples below were requested at `200` width,
 its aspect ratio, shrinking the image to fit _within_ the dimensions and adding "letterboxing" as needed.
 
 | Cover                                                       | Contain                                                         |
-| ----------------------------------------------------------- | --------------------------------------------------------------- |
+|-------------------------------------------------------------|-----------------------------------------------------------------|
 | ![Cover](../assets/200-200-cover-75.jpg)<br>_8KB • 200x200_ | ![Contain](../assets/200-200-contain-75.jpg)<br>_6KB • 200x133_ |
 
 ::: tip Aspect Ratio
@@ -258,7 +258,7 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [file objects](#the-file-object). If no items are available, data will
 be an empty array.
 
-### REST API
+### Syntax
 
 ```
 GET /files
@@ -267,7 +267,7 @@ SEARCH /files
 
 [Learn more about SEARCH ->](/reference/introduction#search-http-method)
 
-### GraphQL
+### Syntax
 
 ```txt
 POST /graphql/system
@@ -279,7 +279,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -304,19 +304,19 @@ Supports all [global query parameters](/reference/query).
 
 Returns a [file object](#the-file-object) if a valid primary key was provided.
 
-### REST API
+### Syntax
 
 ```txt
 GET /files/:id
 ```
 
-##### Example
+### Example
 
 ```txt
 GET /files/0fca80c4-d61c-4404-9fd7-6ba86b64154d
 ```
 
-### GraphQL
+### Syntax
 
 ```txt
 POST /graphql/system
@@ -328,7 +328,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -444,13 +444,13 @@ Any of [the file object](#the-file-object)'s properties.
 
 Returns the [file object](#the-file-object) for the imported file.
 
-### REST API
+### Syntax
 
 ```txt
 POST /files/import
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /files/import
@@ -463,7 +463,7 @@ POST /files/import
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```txt
 POST /graphql/system
@@ -475,7 +475,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -505,13 +505,13 @@ information on the structure of this `multipart/form-data` request.
 
 Returns the [file object](#the-file-object) for the updated file.
 
-### REST API
+### Syntax
 
 ```txt
 PATCH /files/:id
 ```
 
-##### Example
+### Example
 
 ```json
 // PATCH /files/0fca80c4-d61c-4404-9fd7-6ba86b64154d
@@ -521,7 +521,7 @@ PATCH /files/:id
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```txt
 POST /graphql/system
@@ -533,7 +533,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -566,13 +566,13 @@ Any of [the file object](#the-file-object)'s properties.
 
 Returns the [file objects](#the-file-object) for the updated files.
 
-### REST API
+### Syntax
 
 ```txt
 PATCH /files
 ```
 
-##### Example
+### Example
 
 ```json
 // PATCH /files
@@ -585,7 +585,7 @@ PATCH /files
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```txt
 POST /graphql/system
@@ -597,7 +597,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -628,19 +628,19 @@ Supports all [global query parameters](/reference/query).
 
 Empty response.
 
-### REST API
+### Syntax
 
 ```txt
 DELETE /files/:id
 ```
 
-##### Example
+### Example
 
 ```txt
 DELETE /files/0fca80c4-d61c-4404-9fd7-6ba86b64154d
 ```
 
-### GraphQL
+### Syntax
 
 ```txt
 POST /graphql/system
@@ -680,13 +680,13 @@ Array of file primary keys
 
 Empty response.
 
-### REST API
+### Syntax
 
 ```txt
 DELETE /files
 ```
 
-##### Example
+### Example
 
 ```json
 // DELETE /files
@@ -694,7 +694,7 @@ DELETE /files
 ["d17c10aa-0bad-4864-9296-84f522c753e5", "b6123925-2fc0-4a30-9d86-863eafc0a6e7"]
 ```
 
-### GraphQL
+### Syntax
 
 ```txt
 POST /graphql/system
@@ -706,7 +706,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {

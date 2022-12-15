@@ -166,7 +166,7 @@ the fields from any of the related collections, for example:
 }
 ```
 
-##### REST API
+##### Syntax
 
 To scope the fields that are returned per collection type, you can use the `<field>:<scope>` syntax in the fields
 parameter as follows:
@@ -179,7 +179,7 @@ GET /items/pages
 	&fields[]=sections.item:paragraphs.background_color
 ```
 
-##### GraphQL
+##### Syntax
 
 In GraphQL, you can use nested fragments on the Union Type to select the fields:
 

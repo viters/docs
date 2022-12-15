@@ -23,13 +23,13 @@ String to hash.
 
 Hashed string.
 
-### REST API
+### Syntax
 
 ```
 POST /utils/hash/generate
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /utils/hash/generate
@@ -39,7 +39,7 @@ POST /utils/hash/generate
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -51,7 +51,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -77,13 +77,13 @@ Hash you want to verify against.
 
 Boolean.
 
-### REST API
+### Syntax
 
 ```
 POST /utils/hash/verify
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /utils/hash/verify
@@ -94,7 +94,7 @@ POST /utils/hash/verify
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -124,13 +124,13 @@ Primary key of the item you're moving the source item too.
 
 Empty body.
 
-### REST API
+### Syntax
 
 ```
 POST /utils/sort/:collection
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /utils/sort/articles
@@ -141,7 +141,7 @@ POST /utils/sort/:collection
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -153,7 +153,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -180,13 +180,13 @@ information.
 
 Empty body.
 
-### REST API
+### Syntax
 
 ```
 POST /utils/import/:collection
 ```
 
-##### Example
+### Example
 
 ```
 POST /utils/import/articles
@@ -207,7 +207,7 @@ Content-Type: text/csv
 ...
 ```
 
-### GraphQL
+### Syntax
 
 n/a
 
@@ -236,13 +236,13 @@ Partial file object to tweak where / how the export file is saved.
 
 Empty body
 
-### REST API
+### Syntax
 
 ```
 POST /utils/export/:collection
 ```
 
-##### Example
+### Example
 
 ```
 POST /utils/export/articles
@@ -263,7 +263,7 @@ POST /utils/export/articles
 }
 ```
 
-### GraphQL
+### Syntax
 
 n/a
 
@@ -281,13 +281,13 @@ n/a
 
 Empty body
 
-### REST API
+### Syntax
 
 ```
 POST /utils/cache/clear
 ```
 
-### GraphQL
+### Syntax
 
 ```graphql
 mutation {

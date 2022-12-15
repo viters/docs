@@ -79,7 +79,7 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [data chains](#the-data-chain). If no items are available, data will
 be an empty array.
 
-### REST API
+### Syntax
 
 ```
 GET /flows
@@ -88,7 +88,7 @@ SEARCH /flows
 
 [Learn more about SEARCH ->](/reference/introduction#search-http-method)
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -100,7 +100,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -126,19 +126,19 @@ Supports all [global query parameters](/reference/query).
 
 Returns the requested [data chain](#the-data-chain).
 
-### REST API
+### Syntax
 
 ```
 GET /flows/:id
 ```
 
-##### Example
+### Example
 
 ```
 GET /flows/2fc325fb-299b-4d20-a9e7-a34349dee8b2
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -150,7 +150,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -180,13 +180,13 @@ A partial [data chain](#the-data-chain).
 
 Returns the [data chain](#the-data-chain) for the created flow.
 
-### REST API
+### Syntax
 
 ```
 POST /flows
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /flows
@@ -198,7 +198,7 @@ POST /flows
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -210,7 +210,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -240,13 +240,13 @@ An array of partial [data chains](#the-data-chain).
 
 Returns the [data chain](#the-data-chain) for the created flow.
 
-### REST API
+### Syntax
 
 ```
 POST /flows
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /flows
@@ -265,7 +265,7 @@ POST /flows
 ]
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -277,7 +277,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -320,13 +320,13 @@ A partial [data chain](#the-data-chain).
 
 Returns the [data chain](#the-data-chain) for the updated flow.
 
-### REST API
+### Syntax
 
 ```
 PATCH /flows/:id
 ```
 
-##### Example
+### Example
 
 ```json
 // PATCH /flows/2fc325fb-299b-4d20-a9e7-a34349dee8b2
@@ -336,7 +336,7 @@ PATCH /flows/:id
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -348,7 +348,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -381,13 +381,13 @@ Any of [the data chain](#the-data-chain)'s properties.
 
 Returns the [data chains](#the-data-chain) for the updated flows.
 
-### REST API
+### Syntax
 
 ```
 PATCH /flows
 ```
 
-##### Example
+### Example
 
 ```json
 // PATCH /flows
@@ -400,7 +400,7 @@ PATCH /flows
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -412,7 +412,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -437,19 +437,19 @@ Delete an existing flow.
 
 Empty body.
 
-### REST API
+### Syntax
 
 ```
 DELETE /flows/:id
 ```
 
-##### Example
+### Example
 
 ```
 DELETE /flows/12204ee2-2c82-4d9a-b044-2f4842a11dba
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -461,7 +461,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -485,20 +485,20 @@ An array of flows primary keys
 
 Empty body.
 
-### REST API
+### Syntax
 
 ```
 DELETE /flows
 ```
 
-##### Example
+### Example
 
 ```json
 // DELETE /flows
 ["25821236-8c2a-4f89-8fdc-c7d01f35877d", "02b9486e-4273-4fd5-b94b-e18fd923d1ed", "7d62f1e9-a83f-407b-84f8-1c184f014501"]
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -510,7 +510,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -534,13 +534,13 @@ Start a flow with GET webhook trigger.
 
 Result of the flow, if any.
 
-### REST API
+### Syntax
 
 ```
 GET /flows/trigger/:flow_uuid
 ```
 
-##### Example
+### Example
 
 ```json
 // GET /flows/trigger/202a940b-a00b-47df-b832-369c53f13122
@@ -559,13 +559,13 @@ Payload for the POST request.
 
 Result of the flow, if any.
 
-### REST API
+### Syntax
 
 ```
 POST /flows/trigger/:flow_uuid
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /flows/trigger/202a940b-a00b-47df-b832-369c53f13122

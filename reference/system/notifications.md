@@ -68,7 +68,7 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [notification objects](#the-notification-object). If no items are
 available, data will be an empty array.
 
-### REST API
+### Syntax
 
 ```
 GET /notifications
@@ -77,7 +77,7 @@ SEARCH /notifications
 
 [Learn more about SEARCH ->](/reference/introduction#search-http-method)
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -89,7 +89,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -115,19 +115,19 @@ Supports all [global query parameters](/reference/query).
 
 Returns the requested [notification object](#the-notification-object).
 
-### REST API
+### Syntax
 
 ```
 GET /notifications/:id
 ```
 
-##### Example
+### Example
 
 ```
 GET /notifications/42
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -139,7 +139,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -171,13 +171,13 @@ A partial [notification object](#the-notification-object).
 
 Returns the [notification object](#the-notification-object) for the created notification.
 
-### REST API
+### Syntax
 
 ```
 POST /notifications
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /notifications
@@ -188,7 +188,7 @@ POST /notifications
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -200,7 +200,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -229,13 +229,13 @@ An array of partial [notification objects](#the-notification-object).
 
 Returns the [notification object](#the-notification-object) for the created notification.
 
-### REST API
+### Syntax
 
 ```
 POST /notifications
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /notifications
@@ -254,7 +254,7 @@ POST /notifications
 ]
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -266,7 +266,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -315,13 +315,13 @@ A partial [notification object](#the-notification-object).
 
 Returns the [notification object](#the-notification-object) for the updated notification.
 
-### REST API
+### Syntax
 
 ```
 PATCH /notifications/:id
 ```
 
-##### Example
+### Example
 
 ```json
 // PATCH /notifications/34
@@ -331,7 +331,7 @@ PATCH /notifications/:id
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -343,7 +343,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -376,13 +376,13 @@ Any of [the notification object](#the-notification-object)'s properties.
 
 Returns the [notification objects](#the-notification-object) for the updated notifications.
 
-### REST API
+### Syntax
 
 ```
 PATCH /notifications
 ```
 
-##### Example
+### Example
 
 ```json
 // PATCH /notifications
@@ -395,7 +395,7 @@ PATCH /notifications
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -407,7 +407,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -428,19 +428,19 @@ Delete an existing notification.
 
 Empty body.
 
-### REST API
+### Syntax
 
 ```
 DELETE /notifications/:id
 ```
 
-##### Example
+### Example
 
 ```
 DELETE /notifications/34
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -452,7 +452,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -476,20 +476,20 @@ An array of notification primary keys
 
 Empty body.
 
-### REST API
+### Syntax
 
 ```
 DELETE /notifications
 ```
 
-##### Example
+### Example
 
 ```json
 // DELETE /notifications
 [15, 251, 810]
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -501,7 +501,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {

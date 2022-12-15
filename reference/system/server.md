@@ -25,13 +25,13 @@ This OAS spec is based on the read permissions of the currently authenticated us
 
 Object conforming to [the OpenAPI Specification](https://swagger.io/specification)
 
-### REST API
+### Syntax
 
 ```
 GET /server/specs/oas
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -43,7 +43,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -87,14 +87,14 @@ type articles {
 # etc
 ```
 
-### REST API
+### Syntax
 
 ```
 GET /server/specs/graphql/
 GET /server/specs/graphql/system
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -106,7 +106,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -124,13 +124,13 @@ Ping... pong! 🏓
 
 Pong.
 
-### REST API
+### Syntax
 
 ```
 GET /server/ping
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -142,7 +142,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -204,13 +204,13 @@ How long the operating system has been up.
 `os.totalmem` **string**\
 How much memory is available on the operating system.
 
-### REST API
+### Syntax
 
 ```
 GET /server/info
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -222,7 +222,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -322,13 +322,13 @@ UUID of the current Directus instance.
 `checks` **array**\
 Array with the status of all individually connected services.
 
-### REST API
+### Syntax
 
 ```
 GET /server/health
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -340,7 +340,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {

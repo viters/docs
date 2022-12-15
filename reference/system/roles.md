@@ -69,7 +69,7 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [role objects](#the-role-object). If no items are available, data will
 be an empty array.
 
-### REST API
+### Syntax
 
 ```
 GET /roles
@@ -78,7 +78,7 @@ SEARCH /roles
 
 [Learn more about SEARCH ->](/reference/introduction#search-http-method)
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -90,7 +90,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -118,19 +118,19 @@ Supports all [global query parameters](/reference/query).
 
 Returns the requested [role object](#the-role-object).
 
-### REST API
+### Syntax
 
 ```
 GET /roles/:id
 ```
 
-##### Example
+### Example
 
 ```
 GET /roles/b4cb3b64-8580-4ad9-a099-eade6da24302
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -142,7 +142,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -174,13 +174,13 @@ A partial [role object](#the-role-object).
 
 Returns the [role object](#the-role-object) for the created role.
 
-### REST API
+### Syntax
 
 ```
 POST /roles
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /roles
@@ -194,7 +194,7 @@ POST /roles
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -206,7 +206,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -240,13 +240,13 @@ An array of partial [role objects](#the-role-object).
 
 Returns the [role objects](#the-role-object) for the created roles.
 
-### REST API
+### Syntax
 
 ```
 POST /roles
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /roles
@@ -269,7 +269,7 @@ POST /roles
 ]
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -281,7 +281,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -318,13 +318,13 @@ A partial [role object](#the-role-object).
 
 Returns the [role object](#the-role-object) for the updated role.
 
-### REST API
+### Syntax
 
 ```
 PATCH /roles/:id
 ```
 
-##### Example
+### Example
 
 ```json
 // PATCH /roles/c86c2761-65d3-43c3-897f-6f74ad6a5bd7
@@ -334,7 +334,7 @@ PATCH /roles/:id
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -346,7 +346,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -382,13 +382,13 @@ Any of [the role object](#the-role-object)'s properties.
 
 Returns the [role objects](#the-role-object) for the updated roles.
 
-### REST API
+### Syntax
 
 ```
 PATCH /roles
 ```
 
-##### Example
+### Example
 
 ```json
 // PATCH /roles
@@ -401,7 +401,7 @@ PATCH /roles
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -413,7 +413,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -440,19 +440,19 @@ Delete an existing role.
 
 Empty body.
 
-### REST API
+### Syntax
 
 ```
 DELETE /roles/:id
 ```
 
-##### Example
+### Example
 
 ```
 DELETE /roles/c86c2761-65d3-43c3-897f-6f74ad6a5bd7
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -464,7 +464,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -488,20 +488,20 @@ An array of role primary keys
 
 Empty body.
 
-### REST API
+### Syntax
 
 ```
 DELETE /roles
 ```
 
-##### Example
+### Example
 
 ```json
 // DELETE /roles
 ["653925a9-970e-487a-bfc0-ab6c96affcdc", "c86c2761-65d3-43c3-897f-6f74ad6a5bd7"]
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -513,7 +513,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {

@@ -164,13 +164,13 @@ This endpoint doesn't currently support any query parameters.
 
 An array of [field objects](#the-field-object).
 
-### REST API
+### Syntax
 
 ```
 GET /fields
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -182,7 +182,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -207,19 +207,19 @@ This endpoint doesn't currently support any query parameters.
 
 An array of [field objects](#the-field-object).
 
-### REST API
+### Syntax
 
 ```
 GET /fields/:collection
 ```
 
-##### Example
+### Example
 
 ```
 GET /fields/articles
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -231,7 +231,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -256,19 +256,19 @@ This endpoint doesn't currently support any query parameters.
 
 A [field object](#the-field-object).
 
-### REST API
+### Syntax
 
 ```
 GET /fields/:collection/:field
 ```
 
-##### Example
+### Example
 
 ```
 GET /fields/articles/title
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -280,7 +280,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -320,13 +320,13 @@ Any of the optional schema values in the [field object](#the-field-object).
 
 The [field object](#the-field-object) for the created field.
 
-### REST API
+### Syntax
 
 ```
 POST /fields/:collection
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /fields/articles
@@ -343,7 +343,7 @@ POST /fields/:collection
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -355,7 +355,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -403,13 +403,13 @@ Updating the field name is not supported at this time.
 
 The [field object](#the-field-object) for the updated field.
 
-### REST API
+### Syntax
 
 ```
 PATCH /fields/:collection/:field
 ```
 
-##### Example
+### Example
 
 ```json
 // PATCH /fields/articles/title
@@ -424,7 +424,7 @@ PATCH /fields/:collection/:field
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -436,7 +436,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -463,19 +463,19 @@ Be aware, this will delete the column from the database, including all data in i
 
 :::
 
-### REST API
+### Syntax
 
 ```
 DELETE /fields/:collection/:field
 ```
 
-##### Example
+### Example
 
 ```
 DELETE /fields/articles/title
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -487,7 +487,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {

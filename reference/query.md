@@ -76,7 +76,7 @@ sections.item:videos.source
 
 In GraphQL, this can be achieved using Union Types.
 
-### REST API
+### Syntax
 
 ```
 ?fields=title,body,featured_image.*
@@ -88,7 +88,7 @@ In GraphQL, this can be achieved using Union Types.
 &fields[]=featured_image.*
 ```
 
-### GraphQL
+### Syntax
 
 _Natively supported in GraphQL_
 
@@ -151,7 +151,7 @@ filter the related items themselves, take a look at [the `deep` parameter](#deep
 
 :::
 
-### REST API
+### Syntax
 
 ```
 ?filter[first_name][_eq]=Rijk
@@ -161,7 +161,7 @@ filter the related items themselves, take a look at [the `deep` parameter](#deep
 ?filter={ "first_name": { "_eq": "Rijk" }}
 ```
 
-### GraphQL
+### Syntax
 
 ```graphql
 query {
@@ -208,13 +208,13 @@ root item's fields, related item fields are not included.
 Find all items that mention Directus\
 `Directus`
 
-### REST API
+### Syntax
 
 ```
 ?search=Directus
 ```
 
-### GraphQL
+### Syntax
 
 ```graphql
 query {
@@ -239,7 +239,7 @@ Sort by creation date descending\
 Sort by a "sort" field, followed by publish date descending\
 `sort, -publish_date`
 
-### REST API
+### Syntax
 
 ```
 ?sort=sort,-date_created
@@ -250,7 +250,7 @@ Sort by a "sort" field, followed by publish date descending\
 &sort[]=-date_created
 ```
 
-### GraphQL
+### Syntax
 
 ```graphql
 query {
@@ -281,13 +281,13 @@ with caution.
 
 :::
 
-### REST API
+### Syntax
 
 ```
 ?limit=200
 ```
 
-### GraphQL
+### Syntax
 
 ```graphql
 query {
@@ -308,13 +308,13 @@ Skip the first `n` items in the response. Can be used for pagination.
 Get items 101—200\
 `100`
 
-### REST API
+### Syntax
 
 ```
 ?offset=100
 ```
 
-### GraphQL
+### Syntax
 
 ```graphql
 query {
@@ -339,13 +339,13 @@ Get items 1-100\
 Get items 101-200\
 `2`
 
-### REST API
+### Syntax
 
 ```
 ?page=2
 ```
 
-### GraphQL
+### Syntax
 
 ```graphql
 query {
@@ -384,7 +384,7 @@ value. This allows for things like _"Average rating per month"_ or _"Total sales
 The `groupBy` query allows for grouping on multiple fields simultaneously. Combined with the [Functions](#functions),
 this allows for aggregate reporting per year-month-date.
 
-### REST API
+### Syntax
 
 ```
 ?aggregate[avg]=cost
@@ -392,7 +392,7 @@ this allows for aggregate reporting per year-month-date.
 &groupBy[]=year(publish_date)
 ```
 
-### GraphQL
+### Syntax
 
 ```graphql
 query {
@@ -437,7 +437,7 @@ Only get 3 related articles, with only the top rated comment nested
 }
 ```
 
-### REST API
+### Syntax
 
 ```
 ?deep[translations][_filter][languages_code][_eq]=en-US
@@ -447,7 +447,7 @@ Only get 3 related articles, with only the top rated comment nested
 ?deep={ "translations": { "_filter": { "languages_code": { "_eq": "en-US" }}}}
 ```
 
-### GraphQL
+### Syntax
 
 _Natively supported in GraphQL:_
 
@@ -477,7 +477,7 @@ Alias for nested fields, f.e. `field.nested`, will not work.
 
 :::
 
-### REST API
+### Syntax
 
 ```
 ?alias[all_translations]=translations
@@ -485,7 +485,7 @@ Alias for nested fields, f.e. `field.nested`, will not work.
 &deep[dutch_translations][_filter][code][_eq]=nl-NL
 ```
 
-### GraphQL
+### Syntax
 
 _Natively supported in GraphQL:_
 
@@ -511,7 +511,7 @@ Save the current API response to a file.
 
 Saves the API response to a file. Accepts one of `json`, `csv`, `xml`.
 
-### REST API
+### Syntax
 
 ```
 ?export=json
@@ -519,7 +519,7 @@ Saves the API response to a file. Accepts one of `json`, `csv`, `xml`.
 ?export=xml
 ```
 
-### GraphQL
+### Syntax
 
 n/a
 
@@ -562,14 +562,14 @@ function name as the nested field (see the example that follows).
 
 :::
 
-### REST API
+### Syntax
 
 ```
 ?fields=id,title,weekday(date_published)
 &filter[year(date_published)][_eq]=2021
 ```
 
-### GraphQL
+### Syntax
 
 ```graphql
 query {
@@ -598,7 +598,7 @@ Returns the total item count of the collection you're querying.
 
 Returns the item count of the collection you're querying, taking the current filter/search parameters into account.
 
-### REST API
+### Syntax
 
 ```
 ?meta=total_count
@@ -608,6 +608,6 @@ Returns the item count of the collection you're querying, taking the current fil
 ?meta=*
 ```
 
-### GraphQL
+### Syntax
 
 n/a

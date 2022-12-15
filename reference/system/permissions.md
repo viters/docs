@@ -78,7 +78,7 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [permission objects](#the-permission-object). If no items are
 available, data will be an empty array.
 
-### REST API
+### Syntax
 
 ```
 GET /permissions
@@ -87,7 +87,7 @@ SEARCH /permissions
 
 [Learn more about SEARCH ->](/reference/introduction#search-http-method)
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -99,7 +99,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -125,13 +125,13 @@ Supports all [global query parameters](/reference/query).
 
 Returns the requested [permission object](#the-permission-object).
 
-### REST API
+### Syntax
 
 ```
 GET /permissions/:id
 ```
 
-##### Example
+### Example
 
 ```json
 // GET /permissions/34
@@ -156,7 +156,7 @@ GET /permissions/:id
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -168,7 +168,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -198,13 +198,13 @@ A partial [permissions object](#the-permission-object). `action` and `collection
 
 Returns the [permission object](#the-permission-object) for the created permission.
 
-### REST API
+### Syntax
 
 ```
 POST /permissions
 ```
 
-##### Example
+### Example
 
 ```json
 // Request
@@ -217,7 +217,7 @@ POST /permissions
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -229,7 +229,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -261,13 +261,13 @@ An array of partial [permissions objects](#the-permission-object). `action` and 
 
 Returns the [permission objects](#the-permission-object) for the created permissions.
 
-### REST API
+### Syntax
 
 ```
 POST /permissions
 ```
 
-##### Example
+### Example
 
 ```json
 // Request
@@ -288,7 +288,7 @@ POST /permissions
 ]
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -300,7 +300,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -335,13 +335,13 @@ A partial [permissions object](#the-permission-object).
 
 Returns the [permission object](#the-permission-object) for the updated permission.
 
-### REST API
+### Syntax
 
 ```
 PATCH /permissions/:id
 ```
 
-##### Example
+### Example
 
 ```json
 // PATCH /permissions/34
@@ -351,7 +351,7 @@ PATCH /permissions/:id
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -363,7 +363,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -399,13 +399,13 @@ Any of [the permission object](#the-permission-object)'s properties.
 
 Returns the [permission object](#the-permission-object) for the updated permissions.
 
-### REST API
+### Syntax
 
 ```
 PATCH /permissions
 ```
 
-##### Example
+### Example
 
 ```json
 // PATCH /permissions
@@ -418,7 +418,7 @@ PATCH /permissions
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -430,7 +430,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -452,19 +452,19 @@ Delete an existing permissions rule
 
 Empty body.
 
-### REST API
+### Syntax
 
 ```
 DELETE /permissions/:id
 ```
 
-##### Example
+### Example
 
 ```
 DELETE /permissions/34
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -476,7 +476,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -500,13 +500,13 @@ An array of permission primary keys
 
 Empty body.
 
-### REST API
+### Syntax
 
 ```
 DELETE /permissions
 ```
 
-##### Example
+### Example
 
 ```json
 // DELETE /permissions
@@ -514,7 +514,7 @@ DELETE /permissions
 [34, 64]
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -526,7 +526,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {

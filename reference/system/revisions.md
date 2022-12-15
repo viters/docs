@@ -72,7 +72,7 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [revision objects](#the-revision-object). If no items are available,
 data will be an empty array.
 
-### REST API
+### Syntax
 
 ```
 GET /revisions
@@ -81,7 +81,7 @@ SEARCH /revisions
 
 [Learn more about SEARCH ->](/reference/introduction#search-http-method)
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -93,7 +93,7 @@ type Query {
 }
 ```
 
-##### Examples
+### Examples
 
 ```graphql
 query {
@@ -119,19 +119,19 @@ Supports all [global query parameters](/reference/query).
 
 Returns the requested [revision object](#the-revision-object).
 
-### REST API
+### Syntax
 
 ```
 GET /revisions/:id
 ```
 
-##### Example
+### Example
 
 ```
 GET /revisions/322
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -143,7 +143,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {

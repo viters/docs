@@ -47,7 +47,7 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [folder objects](#the-folder-object). If no items are available, data
 will be an empty array.
 
-### REST API
+### Syntax
 
 ```
 GET /folders
@@ -56,7 +56,7 @@ SEARCH /folders
 
 [Learn more about SEARCH ->](/reference/introduction#search-http-method)
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -68,7 +68,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -92,19 +92,19 @@ Supports all [global query parameters](/reference/query).
 
 Returns a [folder object](#the-folder-object) if a valid primary key was provided.
 
-### REST API
+### Syntax
 
 ```
 GET /folders/:id
 ```
 
-##### Example
+### Example
 
 ```
 GET /folders/fc02d733-95b8-4e27-bd4b-08a32cbe4e66
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -116,7 +116,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -144,13 +144,13 @@ A partial [folder object](#the-folder-object). `name` is required.
 
 Returns the [folder object](#the-folder-object) of the folder that was created.
 
-### REST API
+### Syntax
 
 ```
 POST /folders
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /folders
@@ -160,7 +160,7 @@ POST /folders
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -172,7 +172,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -201,13 +201,13 @@ An array of partial [folder objects](#the-folder-object). `name` is required.
 
 Returns the [folder object](#the-folder-object) of the folder that was created.
 
-### REST API
+### Syntax
 
 ```
 POST /folders
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /folders
@@ -222,7 +222,7 @@ POST /folders
 ]
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -234,7 +234,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -263,13 +263,13 @@ A partial [folder object](#the-folder-object).
 
 Returns the [folder object](#the-folder-object) of the folder that was updated.
 
-### REST API
+### Syntax
 
 ```
 PATCH /folders/:id
 ```
 
-##### Example
+### Example
 
 ```json
 // PATCH /folders/fac21847-d5ce-4e4b-a288-9abafbdfbc87
@@ -279,7 +279,7 @@ PATCH /folders/:id
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -291,7 +291,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -327,13 +327,13 @@ Any of [the folder object](#the-folder-object)'s properties.
 
 Returns the [folder objects](#the-folder-object) of the folders that were updated.
 
-### REST API
+### Syntax
 
 ```
 PATCH /folders
 ```
 
-##### Example
+### Example
 
 ```json
 // PATCH /folders
@@ -346,7 +346,7 @@ PATCH /folders
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -358,7 +358,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -388,19 +388,19 @@ Any files in this folder will be moved to the root folder.
 
 Empty body.
 
-### REST API
+### Syntax
 
 ```
 DELETE /folders/:id
 ```
 
-##### Example
+### Example
 
 ```
 // DELETE /folders/a5bdb793-dd85-4ac9-882a-b42862092983
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -412,7 +412,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -442,13 +442,13 @@ An array of folder primary keys.
 
 Empty body.
 
-### REST API
+### Syntax
 
 ```
 DELETE /folders
 ```
 
-##### Example
+### Example
 
 ```json
 // DELETE /folders
@@ -456,7 +456,7 @@ DELETE /folders
 ["d97c2e0e-293d-4eb5-9e1c-27d3460ad29d", "fc02d733-95b8-4e27-bd4b-08a32cbe4e66"]
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -468,7 +468,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {

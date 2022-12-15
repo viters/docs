@@ -132,13 +132,13 @@ Doesn't support any query parameters.
 
 Array of [relation objects](#the-relation-object). If no items are available, data will be an empty array.
 
-### REST API
+### Syntax
 
 ```
 GET /relations
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -150,7 +150,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -182,19 +182,19 @@ Doesn't support any query parameters.
 
 Array of [relation objects](#the-relation-object). If no items are available, data will be an empty array.
 
-### REST API
+### Syntax
 
 ```
 GET /relations/:collection
 ```
 
-##### Example
+### Example
 
 ```
 GET /relations/articles
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -206,7 +206,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -231,19 +231,19 @@ Doesn't support any query parameters.
 
 Returns the requested [relation object](#the-relation-object).
 
-### REST API
+### Syntax
 
 ```
 GET /relations/:collection/:field
 ```
 
-##### Example
+### Example
 
 ```
 GET /relations/articles/featured_image
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -255,7 +255,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -285,13 +285,13 @@ A partial [relation object](#the-relation-object).
 
 Returns the [relation object](#the-relation-object) for the created relation.
 
-### REST API
+### Syntax
 
 ```
 POST /relations
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /relations
@@ -303,7 +303,7 @@ POST /relations
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -315,7 +315,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -347,13 +347,13 @@ A partial [relation object](#the-relation-object).
 
 Returns the [relation object](#the-relation-object) for the created relation.
 
-### REST API
+### Syntax
 
 ```
 PATCH /relations/:collection/:field
 ```
 
-##### Example
+### Example
 
 ```json
 // PATCH /relations/articles/author
@@ -365,7 +365,7 @@ PATCH /relations/:collection/:field
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -377,7 +377,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -399,19 +399,19 @@ Delete an existing relation.
 
 Empty body.
 
-### REST API
+### Syntax
 
 ```
 DELETE /relations/:collection/:field
 ```
 
-##### Example
+### Example
 
 ```
 DELETE /relations/articles/author
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -423,7 +423,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {

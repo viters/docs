@@ -135,13 +135,13 @@ Supports all [global query parameters](/reference/query).
 
 Returns the [settings object](#the-settings-object).
 
-### REST API
+### Syntax
 
 ```
 GET /settings
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -153,7 +153,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -179,13 +179,13 @@ A partial [settings object](#the-settings-object).
 
 Returns the [settings object](#the-setting-object).
 
-### REST API
+### Syntax
 
 ```
 PATCH /settings
 ```
 
-##### Example
+### Example
 
 ```json
 // PATCH /settings
@@ -195,7 +195,7 @@ PATCH /settings
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -207,7 +207,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {

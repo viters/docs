@@ -78,7 +78,7 @@ The token's expiration time can be configured through
 
 :::
 
-### REST API
+### Syntax
 
 ```
 POST /auth/login
@@ -95,7 +95,7 @@ POST /auth/login/:provider
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -137,7 +137,7 @@ How long before the access token will expire. Value is in milliseconds.
 The token that can be used to retrieve a new access token through [`/auth/refresh`](#refresh). Note: if you used `cookie`
 as the mode in the request, the refresh token won't be returned in the JSON.
 
-### REST API
+### Syntax
 
 ```
 POST /auth/refresh
@@ -150,7 +150,7 @@ POST /auth/refresh
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -177,7 +177,7 @@ Invalidate the refresh token thus destroying the user's session.
 The refresh token to invalidate. If you have the refresh token in a cookie through [`/auth/login`](#login), you don't have
 to submit it here.
 
-### REST API
+### Syntax
 
 ```
 POST /auth/logout
@@ -189,7 +189,7 @@ POST /auth/logout
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -217,7 +217,7 @@ Provide a custom reset url which the link in the email will lead to. The reset t
 **Note**: You need to configure the
 [`PASSWORD_RESET_URL_ALLOW_LIST` environment variable](/self-hosted/config-options#security) to enable this feature.
 
-### REST API
+### Syntax
 
 ```
 POST /auth/password/request
@@ -229,7 +229,7 @@ POST /auth/password/request
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -256,7 +256,7 @@ Password reset token, as provided in the email sent by the request endpoint.
 `password` **Required**\
 New password for the user.
 
-### REST API
+### Syntax
 
 ```
 POST /auth/password/reset
@@ -269,7 +269,7 @@ POST /auth/password/reset
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system

@@ -61,7 +61,7 @@ be an empty array.
 If your collection is a singleton, this endpoint will return the item. If the item doesn't exist in the database, the
 default values will be returned.
 
-### REST API
+### Syntax
 
 ```
 GET /items/:collection
@@ -70,13 +70,13 @@ SEARCH /items/:collection
 
 [Learn more about SEARCH ->](/reference/introduction#search-http-method)
 
-##### Example
+### Example
 
 ```
 GET /items/articles
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql
@@ -88,7 +88,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -116,19 +116,19 @@ Supports all [global query parameters](/reference/query).
 
 Returns an [item object](#the-item-object) if a valid primary key was provided.
 
-### REST API
+### Syntax
 
 ```
 GET /items/:collection/:id
 ```
 
-##### Example
+### Example
 
 ```
 GET /items/articles/15
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql
@@ -140,7 +140,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -176,13 +176,13 @@ Relational data needs to be correctly nested to add new items successfully. Chec
 
 Returns the [item objects](#the-item-object) of the item that were created.
 
-### REST API
+### Syntax
 
 ```
 POST /items/:collection
 ```
 
-##### Example
+### Example
 
 ```
 POST /items/articles
@@ -195,7 +195,7 @@ POST /items/articles
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql
@@ -207,7 +207,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -236,13 +236,13 @@ An array of partial [item objects](#the-item-object).
 
 Returns the [item objects](#the-item-object) of the item that were created.
 
-### REST API
+### Syntax
 
 ```
 POST /items/:collection
 ```
 
-##### Example
+### Example
 
 ```
 POST /items/articles
@@ -261,7 +261,7 @@ POST /items/articles
 ]
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql
@@ -273,7 +273,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -307,13 +307,13 @@ A partial [item object](#the-item-object).
 
 Returns the [item object](#the-item-object) of the item that was updated.
 
-### REST API
+### Syntax
 
 ```
 PATCH /items/:collection/:id
 ```
 
-##### Example
+### Example
 
 ```
 PATCH /items/articles/15
@@ -325,7 +325,7 @@ PATCH /items/articles/15
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql
@@ -337,7 +337,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -370,13 +370,13 @@ Returns the [item objects](#the-item-object) for the updated items.
 
 If your collection is a singleton, this endpoint will act the same as the [Update an Item](#update-an-item) endpoint.
 
-### REST API
+### Syntax
 
 ```
 PATCH /items/:collection
 ```
 
-##### Example
+### Example
 
 ```
 PATCH /items/articles
@@ -391,7 +391,7 @@ PATCH /items/articles
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql
@@ -403,7 +403,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -424,19 +424,19 @@ Delete an existing item.
 
 Empty body.
 
-### REST API
+### Syntax
 
 ```
 DELETE /items/:collection/:id
 ```
 
-##### Example
+### Example
 
 ```
 DELETE /items/articles/15
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql
@@ -448,7 +448,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -472,13 +472,13 @@ An array of item primary keys.
 
 Empty body.
 
-### REST API
+### Syntax
 
 ```
 DELETE /items/:collection
 ```
 
-##### Example
+### Example
 
 ```
 DELETE /items/articles
@@ -488,7 +488,7 @@ DELETE /items/articles
 [15, 16, 21]
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql
@@ -500,7 +500,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {

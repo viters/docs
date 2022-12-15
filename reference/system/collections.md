@@ -155,7 +155,7 @@ An array of [collection objects](#the-collection-object).
 
 <template #rest>
 
-### REST API
+### Syntax
 
 ```
 GET /collections
@@ -168,7 +168,7 @@ SEARCH /collections
 
 <template #graphql>
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -180,7 +180,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -215,13 +215,13 @@ A [collection object](#the-collection-object).
 
 <template #rest>
 
-### REST API
+### Syntax
 
 ```
 GET /collections/:collection
 ```
 
-##### Example
+### Example
 
 ```
 GET /collections/articles
@@ -231,7 +231,7 @@ GET /collections/articles
 
 <template #graphql>
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -243,7 +243,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -294,13 +294,13 @@ entirely or use `schema: null` to create ["folder" collections](/configuration/d
 
 <template #rest>
 
-### REST API
+### Syntax
 
 ```
 POST /collections
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /collections
@@ -317,7 +317,7 @@ POST /collections
 
 <template #graphql>
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -329,7 +329,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -374,13 +374,13 @@ The [collection object](#the-collection-object) for the updated collection in th
 
 <template #rest>
 
-### REST API
+### Syntax
 
 ```
 PATCH /collections/:collection
 ```
 
-##### Example
+### Example
 
 ```json
 // PATCH /collections/testimonials
@@ -396,7 +396,7 @@ PATCH /collections/:collection
 
 <template #graphql>
 
-### GraphQL API
+### Syntax
 
 ```
 POST /graphql/system
@@ -408,7 +408,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -441,13 +441,13 @@ Be aware, this will delete the table from the database, including all items in i
 
 <template #rest>
 
-### REST API
+### Syntax
 
 ```
 DELETE /collections/:collection
 ```
 
-##### Example
+### Example
 
 ```
 DELETE /collections/articles
@@ -457,7 +457,7 @@ DELETE /collections/articles
 
 <template #graphql>
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -469,7 +469,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {

@@ -95,7 +95,7 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [preset objects](#the-preset-object). If no items are available, data
 will be an empty array.
 
-### REST API
+### Syntax
 
 ```
 GET /presets
@@ -104,7 +104,7 @@ SEARCH /presets
 
 [Learn more about SEARCH ->](/reference/introduction#search-http-method)
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -116,7 +116,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -141,19 +141,19 @@ Supports all [global query parameters](/reference/query).
 
 Returns the requested [preset object](#the-preset-object).
 
-### REST API
+### Syntax
 
 ```
 GET /presets/:id
 ```
 
-##### Example
+### Example
 
 ```
 GET /presets/42
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -165,7 +165,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -194,13 +194,13 @@ A partial [preset object](#the-preset-object).
 
 Returns the [preset object](#the-preset-object) for the created preset.
 
-### REST API
+### Syntax
 
 ```
 POST /presets
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /presets
@@ -212,7 +212,7 @@ POST /presets
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -224,7 +224,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -253,13 +253,13 @@ An array of partial [preset objects](#the-preset-object).
 
 Returns the [preset object](#the-preset-object) for the created preset.
 
-### REST API
+### Syntax
 
 ```
 POST /presets
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /presets
@@ -279,7 +279,7 @@ POST /presets
 ]
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -291,7 +291,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -330,13 +330,13 @@ A partial [preset object](#the-preset-object).
 
 Returns the [preset object](#the-preset-object) for the updated preset.
 
-### REST API
+### Syntax
 
 ```
 PATCH /presets/:id
 ```
 
-##### Example
+### Example
 
 ```json
 // PATCH /presets/34
@@ -346,7 +346,7 @@ PATCH /presets/:id
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -358,7 +358,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -391,13 +391,13 @@ Any of [the preset object](#the-preset-object)'s properties.
 
 Returns the [preset objects](#the-preset-object) for the updated presets.
 
-### REST API
+### Syntax
 
 ```
 PATCH /presets
 ```
 
-##### Example
+### Example
 
 ```json
 // PATCH /presets
@@ -410,7 +410,7 @@ PATCH /presets
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -422,7 +422,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -443,19 +443,19 @@ Delete an existing preset.
 
 Empty body.
 
-### REST API
+### Syntax
 
 ```
 DELETE /presets/:id
 ```
 
-##### Example
+### Example
 
 ```
 DELETE /presets/34
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -467,7 +467,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -491,20 +491,20 @@ An array of preset primary keys
 
 Empty body.
 
-### REST API
+### Syntax
 
 ```
 DELETE /presets
 ```
 
-##### Example
+### Example
 
 ```json
 // DELETE /presets
 [15, 251, 810]
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -516,7 +516,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {

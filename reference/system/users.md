@@ -118,7 +118,7 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [user objects](#the-user-object). If no items are available, data will
 be an empty array.
 
-### REST API
+### Syntax
 
 ```
 GET /users
@@ -127,7 +127,7 @@ SEARCH /users
 
 [Learn more about SEARCH ->](/reference/introduction#search-http-method)
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -139,7 +139,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -165,19 +165,19 @@ Supports all [global query parameters](/reference/query).
 
 Returns the requested [user object](#the-user-object).
 
-### REST API
+### Syntax
 
 ```
 GET /users/:id
 ```
 
-##### Example
+### Example
 
 ```
 GET /users/72a1ce24-4748-47de-a05f-ce9af3033727
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -189,7 +189,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -215,13 +215,13 @@ Supports all [global query parameters](/reference/query).
 
 Returns the [user object](#the-user-object) for the currently authenticated user.
 
-### REST API
+### Syntax
 
 ```
 GET /users/me
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -233,7 +233,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -257,7 +257,7 @@ Supports all [global query parameters](/reference/query).
 
 Returns the updated [user object](#the-user-object) for the authenticated user.
 
-### REST API
+### Syntax
 
 ```
 PATCH /users/me
@@ -271,7 +271,7 @@ PATCH /users/me
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -283,7 +283,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -313,13 +313,13 @@ A partial [user object](#the-user-object).
 
 Returns the [user object](#the-user-object) for the created user.
 
-### REST API
+### Syntax
 
 ```
 POST /users
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /users
@@ -331,7 +331,7 @@ POST /users
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -343,7 +343,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -376,13 +376,13 @@ An array of partial [user objects](#the-user-object).
 
 Returns the [user objects](#the-user-object) for the created users.
 
-### REST API
+### Syntax
 
 ```
 POST /users
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /users
@@ -401,7 +401,7 @@ POST /users
 ]
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -413,7 +413,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -447,13 +447,13 @@ A partial [user object](#the-user-object).
 
 Returns the [user object](#the-user-object) for the updated user.
 
-### REST API
+### Syntax
 
 ```
 PATCH /users/:id
 ```
 
-##### Example
+### Example
 
 ```json
 // PATCH /users/72a1ce24-4748-47de-a05f-ce9af3033727
@@ -463,7 +463,7 @@ PATCH /users/:id
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -475,7 +475,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -508,13 +508,13 @@ Any of [the user object](#the-user-object)'s properties.
 
 Returns the [user objects](#the-user-object) for the updated users.
 
-### REST API
+### Syntax
 
 ```
 PATCH /users
 ```
 
-##### Example
+### Example
 
 ```json
 // PATCH /users
@@ -527,7 +527,7 @@ PATCH /users
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -539,7 +539,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -563,19 +563,19 @@ Delete an existing user.
 
 Empty body.
 
-### REST API
+### Syntax
 
 ```
 DELETE /users/:id
 ```
 
-##### Example
+### Example
 
 ```
 DELETE /users/72a1ce24-4748-47de-a05f-ce9af3033727
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -587,7 +587,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -611,20 +611,20 @@ An array of user primary keys
 
 Empty body.
 
-### REST API
+### Syntax
 
 ```
 DELETE /users
 ```
 
-##### Example
+### Example
 
 ```json
 // Request
 ["653925a9-970e-487a-bfc0-ab6c96affcdc", "c86c2761-65d3-43c3-897f-6f74ad6a5bd7"]
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -636,7 +636,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -669,13 +669,13 @@ Provide a custom invite url which the link in the email will lead to. The invite
 
 Empty body.
 
-### REST API
+### Syntax
 
 ```
 POST /users/invite
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /users/invite
@@ -686,7 +686,7 @@ POST /users/invite
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -698,7 +698,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -726,13 +726,13 @@ Password for the user.
 
 Empty body.
 
-### REST API
+### Syntax
 
 ```
 POST /users/invite/accept
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /users/invite/accept
@@ -743,7 +743,7 @@ POST /users/invite/accept
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -755,7 +755,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -782,13 +782,13 @@ OTP secret to be saved in the authenticator app.
 `otpauth_url` **string**\
 `otpauth://` formatted URL. Can be rendered as QR code and used in most authenticator apps.
 
-### REST API
+### Syntax
 
 ```
 POST /users/me/tfa/generate
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /users/me/tfa/generate
@@ -797,7 +797,7 @@ POST /users/me/tfa/generate
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -809,7 +809,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -838,13 +838,13 @@ OTP generated with the secret, to recheck if the user has a correct TFA setup
 
 Empty response.
 
-### REST API
+### Syntax
 
 ```
 POST /users/me/tfa/enable
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /users/me/tfa/enable
@@ -854,7 +854,7 @@ POST /users/me/tfa/enable
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -866,7 +866,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -889,13 +889,13 @@ One-time password generated by the authenticator app.
 
 Empty response.
 
-### REST API
+### Syntax
 
 ```
 POST /users/me/tfa/disable
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /users/me/tfa/disable
@@ -905,7 +905,7 @@ POST /users/me/tfa/disable
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -917,7 +917,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {

@@ -24,19 +24,19 @@ This endpoint doesn't currently support any query parameters.
 
 An array of interface extension keys.
 
-### REST API
+### Syntax
 
 ```
 GET /extensions/:type
 ```
 
-##### Example
+### Example
 
 ```
 GET /extensions/interfaces
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -48,7 +48,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {

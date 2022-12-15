@@ -67,7 +67,7 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [webhook objects](#the-webhook-object). If no items are available,
 data will be an empty array.
 
-### REST API
+### Syntax
 
 ```
 GET /webhooks
@@ -76,7 +76,7 @@ SEARCH /webhooks
 
 [Learn more about SEARCH ->](/reference/introduction#search-http-method)
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -88,7 +88,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -113,13 +113,13 @@ Supports all [global query parameters](/reference/query).
 
 Returns the requested [webhook object](#the-webhook-object).
 
-### REST API
+### Syntax
 
 ```
 GET /webhooks/:id
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -131,7 +131,7 @@ type Query {
 }
 ```
 
-##### Examples
+### Examples
 
 ```graphql
 query {
@@ -163,13 +163,13 @@ A partial [webhook object](#the-webhook-object).
 
 Returns the [webhook object](#the-webhook-object) for the created webhook.
 
-### REST API
+### Syntax
 
 ```
 POST /webhooks
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /webhooks
@@ -182,7 +182,7 @@ POST /webhooks
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -194,7 +194,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -227,13 +227,13 @@ An array of partial [webhook object](#the-webhook-object).
 
 Returns the [webhook objects](#the-webhook-object) for the created webhooks.
 
-### REST API
+### Syntax
 
 ```
 POST /webhooks
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /webhooks
@@ -254,7 +254,7 @@ POST /webhooks
 ]
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -266,7 +266,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -300,13 +300,13 @@ A partial [webhook object](#the-webhook-object).
 
 Returns the [webhook object](#the-webhook-object) for the updated webhook.
 
-### REST API
+### Syntax
 
 ```
 PATCH /webhooks/:id
 ```
 
-##### Example
+### Example
 
 ```json
 // PATCH /webhooks/15
@@ -316,7 +316,7 @@ PATCH /webhooks/:id
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -328,7 +328,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -360,13 +360,13 @@ Any of [the webhook object](#the-webhook-object)'s properties.
 
 Returns the [webhook objects](#the-webhook-object) for the updated webhooks.
 
-### REST API
+### Syntax
 
 ```
 PATCH /webhooks
 ```
 
-##### Example
+### Example
 
 ```json
 // PATCH /webhooks
@@ -379,7 +379,7 @@ PATCH /webhooks
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -391,7 +391,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -411,19 +411,19 @@ Delete an existing webhook.
 
 Empty body.
 
-### REST API
+### Syntax
 
 ```
 DELETE /webhooks/:id
 ```
 
-##### Example
+### Example
 
 ```
 DELETE /webhooks/15
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -435,7 +435,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -459,13 +459,13 @@ An array of webhook primary keys
 
 Empty body.
 
-### REST API
+### Syntax
 
 ```
 DELETE /webhooks
 ```
 
-##### Example
+### Example
 
 ```json
 // DELETE /webhooks
@@ -473,7 +473,7 @@ DELETE /webhooks
 [2, 15, 41]
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -485,7 +485,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {

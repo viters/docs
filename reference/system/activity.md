@@ -85,6 +85,8 @@ data will be an empty array.
 
 <template #rest>
 
+### Syntax
+
 ```
 GET /activity
 SEARCH /activity
@@ -96,6 +98,8 @@ SEARCH /activity
 
 <template #graphql>
 
+### Syntax
+
 ```
 POST /graphql/system
 ```
@@ -106,7 +110,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -138,6 +142,8 @@ Returns an [activity object](#the-activity-object) if a valid identifier was pro
 
 <template #rest>
 
+### Syntax
+
 ```
 GET /activity/:id
 ```
@@ -145,6 +151,8 @@ GET /activity/:id
 </template>
 
 <template #graphql>
+
+### Syntax
 
 ```
 POST /graphql/system
@@ -156,7 +164,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -195,11 +203,13 @@ Returns the [activity object](#the-activity-object) of the created comment.
 
 <template #rest>
 
+### Syntax
+
 ```
 POST /activity/comment
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /activity/comment
@@ -215,7 +225,7 @@ POST /activity/comment
 
 <template #graphql>
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -227,7 +237,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -262,9 +272,13 @@ Returns the [activity object](#the-activity-object) of the created comment.
 
 <template #rest>
 
+### Syntax
+
 ```
 PATCH /activity/comment/:id
 ```
+
+### Example
 
 ```json
 // PATCH /activity/comment/15
@@ -278,6 +292,8 @@ PATCH /activity/comment/:id
 
 <template #graphql>
 
+### Syntax
+
 ```
 POST /graphql/system
 ```
@@ -288,7 +304,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -313,11 +329,13 @@ Deletes a comment.
 
 <template #rest>
 
+### Syntax
+
 ```
 DELETE /activity/comment/:id
 ```
 
-##### Example
+### Example
 
 ```
 DELETE /activity/comment/15
@@ -326,6 +344,8 @@ DELETE /activity/comment/15
 </template>
 
 <template #graphql>
+
+### Syntax
 
 ```
 POST /graphql/system
@@ -337,7 +357,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {

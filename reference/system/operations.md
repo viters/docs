@@ -82,7 +82,7 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [operation objects](#the-operation-object). If no items are available,
 data will be an empty array.
 
-### REST API
+### Syntax
 
 ```
 GET /operations
@@ -91,7 +91,7 @@ SEARCH /operations
 
 [Learn more about SEARCH ->](/reference/introduction#search-http-method)
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -103,7 +103,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -129,19 +129,19 @@ Supports all [global query parameters](/reference/query).
 
 Returns the requested [operation object](#the-operation-object).
 
-### REST API
+### Syntax
 
 ```
 GET /operations/:id
 ```
 
-##### Example
+### Example
 
 ```
 GET /operations/3c636d1c-4eb2-49cd-8a6d-3ec571ab3390
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -153,7 +153,7 @@ type Query {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 query {
@@ -183,13 +183,13 @@ A partial [operation object](#the-operation-object).
 
 Returns the [operation object](#the-operation-object) for the created operation.
 
-### REST API
+### Syntax
 
 ```
 POST /operations
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /operations
@@ -201,7 +201,7 @@ POST /operations
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -213,7 +213,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -243,13 +243,13 @@ An array of partial [operation objects](#the-operation-object).
 
 Returns the [operation object](#the-operation-object) for the created operation.
 
-### REST API
+### Syntax
 
 ```
 POST /operations
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /operations
@@ -268,7 +268,7 @@ POST /operations
 ]
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -280,7 +280,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -323,13 +323,13 @@ A partial [operation object](#the-operation-object).
 
 Returns the [operation object](#the-operation-object) for the updated operation.
 
-### REST API
+### Syntax
 
 ```
 PATCH /operation/:id
 ```
 
-##### Example
+### Example
 
 ```json
 // PATCH /operation/7d62f1e9-a83f-407b-84f8-1c184f014501
@@ -339,7 +339,7 @@ PATCH /operation/:id
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -351,7 +351,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -384,13 +384,13 @@ Any of [the operation object](#the-operation-object)'s properties.
 
 Returns the [operation objects](#the-operation-object) for the updated operations.
 
-### REST API
+### Syntax
 
 ```
 PATCH /operations
 ```
 
-##### Example
+### Example
 
 ```json
 // PATCH /operations
@@ -403,7 +403,7 @@ PATCH /operations
 }
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -415,7 +415,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -440,19 +440,19 @@ Delete an existing operation.
 
 Empty body.
 
-### REST API
+### Syntax
 
 ```
 DELETE /operations/:id
 ```
 
-##### Example
+### Example
 
 ```
 DELETE /operations/07ac467e-1900-4c62-9637-8dac2ab97f71
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -464,7 +464,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -488,20 +488,20 @@ An array of operations primary keys
 
 Empty body.
 
-### REST API
+### Syntax
 
 ```
 DELETE /operations
 ```
 
-##### Example
+### Example
 
 ```json
 // DELETE /operations
 ["a791ce73-41a2-4fb7-8f67-c7ba176cc719", "4e57ab0e-f4ec-47b5-9dad-e36f08a25642", "5fe0a6f6-18ad-4bb3-94c6-2e033246c784"]
 ```
 
-### GraphQL
+### Syntax
 
 ```
 POST /graphql/system
@@ -513,7 +513,7 @@ type Mutation {
 }
 ```
 
-##### Example
+### Example
 
 ```graphql
 mutation {
@@ -541,13 +541,13 @@ Payload for the operation, if needed.
 
 Result of the operation, if any.
 
-### REST API
+### Syntax
 
 ```
 POST /operations/trigger/:operation_uuid
 ```
 
-##### Example
+### Example
 
 ```json
 // POST /flows/trigger/202a940b-a00b-47df-b832-369c53f13122
