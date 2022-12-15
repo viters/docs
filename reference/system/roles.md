@@ -74,13 +74,10 @@ Supports all [global query parameters](/reference/query).
 
 ### Returns
 
-An array of up to [limit](/reference/query#limit) [role objects](#the-role-object). If no items are available, data will
-be an empty array.
+An array of up to [limit](/reference/query#limit) of [role objects](#the-role-object). If no items are available, data
+will be an empty array.
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL']"
-	label="API" >
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL']" label="API" >
 
 <template #rest>
 
@@ -139,7 +136,9 @@ Supports all [global query parameters](/reference/query).
 
 ### Returns
 
-Returns the requested [role object](#the-role-object). <SnippetToggler
+Returns the requested [role object](#the-role-object).
+
+<SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
 	label="API" >
