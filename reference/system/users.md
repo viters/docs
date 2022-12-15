@@ -4,6 +4,14 @@ readTime: 9 min read
 pageClass: page-reference
 ---
 
+<script setup>
+import { ref } from 'vue';
+
+import SnippetToggler from '../../.vitepress/theme/components/SnippetToggler.vue';
+
+const pref = ref('REST');
+</script>
+
 # Users
 
 > Directus Users are the individual accounts that let you authenticate into the API and App. Each user belongs to a Role
@@ -118,6 +126,13 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [user objects](#the-user-object). If no items are available, data will
 be an empty array.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -126,6 +141,10 @@ SEARCH /users
 ```
 
 [Learn more about SEARCH ->](/reference/introduction#search-http-method)
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -151,6 +170,10 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Retrieve a User
@@ -165,6 +188,13 @@ Supports all [global query parameters](/reference/query).
 
 Returns the requested [user object](#the-user-object).
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -176,6 +206,10 @@ GET /users/:id
 ```
 GET /users/72a1ce24-4748-47de-a05f-ce9af3033727
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -201,6 +235,10 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Retrieve the Current User
@@ -215,11 +253,22 @@ Supports all [global query parameters](/reference/query).
 
 Returns the [user object](#the-user-object) for the currently authenticated user.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
 GET /users/me
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -243,6 +292,10 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Update the Current User
@@ -257,6 +310,13 @@ Supports all [global query parameters](/reference/query).
 
 Returns the updated [user object](#the-user-object) for the authenticated user.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -270,6 +330,10 @@ PATCH /users/me
 	"email": "new.email@example.com"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -293,6 +357,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Create a User
@@ -313,6 +381,13 @@ A partial [user object](#the-user-object).
 
 Returns the [user object](#the-user-object) for the created user.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -330,6 +405,10 @@ POST /users
 	"role": "c86c2761-65d3-43c3-897f-6f74ad6a5bd7"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -356,6 +435,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Create Multiple Users
@@ -375,6 +458,13 @@ An array of partial [user objects](#the-user-object).
 ### Returns
 
 Returns the [user objects](#the-user-object) for the created users.
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -400,6 +490,10 @@ POST /users
 	}
 ]
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -429,6 +523,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Update a User
@@ -447,6 +545,13 @@ A partial [user object](#the-user-object).
 
 Returns the [user object](#the-user-object) for the updated user.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -462,6 +567,10 @@ PATCH /users/:id
 	"title": "CTO"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -486,6 +595,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Update Multiple Users
@@ -508,6 +621,13 @@ Any of [the user object](#the-user-object)'s properties.
 
 Returns the [user objects](#the-user-object) for the updated users.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -526,6 +646,10 @@ PATCH /users
 	}
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -553,6 +677,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Delete a User
@@ -562,6 +690,13 @@ Delete an existing user.
 ### Returns
 
 Empty body.
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -574,6 +709,10 @@ DELETE /users/:id
 ```
 DELETE /users/72a1ce24-4748-47de-a05f-ce9af3033727
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -597,6 +736,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Delete Multiple Users
@@ -611,6 +754,13 @@ An array of user primary keys
 
 Empty body.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -623,6 +773,10 @@ DELETE /users
 // Request
 ["653925a9-970e-487a-bfc0-ab6c96affcdc", "c86c2761-65d3-43c3-897f-6f74ad6a5bd7"]
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -645,6 +799,10 @@ mutation {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
 
 ---
 
@@ -669,6 +827,13 @@ Provide a custom invite url which the link in the email will lead to. The invite
 
 Empty body.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -685,6 +850,10 @@ POST /users/invite
 	"role": "c86c2761-65d3-43c3-897f-6f74ad6a5bd7"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -706,6 +875,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Accept User Invite
@@ -726,6 +899,13 @@ Password for the user.
 
 Empty body.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -742,6 +922,10 @@ POST /users/invite/accept
 	"password": "d1r3ctu5"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -763,6 +947,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Generate Two-Factor Authentication Secret
@@ -782,6 +970,13 @@ OTP secret to be saved in the authenticator app.
 `otpauth_url` **string**\
 `otpauth://` formatted URL. Can be rendered as QR code and used in most authenticator apps.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -792,10 +987,15 @@ POST /users/me/tfa/generate
 
 ```json
 // POST /users/me/tfa/generate
+
 {
 	"password": "d1r3ctu5"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -820,6 +1020,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Enable Two-Factor Authentication
@@ -838,6 +1042,13 @@ OTP generated with the secret, to recheck if the user has a correct TFA setup
 
 Empty response.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -853,6 +1064,10 @@ POST /users/me/tfa/enable
 	"secret": "3CtiutsNBmY3szHE"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -874,6 +1089,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Disable Two-Factor Authentication
@@ -888,6 +1107,13 @@ One-time password generated by the authenticator app.
 ### Returns
 
 Empty response.
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
 
 ### Syntax
 
@@ -904,6 +1130,10 @@ POST /users/me/tfa/disable
 	"otp": "859014"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -924,3 +1154,7 @@ mutation {
 	users_me_tfa_disable(otp: "591763")
 }
 ```
+
+</template>
+
+</SnippetToggler>
