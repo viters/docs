@@ -4,6 +4,14 @@ readTime: 4 min read
 pageClass: page-reference
 ---
 
+<script setup>
+import { ref } from 'vue';
+
+import SnippetToggler from '../../.vitepress/theme/components/SnippetToggler.vue';
+
+const pref = ref('REST');
+</script>
+
 # Server
 
 > Provides detailed information about the project server, its schema, and its health.
@@ -25,11 +33,22 @@ This OAS spec is based on the read permissions of the currently authenticated us
 
 Object conforming to [the OpenAPI Specification](https://swagger.io/specification)
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
 GET /server/specs/oas
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -51,6 +70,10 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Get GraphQL SDL
@@ -65,7 +88,7 @@ The SDL is based on the permissions of the currently authenticated user.
 
 ### Returns
 
-GraphQL SDL file.
+A GraphQL SDL file.
 
 ```graphql
 type about_us {
@@ -87,12 +110,23 @@ type articles {
 # etc
 ```
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
 GET /server/specs/graphql/
 GET /server/specs/graphql/system
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -114,6 +148,10 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Ping
@@ -124,11 +162,22 @@ Ping... pong! 🏓
 
 Pong.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
 GET /server/ping
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -149,6 +198,10 @@ query {
 	server_ping
 }
 ```
+
+</template>
+
+</SnippetToggler>
 
 ---
 
@@ -204,11 +257,22 @@ How long the operating system has been up.
 `os.totalmem` **string**\
 How much memory is available on the operating system.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
 GET /server/info
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -233,6 +297,10 @@ query {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
 
 ---
 
@@ -322,11 +390,22 @@ UUID of the current Directus instance.
 `checks` **array**\
 Array with the status of all individually connected services.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
 ### Syntax
 
 ```
 GET /server/health
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -347,5 +426,9 @@ query {
 	server_health
 }
 ```
+
+</template>
+
+</SnippetToggler>
 
 ---
