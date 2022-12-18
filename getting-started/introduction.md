@@ -110,7 +110,7 @@ can create fully granular permissions for roles as well as individual users.
 
 :::tip Directus Vocabulary
 
-In order keep things simpler, _especially for the no-code users_, Directus uses friendlier names for many database terms
+To keep things simpler, _especially for the no-code users_, Directus uses friendlier names for many database terms
 and technical concepts, including [Project](/getting-started/glossary#projects) (database),
 [Collection](/getting-started/glossary#collections) (table), [Field](/getting-started/glossary#fields) (column),
 [Item](/getting-started/glossary#items) (record), and [Type](/getting-started/glossary#types) (datatype).
@@ -199,14 +199,14 @@ Cloud architecture can be complicated and resource-intensive. Directus Cloud pro
 infrastructure, and automatic updates so developers can focus on the app's core business logic. Directus Cloud also
 offers [Cloud Exclusive Extensions](/cloud/glossary#cloud-exclusives), enhancing Directus Core with even more features.
 
-With free Directus Cloud account, you can set up Teams to organize Projects, Project billing, and other Team Members
+With your free Directus Cloud account, you can set up Teams to organize Projects, Project billing, and other Team Members
 however you need. You'll be able to get a Project running in about 90 seconds. Then as Project growth changes over time,
 scale service up or down as needed at the click of a button. The cloud dashboard also provides simple, straightforward
 analytics to help understand traffic and inform scaling decisions.
 
 :::tip Ready to try Directus Cloud?
 
-Setup your free Cloud account and learn Directus hands-on in the [Quickstart Guide](/getting-started/quickstart).
+Set up your free Cloud account and learn Directus hands-on in the [Quickstart Guide](/getting-started/quickstart).
 
 :::
 
