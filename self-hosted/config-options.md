@@ -340,6 +340,13 @@ multiplied. This may cause out of memory errors, especially when running in cont
 | `CORS_CREDENTIALS`     | Whether or not to send the `Access-Control-Allow-Credentials` header.                                                                                  | `true`                       |
 | `CORS_MAX_AGE`         | Value for the `Access-Control-Max-Age` header.                                                                                                         | `18000`                      |
 
+:::tip More Details
+
+For more details about each configuration variable, please see the
+[CORS package documentation](https://www.npmjs.com/package/cors#configuration-options).
+
+:::
+
 ## Rate Limiting
 
 You can use the built-in rate-limiter to prevent users from hitting the API too much. Simply enabling the rate-limiter
@@ -573,11 +580,11 @@ Based on your configured driver, you must also provide the following configurati
 
 ### Azure (`azure`)
 
-| Variable                            | Description                | Default Value                                 |
-| ----------------------------------- | -------------------------- | --------------------------------------------- |
-| `STORAGE_<LOCATION>_CONTAINER_NAME` | Azure Storage container    | --                                            |
-| `STORAGE_<LOCATION>_ACCOUNT_NAME`   | Azure Storage account name | --                                            |
-| `STORAGE_<LOCATION>_ACCOUNT_KEY`    | Azure Storage key          | --                                            |
+| Variable                            | Description                | Default Value                                  |
+| ----------------------------------- | -------------------------- | ---------------------------------------------- |
+| `STORAGE_<LOCATION>_CONTAINER_NAME` | Azure Storage container    | --                                             |
+| `STORAGE_<LOCATION>_ACCOUNT_NAME`   | Azure Storage account name | --                                             |
+| `STORAGE_<LOCATION>_ACCOUNT_KEY`    | Azure Storage key          | --                                             |
 | `STORAGE_<LOCATION>_ENDPOINT`       | Azure URL                  | `https://{ACCOUNT_NAME}.blob.core.windows.net` |
 
 ### Google Cloud Storage (`gcs`)
