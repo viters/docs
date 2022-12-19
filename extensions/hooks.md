@@ -31,12 +31,13 @@ export default ({ filter, action }) => {
 
 Your hook can trigger on a variety of different events. An event is defined by its type and its name.
 
-There are four event types to choose from:
+There are five event types to choose from:
 
 - [Filter](#filter)
 - [Action](#action)
 - [Init](#init)
 - [Schedule](#schedule)
+- [Embed](#embed)
 
 Use filter hooks when you want the hook to fire before the event. Use action hooks when you want the hook to fire after
 the event.
@@ -140,6 +141,49 @@ export default ({ schedule }) => {
 };
 ```
 
+### Embed
+
+Inject custom JavaScript or CSS into the `<head>` and `<body>` tags within the Data Studio.
+
+The embed register function receives two parameters:
+
+- The position to embed, either `head` or `body`.
+- The value to embed, either a string or a function that returns a string.
+
+Below is an example of registering embed hooks.
+
+```js
+export default ({ embed }, { env }) => {
+	// Google Tag Manager Example
+	embed(
+		'head',
+		() => `<!-- Google Tag Manager -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${env.GTM_ID}');</script>
+		<!-- End Google Tag Manager -->`
+	);
+
+	// Sentry Example
+	embed(
+		'head',
+		'<script src="https://browser.sentry-cdn.com/7.21.1/bundle.min.js" integrity="sha384-xOL2QebDu7YNMtC6jW2i5RpQ5RcWOyQMTwrWBiEDezpjjXM7mXhYGz3vze77V91Q" crossorigin="anonymous"></script>'
+	);
+	embed(
+		'body',
+		() => `<script>
+		Sentry.init({
+			dsn: "${env.SENTRY_DSN}" // "https://examplePublicKey@o0.ingest.sentry.io/0",
+			release: "my-project-name@${env.npm_package_version}",
+			integrations: [new Sentry.BrowserTracing()],
+
+			// We recommend adjusting this value in production, or using tracesSampler
+			// for finer control
+			tracesSampleRate: 1.0,
+		});
+		</script>`
+	);
+};
+```
+
 ## Available Events
 
 ### Filter Events
@@ -220,6 +264,7 @@ The register function receives an object containing the type-specific register f
 - `action` — Listen for an action event
 - `init` — Listen for an init event
 - `schedule` — Execute a function at certain points in time
+- `embed` — Inject custom JavaScript or CSS within the Data Studio
 
 The second parameter is a context object with the following properties:
 
