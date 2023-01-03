@@ -449,10 +449,6 @@ function sidebar() {
 					text: 'Files',
 				},
 				{
-					link: '/reference/cli',
-					text: 'CLI',
-				},
-				{
 					link: '/reference/sdk',
 					text: 'JS-SDK',
 				},
@@ -659,6 +655,10 @@ function sidebar() {
 				{
 					link: '/self-hosted/docker-guide',
 					text: 'Docker Guide',
+				},
+				{
+					link: '/self-hosted/cli',
+					text: 'CLI',
 				},
 				{
 					link: '/self-hosted/sso',
