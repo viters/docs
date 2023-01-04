@@ -858,6 +858,33 @@ AUTH_FACEBOOK_ICON="facebook"
 AUTH_FACEBOOK_LABEL="Facebook"
 ```
 
+## Flows
+
+| Variable                     | Description                                      | Default Value |
+| ---------------------------- | ------------------------------------------------ | ------------- |
+| `FLOWS_ENV_ALLOW_LIST`       | A comma-separated list of environment variables. | `false`       |
+| `FLOWS_EXEC_ALLOWED_MODULES` | A comma-separated list of node modules.          | `false`       |
+
+::: tip Usage in Flows Run Script Operation
+
+Allowed modules can be accessed using `require()`.
+
+```js
+const axios = require('axios');
+```
+
+Allowed environment variables can be accessed through the `$env` within the passed `data` or through `process.env`.
+
+```js
+const publicUrl = data['$env']['PUBLIC_URL'];
+// OR
+const publicUrl = data.$env.PUBLIC_URL;
+// OR
+const publicUrl = process.env.PUBLIC_URL;
+```
+
+:::
+
 ## Extensions
 
 | Variable                 | Description                                             | Default Value  |
