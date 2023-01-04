@@ -3,7 +3,7 @@ description: REST and GraphQL API documentation for filter rules in Directus.
 readTime: 5 min read
 ---
 
-# Filter Rules
+# Filters
 
 > Permissions, validation, and the API's `filter` parameter all rely on a specific JSON structure to define their rules.
 > This page describes the syntax for creating flat, relational, or complex filter rules.
@@ -216,3 +216,47 @@ Note: This feature is only available for permissions, validation, and presets. R
 currently only support the root ID.
 
 :::
+
+## SEARCH HTTP Method
+
+When using the REST API to read multiple items by (very) advanced filters, you might run into the issue where the URL
+simply can't hold enough data to include the full query structure. In those cases, you can use the SEARCH HTTP method as
+a drop-in replacement for GET, where you're allowed to put the query into the request body as follows:
+
+**Before:**
+
+```
+GET /items/articles?filter[title][_eq]=Hello World
+```
+
+**After:**
+
+```json
+SEARCH /items/articles
+
+{
+	"query": {
+		"filter": {
+			"title": {
+				"_eq": "Hello World"
+			}
+		}
+	}
+}
+```
+
+There's a lot of discussion around whether or not to put a body in a GET request, to use POSTs to create search queries,
+or to rely on a different method altogether. As of right now, we've chosen
+[to align with IETF's _HTTP SEARCH Method_ specification](https://datatracker.ietf.org/doc/draft-ietf-httpbis-safe-method-w-body).
+While we recognize this is still a draft spec, the SEARCH method has been used extensively before in the WebDAV world
+([spec](https://tools.ietf.org/html/rfc5323)), and compared to the other available options, it feels like the "cleanest"
+and most correct to handle this moving forward. As with everything else, if you have any ideas, opinions, or concerns,
+[we'd love to hear your thoughts](https://github.com/directus/directus/discussions/new).
+
+Useful reading:
+
+- [_HTTP SEARCH Method_ (IETF, 2021)](https://datatracker.ietf.org/doc/draft-ietf-httpbis-safe-method-w-body)
+- [_Defining a new HTTP method: HTTP SEARCH_ (Tim Perry, 2021)](https://httptoolkit.tech/blog/http-search-method)
+- [_HTTP GET with request body_ (StackOverflow, 2009 and ongoing)](https://stackoverflow.com/questions/978061/http-get-with-request-body)
+- [_Elastic Search GET body usage_ (elastic, n.d.)](https://www.elastic.co/guide/en/elasticsearch/guide/current/_empty_search.html)
+- [_Dropbox starts using POST, and why this is poor API design._ (Evert Pot, 2015)](https://evertpot.com/dropbox-post-api)

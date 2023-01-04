@@ -425,8 +425,12 @@ function sidebar() {
 			collapsed: true,
 			items: [
 				{
-					link: '/reference/introduction',
-					text: 'Introduction',
+					link: '/reference/overview',
+					text: 'Overview',
+				},
+				{
+					link: '/reference/sdk',
+					text: 'JS-SDK',
 				},
 				{
 					link: '/reference/authentication',
@@ -434,95 +438,97 @@ function sidebar() {
 				},
 				{
 					link: '/reference/query',
-					text: 'Global Parameters',
+					text: 'Query Params',
 				},
 				{
 					link: '/reference/filter-rules',
-					text: 'Filter Rules',
+					text: 'Filters',
 				},
 				{
-					link: '/reference/items',
-					text: 'Items',
-				},
-				{
-					link: '/reference/files',
-					text: 'Files',
-				},
-				{
-					link: '/reference/sdk',
-					text: 'JS-SDK',
-				},
-				{
-					link: '/reference/system/activity',
-					text: 'Activity',
-				},
-				{
-					link: '/reference/system/collections',
-					text: 'Collections',
-				},
-				{
-					link: '/reference/system/extensions',
-					text: 'Extensions',
-				},
-				{
-					link: '/reference/system/fields',
-					text: 'Fields',
-				},
-				{
-					link: '/reference/system/flows',
-					text: 'Flows',
-				},
-				{
-					link: '/reference/system/folders',
-					text: 'Folders',
-				},
-				{
-					link: '/reference/system/notifications',
-					text: 'Notifications',
-				},
-				{
-					link: '/reference/system/operations',
-					text: 'Operations',
-				},
-				{
-					link: '/reference/system/permissions',
-					text: 'Permissions',
-				},
-				{
-					link: '/reference/system/presets',
-					text: 'Presets',
-				},
-				{
-					link: '/reference/system/relations',
-					text: 'Relations',
-				},
-				{
-					link: '/reference/system/revisions',
-					text: 'Revisions',
-				},
-				{
-					link: '/reference/system/roles',
-					text: 'Roles',
-				},
-				{
-					link: '/reference/system/server',
-					text: 'Server',
-				},
-				{
-					link: '/reference/system/settings',
-					text: 'Settings',
-				},
-				{
-					link: '/reference/system/users',
-					text: 'Users',
-				},
-				{
-					link: '/reference/system/utilities',
-					text: 'Utilities',
-				},
-				{
-					link: '/reference/system/webhooks',
-					text: 'Webhooks',
+					link: '/reference/endpoints',
+					text: 'Endpoints',
+					items: [
+						{
+							link: '/reference/items',
+							text: 'Items',
+						},
+						{
+							link: '/reference/files',
+							text: 'Files',
+						},
+						{
+							link: '/reference/system/activity',
+							text: 'Activity',
+						},
+						{
+							link: '/reference/system/collections',
+							text: 'Collections',
+						},
+						{
+							link: '/reference/system/extensions',
+							text: 'Extensions',
+						},
+						{
+							link: '/reference/system/fields',
+							text: 'Fields',
+						},
+						{
+							link: '/reference/system/flows',
+							text: 'Flows',
+						},
+						{
+							link: '/reference/system/folders',
+							text: 'Folders',
+						},
+						{
+							link: '/reference/system/notifications',
+							text: 'Notifications',
+						},
+						{
+							link: '/reference/system/operations',
+							text: 'Operations',
+						},
+						{
+							link: '/reference/system/permissions',
+							text: 'Permissions',
+						},
+						{
+							link: '/reference/system/presets',
+							text: 'Presets',
+						},
+						{
+							link: '/reference/system/relations',
+							text: 'Relations',
+						},
+						{
+							link: '/reference/system/revisions',
+							text: 'Revisions',
+						},
+						{
+							link: '/reference/system/roles',
+							text: 'Roles',
+						},
+						{
+							link: '/reference/system/server',
+							text: 'Server',
+						},
+						{
+							link: '/reference/system/settings',
+							text: 'Settings',
+						},
+						{
+							link: '/reference/system/users',
+							text: 'Users',
+						},
+						{
+							link: '/reference/system/utilities',
+							text: 'Utilities',
+						},
+						{
+							link: '/reference/system/webhooks',
+							text: 'Webhooks',
+						},
+					],
 				},
 			],
 		},
