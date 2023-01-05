@@ -461,6 +461,10 @@ function sidebar() {
 					text: 'Collections',
 				},
 				{
+					link: '/reference/system/dashboards',
+					text: 'Dashboards',
+				},
+				{
 					link: '/reference/system/extensions',
 					text: 'Extensions',
 				},
@@ -483,6 +487,10 @@ function sidebar() {
 				{
 					link: '/reference/system/operations',
 					text: 'Operations',
+				},
+				{
+					link: '/reference/system/panels',
+					text: 'Panels',
 				},
 				{
 					link: '/reference/system/permissions',
