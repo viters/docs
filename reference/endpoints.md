@@ -1,3 +1,13 @@
+---
+description: Introductory information about all Directus endpoints.
+readTime: 5 min read
+pageClass: page-reference
+---
+
+# Endpoints
+
+> This page is an information-primer, full of stuff to keep in mind when using any Directus endpoint.
+
 - Most endpoints inherit from items.
 - You can get nested relational data.
 

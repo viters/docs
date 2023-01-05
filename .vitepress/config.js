@@ -446,7 +446,7 @@ function sidebar() {
 				},
 				{
 					link: '/reference/endpoints',
-					text: 'Endpoints',
+					text: 'Endpoints Intro',
 					items: [
 						{
 							link: '/reference/items',
