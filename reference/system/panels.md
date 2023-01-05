@@ -6,8 +6,10 @@ pageClass: page-reference
 
 # Panels
 
-> Panels within the Insights module organize different Panels into an at-a-glance view. They can be used to group data
-> based on department, objective, business process or anything you choose. [Learn more about Panels](/app/insights).
+> Panels are modular units of data visualization that exist within the Insights module. Each panel exists within a
+> Dashboard and can be positioned and resized as needed.
+
+[Learn more about Panels](/app/insights).
 
 ---
 
