@@ -4,6 +4,15 @@ readTime: 9 min read
 pageClass: page-reference
 ---
 
+<script setup>
+import { ref } from 'vue';
+
+import { SnippetToggler } from '@directus/vue-snippet-toggler';
+import '@directus/vue-snippet-toggler/style.css';
+
+const pref = ref('REST');
+</script>
+
 # Global Query Parameters
 
 > Most Directus API Endpoint operations can be manipulated with the following parameters. It is important to understand
@@ -28,16 +37,37 @@ pageClass: page-reference
 
 ## Fields
 
-Choose the fields that are returned in the current dataset. This parameter supports dot notation to request nested
-relational fields. You can also use a wildcard (\*) to include all fields at a specific depth.
+Choose the fields that are returned in the current dataset.
 
-### Examples
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
 
-Get all top-level fields\
-`*`
+<template #rest>
 
-Get all top-level fields and all second-level relational fields\
-`*.*`
+### Return a Single Field
+
+```
+?fields=<fieldname>
+```
+
+This returns the `id` field for each item:
+
+```
+?fields=id
+```
+
+### Wildcards
+
+You can also use a wildcard `*` to include all fields at a specific depth.
+
+This returns top-level fields:
+
+```
+?fields=*
+```
 
 ::: tip Performance & Size
 
@@ -47,50 +77,116 @@ output size.
 
 :::
 
-Get all top-level fields and second-level relational fields within images\
-`*,images.*`
+### Nested Fields
 
-Get only the first_name and last_name fields\
-`first_name,last_name`
+You can use dot-notation to request nested relational fields.
 
-Get all top-level and second-level relational fields, and third-level fields within images.thumbnails\
-`*.*,images.thumbnails.*`
+This returns the `name` field nested under the `author` field:
+
+```
+?fields=author.name
+```
+
+This returns all the fields nested under author:
+
+```
+?fields=author.*
+```
+
+This returns all top-level fields and all second-level relational fields.
+
+```
+?fields=*.*
+```
+
+### Multiple Fields
+
+You can use a comma `,` to get multiple fields. This can be combined with `.` to specify nested fields as well.
+
+For example, to return the:
+
+- top-level`first_name` and `last_name` fields
+
+```
+?fields=first_name,last_name
+```
+
+Or alternatively, you could add multiple fields params:
+
+```
+?fields[]=first_name,
+&fields[]=last_name
+```
+
+Return all:
+
+- top-level fields
+- second-level relational fields within `images`.
+
+```
+?fields=*,images.*
+```
+
+Return all:
+
+- top-level and second-level relational fields
+- third-level fields within `images.thumbnails`
+
+```
+?fields=*.*,images.thumbnails.*
+```
 
 ### Many-To-Any (Union Types)
 
 Seeing that Many-to-Any (M2A) fields have nested data from multiple collections, it's not always safe / wanted to fetch
 the same field from every related collection. In M2A fields, you can use the following syntax to specify what fields to
-fetch from which related nested collection type:\
-`?fields=<m2a-field>:<collection-scope>.<field>`.
-
-Lets say we have a collection `pages` with a many-to-any field called `sections` that points to `headings`,
-`paragraphs`, and `videos`. We only want to fetch `title` and `level` from `headings`, `body` from `paragraphs` and
-`source` from `videos`. We can achieve that by using:
-
-```
-sections.item:headings.title
-sections.item:headings.level
-sections.item:paragraphs.body
-sections.item:videos.source
-```
-
-In GraphQL, this can be achieved using Union Types.
+fetch from which related nested collection type.
 
 ### Syntax
 
 ```
-?fields=title,body,featured_image.*
-
-// or
-
-?fields[]=title
-&fields[]=body
-&fields[]=featured_image.*
+?fields=<m2a-field>:<collection-scope>.<field>
 ```
 
-### Syntax
+For example, let's say we have a collection `pages` with a many-to-any field called `sections` that points to
+`headings`, `paragraphs`, and `videos`. We want to return the:
 
-_Natively supported in GraphQL_
+- `body` field from `paragraphs`
+- both the `title` and `level` fields from `headings`
+- all the fields `*` from `videos`.
+
+```
+?fields=
+	sections.item:headings.title,
+	sections.item:headings.level,
+	sections.item:paragraphs.body,
+	sections.item:videos.*
+```
+
+</template>
+
+<template #graphql>
+
+_Field querying is natively supported in GraphQL._
+
+### Wildcards
+
+Not supported in GraphQL
+
+### Nested Fields
+
+Natively Supported in GraphQL.
+
+### Many-To-Any (Union Types)
+
+Seeing that Many-to-Any (M2A) fields have nested data from multiple collections, it's not always safe / wanted to fetch
+the same field from every related collection. Therefore, in M2A fields, you may want to specify what fields to fetch
+from which related nested collection type. In GraphQL, this can be achieved using
+[Union Types](https://graphql.org/learn/schema/#union-types).
+
+</template>
+
+</SnippetToggler>
 
 ---
 
@@ -151,6 +247,14 @@ filter the related items themselves, take a look at [the `deep` parameter](#deep
 
 :::
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -161,6 +265,10 @@ filter the related items themselves, take a look at [the `deep` parameter](#deep
 ?filter={ "first_name": { "_eq": "Rijk" }}
 ```
 
+</template>
+
+<template #graphql>
+
 ### Syntax
 
 ```graphql
@@ -170,6 +278,10 @@ query {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
 
 ---
 
@@ -208,11 +320,23 @@ root item's fields, related item fields are not included.
 Find all items that mention Directus\
 `Directus`
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
+
 ### Syntax
 
 ```
 ?search=Directus
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -223,6 +347,10 @@ query {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
 
 ---
 
@@ -243,6 +371,14 @@ Sort by a "sort" field, followed by publish date descending\
 Sort by a "sort" field, followed by a nested author's name\
 `sort, -author.name`
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -255,6 +391,10 @@ Sort by a "sort" field, followed by a nested author's name\
 &sort[]=-author.name
 ```
 
+</template>
+
+<template #graphql>
+
 ### Syntax
 
 ```graphql
@@ -264,6 +404,10 @@ query {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
 
 ---
 
@@ -286,11 +430,23 @@ with caution.
 
 :::
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
+
 ### Syntax
 
 ```
 ?limit=200
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -301,6 +457,10 @@ query {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
 
 ---
 
@@ -313,11 +473,23 @@ Skip the first `n` items in the response. Can be used for pagination.
 Get items 101—200\
 `100`
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
+
 ### Syntax
 
 ```
 ?offset=100
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -328,6 +500,10 @@ query {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
 
 ---
 
@@ -344,11 +520,23 @@ Get items 1-100\
 Get items 101-200\
 `2`
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
+
 ### Syntax
 
 ```
 ?page=2
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -359,6 +547,10 @@ query {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
 
 ---
 
@@ -389,6 +581,14 @@ value. This allows for things like _"Average rating per month"_ or _"Total sales
 The `groupBy` query allows for grouping on multiple fields simultaneously. Combined with the [Functions](#functions),
 this allows for aggregate reporting per year-month-date.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -396,6 +596,10 @@ this allows for aggregate reporting per year-month-date.
 &groupBy[]=author
 &groupBy[]=year(publish_date)
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -409,6 +613,10 @@ query {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
 
 ---
 
@@ -442,6 +650,14 @@ Only get 3 related articles, with only the top rated comment nested
 }
 ```
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -451,6 +667,10 @@ Only get 3 related articles, with only the top rated comment nested
 
 ?deep={ "translations": { "_filter": { "languages_code": { "_eq": "en-US" }}}}
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -469,6 +689,10 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Aliases
@@ -482,6 +706,14 @@ Alias for nested fields, f.e. `field.nested`, will not work.
 
 :::
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -489,6 +721,10 @@ Alias for nested fields, f.e. `field.nested`, will not work.
 &alias[dutch_translations]=translations
 &deep[dutch_translations][_filter][code][_eq]=nl-NL
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -508,6 +744,10 @@ query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Export
@@ -515,6 +755,14 @@ query {
 Save the current API response to a file.
 
 Saves the API response to a file. Accepts one of `json`, `csv`, `xml`.
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
 
 ### Syntax
 
@@ -524,9 +772,17 @@ Saves the API response to a file. Accepts one of `json`, `csv`, `xml`.
 ?export=xml
 ```
 
+</template>
+
+<template #graphql>
+
 ### Syntax
 
 n/a
+
+</template>
+
+</SnippetToggler>
 
 ---
 
@@ -567,12 +823,24 @@ function name as the nested field (see the example that follows).
 
 :::
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
+
 ### Syntax
 
 ```
 ?fields=id,title,weekday(date_published)
 &filter[year(date_published)][_eq]=2021
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -587,6 +855,10 @@ query {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
 
 ---
 
@@ -603,6 +875,14 @@ Returns the total item count of the collection you're querying.
 
 Returns the item count of the collection you're querying, taking the current filter/search parameters into account.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -613,6 +893,14 @@ Returns the item count of the collection you're querying, taking the current fil
 ?meta=*
 ```
 
+</template>
+
+<template #graphql>
+
 ### Syntax
 
 n/a
+
+</template>
+
+</SnippetToggler>
