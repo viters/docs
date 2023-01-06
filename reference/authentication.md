@@ -4,6 +4,15 @@ readTime: 5 min read
 pageClass: page-reference
 ---
 
+<script setup>
+import { ref } from 'vue';
+
+import { SnippetToggler } from '@directus/vue-snippet-toggler';
+import '@directus/vue-snippet-toggler/style.css';
+
+const pref = ref('REST');
+</script>
+
 # Authentication
 
 > All data within the platform is private by default. The
@@ -78,6 +87,14 @@ The token's expiration time can be configured through
 
 :::
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -95,6 +112,10 @@ POST /auth/login/:provider
 }
 ```
 
+</template>
+
+<template #graphql>
+
 ### Syntax
 
 ```
@@ -109,6 +130,10 @@ mutation {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
 
 ---
 
@@ -137,6 +162,14 @@ How long before the access token will expire. Value is in milliseconds.
 The token that can be used to retrieve a new access token through [`/auth/refresh`](#refresh). Note: if you used `cookie`
 as the mode in the request, the refresh token won't be returned in the JSON.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -149,6 +182,10 @@ POST /auth/refresh
 	"mode": "json"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -165,6 +202,10 @@ mutation {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Logout
@@ -176,6 +217,14 @@ Invalidate the refresh token thus destroying the user's session.
 `refresh_token`\
 The refresh token to invalidate. If you have the refresh token in a cookie through [`/auth/login`](#login), you don't have
 to submit it here.
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
 
 ### Syntax
 
@@ -189,6 +238,10 @@ POST /auth/logout
 }
 ```
 
+</template>
+
+<template #graphql>
+
 ### Syntax
 
 ```
@@ -200,6 +253,10 @@ mutation {
 	auth_logout(refresh_token: "gmPd...8wuB")
 }
 ```
+
+</template>
+
+</SnippetToggler>
 
 ---
 
@@ -217,6 +274,14 @@ Provide a custom reset url which the link in the email will lead to. The reset t
 **Note**: You need to configure the
 [`PASSWORD_RESET_URL_ALLOW_LIST` environment variable](/self-hosted/config-options#security) to enable this feature.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -229,6 +294,10 @@ POST /auth/password/request
 }
 ```
 
+</template>
+
+<template #graphql>
+
 ### Syntax
 
 ```
@@ -240,6 +309,10 @@ mutation {
 	auth_password_request(email: "admin@example.com")
 }
 ```
+
+</template>
+
+</SnippetToggler>
 
 ---
 
@@ -256,6 +329,14 @@ Password reset token, as provided in the email sent by the request endpoint.
 `password` **Required**\
 New password for the user.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -269,6 +350,10 @@ POST /auth/password/reset
 }
 ```
 
+</template>
+
+<template #graphql>
+
 ### Syntax
 
 ```
@@ -280,6 +365,10 @@ mutation {
 	auth_password_reset(token: "eyJh...KmUk", password: "d1r3ctu5")
 }
 ```
+
+</template>
+
+</SnippetToggler>
 
 ---
 
@@ -301,6 +390,16 @@ Array of configured auth providers.
 
 `disableDefault` **boolean**\
 Whether or not the default authentication provider is disabled.
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
+
+### Syntax
 
 ```
 GET /auth
@@ -328,14 +427,48 @@ GET /auth
 }
 ```
 
+</template>
+
+<template #graphql>
+
+### Syntax
+
+Not Currently Available for GraphQL
+
+</template>
+
+</SnippetToggler>
+
 ---
 
 ## Login Using SSO Providers
 
 Will redirect to the configured SSO provider for the user to login.
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
+
+### Syntax
+
 ```
 GET /auth/login/:provider
 ```
+
+</template>
+
+<template #graphql>
+
+### Syntax
+
+Not Currently Available for GraphQL
+
+</template>
+
+</SnippetToggler>
 
 ---
