@@ -5,7 +5,11 @@
 (B|b)ackend
 (B|b)alancer
 (B|b)asemap
+(C|)ancelling
+(C|c)ancelled
 (C|c)harset
+(C|c)loudinary
+(C|c)loudinary's
 (C|c)odebase
 (C|c)onfigs?
 (C|c)ustomizable
@@ -13,6 +17,7 @@
 (D|d)atastores
 (D|d)atetimes?
 (D|d)ropdown
+(D|d)ropdowns
 (DN|dn)
 (E|e)ntrypoints?
 (F|f)ilesystem
@@ -25,22 +30,29 @@
 (I|i)nit
 (I|i)ntegrations
 (M|m)emcache
+(M|m)imetype
+(M|m)isconfigured
 (M|m)ultitenancy
 (N|n)atively
 (Q|q)uickstart
 (R|r)econfigures
+(R|r)elink
 (R|r)epo
 (R|r)ollup
 (S|s)chemas?
 (S|s)endmail
+(S|s)lugify
 (S|s)ortable
 (S|s)tepline
 (S|s)ubheader
 (T|t)ooltips?
+(T|t)riaging
+(T|t)triage
 (U|u)narchive
 (U|u)narchived
 (U|u)narchiving
 (U|u)nfilterable
+(U|u)nlink
 (U|u)tils?
 (URI|URIs)
 (URL|url)
@@ -59,6 +71,7 @@ allowlist
 allowList
 alwaysdata
 anonymized
+api
 API
 APIs
 app-centric
@@ -80,6 +93,7 @@ cardinality
 CDNs?
 CLI
 CloudFront
+Cloudinary's
 Cloudron
 CloudSQL
 CMS
@@ -87,6 +101,7 @@ CockroachDB
 CodeDeploy
 CommonJS
 composables
+config-options
 CORS
 CPUs?
 cron
@@ -150,7 +165,10 @@ glibc
 Gmail
 granularly
 GraphQL
+greenlight
 GUIs?
+headshot
+Heya
 HTTPS?
 IETF
 IETF's
@@ -167,6 +185,7 @@ JS
 json
 JSON
 JWT
+kanban
 Kanban
 Keycloak
 Knex
@@ -189,8 +208,8 @@ Mapbox
 Memorystore
 MiB
 middleware
-(M|m)imetype
 misconfiguration
+misconfigurations
 Mongo
 monorepo's
 more_horiz
@@ -208,6 +227,7 @@ NPM
 npx
 nullable
 O2M
+O2M
 O2Ms
 O2O
 OAuth
@@ -224,6 +244,7 @@ OTP
 pageClass
 param
 paywalled
+performant
 phpMyAdmin
 Phusion
 Pinia
@@ -234,6 +255,7 @@ PNG
 pnpm
 Postgres
 Postgres13
+PR
 pre-configured
 pre-defined
 pre-existing
@@ -241,6 +263,7 @@ pre-installed
 programmatically
 Programmatically
 ProgressEvent
+PRs
 pub/sub
 px
 px.
@@ -252,12 +275,13 @@ reconfigurations
 reframe
 REKT
 relationally
+relationally-linked
 repo
 repo
 repurpose
 S3
-SAML
 saml
+SAML
 scalable
 Scalable
 SCSS
@@ -270,8 +294,10 @@ serverless
 SES
 SFC
 siloed
+slugification
 SMTP
 socio-economic
+SSG
 SSL
 SSO
 StackOverflow
@@ -292,6 +318,7 @@ TrustRadius
 truthy
 TTL
 TTY
+UI
 UIs?
 unarchives
 Ungrouped
@@ -302,10 +329,13 @@ upscaled
 userbase
 uuid
 UUID
+UUIDs
 UUIDv4
+UX
 v[0-9]
 varchar
 viewability
+VitePress
 volta
 VPC
 Vue
@@ -318,6 +348,7 @@ XSS
 yaml
 YAML
 Zeet
+MDN
 (U|u)nlink
 (R|r)elink
 (D|d)ropdowns
@@ -345,3 +376,4 @@ misconfigurations
 relationally-linked
 kanban
 graphql
+config-options

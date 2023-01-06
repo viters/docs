@@ -10,7 +10,7 @@ readTime: 14 min read
 
 > The JS SDK provides an intuitive interface for the Directus API from within a JavaScript-powered project (browsers and
 > Node.js). The default implementation uses [Axios](https://npmjs.com/axios) for transport and `localStorage` for
-> storing state.
+> storing state. Advanced customizations are available.
 
 ## Installation
 
@@ -18,23 +18,40 @@ readTime: 14 min read
 npm install @directus/sdk
 ```
 
-## Usage
+## Basic Usage
+
+This is the starting point to use the JS SDK. After you've created the `Directus` instance, you can start invoking
+methods from it to access your project and data.
 
 ```js
 import { Directus } from '@directus/sdk';
 
 const directus = new Directus('http://directus.example.com');
+```
 
+You can always access data available to the [public role](/configuration/users-roles-permissions.html#directus-roles).
+
+```js
+async function publicData() {
+	// GET DATA
+
+	// We don't need to authenticate if the public role has access to some_public_collection.
+	const publicData = await directus.items('some_public_collection').readByQuery({ sort: ['id'] });
+
+	console.log(publicData.data);
+}
+```
+
+### Basic Authentication
+
+To access anything that is not available to the
+[public role](/configuration/users-roles-permissions.html#directus-roles), you must be
+[authenticated](/reference/authentication.md).
+
+```js
 async function start() {
-	// We don't need to authenticate if data is public
-	const publicData = await directus.items('public').readByQuery({ meta: 'total_count' });
+	// AUTHENTICATION
 
-	console.log({
-		items: publicData.data,
-		total: publicData.meta.total_count,
-	});
-
-	// But, we need to authenticate if data is private
 	let authenticated = false;
 
 	// Try to authenticate with token if exists
@@ -60,23 +77,348 @@ async function start() {
 			});
 	}
 
-	// After authentication, we can fetch the private data in case the user has access to it
-	const privateData = await directus.items('privateData').readByQuery({ meta: 'total_count' });
+	// GET DATA
 
-	console.log({
-		items: privateData.data,
-		total: privateData.meta.total_count,
-	});
+	// After authentication, we can fetch data from any collections that the user has permissions to.
+	const privateData = await directus.items('some_private_collection').readByQuery({ sort: ['id'] });
+
+	console.log(publicData.data);
 }
 
 start();
+```
+
+## Custom Configuration
+
+The previous section covered basic installation and usage of the JS SDK with default configurations for `init`. But
+sometimes you may need to customize these defaults.
+
+### Constructor
+
+```js
+import { Directus } from '@directus/sdk';
+
+const directus = new Directus(url, init);
+```
+
+### Parameters
+
+<br />
+
+#### `url` _required_
+
+- **Type** — `String`
+- **Description** — A string that points to your Directus instance. E.g., `https://example.directus.io`
+- **Default** — N/A
+
+<br />
+
+#### `init` _optional_
+
+- **Type** — `Object`
+- **Description** — Defines authentication, storage and transport settings.
+- **Default** — The following shows the default values for `init`.
+
+```js
+// This is the default init object
+const config = {
+	auth: {
+		mode: 'cookie', // 'json' in Node.js
+		autoRefresh: true,
+		msRefreshBeforeExpires: 30000,
+		staticToken: '',
+	},
+	storage: {
+		prefix: '',
+		mode: 'LocalStorage', // 'MemoryStorage' in Node.js
+	},
+	transport: {
+		params: {},
+		headers: {},
+		onUploadProgress: (ProgressEvent) => {},
+		maxBodyLength: null,
+		maxContentLength: null,
+	},
+};
+```
+
+## Customize `auth`
+
+Defines how authentication is handled by the SDK. By default, Directus creates an instance of `auth` which handles
+refresh tokens automatically.
+
+```js
+const auth = {
+	mode: 'cookie', // 'json' in Node.js
+	autoRefresh: true,
+	msRefreshBeforeExpires: 30000,
+	staticToken: '',
+};
+```
+
+### Options
+
+<br />
+
+#### `mode`
+
+- **Type** — `String`
+- **Description** — Defines the mode you want to use for authentication. It can be `'cookie'` for cookies or `'json'`
+  for JWT.
+- **Default** — Defaults to `'cookie'` on browsers and `'json'` otherwise.
+
+:::tip
+
+We recommend using cookies when possible to prevent any kind of attacks, mostly XSS.
+
+:::
+
+#### `autoRefresh`
+
+- **Type** — `Boolean`
+- **Description** — Determines whether SDK handles refresh tokens automatically.
+- **Default** — Defaults to `true`.
+
+<br />
+
+#### `msRefreshBeforeExpires`
+
+- **Type** — `Number`
+- **Description** — When `autoRefresh` is enabled, this tells how many milliseconds before the refresh token expires and
+  needs to be refreshed.
+- **Default** — Defaults to `30000`.
+
+<br />
+
+#### `staticToken`
+
+- **Type** — `String`
+- **Description** - Defines the static token to use. It is not compatible with the options above since it does not
+  refresh.
+- **Default** — Defaults to `''` (no static token).
+
+### Extend `auth`
+
+It is possible to provide a custom implementation by extending `IAuth`. While this could be useful in certain advanced
+situations, it is not needed for most use-cases.
+
+```js
+import { IAuth, Directus } from '@directus/sdk';
+
+class MyAuth extends IAuth {
+	async login() {
+		return { access_token: '', expires: 0 };
+	}
+	async logout() {}
+	async refresh() {
+		return { access_token: '', expires: 0 };
+	}
+	async static() {
+		return true;
+	}
+}
+
+const directus = new Directus('https://example.directus.app', {
+	auth: new MyAuth(),
+});
+```
+
+## Customize `storage`
+
+The storage is used to load and save token information. By default, Directus creates an instance of `storage` which
+handles store information automatically.
+
+```js
+const storage = {
+	prefix: '',
+	mode: 'LocalStorage', // 'MemoryStorage' in Node.js
+};
+```
+
+:::tip Multiple Instances
+
+If you want to use multiple instances of the SDK you should set a different [`prefix`](#prefix) for each one.
+
+:::
+
+::: tip
+
+The axios instance can be used for custom requests by calling:
+
+```ts
+await directus.transport.<method>('/path/to/endpoint', {
+	/* body, params, ... */
+});
+```
+
+:::
+
+### Options
+
+<br />
+
+#### `prefix`
+
+- **Type** — `String`
+- **Description** — Defines the tokens prefix tokens that are saved. This should be fulfilled with different values when
+  using multiple instances of SDK.
+- **Default** — Defaults to `''` (no prefix).
+
+<br />
+
+#### `mode`
+
+- **Type** — `String`
+- **Description** — Defines the storage location to be used to save tokens. Allowed values are `LocalStorage` and
+  `MemoryStorage`. The mode `LocalStorage` is not compatible with Node.js. `MemoryStorage` is not persistent, so once
+  you leave the tab or quit the process, you will need to authenticate again.
+- **Default** — Defaults to `LocalStorage` on browsers and `MemoryStorage` on Node.js.
+
+### Extend `storage`
+
+It is possible to provide a custom implementation by extending `BaseStorage`. While this could be useful in certain
+advanced situations, it is not needed for most use-cases.
+
+```js
+import { BaseStorage, Directus } from '@directus/sdk';
+
+class SessionStorage extends BaseStorage {
+	get(key) {
+		return sessionStorage.getItem(key);
+	}
+	set(key, value) {
+		return sessionStorage.setItem(key, value);
+	}
+	delete(key) {
+		return sessionStorage.removeItem(key);
+	}
+}
+
+const directus = new Directus('https://example.directus.app', {
+	storage: new SessionStorage(),
+});
+```
+
+## Customize `transport`
+
+Defines settings you want to customize regarding [Transport](#extend-transport).
+
+By default, Directus creates an instance of `Transport` which handles requests automatically. It uses
+[`axios`](https://axios-http.com/) so it is compatible in both browsers and Node.js. With axios, it is also possible to
+handle upload progress (a downside of `fetch`).
+
+The configurations within `init.transport` are passed to `axios`. For more details, see
+[Request Config](https://axios-http.com/docs/req_config) in the axios documentation.
+
+```js
+export default {
+	params: {},
+	headers: {},
+	onUploadProgress: (ProgressEvent) => {},
+	maxBodyLength: null,
+	maxContentLength: null,
+};
+```
+
+### Options
+
+<br />
+
+#### `params`
+
+- **Type** — `Object`
+- **Description** — Defines an object with keys and values to be passed as additional query string.
+- **Default** — N/A
+
+<br />
+
+#### `headers`
+
+- **Type** — `Object`
+- **Description** - Defines an object with keys and values to be passed as additional headers.
+- **Default** — N/A
+
+<br />
+
+#### `onUploadProgress`
+
+- **Type** — `Function`
+- **Description** — Defines a callback function to indicate the upload progress.
+- **Default** — N/A
+
+:::tip ProgressEvent Please see the MDN documentation to learn more about the
+[ProgressEvent](https://developer.mozilla.org/en-US/docs/Web/API/ProgressEvent).
+
+:::
+
+<br />
+
+#### `maxBodyLength`
+
+- **Type** — `Number`
+- **Description** — The maximum body length in bytes. Set `Infinity` for no limit.
+- **Default** — N/A
+
+<br />
+
+#### `maxContentLength`
+
+- **Type** — `Number`
+- **Description** — The maximum content length in bytes. Set `Infinity` for no limit.
+- **Default** — N/A
+
+### Extend `Transport`
+
+It is possible to provide a custom implementation by extending `ITransport`. For example, you can customize it to use
+different HTTP libraries. While this could be useful in certain advanced situations, it is not needed for most
+use-cases.
+
+```js
+import { ITransport, Directus } from '@directus/sdk';
+
+class MyTransport extends ITransport {
+	buildResponse() {
+		return {
+			raw: '',
+			data: {},
+			status: 0,
+			headers: {},
+		};
+	}
+
+	async get(path, options) {
+		return this.buildResponse();
+	}
+	async head(path, options) {
+		return this.buildResponse();
+	}
+	async options(path, options) {
+		return this.buildResponse();
+	}
+	async delete(path, data, options) {
+		return this.buildResponse();
+	}
+	async post(path, data, options) {
+		return this.buildResponse();
+	}
+	async put(path, data, options) {
+		return this.buildResponse();
+	}
+	async patch(path, data, options) {
+		return this.buildResponse();
+	}
+}
+
+const directus = new Directus('https://example.directus.app', {
+	transport: new MyTransport(),
+});
 ```
 
 ## TypeScript
 
 Version >= 4.1
 
-Although it's not required, it is recommended to use Typescript to have an easy development experience. This allows more
+Although it's not required, it is recommended to use TypeScript to have an easy development experience. This allows more
 detailed IDE suggestions for return types, sorting, filtering, etc.
 
 To feed the SDK with your current schema, you need to pass it on the constructor.
@@ -97,7 +439,7 @@ type MyCollections = {
 };
 
 // This is how you feed custom type information to Directus.
-const directus = new Directus<MyCollections>('http://url');
+const directus = new Directus<MyCollections>('https://example.directus.app');
 
 // ...
 
@@ -129,7 +471,7 @@ type CustomTypes = {
 	directus_users: UserType;
 };
 
-const directus = new Directus<CustomTypes>('https://api.example.com');
+const directus = new Directus<CustomTypes>('https://example.directus.app');
 
 await directus.auth.login({
 	email: 'admin@example.com',
@@ -146,101 +488,7 @@ me.level = 42;
 me.experience = 'high';
 ```
 
-## Reference
-
-### Constructor
-
-This is the starting point to use the SDK. You need to create an instance and invoke methods from it. In most cases a
-single instance is sufficient, but in case you need more, you need to define
-[`options.storage.prefix`](#options.storage.prefix).
-
-```js
-import { Directus } from '@directus/sdk';
-
-const directus = new Directus(url, init);
-```
-
-- `url` [required] _String_ - A string pointing to your Directus instance. E.g. `https://admin.directus.io`
-
-  <a name="options"></a>
-
-- `init` [optional] _Object_ - Define settings that you want to customize .The possible options are:
-
-  <a name="options.auth"></a>
-
-  - `auth` [optional] _Object_ - Defines settings you want to customize regarding [authentication](#auth). The possible
-    options are:
-
-    - `mode` [optional] _String_ - Defines the mode you want to use for authentication. It can be `'cookie'` for cookies
-      or `'json'` for JWT. Defaults to `'cookie'` on browsers and `'json'` otherwise. We recommend using cookies when
-      possible to prevent any kind of attacks, mostly XSS.
-
-      <a name="options.auth.autoRefresh"></a>
-
-    - `autoRefresh` [optional] _Boolean_ - Tells SDK if it should handle refresh tokens automatically. Defaults to
-      `true`.
-    - `msRefreshBeforeExpires` [optional] _Number_ - When `autoRefresh` is enabled, this tells how many milliseconds
-      before the refresh token expires and needs to be refreshed. Defaults to `30000`.
-    - `staticToken` [optional] _String_ - Defines the static token to use. It is not compatible with the options above
-      since it does not refresh. Defaults to `''` (no static token).
-
-  <a name="options.storage"></a>
-
-  - `storage` [optional] _Object_ - Defines settings you want to customize regarding [storage](#storage).
-
-    <a name="options.storage.prefix"></a>
-
-    - `prefix` [optional] _String_ - Defines the tokens prefix tokens that are saved. This should be fulfilled with
-      different values when using multiple instances of SDK. Defaults to `''` (no prefix).
-    - `mode` [optional] _String_ - Defines the storage location to be used to save tokens. Allowed values are
-      `LocalStorage` and `MemoryStorage`. Defaults to `LocalStorage` on browsers and `MemoryStorage` on Node.js. The
-      mode `LocalStorage` is not compatible with Node.js.
-
-  <a name="options.transport"></a>
-
-  - `transport` [optional] _Object_ - Defines settings you want to customize regarding [transport](#transport).
-    - `params` [optional] _Object_ - Defines an object with keys and values to be passed as additional query string.
-    - `headers` [optional] _Object_ - Defines an object with keys and values to be passed as additional headers.
-    - `onUploadProgress` [optional] _(event:
-      [ProgressEvent](https://developer.mozilla.org/en-US/docs/Web/API/ProgressEvent) => void)_ - Defines a callback
-      function to indicate the upload progress.
-    - `maxBodyLength` [optional] _Number_ - The maximum body length in bytes. Set `Infinity` for no limit.
-    - `maxContentLength` [optional] _Number_ - The maximum content length in bytes. Set `Infinity` for no limit.
-
-## Auth
-
-Defines how authentication is handled by the SDK.
-
-### Custom Implementation
-
-It is possible to provide a custom implementation by extending `IAuth`. While this could be useful for advanced usage,
-most use-cases do not need it.
-
-```js
-import { IAuth, Directus } from '@directus/sdk';
-
-class MyAuth extends IAuth {
-	async login() {
-		return { access_token: '', expires: 0 };
-	}
-	async logout() {}
-	async refresh() {
-		return { access_token: '', expires: 0 };
-	}
-	async static() {
-		return true;
-	}
-}
-
-const directus = new Directus('http://directus.example.com', {
-	auth: new MyAuth(),
-});
-```
-
-### Directus Implementation
-
-By default, Directus creates an instance of `Auth` which handles refresh tokens automatically. Check
-[`options.auth`](#options.auth) to see the available settings.
+## Authentication
 
 ### Get current token
 
@@ -325,119 +573,6 @@ await directus.auth.password.reset('abc.def.ghi', 'n3w-p455w0rd');
 
 Note: The token passed in the first parameter is sent in an email to the user when using `request()`
 
-## Transport
-
-The transport object abstracts how you communicate with Directus. Transports can be customized to use different HTTP
-libraries for example.
-
-### Custom Implementation
-
-It is possible to provide a custom implementation by extending `ITransport`. While, this could be useful for advanced
-usage, it is not needed for most use-cases.
-
-```js
-import { ITransport, Directus } from '@directus/sdk';
-
-class MyTransport extends ITransport {
-	buildResponse() {
-		return {
-			raw: '',
-			data: {},
-			status: 0,
-			headers: {},
-		};
-	}
-
-	async get(path, options) {
-		return this.buildResponse();
-	}
-	async head(path, options) {
-		return this.buildResponse();
-	}
-	async options(path, options) {
-		return this.buildResponse();
-	}
-	async delete(path, data, options) {
-		return this.buildResponse();
-	}
-	async post(path, data, options) {
-		return this.buildResponse();
-	}
-	async put(path, data, options) {
-		return this.buildResponse();
-	}
-	async patch(path, data, options) {
-		return this.buildResponse();
-	}
-}
-
-const directus = new Directus('http://directus.example.com', {
-	transport: new MyTransport(),
-});
-```
-
-### Directus Implementation
-
-By default, Directus creates an instance of `Transport` which handles requests automatically. Check
-[`options.transport`](#options.transport) to see the available settings.
-
-To make HTTP requests SDK uses `axios` so it is compatible in both browsers and Node.js. Also, it is possible to handle
-upload progress (a downside of `fetch`).
-
-## Storage
-
-The storage is used to load and save token information.
-
-### Custom Implementation
-
-It is possible to provide a custom implementation by extending `BaseStorage`. While, this could be useful for advanced
-usage, it is not needed for most use-cases.
-
-```js
-import { BaseStorage, Directus } from '@directus/sdk';
-
-class SessionStorage extends BaseStorage {
-	get(key) {
-		return sessionStorage.getItem(key);
-	}
-	set(key, value) {
-		return sessionStorage.setItem(key, value);
-	}
-	delete(key) {
-		return sessionStorage.removeItem(key);
-	}
-}
-
-const directus = new Directus('http://directus.example.com', {
-	storage: new SessionStorage(),
-});
-```
-
-### Directus Implementation
-
-By default, Directus creates an instance of `Storage` which handles store information automatically. Check
-[`options.storage`](#options.storage) to see the available settings.
-
-SDK uses `localStorage` on browsers and the memory itself on Node.js to save tokens. This behavior can be configured in
-[`options.storage.mode`](#options.storage.mode). The `LocalStorage` is only available on browsers and the
-`MemoryStorage` is not persistent, i.e., once you leave the tab or quit the process, you will need to authenticate
-again.
-
-If you want to use multiple instances of the SDK you should set a different [`prefix`](#options.storage.prefix) for each
-one.
-
-::: tip
-
-The axios instance can be used for custom requests by calling:
-
-```ts
-await directus.transport.<method>('/path/to/endpoint', {
-	/* body, params, ... */
-});
-```
-
-:::
-
 ## Items
 
 You can get an instance of the item handler by providing the collection (and type, in the case of TypeScript) to the
@@ -449,7 +584,7 @@ You can get an instance of the item handler by providing the collection (and typ
 // import { Directus, ID } from '@directus/sdk';
 const { Directus } = require('@directus/sdk');
 
-const directus = new Directus('http://directus.example.com');
+const directus = new Directus('https://example.directus.app');
 
 const articles = directus.items('articles');
 ```
@@ -482,7 +617,7 @@ type MyBlog = {
 };
 
 // Let the SDK know about your collection types.
-const directus = new Directus<MyBlog>('https://directus.myblog.com');
+const directus = new Directus<MyBlog>('https://example.directus.app');
 
 // typeof(article) is a partial "Article"
 const article = await directus.items('articles').readOne(10);
@@ -684,13 +819,14 @@ To upload a file you will need to send a `multipart/form-data` as body. On brows
 /* index.js */
 import { Directus } from 'https://unpkg.com/@directus/sdk@latest/dist/sdk.esm.min.js';
 
-const directus = new Directus('http://localhost:8055', {
+const directus = new Directus('https://example.directus.app', {
 	auth: {
 		staticToken: 'STATIC_TOKEN', // If you want to use a static token, otherwise check below how you can use email and password.
 	},
 });
 
-// await directus.auth.login({ email, password }) // If you want to use email and password. You should remove the staticToken above
+// await directus.auth.login({ email, password })
+// If you want to use email and password, remove the staticToken above.
 
 const form = document.querySelector('#upload-file');
 
@@ -726,7 +862,7 @@ set:
 ```js
 import { Directus } from 'https://unpkg.com/@directus/sdk@latest/dist/sdk.esm.min.js';
 
-const directus = new Directus('http://localhost:8055', {
+const directus = new Directus('https://example.directus.app', {
 	auth: {
 		staticToken: 'STATIC_TOKEN', // If you want to use a static token, otherwise check below how you can use email and password.
 	},

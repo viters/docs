@@ -40,6 +40,15 @@ export default {
 		[
 			'script',
 			{},
+			`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+			})(window,document,'script','dataLayer','GTM-PTLT3GH');`,
+		],
+		[
+			'script',
+			{},
 			`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
@@ -440,10 +449,6 @@ function sidebar() {
 					text: 'Files',
 				},
 				{
-					link: '/reference/cli',
-					text: 'CLI',
-				},
-				{
 					link: '/reference/sdk',
 					text: 'JS-SDK',
 				},
@@ -454,6 +459,10 @@ function sidebar() {
 				{
 					link: '/reference/system/collections',
 					text: 'Collections',
+				},
+				{
+					link: '/reference/system/dashboards',
+					text: 'Dashboards',
 				},
 				{
 					link: '/reference/system/extensions',
@@ -478,6 +487,10 @@ function sidebar() {
 				{
 					link: '/reference/system/operations',
 					text: 'Operations',
+				},
+				{
+					link: '/reference/system/panels',
+					text: 'Panels',
 				},
 				{
 					link: '/reference/system/permissions',
@@ -648,59 +661,16 @@ function sidebar() {
 					text: 'Config Options',
 				},
 				{
+					link: '/self-hosted/docker-guide',
+					text: 'Docker Guide',
+				},
+				{
+					link: '/self-hosted/cli',
+					text: 'CLI',
+				},
+				{
 					link: '/self-hosted/sso',
 					text: 'Single Sign-On (SSO)',
-				},
-				// {
-				// 	type: 'page',
-				// 	link: '/self-hosted/sso-examples',
-				// 	text: 'SSO Examples',
-				// },
-				{
-					link: '/self-hosted/installation',
-					text: 'Installation',
-					items: [
-						{
-							link: '/self-hosted/installation/aws',
-							text: 'AWS',
-						},
-						{
-							link: '/self-hosted/installation/cloudron',
-							text: 'Cloudron',
-						},
-						{
-							link: '/self-hosted/installation/cli',
-							text: 'CLI',
-						},
-						{
-							link: '/self-hosted/installation/digitalocean-app-platform',
-							text: 'DigitalOcean',
-						},
-						{
-							link: '/self-hosted/installation/docker',
-							text: 'Docker',
-						},
-						{
-							link: '/self-hosted/installation/gcp',
-							text: 'Google Cloud Platform',
-						},
-						{
-							link: '/self-hosted/installation/iis',
-							text: 'IIS',
-						},
-						{
-							link: '/self-hosted/installation/manual',
-							text: 'Manual',
-						},
-						{
-							link: '/self-hosted/installation/plesk',
-							text: 'Plesk',
-						},
-						{
-							link: '/self-hosted/installation/ubuntu',
-							text: 'Ubuntu',
-						},
-					],
 				},
 				{
 					type: 'page',
