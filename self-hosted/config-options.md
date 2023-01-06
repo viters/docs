@@ -595,13 +595,6 @@ Based on your configured driver, you must also provide the following configurati
 | `STORAGE_<LOCATION>_KEY_FILENAME` | Path to key file on disk    | --            |
 | `STORAGE_<LOCATION>_BUCKET`       | Google Cloud Storage bucket | --            |
 
-    cloudName: string;
-    apiKey: string;
-    apiSecret: string;
-    accessMode: 'public' | 'authenticated';
-
-};
-
 ### Cloudinary (`cloudinary`)
 
 | Variable                         | Description                                                         | Default Value |
