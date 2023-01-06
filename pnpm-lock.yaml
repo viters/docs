@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@directus/vue-snippet-toggler': ^0.0.2
+  '@directus/vue-snippet-toggler': ^0.0.3
   '@thumbsmith/url': ^0.1.2
   '@vueuse/head': ^0.7.8
   directory-tree: ^3.3.0
@@ -14,7 +14,7 @@ specifiers:
   vue: ^3.2.37
 
 dependencies:
-  '@directus/vue-snippet-toggler': 0.0.2
+  '@directus/vue-snippet-toggler': 0.0.3
 
 devDependencies:
   '@thumbsmith/url': 0.1.2
@@ -211,9 +211,9 @@ packages:
       '@babel/helper-validator-identifier': 7.19.1
       to-fast-properties: 2.0.0
 
-  /@directus/vue-snippet-toggler/0.0.2:
+  /@directus/vue-snippet-toggler/0.0.3:
     resolution:
-      { integrity: sha512-DJz3ZmI5Sss+Is4mROy/fnCueLGAKJRa8vORoix1P3f0VVhAAAcevbgyIGgdIyNuBeNNgYedRnLL/nGBkncRLQ== }
+      { integrity: sha512-JPKem/j6iwysu/E/8/0vuBoUFBqpAyuFgvu50xWZ+DE4sKIG267yERsaTQveIvNC/QeUUW/034qnqXZI6E8h5w== }
     dependencies:
       vue: 3.2.41
     dev: false

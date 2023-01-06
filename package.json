@@ -47,6 +47,6 @@
 		}
 	},
 	"dependencies": {
-		"@directus/vue-snippet-toggler": "^0.0.2"
+		"@directus/vue-snippet-toggler": "^0.0.3"
 	}
 }

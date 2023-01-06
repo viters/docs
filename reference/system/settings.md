@@ -4,6 +4,15 @@ readTime: 3 min read
 pageClass: page-reference
 ---
 
+<script setup>
+import { ref } from 'vue';
+
+import { SnippetToggler } from '@directus/vue-snippet-toggler';
+import '@directus/vue-snippet-toggler/style.css';
+
+const pref = ref('REST');
+</script>
+
 # Settings
 
 > Settings are key-value pairs that are stored in the database, and control different aspects of the project. Only
@@ -135,11 +144,20 @@ Supports all [global query parameters](/reference/query).
 
 Returns the [settings object](#the-settings-object).
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+			> <template #rest>
+
 ### Syntax
 
 ```
 GET /settings
 ```
+
+</template>
+<template #graphql>
 
 ### Syntax
 
@@ -163,6 +181,9 @@ query {
 }
 ```
 
+</template>
+</SnippetToggler>
+
 ---
 
 ## Update Settings
@@ -179,6 +200,14 @@ A partial [settings object](#the-settings-object).
 
 Returns the [settings object](#the-setting-object).
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
+
 ### Syntax
 
 ```
@@ -194,6 +223,10 @@ PATCH /settings
 	"project_url": "https://example.com/"
 }
 ```
+
+</template>
+
+<template #graphql>
 
 ### Syntax
 
@@ -217,3 +250,7 @@ mutation {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
