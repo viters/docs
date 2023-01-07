@@ -105,7 +105,7 @@ You can use a comma `,` to get multiple fields. This can be combined with `.` to
 
 For example, to return the:
 
-- top-level`first_name` and `last_name` fields
+- top-level `first_name` and `last_name` fields
 
 ```
 ?fields=first_name,last_name
