@@ -155,6 +155,7 @@ Returns the requested [flow object](#the-flow-object).
 	:choices="['REST', 'GraphQL']"
 	label="API" >
 
+
 <template #rest>
 
 ### Syntax
@@ -225,6 +226,7 @@ Returns the [flow object](#the-flow-object) for the created flow.
 	label="API" >
 
 <template #rest>
+
 
 ### Syntax
 
@@ -300,6 +302,7 @@ Returns the [flow object](#the-flow-object) for the created flow.
 	label="API" >
 
 <template #rest>
+
 
 ### Syntax
 
@@ -459,7 +462,8 @@ Supports all [global query parameters](/reference/query).
 Array of primary keys of the flows you'd like to update.
 
 `data` **Required**\
-Any [flow object](#the-flow-object) properties.
+
+Any of [the flow object](#the-flow-object)'s properties.
 
 ### Returns
 
