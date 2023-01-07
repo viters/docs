@@ -47,7 +47,7 @@ Choose the fields that are returned in the current dataset.
 
 <template #rest>
 
-### Return a Single Field
+### Syntax
 
 ```
 ?fields=<fieldname>
@@ -99,6 +99,12 @@ This returns all top-level fields and all second-level relational fields.
 ?fields=*.*
 ```
 
+You can index as deep as you need.
+
+```
+?fields=*.*.*.*
+```
+
 ### Multiple Fields
 
 You can use a comma `,` to get multiple fields. This can be combined with `.` to specify nested fields as well.
@@ -139,10 +145,8 @@ Return all:
 ### Many-To-Any (Union Types)
 
 Seeing that Many-to-Any (M2A) fields have nested data from multiple collections, it's not always safe / wanted to fetch
-the same field from every related collection. In M2A fields, you can use the following syntax to specify what fields to
-fetch from which related nested collection type.
-
-### Syntax
+the same field from every related collection. In M2A fields, you can use the following syntax to specify exactly which
+fields to fetch from which related nested collection type.
 
 ```
 ?fields=<m2a-field>:<collection-scope>.<field>
@@ -167,13 +171,17 @@ For example, let's say we have a collection `pages` with a many-to-any field cal
 
 <template #graphql>
 
-_Field querying is natively supported in GraphQL._
+_Field querying is natively supported in [GraphQL](https://graphql.org/learn/)._
 
 ### Wildcards
 
 Not supported in GraphQL
 
 ### Nested Fields
+
+Natively Supported in GraphQL.
+
+### Multiple Fields
 
 Natively Supported in GraphQL.
 
