@@ -106,7 +106,7 @@ For easier comparison, both of the examples below were requested at `200` width,
 its aspect ratio, shrinking the image to fit _within_ the dimensions and adding "letterboxing" as needed.
 
 | Cover                                                       | Contain                                                         |
-| ----------------------------------------------------------- | --------------------------------------------------------------- |
+|-------------------------------------------------------------|-----------------------------------------------------------------|
 | ![Cover](../assets/200-200-cover-75.jpg)<br>_8KB • 200x200_ | ![Contain](../assets/200-200-contain-75.jpg)<br>_6KB • 200x133_ |
 
 ::: tip Aspect Ratio
@@ -265,7 +265,7 @@ GET /files
 SEARCH /files
 ```
 
-[Learn more about SEARCH ->](/reference/introduction#search-http-method)
+[Learn more about SEARCH ->](/reference/filter-rules#get-vs-search)
 
 ### GraphQL
 

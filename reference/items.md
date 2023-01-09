@@ -19,7 +19,7 @@ Directus. For the sake of documentation, we'll use a fictional articles collecti
 
 ::: tip Relational Data
 
-Please see [Relational Data](/reference/introduction#relational-data) and [Field Parameters](/reference/query#fields) to
+Please see [Relational Data](/reference/overview#relational-data) and [Field Parameters](/reference/query#fields) to
 learn more.
 
 :::
@@ -68,7 +68,7 @@ GET /items/:collection
 SEARCH /items/:collection
 ```
 
-[Learn more about SEARCH ->](/reference/introduction#search-http-method)
+[Learn more about SEARCH ->](/reference/filter-rules#get-vs-search)
 
 ##### Example
 
@@ -168,7 +168,7 @@ An array of partial [item objects](#the-item-object).
 ::: tip Relational Data
 
 Relational data needs to be correctly nested to add new items successfully. Check out the
-[relational data section](/reference/introduction#relational-data) for more information.
+[relational data section](/reference/overview#relational-data) for more information.
 
 :::
 

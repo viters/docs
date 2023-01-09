@@ -86,7 +86,7 @@ GET /flows
 SEARCH /flows
 ```
 
-[Learn more about SEARCH ->](/reference/introduction#search-http-method)
+[Learn more about SEARCH ->](/reference/filter-rules#get-vs-search)
 
 ### GraphQL
 

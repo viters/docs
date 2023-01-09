@@ -217,7 +217,7 @@ currently only support the root ID.
 
 :::
 
-## SEARCH HTTP Method
+## GET vs SEARCH HTTP Method
 
 When using the REST API to read multiple items by (very) advanced filters, you might run into the issue where the URL
 simply can't hold enough data to include the full query structure. In those cases, you can use the SEARCH HTTP method as

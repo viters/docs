@@ -199,7 +199,7 @@ fact, the App is just a GUI powered by the API._
 
 :::tip Learn More About The API
 
-- [Intro to the API](/reference/introduction)
+- [Intro to the API](/reference/overview)
 - [JS SDK](/reference/sdk)
 
 :::
