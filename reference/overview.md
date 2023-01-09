@@ -25,7 +25,7 @@ The platform uses [Database Mirroring](/getting-started/introduction#database-mi
 endpoints and a GraphQL schema. Therefore, the API is unique for each project, as these endpoints return data based on
 your specific database schema, permissions, and configurations.
 
-For more details, please see the documentation on [Endpoints](/reference/endpoints.md).
+For more details, please see the [Endpoints Intro](/reference/endpoints.md) documentation.
 
 ## Authentication
 
