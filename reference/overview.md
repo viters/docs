@@ -37,9 +37,3 @@ the:
 - API documentation on [Permissions](/reference/system/permissions).
 - Explanation and in-app configuration guide to
   [Users, Roles and Permissions](/configuration/users-roles-permissions.md)
-
-## Queries & Filters
-
-[Query parameters](/reference/query.md) let you customize _how the data is shaped and ordered_.
-
-[Filters](/reference/filter-rules.md) let you create conditional rules to customize _which data is selected_.
