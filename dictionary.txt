@@ -376,3 +376,4 @@ misconfigurations
 relationally-linked
 kanban
 config-options
+JS-SDK
