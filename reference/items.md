@@ -72,14 +72,14 @@ The [Field Parameter](/reference/query#fields) is required to return nested rela
 An array of up to [limit](/reference/query#limit) [item objects](#the-item-object). If no items are available, data will
 be an empty array.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
 	label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```
 GET /items/:collection
@@ -88,17 +88,9 @@ SEARCH /items/:collection
 
 [Learn more about SEARCH ->](/reference/introduction#search-http-method)
 
-### Example
-
-```
-GET /items/articles
-```
-
 </template>
 
 <template #graphql>
-
-### Syntax
 
 ```
 POST /graphql
@@ -110,7 +102,26 @@ type Query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /items/articles
+```
+
+</template>
+
+<template #graphql>
 
 ```graphql
 query {
@@ -142,6 +153,8 @@ Supports all [global query parameters](/reference/query).
 
 Returns an [item object](#the-item-object) if a valid primary key was provided.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -149,23 +162,13 @@ Returns an [item object](#the-item-object) if a valid primary key was provided.
 
 <template #rest>
 
-### Syntax
-
 ```
 GET /items/:collection/:id
-```
-
-### Example
-
-```
-GET /items/articles/15
 ```
 
 </template>
 
 <template #graphql>
-
-### Syntax
 
 ```
 POST /graphql
@@ -177,7 +180,26 @@ type Query {
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /items/articles/15
+```
+
+</template>
+
+<template #graphql>
 
 ```graphql
 query {
