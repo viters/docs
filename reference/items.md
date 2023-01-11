@@ -86,15 +86,11 @@ GET /items/:collection
 SEARCH /items/:collection
 ```
 
-[Learn more about SEARCH ->](/reference/introduction#search-http-method)
-
 </template>
 
-<template #graphql>
+[Learn more about SEARCH ->](/reference/introduction#search-http-method)
 
-```
-POST /graphql
-```
+<template #graphql>
 
 ```graphql
 type Query {
