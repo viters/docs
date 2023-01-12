@@ -47,6 +47,7 @@
 (R|r)elink
 (R|r)epo
 (R|r)ollup
+(S|s)calable
 (S|s)chemas?
 (S|s)endmail
 (S|s)lugify
@@ -280,7 +281,6 @@ repurpose
 S3
 saml
 SAML
-scalable
 SCSS
 SDK
 SDL
