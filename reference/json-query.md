@@ -8,9 +8,7 @@ pageClass:
 
 ### Data Model
 
-Test snapshot: [snapshot.zip](https://github.com/directus/directus/files/9764836/snapshot.zip) This contains a basic
-collection called "jason" with a single json field "data" for reference in the examples. Consider a single item in this
-collection containing the following JSON object:
+Consider a single item in this collection containing the following JSON object:
 
 ```json
 {
@@ -70,26 +68,6 @@ GET /items/jason?fields=my_value&alias[my_value]=json(data$.propA[0].nestedProp)
 {"data":[{"my_value":"test1"}]}
 ```
 
-### Filtering [Partly supported]
-
-You can use both the function notation and aliasses for filtering. Using the function notation will not return the
-extracted data for the filter while with an alias you can include this in the fields list to retrieve that specific
-value.
-
-> Note: this will filter the items in the collection you're requesting not the data inside the json object.
-
-```
-GET /items/jason?fields=my_value&alias[my_value]=json(data$.propA[0].nestedProp)&filter={"my_value"{"_eq":"test1"}}
-{"data":[{"my_value":"test1"}]}
-```
-
-```
-/items/jason?fields=data&filter={"json(data$.propA[0].nestedProp)"{"_eq":"test1"}}
-{"data":[{"data":{"propA":[{"nestedProp":"test1"},{"nestedProp":"test2"},{"random":"data"}],"propB":{"nestedProp":"test3","moreProps":"test4"}}"}]}
-```
-
-> TODO: wildcard `*` fields do not pick up on json queries yet
-
 ## Deep queries
 
 This feature enables filtering inside of JSON fields to request just the piece of information you need.
@@ -114,6 +92,26 @@ GET /items/collection_a?fields=nested&alias[nested]=json(related.data$.somePrope
 {"data":[{"related":{"nested":"found it"}}]}
 ```
 
+### Filtering
+
+You can use both the function notation and aliasses for filtering. Using the function notation will not return the
+extracted data for the filter while with an alias you can include this in the fields list to retrieve that specific
+value.
+
+> Note: this will filter the items in the collection you're requesting not the data inside the json object.
+
+```
+GET /items/jason?fields=my_value&alias[my_value]=json(data$.propA[0].nestedProp)&filter={"my_value"{"_eq":"test1"}}
+{"data":[{"my_value":"test1"}]}
+```
+
+```
+/items/jason?fields=data&filter={"json(data$.propA[0].nestedProp)"{"_eq":"test1"}}
+{"data":[{"data":{"propA":[{"nestedProp":"test1"},{"nestedProp":"test2"},{"random":"data"}],"propB":{"nestedProp":"test3","moreProps":"test4"}}"}]}
+```
+
+> TODO: wildcard `*` fields do not pick up on json queries yet
+
 ## JSON Path
 
 While some database vendors support
@@ -123,7 +121,7 @@ support:
 
 - `.property` dot notation property access
 - `[index]` array index access (only numerical)
-- `*` array and property wildcards
+- `.*`/`[*]` array and property wildcards
 
 ## Compatibility
 
@@ -136,7 +134,7 @@ support:
 | PostgreSQL  | <= 11.x     | ☑        | ❌       | ☑      |                                              |
 | MySQL       | 8.x         | ✅       | ✅       | ✅     |                                              |
 | MySQL       | 5.7         | ✅       | ✅       | ☑      |                                              |
-| MariaDB     | 10.2+       | ✅       | ✅       | ☑      | Has some filter exceptions                   |
+| MariaDB     | 10.2+       | ✅       | ✅       | ☑      | Has a couple of filter exceptions            |
 | MS SQL      | 2016+       | ☑        | ✅       | ☑      |                                              |
 | OracleDB    | 18 XE       | ✅       | ✅       | ✅     |                                              |
 | CockroachDB | 22.1.8      | ✅       | ❌       | ☑      | Partly supported                             |
