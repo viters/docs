@@ -51,7 +51,7 @@ fields should work too).
 ::: tip
 
 While it is possible to use the `json()` function directly in `fields` and `filters` it is highly recommended to always
-alias your JSON Queries for better maintainability and debuggability.
+alias your JSON Queries for better maintainability and ability to debug.
 
 :::
 
