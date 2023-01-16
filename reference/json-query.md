@@ -57,6 +57,14 @@ alias your JSON Queries for better maintainability and ability to debug.
 
 ## JSON Extraction
 
+Using the `json()` function this allows you to retrieve a specific piece of information from within a JSON field.
+
+```
+GET /items/jason?fields=my_value&alias[my_value]=json(data$.propA[0].nestedProp)
+
+{"data":[{"my_value":"test1"}]}
+```
+
 ## JSON Filtering
 
 This feature enables filtering inside of JSON fields to request just the piece of information you need. Making use of
