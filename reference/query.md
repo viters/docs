@@ -593,19 +593,21 @@ query {
 
 ## JSON Function
 
-The `json()` function allows for extracting or filter specific data directly from JSON fields. Where possible json
+The `json()` function allows for extracting or filtering specific data directly from JSON fields. Where possible json
 functions will make use of native function provided by the database vendor if these are not available a post-processing
-fallback is used.
+fallback is used instead.
 
 The `json(<field><jsonpath>)` function requires two parameters:
 
-1. [A field](#fields) (relational fields are supported but wildcards are not!)
-2. [A JSON Path](/reference/json-query.md#json-path)
+1. [A field](#fields) Same as what you'd use in `fields` to get your JSON field, relational fields are supported but
+   wildcards are not!
+2. [A JSONPath](/reference/json-query.md#json-path) A Domain Specific Language for querying nested JSON data similar to
+   XPath, CSS Selectors or REGEX.
 
-By default the results of this function will use a generated fieldname to prevent name collision. Because working with
-generated names is not very practical you can name the output of this function by defining it in an `alias`. Don't
-forget to add your alias to the `fields` list or it will not show up in the output (a `*` wildcard in fields should work
-too).
+By default the results of this function will use a ranomly generated fieldname to prevent name collision. Because
+working with generated names is not very practical you can name the output of this function by defining it in an
+`alias`. Don't forget to add your alias to the `fields` list or it will not show up in the output (a `*` wildcard in
+fields should work too).
 
 ```
 ?fields[]=json_alias
@@ -620,7 +622,7 @@ There are three main features:
 2. **JSON Filtering.** [Example](/reference/json-query.md#deep-queries) \
    This is used to conditionally fetch a piece of information from a JSON List. This allows you to use the Directus built-in
    filters to only return the item matching your conditions.
-3. **Filtering by JSON Extraction.** [Example](/reference/json-query.md#filtering) \
+3. **Filtering by JSON.** [Example](/reference/json-query.md#filtering) \
    This is used to filter regular collection items based on a value inside of a JSON field. Be sure to check the [compatibility chart](/reference/json-query.md#compatibility)
    before relying on this feature.
 
