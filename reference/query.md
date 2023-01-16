@@ -590,6 +590,18 @@ query {
 
 ---
 
+## JSON Function
+
+The `json()` function allows for extracting or filter specific data directly from JSON fields. Where possible json
+functions will make use of native function provided by the database vendor if these are not available a post-processing
+fallback is used.
+
+For the most common use cases
+
+More information [json guide](/reference/json-query.md)
+
+---
+
 ## Metadata
 
 Metadata allows you to retrieve some additional information about the items in the collection you're fetching. `*` can
