@@ -604,7 +604,7 @@ The `json(<field><jsonpath>)` function requires two parameters:
 2. [A JSONPath](/reference/json-query.md#json-path) A Domain Specific Language for querying nested JSON data similar to
    XPath, CSS Selectors or REGEX.
 
-By default the results of this function will use a ranomly generated fieldname to prevent name collision. Because
+By default the results of this function will use a randomly generated field name to prevent name collision. Because
 working with generated names is not very practical you can name the output of this function by defining it in an
 `alias`. Don't forget to add your alias to the `fields` list or it will not show up in the output (a `*` wildcard in
 fields should work too).

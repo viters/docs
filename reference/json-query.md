@@ -38,7 +38,7 @@ The `json(<field><jsonpath>)` function requires two parameters:
 
 ### Alias
 
-By default the results of this function will use a ranomly generated fieldname to prevent name collision. Because
+By default the results of this function will use a randomly generated field name to prevent name collision. Because
 working with generated names is not very practical you can name the output of this function by defining it in an
 `alias`. Don't forget to add your alias to the `fields` list or it will not show up in the output (a `*` wildcard in
 fields should work too).
@@ -51,7 +51,7 @@ fields should work too).
 ::: tip
 
 While it is possible to use the `json()` function directly in `fields` and `filters` it is highly recommended to always
-alias your JSON Queries for better maintainability and debugability.
+alias your JSON Queries for better maintainability and debuggability.
 
 :::
 
@@ -68,7 +68,7 @@ GET /items/jason?fields=my_value&alias[my_value]=json(data$.propA)&deep={"my_val
 
 ## Filtering by JSON
 
-You can use both the function notation and aliasses for filtering. Using the function notation will not return the
+You can use both the function notation and aliases for filtering. Using the function notation will not return the
 extracted data for the filter while with an alias you can include this in the fields list to retrieve that specific
 value.
 
@@ -114,14 +114,14 @@ We support the following features of JSONPath:
 
 ## Examples
 
-**Property accessor (dot notation)**
+**Property (dot notation)**
 
 ```
 GET /items/jason?fields=json(data$.propA)
 {"data":[{"rrvfc":[{"nestedProp":"test1"},{"nestedProp":"test2"},{"random":"data"}]}]}
 ```
 
-**Array accessor (array indexes only numeric)**
+**Array indices (only numeric)**
 
 ```
 GET /items/jason?fields=json(data$.propA[0])
@@ -170,6 +170,4 @@ GET /items/jason?fields=json(data$.propA[*].nestedProp)
   ?alias[test]=json(data$[*].a[*])
   &deep={"test":{"_filter":{"$.b":{"_gte":10}}}}
   ```
-- [PostgreSQL] we're using the `jsonb` functions for postgres however already existing json fields would have been
-  created as `json` type instead
 - [Redshift] Has no native support for JSON
