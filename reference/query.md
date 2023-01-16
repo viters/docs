@@ -20,6 +20,7 @@ pageClass: page-reference
 - [Aliases](#aliases)
 - [Export](#export)
 - [Functions](#functions)
+- [JSON Function](#json-function)
 - [Metadata](#metadata)
   - [Total Count](#total-count)
   - [Filter Count](#filter-count)
@@ -596,9 +597,34 @@ The `json()` function allows for extracting or filter specific data directly fro
 functions will make use of native function provided by the database vendor if these are not available a post-processing
 fallback is used.
 
-For the most common use cases
+The `json(<field><jsonpath>)` function requires two parameters:
 
-More information [json guide](/reference/json-query.md)
+1. [A field](#fields) (relational fields are supported but wildcards are not!)
+2. [A JSON Path](/reference/json-query.md#json-path)
+
+By default the results of this function will use a generated fieldname to prevent name collision. Because working with
+generated names is not very practical you can name the output of this function by defining it in an `alias`. Don't
+forget to add your alias to the `fields` list or it will not show up in the output (a `*` wildcard in fields should work
+too).
+
+```
+?fields[]=json_alias
+&alias[json_alias]=json(json_field$.propA)
+```
+
+There are three main features:
+
+1. **JSON Extraction.** [Example](/reference/json-query.md) \
+   This is used to fetch a specific piece of information from a JSON object. This fully relies on the JSON Path specification
+   for which data is returned.
+2. **JSON Filtering.** [Example](/reference/json-query.md) \
+   This is used to conditionally fetch a piece of information from a JSON List. This allows you to use the Directus built-in
+   filters to only return the item matching your conditions.
+3. **Filtering by JSON Extraction.** [Example](/reference/json-query.md) \
+   This is used to filter regular collection items based on a value inside of a JSON field. Be sure to check the [compatibility chart](/reference/json-query.md#compatibility)
+   before relying on this feature.
+
+For more detailed information visit the [JSON Query Guide](/reference/json-query.md).
 
 ---
 
