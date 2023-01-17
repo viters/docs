@@ -5,7 +5,7 @@ that you explicitly define. However, the API also lets you access and manage one
 other words, for a given endpoint, you can `READ`, **link** and **unlink**, as well as `CREATE` and `UPDATE` items from
 related collections.
 
-By default, relational fields store the foreign key of the related item:
+By default, relational fields return the related items' foreign key or array of foreign keys:
 
 ```json
 {
@@ -293,7 +293,8 @@ simply add or omit foreign keys as desired.
 }
 ```
 
-You can also `CREATE` new items or `UPDATE` existing items within the array.
+When you `CREATE` or `UPDATE` an item, you can you can also `CREATE` and `UPDATE` nested relational items within the
+array.
 
 - To `CREATE` an item, provide an object without a primary key.
 - To `UPDATE` an item, provide an object with a primary key.
@@ -313,25 +314,37 @@ You can also `CREATE` new items or `UPDATE` existing items within the array.
 }
 ```
 
-This method of managing related items is very useful for smaller relational datasets. But once your array starts to
-contain dozens of items, this could get difficult to manage.
+This method of managing related items is very useful for smaller relational datasets. But you have to specify every key
+in the array, even for items you don't want to modify or unlink. Once the array starts to contain many items, this could
+get difficult to deal with.
 
 ### Manage Nested Items (Detailed)
 
-Alternatively, you can provide an object detailing the changes as follows:
+Alternatively, when you `CREATE` or `UPDATE` an item, you can provide an object detailing the changes you'd like to make
+to its relational data. This is useful if you need to have tighter control on staged changes, or when you're working
+with a big relational dataset.
 
 ```json
 {
 	"children": {
-		"create": [{ "name": "A new nested item" }],
-		"update": [{ "id": 149, "name": "A new nested item" }],
-		"delete": [7]
+		"create": [{ "name": "A new nested item" }], // creates & links item
+		"update": [
+			// links item 2 without updating it
+			{ "id": 2 },
+
+			// links and updates item 149
+			{ "id": 149, "name": "An updated nested item" }
+		],
+		"delete": [7] // unlinks item 7
 	}
 }
 ```
 
-This is useful if you need to have tighter control on staged changes, or when you're working with a big relational
-dataset.
+A few things to note from above:
+
+- `create` and `update` require an array of objects, but not primary keys.
+- `delete` requires an array of primary keys, but not objects.
+- `delete` doesn't `DELETE` the nested item, it deletes _(or unlinks)_ the relationship
 
 <!--
 ### GraphQL Syntax
