@@ -146,7 +146,7 @@ An array with the ID(s) of all items created will be appended under its `<operat
 
 :::warning
 
-**Emit Events** toggles the event's _visibility_ throughout Directus. For example, if togged on, this operation will
+**Emit Events** toggles the event's _visibility_ throughout Directus. For example, if toggled on, this operation will
 trigger relevant event hooks in other flows or custom extensions. If toggled off, the operation will not trigger other
 event hooks. Imagine a situation where you have a flow being triggered by `<collection>.items.create` which contains an
 operation that then tries to create another item in that `<collection>`. This would throw an infinite loop where the
