@@ -616,13 +616,13 @@ fields should work too).
 
 There are three main features:
 
-1. **JSON Extraction.** [Example](/reference/json-query.md#basics) \
+1. [**JSON Extraction.**](/reference/json-query.md#basics) \
    This is used to fetch a specific piece of information from a JSON object. This fully relies on the JSON Path specification
    for which data is returned.
-2. **JSON Filtering.** [Example](/reference/json-query.md#deep-queries) \
+2. [**JSON Filtering.**](/reference/json-query.md#deep-queries) \
    This is used to conditionally fetch a piece of information from a JSON List. This allows you to use the Directus built-in
    filters to only return the item matching your conditions.
-3. **Filtering by JSON.** [Example](/reference/json-query.md#filtering) \
+3. [**Filtering by JSON.**](/reference/json-query.md#filtering) \
    This is used to filter regular collection items based on a value inside of a JSON field. Be sure to check the [compatibility chart](/reference/json-query.md#compatibility)
    before relying on this feature.
 
