@@ -1,13 +1,64 @@
 ## Relational Data Overview
 
-With the default syntax, Directus endpoints let you manipulate one collection, and let you access the fields on it that
-you explicitly define. When you have a field that points to another collection you can access and manage its data as
-well.
+With the default syntax, Directus endpoints let you manipulate one collection, and provide access only to the fields
+that you explicitly define. However, the API also lets you access and manage one collection's data from the other. In
+other words, for a given endpoint, you can `READ`, **link** and **unlink**, as well as `CREATE` and `UPDATE` items from
+related collections.
 
-In other words, you can **assign**, `CREATE`, `UPDATE`, and **unlink** items from any relationally-linked collection.
-You can even modify deeply nested relational data.
+By default, relational fields store the foreign key of the related item:
 
-The process for managing relational data varies, depending on the relationship type.
+```json
+{
+	"id": 1,
+	"title": "memes",
+	"related_item": 1, // the foreign key of one related item
+	"different_related_items": [1, 2] // foreign keys from related items
+}
+```
+
+However, the API lets us access and manage the related items:
+
+```json
+{
+	"id": 1,
+	"title": "memes",
+	"related_item": {
+		"id": 1,
+		"description": "this item is nested "
+	},
+	"related_item": [
+		{
+			"id": 1,
+			"description": "this item is nested"
+		},
+		{
+			"id": 2,
+			"description": "this item is also nested"
+		}
+	]
+}
+```
+
+You can also access and manage deeply nested items:
+
+```json
+{
+	"id": 1,
+	"title": "memes",
+	"related_item": {
+		"id": 1,
+		"description": "this item is nested ",
+		"deeply_related_item": {
+			"id": 1,
+			"description": "this is a deeply nested item"
+		}
+	}
+}
+```
+
+Due to the way its presented in JSON, we often call the data from related collections **nested relational items**. The
+process to access and manage nested relational items varies, depending on whether the relationship links one item or an
+array of items.
 
 ## M2O & O2O
 
@@ -63,9 +114,9 @@ To view the relational data instead of the foreign keys, use the [`fields` param
 }
 ```
 
-### Link or Unlink a Nested Item
+### Manage Nested Item
 
-When you `CREATE` or `UPDATE` an item, you may need to link or unlink an existing item.
+When you `CREATE` or `UPDATE` an item, you can **link** or **unlink** an existing related item.
 
 For example, imagine we have the following item from `email_newsletter`:
 
@@ -87,7 +138,7 @@ To link another item, simply assign its foreign key.
 
 Item `id = 1` from `email_newsletters` will now link to the item in `videos` with `id = 3`.
 
-You can then unlink any relationship by setting the field to `null`.
+You can also remove any relationship by setting the field to `null`.
 
 ```json
 {
@@ -95,12 +146,8 @@ You can then unlink any relationship by setting the field to `null`.
 }
 ```
 
-### Create Nested Item
-
-When you `CREATE` or `UPDATE` an item, you may need to `CREATE` and link a nested relational item on-the-fly. To do
-this, submit the data you want to use as an object without specifying a foreign key.
-
-For example, to create and assign a new `videos` item, add the desired field data.
+To `CREATE` and link a related item on-the-fly, add the data you want to use as an object, without a foreign key. For
+example, to create and assign a new `videos` item, add the desired field data.
 
 ```json
 {
@@ -111,13 +158,11 @@ For example, to create and assign a new `videos` item, add the desired field dat
 }
 ```
 
-With the data provided, Directus will:
+When you create an item like this, Directus will:
 
-- create the new item in `videos`
-- assign a value to its `videos.url` field and leave the other values default or `null`
-- relationally link the item in `email_newsletters` to the item created in `videos`
-
-### Update Nested Item
+- create the new item in the related collection
+- set the field values you defined and leave the other fields default or `null`
+- relationally link the item
 
 To `UPDATE` the nested item, provide a primary key along with the other field updates.
 
@@ -130,7 +175,7 @@ To `UPDATE` the nested item, provide a primary key along with the other field up
 }
 ```
 
-Directus will:
+When you update an item like this, Directus will:
 
 - make sure the item with the specified primary key is now related
 - update any other fields passed
@@ -139,8 +184,9 @@ Directus will:
 
 [Many-to-many](/configuration/data-model/relationships.md#many-to-many-m2m),
 [one-to-many](/configuration/data-model/relationships.md#one-to-many-o2m) and
-[many-to-any](/configuration/data-model/relationships.md#many-to-any-m2a) fields contain an array with related items.
-Therefore, nested relational data is managed the same way for all three.
+[many-to-any](/configuration/data-model/relationships.md#many-to-any-m2a) fields store an array, where each element in
+the `children` array is a foreign key from the related collection. Nested relational data is managed the same way for
+all three.
 
 ```json
 {
@@ -149,8 +195,6 @@ Therefore, nested relational data is managed the same way for all three.
 	"children": [1, 2]
 }
 ```
-
-Each element in the `children` array is a foreign key from the related collection.
 
 ### View Nested Items
 
@@ -173,13 +217,12 @@ To view the relational data instead of the foreign keys, use the [the `fields` p
 }
 ```
 
-### More on M2A
+### View Nested M2A Items
 
-M2A fields work like "regular" M2M fields, with the exception that the related field can pull in the fields from any of
-the related collections. This means the final object of nested items is one level deeper: _the first is for the
-collection, and the second is for the items from the collection._
+On a [many-to-any](/configuration/data-model/relationships.md#many-to-any-m2a) field, the nested relational data is two
+levels deep: _the first is for the collection, and the second is for the items from the collection._
 
-For example, the data under an M2A field will look like this:
+For example, the first level will contain collection-level information.
 
 ```json
 {
@@ -198,8 +241,7 @@ For example, the data under an M2A field will look like this:
 }
 ```
 
-To get items in an M2A as desired, the [`fields` parameter](/reference/query#fields) comes with a special syntax for
-working with M2A.
+The second level will contain each item you need.
 
 ```json
 {
@@ -222,10 +264,22 @@ working with M2A.
 }
 ```
 
+:::tip
+
+The [`fields` parameter](/reference/query#fields) comes with a special syntax for viewing M2A data.
+
+:::
+
 ### Manage Nested Items (Basic)
 
-When you `CREATE` or `UPDATE` an item, you can link or unlink existing nested relational items. To do this, simply add
-or omit them from the array.
+When you `CREATE` or `UPDATE` an item, you can **link** or **unlink** existing nested relational items. To do this,
+simply add or omit foreign keys as desired.
+
+```json
+{
+	"children": []
+}
+```
 
 ```json
 {
@@ -239,26 +293,28 @@ or omit them from the array.
 }
 ```
 
-When you `CREATE` or `UPDATE` an item, you can also **link**, **unlink**, and `UPDATE` existing items, or `CREATE` new
-items from the array on-the-fly. To do this, provide an object instead of a primary key in order to create new items
-nested on the fly, or an object with a primary key included to `UPDATE` an existing item.
+You can also `CREATE` new items or `UPDATE` existing items within the array.
+
+- To `CREATE` an item, provide an object without a primary key.
+- To `UPDATE` an item, provide an object with a primary key.
 
 ```json
 {
 	"children": [
 		2, // assign existing item 2 to be a child of the current item
 		{
-			"name": "A new nested item"
+			"name": "A new nested item" // create new item
 		},
 		{
-			"id": 149,
+			"id": 149, // update item 149
 			"name": "Assign and update existing item 149"
 		}
 	]
 }
 ```
 
-This method of managing related items is very useful for smaller relational datasets.
+This method of managing related items is very useful for smaller relational datasets. But once your array starts to
+contain dozens of items, this could get difficult to manage.
 
 ### Manage Nested Items (Detailed)
 
@@ -278,19 +334,6 @@ This is useful if you need to have tighter control on staged changes, or when yo
 dataset.
 
 <!--
-### REST Syntax
-
-To scope the fields that are returned per collection type, you can use the `<field>:<scope>` syntax in the fields
-parameter as follows:
-
-```
-GET /items/pages
-	?fields[]=sections.item:headings.id
-	&fields[]=sections.item:headings.title
-	&fields[]=sections.item:paragraphs.body
-	&fields[]=sections.item:paragraphs.background_color
-```
-
 ### GraphQL Syntax
 
 In GraphQL, you can use nested fragments on the Union Type to select the fields:
@@ -314,10 +357,4 @@ query {
 	}
 }
 ```
-
-::: tip Updating
-
-Updating records in a many-to-any is identical to the other relationship types.
-
-:::
 -->
