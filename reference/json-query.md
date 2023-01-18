@@ -158,6 +158,13 @@ GET /items/jason?fields=my_value&alias[my_value]=json(data$.propA[0].nestedProp)
 
 ::: info
 
+All the comparisons done are on as `string` independent of the internal JSON type because that is unknown at the moment
+of querying.
+
+:::
+
+::: info
+
 This will filter the items in the collection you're querying not the data inside a specific json object.
 
 :::
