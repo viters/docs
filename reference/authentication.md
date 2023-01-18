@@ -25,7 +25,7 @@ const pref = ref('REST');
 
 There are two types of tokens that can be used to authenticate within Directus.
 
-**Temporary Token (JWT)** are returned by the [login](#login) endpoint/mutation. These tokens have a relatively short
+**Temporary Tokens (JWT)** are returned by the [login](#login) endpoint/mutation. These tokens have a relatively short
 expiration time, and are thus the most secure option to use. The tokens are returned with a `refresh_token` that can be
 used to retrieve a new access token via the [refresh](#refresh) endpoint/mutation.
 
@@ -49,53 +49,105 @@ Authorization: Bearer <token>
 
 ---
 
+## Get Current Token
+
+Gets the current token (JS-SDK only).
+
+::: warning Async
+
+Reading the token is an asynchronous getter. This makes sure that any currently active `refresh` calls are being awaited
+before the current token is returned.
+
+:::
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API"
+	>
+
+<template #rest>
+
+Not Currently Available for REST
+
+</template>
+<template #graphql>
+
+Not Currently Available for GraphQL
+
+</template>
+<template #js-sdk>
+
+```ts
+const token = await directus.auth.token;
+```
+
+</template>
+
+</SnippetToggler>
+
 ## Login
 
 Retrieve a temporary access token and refresh token.
 
 ### Request Body
 
-`email` **Required**\
-Email address of the user you're retrieving the access token for.
+`email` **Required**
 
-`password` **Required**\
-Password of the user.
+- **Type** — `String`
+- **Description** — Email address of the user you're retrieving the access token for.
 
-`otp`\
-The user's one-time-password (if MFA is enabled).
+`password` **Required**
 
-`mode`\
-Whether to retrieve the refresh token in the JSON response, or in a `httpOnly` `secure` cookie. One of `json`, `cookie`.
-Defaults to `json`.
+- **Type** — `String`
+- **Description** — Password of the user.
+
+`otp` **Optional**
+
+- **Type** — `String`
+- **Description** — The user's one-time-password (if MFA is enabled).
+
+`mode` **Optional**
+
+- **Type** — `String`
+- **Description** — Whether to retrieve the refresh token in the JSON response, or in a `httpOnly` `secure` cookie. One
+  of `json`, `cookie`.
+- **Default** — Defaults to `json`.
 
 ### Response Attributes
 
-`access_token` **string**\
-Temporary access token to be used in follow-up requests.
+`access_token`
 
-`expires` **integer**\
-How long before the access token will expire. Value is in milliseconds.
+- **Type** — `String`
+- **Description** — Temporary access token to be used in follow-up requests.
 
-`refresh_token` **string**\
-The token that can be used to retrieve a new access token through [`/auth/refresh`](#refresh). Note: if you used `cookie`
-as the mode in the request, the refresh token won't be returned in the JSON.
+`expires`
 
-::: tip Expiry time
+- **Type** — `Integer`
+- **Description** — How long before the access token will expire. Value is in milliseconds.
 
-The token's expiration time can be configured through
-[the `ACCESS_TOKEN_TTL` environment variable](/self-hosted/config-options#general).
+`refresh_token`
+
+- **Type** — `String`
+- **Descritpion** — The token that can be used to retrieve a new access token through [`/auth/refresh`](#refresh). Note:
+  if you used `cookie` as the mode in the request, the refresh token won't be returned in the JSON.
+
+::: tip Expiry Time
+
+The token's expiration time can be configured via the `ACCESS_TOKEN_TTL`
+[environment variable](/self-hosted/config-options#general).
 
 :::
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
 <template #rest>
-
-### Syntax
 
 ```
 POST /auth/login
@@ -116,8 +168,6 @@ POST /auth/login/:provider
 
 <template #graphql>
 
-### Syntax
-
 ```
 POST /graphql/system
 ```
@@ -133,44 +183,88 @@ mutation {
 
 </template>
 
+<template #js-sdk>
+
+```js
+// With Credentials
+await directus.auth.login({
+	email: 'admin@example.com',
+	password: 'd1r3ctu5',
+});
+```
+
+```js
+// With Static Token
+await directus.auth.static('static_token');
+```
+
+</template>
+
 </SnippetToggler>
 
 ---
 
-## Refresh
+## Refresh Auth Token
 
 Retrieve a new access token using a refresh token.
 
 ### Request Body
 
-`refresh_token`\
-The refresh token to use. If you have the refresh token in a cookie through [`/auth/login`](#login), you don't have to submit
-it here.
+`refresh_token` **Required**
 
-`mode`\
-Whether to retrieve the refresh token in the JSON response, or in a `httpOnly` `secure` cookie. One of `json`, `cookie`.
+- **Type** — `String`
+- **Description** — The refresh token to use. If you have the refresh token in a cookie through [`/auth/login`](#login),
+  you don't have to submit it here.
+
+`mode` **Required**
+
+- **Type** — `String`
+- **Description** — Whether to retrieve the refresh token in the JSON response, or in a `httpOnly` `secure` cookie. One
+  of `json`, `cookie`.
 
 ### Response Attributes
 
-`access_token` **string**\
-Temporary access token to be used in follow-up requests.
+`access_token`
 
-`expires` **integer**\
-How long before the access token will expire. Value is in milliseconds.
+- **Type** — `String`
+- **Description** — Temporary access token to be used in follow-up requests.
 
-`refresh_token` **string**\
-The token that can be used to retrieve a new access token through [`/auth/refresh`](#refresh). Note: if you used `cookie`
-as the mode in the request, the refresh token won't be returned in the JSON.
+`expires`
+
+- **Type** — `Integer`
+- **Description** — How long before the access token will expire. Value is in milliseconds.
+
+`refresh_token`
+
+- **Type** — `String`
+- **Description** — The token that can be used to retrieve a new access token through [`/auth/refresh`](#refresh). Note:
+  if you used `cookie` as the mode in the request, the refresh token won't be returned in the JSON.
+
+:::tip SDK Refresh Tokens
+
+The SDK will handle token refreshes automatically. However, you can also handle this behavior manually by setting
+[`autoRefresh`](/reference/sdk.md#customize-auth) to `false`.
+
+:::
+
+::: tip Developing Locally
+
+If you're developing locally, you might not be able to refresh your auth token automatically in all browsers. This is
+because the default auth configuration requires secure cookies to be set, and not all browsers allow this for localhost.
+You can use a browser which does support this such as Firefox, or
+[disable secure cookies](/self-hosted/config-options#security).
+
+:::
+
+### Syntax
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
 <template #rest>
-
-### Syntax
 
 ```
 POST /auth/refresh
@@ -187,8 +281,6 @@ POST /auth/refresh
 
 <template #graphql>
 
-### Syntax
-
 ```
 POST /graphql/system
 ```
@@ -204,6 +296,14 @@ mutation {
 
 </template>
 
+<template #js-sdk>
+
+```js
+await directus.auth.refresh();
+```
+
+</template>
+
 </SnippetToggler>
 
 ---
@@ -214,19 +314,21 @@ Invalidate the refresh token thus destroying the user's session.
 
 ### Request Body
 
-`refresh_token`\
-The refresh token to invalidate. If you have the refresh token in a cookie through [`/auth/login`](#login), you don't have
-to submit it here.
+`refresh_token`
+
+- **Type** — `String`
+- **Description** — The refresh token to invalidate. If you have the refresh token in a cookie through
+  [`/auth/login`](#login), you don't have to submit it here.
+
+### Syntax
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
 <template #rest>
-
-### Syntax
 
 ```
 POST /auth/logout
@@ -242,8 +344,6 @@ POST /auth/logout
 
 <template #graphql>
 
-### Syntax
-
 ```
 POST /graphql/system
 ```
@@ -256,33 +356,53 @@ mutation {
 
 </template>
 
+<template #js-sdk>
+
+```js
+await directus.auth.logout();
+```
+
+</template>
+
 </SnippetToggler>
 
 ---
 
 ## Request Password Reset
 
-Request a password reset email to be sent to the given user.
+Request a password reset email to be sent to the given user. Uses the
+[Reset a Password](/reference/authentication.md#reset-a-password) endpoint.
 
 ### Request Body
 
-`email` **Required**\
-Email address of the user you're requesting a password reset for.
+`email` **Required**
 
-`reset_url`\
-Provide a custom reset url which the link in the email will lead to. The reset token will be passed as a parameter.\
-**Note**: You need to configure the
-[`PASSWORD_RESET_URL_ALLOW_LIST` environment variable](/self-hosted/config-options#security) to enable this feature.
+- **Type** — `String`
+- **Description** — Email address of the user you're requesting a password reset for.
+
+`reset_url` **Optional**
+
+- **Type** — `String`
+- **Description** — The `reset_url` option provides a custom reset url which the link in the email will lead to. The
+  reset token will be passed as a parameter.
+
+:::tip
+
+By default, the address defined on `PUBLIC_URL` in the `.env` file is used for the reset password page link sent by
+email. You must configure the `PASSWORD_RESET_URL_ALLOW_LIST`
+[environment variable](/self-hosted/config-options#security) to enable this feature.
+
+:::
+
+### Syntax
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
 <template #rest>
-
-### Syntax
 
 ```
 POST /auth/password/request
@@ -298,8 +418,6 @@ POST /auth/password/request
 
 <template #graphql>
 
-### Syntax
-
 ```
 POST /graphql/system
 ```
@@ -312,32 +430,48 @@ mutation {
 
 </template>
 
+<template #js-sdk>
+
+```js
+await directus.auth.password.request(
+	'admin@example.com', // Required
+	'https://myapp.com' // Optional: If added, the link will be https://myapp.com?access_token=.....
+);
+```
+
+</template>
+
 </SnippetToggler>
 
 ---
 
 ## Reset a Password
 
-The request a password reset endpoint sends an email with a link to the admin app (or a custom route) which in turn uses
-this endpoint to allow the user to reset their password.
+The [request a password reset](/reference/authentication.md#request-password-reset) endpoint sends an email with a link
+to the admin app (or a custom route) which in turn uses this endpoint to allow the user to reset their password.
 
 ### Request Body
 
-`token` **Required**\
-Password reset token, as provided in the email sent by the request endpoint.
+`token` **Required**
 
-`password` **Required**\
-New password for the user.
+- **Type** — `String`
+- **Description** — The password reset token. The token passed in this parameter gets sent in an email to the user when
+  using [request a password reset](/reference/authentication.md#request-password-reset).
+
+`password` **Required**
+
+- **Type** — `String`
+- **Description** — New password for the user.
+
+### Syntax
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK' ]"
 	label="API"
 	>
 
 <template #rest>
-
-### Syntax
 
 ```
 POST /auth/password/reset
@@ -354,8 +488,6 @@ POST /auth/password/reset
 
 <template #graphql>
 
-### Syntax
-
 ```
 POST /graphql/system
 ```
@@ -367,6 +499,13 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
+
+```js
+await directus.auth.password.reset('eyJh...KmUk', 'd1r3ctu5');
+```
+
+</template>
 
 </SnippetToggler>
 
@@ -374,32 +513,36 @@ mutation {
 
 ## List Auth Providers
 
-List all the configured auth providers.
+Lists all the configured auth providers.
 
 ::: tip Configuring auth providers
 
 To learn more about setting up auth providers, see
-[Configuring auth providers](/self-hosted/config-options#authentication).
+[Configuring Auth Providers](/self-hosted/config-options#authentication).
 
 :::
 
 ### Response Attributes
 
-`data` **Array**\
-Array of configured auth providers.
+`data` **Required**
 
-`disableDefault` **boolean**\
-Whether or not the default authentication provider is disabled.
+- **Type** — `Array`
+- **Description** — An array of configured auth providers.
+
+`disableDefault` **Optional**
+
+- **Type** — `Boolean`
+- **Description** — Sets whether or not the default authentication provider is disabled.
+
+### Syntax
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
 <template #rest>
-
-### Syntax
 
 ```
 GET /auth
@@ -431,9 +574,13 @@ GET /auth
 
 <template #graphql>
 
-### Syntax
-
 Not Currently Available for GraphQL
+
+</template>
+
+<template #js-sdk>
+
+Not Currently Available for JS-SDK
 
 </template>
 
@@ -445,15 +592,15 @@ Not Currently Available for GraphQL
 
 Will redirect to the configured SSO provider for the user to login.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
 <template #rest>
-
-### Syntax
 
 ```
 GET /auth/login/:provider
@@ -463,12 +610,14 @@ GET /auth/login/:provider
 
 <template #graphql>
 
-### Syntax
-
 Not Currently Available for GraphQL
 
 </template>
 
-</SnippetToggler>
+<template #js-sdk>
 
----
+Not Currently Available for JS-SDK
+
+</template>
+
+</SnippetToggler>

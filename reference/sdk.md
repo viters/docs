@@ -103,15 +103,11 @@ const directus = new Directus(url, init);
 
 ### Parameters
 
-<br />
-
 #### `url` _required_
 
 - **Type** — `String`
 - **Description** — A string that points to your Directus instance. E.g., `https://example.directus.io`
 - **Default** — N/A
-
-<br />
 
 #### `init` _optional_
 
@@ -158,8 +154,6 @@ const auth = {
 
 ### Options
 
-<br />
-
 #### `mode`
 
 - **Type** — `String`
@@ -179,16 +173,12 @@ We recommend using cookies when possible to prevent any kind of attacks, mostly 
 - **Description** — Determines whether SDK handles refresh tokens automatically.
 - **Default** — Defaults to `true`.
 
-<br />
-
 #### `msRefreshBeforeExpires`
 
 - **Type** — `Number`
 - **Description** — When `autoRefresh` is enabled, this tells how many milliseconds before the refresh token expires and
   needs to be refreshed.
 - **Default** — Defaults to `30000`.
-
-<br />
 
 #### `staticToken`
 
@@ -255,16 +245,12 @@ await directus.transport.<method>('/path/to/endpoint', {
 
 ### Options
 
-<br />
-
 #### `prefix`
 
 - **Type** — `String`
 - **Description** — Defines the tokens prefix tokens that are saved. This should be fulfilled with different values when
   using multiple instances of SDK.
 - **Default** — Defaults to `''` (no prefix).
-
-<br />
 
 #### `mode`
 
@@ -322,23 +308,17 @@ export default {
 
 ### Options
 
-<br />
-
 #### `params`
 
 - **Type** — `Object`
 - **Description** — Defines an object with keys and values to be passed as additional query string.
 - **Default** — N/A
 
-<br />
-
 #### `headers`
 
 - **Type** — `Object`
 - **Description** - Defines an object with keys and values to be passed as additional headers.
 - **Default** — N/A
-
-<br />
 
 #### `onUploadProgress`
 
@@ -351,15 +331,11 @@ export default {
 
 :::
 
-<br />
-
 #### `maxBodyLength`
 
 - **Type** — `Number`
 - **Description** — The maximum body length in bytes. Set `Infinity` for no limit.
 - **Default** — N/A
-
-<br />
 
 #### `maxContentLength`
 
@@ -487,91 +463,6 @@ me.level = 42;
 // Error TS2322: Type "string" is not assignable to type "number".
 me.experience = 'high';
 ```
-
-## Authentication
-
-### Get current token
-
-```ts
-const token = await directus.auth.token;
-```
-
-::: warning Async
-
-Reading the token is an asynchronous getter. This makes sure that any currently active `refresh` calls are being awaited
-before the current token is returned.
-
-:::
-
-### Login
-
-#### With credentials
-
-```js
-await directus.auth.login({
-	email: 'admin@example.com',
-	password: 'd1r3ctu5',
-});
-```
-
-#### With static tokens
-
-```js
-await directus.auth.static('static_token');
-```
-
-### Refresh Auth Token
-
-By default, Directus will handle token refreshes. Although, you can handle this behavior manually by setting
-[`autoRefresh`](#options.auth.autoRefresh) to `false`.
-
-```js
-await directus.auth.refresh();
-```
-
-::: tip Developing Locally
-
-If you're developing locally, you might not be able to refresh your auth token automatically in all browsers. This is
-because the default auth configuration requires secure cookies to be set, and not all browsers allow this for localhost.
-You can use a browser which does support this such as Firefox, or
-[disable secure cookies](/self-hosted/config-options#security).
-
-:::
-
-### Logout
-
-```js
-await directus.auth.logout();
-```
-
-### Request a Password Reset
-
-By default, the address defined in `PUBLIC_URL` on `.env` file is used for the link to the reset password page sent in
-the email:
-
-```js
-await directus.auth.password.request('admin@example.com');
-```
-
-But a custom address can be passed as second argument:
-
-```js
-await directus.auth.password.request(
-	'admin@example.com',
-	'https://myapp.com' // In this case, the link will be https://myapp.com?token=FEE0A...
-);
-```
-
-**Note**: To use a custom address you need to configure the
-[`PASSWORD_RESET_URL_ALLOW_LIST` environment variable](/self-hosted/config-options#security) to enable this feature.
-
-### Reset a Password
-
-```js
-await directus.auth.password.reset('abc.def.ghi', 'n3w-p455w0rd');
-```
-
-Note: The token passed in the first parameter is sent in an email to the user when using `request()`
 
 ## Items
 
