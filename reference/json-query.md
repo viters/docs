@@ -5,9 +5,9 @@ readTime:
 
 # JSON Function Guide
 
-The `json()` function allows for extracting or filtering specific data directly from JSON fields. Where possible json
-functions will make use of native function provided by the database vendor if these are not available a post-processing
-fallback is used instead.
+The `json()` function allows for extracting or filtering specific data directly from JSON fields. Where possible the
+json function will make use of native functions provided by the database vendor if these are not available in a
+post-processing fallback is used instead.
 
 There are three main features:
 
@@ -33,11 +33,11 @@ The `json(<field><jsonpath>)` function requires two parameters:
 1. [A field](/reference/query.md#fields) Same as what you'd use in `fields` to get your JSON field, relational fields
    are supported but wildcards are not!
 2. [A JSONPath](/reference/json-query.md#json-path) A Domain Specific Language for querying nested JSON data similar to
-   XPath, CSS Selectors or REGEX.
+   XPath, CSS Selectors, or REGEX.
 
 ### Aliasing
 
-By default the results of this function will use a randomly generated field name to prevent name collision. Because
+By default, the results of this function will use a randomly generated field name to prevent name collision. Because
 working with generated names is not very practical you can name the output of this function by defining it in an
 `alias`. Don't forget to add your alias to the `fields` list or it will not show up in the output (a `*` wildcard in
 fields **does not** include this alias!).
@@ -58,7 +58,7 @@ alias your JSON Queries for better maintainability and ability to debug.
 
 While some database vendors support
 [JSONPath spec](https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html) in various degrees not all of
-them support the full specification which goes far beyond what can be reliably implemented across all supported vendors.
+they support the full specification which goes far beyond what can be reliably implemented across all supported vendors.
 
 We support the following features of JSONPath:
 
@@ -68,7 +68,7 @@ We support the following features of JSONPath:
 
 ::: warning
 
-The JSON object property names are limited in this implementation to: lower and upper case alphanumeric characters, dash
+The JSON object property names are limited in this implementation to lower and upper case alphanumeric characters, dash,
 and underscore. (`[\w\d-_]+` in REGEX). Special characters like colons `:` and dots `.` are accepted but will be parsed
 as a [relational field](/reference/query.md#many-to-any-union-types).
 
@@ -76,7 +76,7 @@ as a [relational field](/reference/query.md#many-to-any-union-types).
 
 ### Examples
 
-For these examples we call our JSON field `"json_field"` (very original) and fill that field with the following object:
+For these examples, we call our JSON field `"json_field"` (very original) and fill that field with the following object:
 
 ```json
 {
@@ -121,7 +121,7 @@ Result: `[ "key1", "val1", "key2", "val2" ]`
 
 ## JSON Extraction
 
-Using the `json()` function this allows you to retrieve a specific piece of information from within a JSON field.
+Using the `json()` function allows you to retrieve a specific piece of information from within a JSON field.
 
 ```
 GET /items/jason?fields=my_value&alias[my_value]=json(data$.propA[0].nestedProp)
@@ -131,8 +131,8 @@ GET /items/jason?fields=my_value&alias[my_value]=json(data$.propA[0].nestedProp)
 
 ## JSON Filtering
 
-This feature enables filtering inside of JSON fields to request just the piece of information you need. Making use of
-the `deep` query structure allowing you to treat a JSON field as a relation containing data.
+This feature enables filtering inside JSON fields to request just the piece of information you need. Making use of the
+`deep` query structure allowing you to treat a JSON field as a relation containing data.
 
 ```
 GET /items/jason?fields=my_value&alias[my_value]=json(data$.propA)&deep={"my_value":{"_filter":{"$.nestedProp":{"_contains":"test"}}}}
@@ -181,7 +181,7 @@ This will filter the items in the collection you're querying not the data inside
 
 ## Database Vendor Exceptions
 
-- [OracleDB] A query like `$[0]` will return the entire object if the field is an object instead of array.
+- [OracleDB] A query like `$[0]` will return the entire object if the field is an object instead of an array.
 - [MariaDB] Does not seem to support negatives in filters
 - [MariaDB] Only able to filter against the first value if the JSONPath returns multiple results
 - [MariaDB/OracleDB] Requires `[*]` to be at the end of the JSONPath used in `deep` queries to make sure it is filtering
