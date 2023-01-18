@@ -578,6 +578,7 @@ Based on your configured driver, you must also provide the following configurati
 | `STORAGE_<LOCATION>_ENDPOINT`               | S3 Endpoint               | `s3.amazonaws.com` |
 | `STORAGE_<LOCATION>_ACL`                    | S3 ACL                    | --                 |
 | `STORAGE_<LOCATION>_SERVER_SIDE_ENCRYPTION` | S3 Server Side Encryption | --                 |
+| `STORAGE_<LOCATION>_FORCE_PATH_STYLE`       | S3 Force Path Style       | false              |
 
 ### Azure (`azure`)
 
