@@ -88,10 +88,166 @@ async function start() {
 start();
 ```
 
+## SDK Methods
+
+The JS-SDK enables you to access and manage data just like the other APIs.
+
+You get an instance of the item handler by providing the collection (and type, in the case of [TypeScript](#typescript))
+to the `items` function. The following examples will use an `Article` type.
+
+```js
+import { Directus, ID } from '@directus/sdk';
+const { Directus } = require('@directus/sdk');
+
+const directus = new Directus('https://example.directus.app');
+const articles = directus.items('articles');
+
+// From here, you can invoke methods on const articles.
+// This method GETS the article item with ID = 1
+await articles.readOne(1);
+```
+
+This syntax works for all collections, including system collections. For example:
+
+```js
+const directus = new Directus('https://example.directus.app');
+const users = directus.("directus_users");
+// Now you can invoke methods on users
+```
+
+However, system collections also come with their own method:
+
+```js
+const directus = new Directus('https://example.directus.app');
+const users = directus.users;
+// Now you can invoke methods on users
+```
+
+For more details, please see the documentation for the desired collection endpoint.
+
+:::tip Before You Begin
+
+The _majority_ of the system collection endpoints inherit from the [items endpoint](/reference/items.md). So if you're
+just getting started with the Directus API, that's a great place to start exploring.
+
+:::
+
+### Request Parameter Overrides
+
+You can provide an additional parameter with a `requestOptions` object to override any of the axios request parameters.
+For details, see the Axios [Request Config](https://axios-http.com/docs/req_config) documentation.
+
+```js
+await articles.createOne(
+	{ title: 'example' },
+	{ fields: ['id'] },
+	{
+		requestOptions: {
+			headers: {
+				'X-My-Custom-Header': 'example',
+			},
+		},
+	}
+);
+```
+
+## TypeScript
+
+Version >= 4.1
+
+Although it's not required, it is recommended to use TypeScript to have an easy development experience. This allows more
+detailed IDE suggestions for return types, sorting, filtering, etc.
+
+To feed the SDK with your current schema, you need to pass it on the constructor.
+
+```ts
+import { Directus, ID } from '@directus/sdk';
+
+// Map your collection structure based on its fields.
+type Article = {
+	id: ID;
+	title: string;
+	body: string;
+	published: boolean;
+};
+
+type BlogSettings = {
+	display_promotions: boolean;
+};
+
+// Map your collections to its respective types. The SDK will
+// infer its types based on usage later.
+type MyCollections = {
+	articles: Article;
+	settings: BlogSettings;
+
+	// You can also extend a Directus collection. The naming has
+	// to match a Directus system collection and it will be merged
+	// into the system spec. See the next code block for details.
+	directus_users: {
+		bio: string;
+	};
+};
+
+// This is how you feed custom type information to the Directus SDK.
+const directus = new Directus<MyCollections>('https://example.directus.app');
+
+// ... Start using SDK methods
+
+const post = await directus.items('articles').readOne(1);
+// typeof(post) is a partial Article object
+
+const settings = await posts.singleton('settings').read();
+// typeof(settings) is a partial BlogSettings object
+
+await directus.items('articles').updateOne({ id: 1, published: 'hello' });
+// TypeScript will check for errors...
+// Error TS2322: "hello" is not assignable to type "boolean".
+// post.published = 'hello';
+```
+
+You can also provide type information to extend the Directus system collections.
+
+```ts
+import { Directus } from '@directus/sdk';
+
+// Custom fields added to Directus user collection.
+type UserType = {
+	level: number;
+	experience: number;
+};
+
+type CustomTypes = {
+	/*
+	This type will be merged with Directus user type.
+	It's important that the naming matches a Directus
+	collection name exactly. Typos won't get caught here,
+	instead the SDK will assume it's a custom user collection.
+	*/
+	directus_users: UserType;
+};
+
+const directus = new Directus<CustomTypes>('https://example.directus.app');
+
+await directus.auth.login({
+	email: 'admin@example.com',
+	password: 'password',
+});
+
+// typeof me = partial DirectusUser & UserType;
+const me = await directus.users.me.read();
+
+me.level = 42;
+// OK
+
+me.experience = 'high';
+// Error TS2322: Type "string" is not assignable to type "number".
+```
+
 ## Custom Configuration
 
-The previous section covered basic installation and usage of the JS SDK with default configurations for `init`. But
-sometimes you may need to customize these defaults.
+The [Basic Usage](#basic-usage) section covered installation and usage of the JS-SDK with default configurations for
+`init`. But sometimes you may need to customize these defaults.
 
 ### Constructor
 
@@ -388,80 +544,6 @@ class MyTransport extends ITransport {
 const directus = new Directus('https://example.directus.app', {
 	transport: new MyTransport(),
 });
-```
-
-## TypeScript
-
-Version >= 4.1
-
-Although it's not required, it is recommended to use TypeScript to have an easy development experience. This allows more
-detailed IDE suggestions for return types, sorting, filtering, etc.
-
-To feed the SDK with your current schema, you need to pass it on the constructor.
-
-```ts
-type BlogPost = {
-	id: ID;
-	title: string;
-};
-
-type BlogSettings = {
-	display_promotions: boolean;
-};
-
-type MyCollections = {
-	posts: BlogPost;
-	settings: BlogSettings;
-};
-
-// This is how you feed custom type information to Directus.
-const directus = new Directus<MyCollections>('https://example.directus.app');
-
-// ...
-
-const post = await directus.items('posts').readOne(1);
-// typeof(post) is a partial BlogPost object
-
-const settings = await posts.singleton('settings').read();
-// typeof(settings) is a partial BlogSettings object
-```
-
-You can also extend the Directus system type information by providing type information for system collections as well.
-
-```ts
-import { Directus } from '@directus/sdk';
-
-// Custom fields added to Directus user collection.
-type UserType = {
-	level: number;
-	experience: number;
-};
-
-type CustomTypes = {
-	/*
-	This type will be merged with Directus user type.
-	It's important that the naming matches a directus
-	collection name exactly. Typos won't get caught here
-	since SDK will assume it's a custom user collection.
-	*/
-	directus_users: UserType;
-};
-
-const directus = new Directus<CustomTypes>('https://example.directus.app');
-
-await directus.auth.login({
-	email: 'admin@example.com',
-	password: 'password',
-});
-
-const me = await directus.users.me.read();
-// typeof me = partial DirectusUser & UserType;
-
-// OK
-me.level = 42;
-
-// Error TS2322: Type "string" is not assignable to type "number".
-me.experience = 'high';
 ```
 
 ## Activity
