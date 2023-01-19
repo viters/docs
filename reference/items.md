@@ -67,38 +67,30 @@ The [Field Parameter](/reference/query#fields) is required to return nested rela
 
 :::
 
+If using REST, learn more about [SEARCH ->](/reference/introduction#search-http-method).
+
 ### Returns
 
 An array of up to [limit](/reference/query#limit) [item objects](#the-item-object). If no items are available, data will
 be an empty array.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```
 GET /items/:collection
 SEARCH /items/:collection
 ```
 
-[Learn more about SEARCH ->](/reference/introduction#search-http-method)
-
-### Example
-
-```
-GET /items/articles
-```
-
 </template>
 
 <template #graphql>
-
-### Syntax
 
 ```
 POST /graphql
@@ -110,7 +102,44 @@ type Query {
 }
 ```
 
+</template>
+
+<template #js-sdk>
+
+```js
+const collection = directus.items(collection_name);
+
+// GET items by query
+await collection.readByQuery(
+	query // Required:  a query parameter object
+);
+
+// GET items by primary keys
+await articles.readMany(
+	ids_array, // Required: an array of primary keys
+	query,     // Optional: a query parameter object
+});
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /items/articles
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -122,6 +151,32 @@ query {
 		}
 	}
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// READ BY QUERY
+await articles.readByQuery({
+	search: 'Directus',
+	filter: {
+		date_published: {
+			_gte: '$NOW',
+		},
+	},
+});
+
+// READ ALL
+await articles.readByQuery({
+	// By default API limits results to 100.
+	// With -1, it will return all results, but it may lead to performance degradation
+	// for large result sets.
+	limit: -1,
+});
+
+// READ MULTIPLE
+await articles.readMany([15, 16, 17], { fields: ['title'] });
 ```
 
 </template>
@@ -142,30 +197,22 @@ Supports all [global query parameters](/reference/query).
 
 Returns an [item object](#the-item-object) if a valid primary key was provided.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```
 GET /items/:collection/:id
 ```
 
-### Example
-
-```
-GET /items/articles/15
-```
-
 </template>
 
 <template #graphql>
-
-### Syntax
 
 ```
 POST /graphql
@@ -177,7 +224,37 @@ type Query {
 }
 ```
 
+</template>
+
+<template #js-sdk>
+
+```js
+await articles.readOne(
+	id, // primary key
+	query_param // Optional: a query parameter
+);
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /items/articles/15
+```
+
+</template>
+
+<template #graphql>
 
 ```graphql
 query {
@@ -186,6 +263,14 @@ query {
 		title
 	}
 }
+```
+
+</template>
+
+<template #js-sdk>
+
+```js
+await articles.readOne(15, { fields: ['title'] });
 ```
 
 </template>
@@ -217,20 +302,55 @@ Relational data needs to be correctly nested to add new items successfully. Chec
 
 Returns the [item objects](#the-item-object) of the item that were created.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```
 POST /items/:collection
 ```
 
+</template>
+
+<template #graphql>
+
+```
+POST /graphql
+```
+
+```graphql
+type Mutation {
+	create_<collection>_item(data: create_<collection>_input): <collection>
+}
+```
+
+</template>
+
+<template #js-sdk>
+
+```js
+const collection = directus.items(collection_name);
+
+await collection.createOne(item_object);
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```
 POST /items/articles
@@ -247,20 +367,6 @@ POST /items/articles
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql
-```
-
-```graphql
-type Mutation {
-	create_<collection>_item(data: create_<collection>_input): <collection>
-}
-```
-
-### Example
-
 ```graphql
 mutation {
 	create_articles_item(data: { title: "Hello world!", body: "This is our first article" }) {
@@ -268,6 +374,18 @@ mutation {
 		title
 	}
 }
+```
+
+</template>
+
+<template #js-sdk>
+
+```js
+const articles = directus.items('articles');
+
+await articles.createOne({
+	title: 'My New Article',
+});
 ```
 
 </template>
@@ -292,20 +410,58 @@ An array of partial [item objects](#the-item-object).
 
 Returns the [item objects](#the-item-object) of the item that were created.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```
 POST /items/:collection
 ```
 
+</template>
+
+<template #graphql>
+
+```
+POST /graphql
+```
+
+```graphql
+type Mutation {
+	create_<collection>_items(data: [create_<collection>_input]): [<collection>]
+}
+```
+
+</template>
+
+<template #js-sdk>
+
+```js
+const collection = directus.items.(collection_name);
+
+await collection.createMany(
+	// Requried: An array of objects used to create the items
+	items_array
+);
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```
 POST /items/articles
@@ -328,32 +484,41 @@ POST /items/articles
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql
-```
-
-```graphql
-type Mutation {
-	create_<collection>_items(data: [create_<collection>_input]): [<collection>]
-}
-```
-
-### Example
-
 ```graphql
 mutation {
 	create_articles_items(
 		data: [
-			{ title: "Hello world!", body: "This is our first article" }
-			{ title: "Hello again, world!", body: "This is our second article" }
+		{
+			title: 'My First Title',
+			body: 'My First Article',
+		},
+		{
+			title: 'My Second Title',
+			body: 'My Second Article',
+		},
 		]
 	) {
 		id
 		title
 	}
 }
+```
+
+</template>
+
+<template #js-sdk>
+
+```js
+await articles.createMany([
+	{
+		title: 'My First Title',
+		body: 'My First Article',
+	},
+	{
+		title: 'My Second Title',
+		body: 'My Second Article',
+	},
+]);
 ```
 
 </template>
@@ -378,20 +543,62 @@ A partial [item object](#the-item-object).
 
 Returns the [item object](#the-item-object) of the item that was updated.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```
 PATCH /items/:collection/:id
 ```
 
+</template>
+
+<template #graphql>
+
+```
+POST /graphql
+```
+
+```graphql
+type Mutation {
+	update_<collection>_item(
+		id: ID!,
+		data: update_<collection>_input!
+	): <collection>
+}
+```
+
+</template>
+
+<template #js-sdk>
+
+```js
+const collection = directus.items(collection_name);
+
+await collection.updateOne(
+	primary_key, // The primary key
+	data, // An object { "field": "value"} to update items
+	query // Optional: a query parameter
+);
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```
 PATCH /items/articles/15
@@ -407,20 +614,6 @@ PATCH /items/articles/15
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql
-```
-
-```graphql
-type Mutation {
-	update_<collection>_item(id: ID!, data: update_<collection>_input!): <collection>
-}
-```
-
-### Example
-
 ```graphql
 mutation {
 	update_articles_item(id: 15, data: { title: "An updated title" }) {
@@ -428,6 +621,22 @@ mutation {
 		title
 	}
 }
+```
+
+</template>
+
+<template #js-sdk>
+
+```js
+await articles.updateOne(
+	42,
+	{
+		title: 'An updated title',
+	},
+	{
+		fields: ['title'],
+	}
+);
 ```
 
 </template>
@@ -452,26 +661,70 @@ Supports all [global query parameters](/reference/query).
 
 ### Request Body
 
-Object containing `data` for the values to set, and either `keys` or `query` to select what items to update.
+An array containing primary keys of the values to update, a data object containing the field name and values to update,
+and an optional query parameter.
+
+Note the query parameter can be used to select items, instead of passing an array of primary keys.
 
 ### Returns
 
 Returns the [item objects](#the-item-object) for the updated items.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```
 PATCH /items/:collection
 ```
 
+</template>
+
+<template #graphql>
+
+```
+POST /graphql
+```
+
+```graphql
+type Mutation {
+	update_<collection>_items(
+		ids: [ID!]!,
+		data: [update_<collection>_input]): [<collection>]
+}
+```
+
+</template>
+
+<template #js-sdk>
+
+```js
+const collection = directus.items.(collection_name);
+
+await collection.updateMany(
+		primary_key, // An array of primary keys
+		data,		 // An object { "field": "value"} to update items
+		query		 // Optional: a query parameter
+	);
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```
 PATCH /items/articles
@@ -490,20 +743,6 @@ PATCH /items/articles
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql
-```
-
-```graphql
-type Mutation {
-	update_<collection>_items(ids: [ID!]!, data: [update_<collection>_input]): [<collection>]
-}
-```
-
-### Example
-
 ```graphql
 mutation {
 	update_articles_items(ids: [1, 2], data: { status: "published" }) {
@@ -511,6 +750,22 @@ mutation {
 		status
 	}
 }
+```
+
+</template>
+
+<template #js-sdk>
+
+```js
+await articles.updateMany(
+	[15, 42],
+	{
+		title: 'Both articles now have the same title',
+	},
+	{
+		fields: ['title'],
+	}
+);
 ```
 
 </template>
@@ -527,30 +782,22 @@ Delete an existing item.
 
 Empty body.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```
 DELETE /items/:collection/:id
 ```
 
-### Example
-
-```
-DELETE /items/articles/15
-```
-
 </template>
 
 <template #graphql>
-
-### Syntax
 
 ```
 POST /graphql
@@ -562,7 +809,38 @@ type Mutation {
 }
 ```
 
+</template>
+
+<template #js-sdk>
+
+```js
+// One
+const primary_key = 15;
+const collection = directus.items(collection_name);
+
+await collection.deleteOne(primary_key);
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+DELETE /items/articles/15
+```
+
+</template>
+
+<template #graphql>
 
 ```graphql
 mutation {
@@ -570,6 +848,17 @@ mutation {
 		id
 	}
 }
+```
+
+</template>
+
+<template #js-sdk>
+
+```js
+// One
+const articles = directus.items('articles');
+
+await articles.deleteOne(15);
 ```
 
 </template>
@@ -584,26 +873,61 @@ Delete multiple existing items.
 
 ### Request Body
 
-An array of item primary keys.
+Takes an array of primary keys. Defines items to delete from the collection.
 
 ### Returns
 
 Empty body.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```
 DELETE /items/:collection
 ```
 
+</template>
+
+<template #graphql>
+
+```
+POST /graphql
+```
+
+```graphql
+type Mutation {
+	delete_<collection>_items(ids: [ID!]!): delete_many
+}
+```
+
+</template>
+<template #js-sdk>
+
+```js
+const id_array = [15, 16, 21];
+const collection = directus.items(collection_name);
+
+await collection.deleteMany(id_array);
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```
 DELETE /items/articles
@@ -617,26 +941,22 @@ DELETE /items/articles
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql
-```
-
-```graphql
-type Mutation {
-	delete_<collection>_items(ids: [ID!]!): delete_many
-}
-```
-
-### Example
-
 ```graphql
 mutation {
 	delete_articles_items(ids: [15, 16, 21]) {
 		ids
 	}
 }
+```
+
+</template>
+
+<template #js-sdk>
+
+```js
+const articles = directus.items('articles');
+
+await articles.deleteMany([15, 16, 21]);
 ```
 
 </template>
