@@ -21,7 +21,7 @@ const pref = ref('REST');
 
 ---
 
-## Accessing a File
+## How to Access a File
 
 The location of your actual file originals is based on the project's configuration, but you can consistently access them
 via the API using the following URL.
@@ -57,7 +57,7 @@ permissions and other built-in features.
 
 ---
 
-## Downloading a File
+## How to Download a File
 
 To download an asset with the correct filename, you need to add the `?download` query parameter to the request and the
 `download` attribute to your anchor tag. This will ensure the appropriate
@@ -72,7 +72,7 @@ download will work on the _same_ domain, however it will have the file's "id" as
 
 ---
 
-## Requesting a Thumbnail
+## How to Request a Thumbnail
 
 Fetching thumbnails is as easy as adding a `key` query parameter to the original file's URL. In the Admin App, you can
 configure different asset presets that control the output of any given image. If a requested thumbnail doesn't yet
@@ -254,7 +254,7 @@ Any additional metadata Directus was able to scrape from the file. For images, t
 
 ---
 
-## List Files
+## Get Files
 
 List all files that exist in Directus.
 
@@ -262,32 +262,30 @@ List all files that exist in Directus.
 
 Supports all [global query parameters](/reference/query).
 
+If using REST, learn more about using [SEARCH](/reference/introduction#search-http-method)
+
 ### Returns
 
 An array of up to [limit](/reference/query#limit) [file objects](#the-file-object). If no items are available, data will
 be an empty array.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```
 GET /files
 SEARCH /files
 ```
 
-[Learn more about SEARCH ->](/reference/introduction#search-http-method)
-
 </template>
 
 <template #graphql>
-
-### Syntax
 
 ```txt
 POST /graphql/system
@@ -299,7 +297,49 @@ type Query {
 }
 ```
 
+</template>
+
+<template #js-sdk>
+
+```js
+
+// const collection = directus.items('directus_files');
+const collection = directus.files;
+
+// The JS-SDK provides two methods to GET items.
+
+// GET items by query
+await collection.readByQuery(
+	query // Required:  a query parameter object
+);
+
+// GET items by primary keys
+await articles.readMany(
+	ids_array, // Required: an array of primary keys
+	query,     // Optional: a query parameter object
+});
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /files
+SEARCH /files
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -311,12 +351,43 @@ query {
 ```
 
 </template>
+<template #js-sdk>
+
+```js
+const files = directus.files;
+
+// READ BY QUERY
+await files.readByQuery({
+	search: 'Directus Logo',
+	filter: {
+		date_published: {
+			_gte: '$NOW',
+		},
+	},
+});
+
+// READ ALL
+await files.readByQuery({
+	// By default API limits results to 100.
+	// With -1, it will return all results,
+	// but it may lead to performance degradation
+	// for large result sets.
+	limit: -1,
+});
+
+// READ MULTIPLE
+await files.readMany(['d17c10aa-0bad-4864-9296-84f522c753e5', 'b6123925-2fc0-4a30-9d86-863eafc0a6e7'], {
+	fields: ['title'],
+});
+```
+
+</template>
 
 </SnippetToggler>
 
 ---
 
-## Retrieve a File
+## Get File by ID
 
 Retrieve a single file by primary key.
 
@@ -328,30 +399,22 @@ Supports all [global query parameters](/reference/query).
 
 Returns a [file object](#the-file-object) if a valid primary key was provided.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```txt
 GET /files/:id
 ```
 
-### Example
-
-```txt
-GET /files/0fca80c4-d61c-4404-9fd7-6ba86b64154d
-```
-
 </template>
 
 <template #graphql>
-
-### Syntax
 
 ```txt
 POST /graphql/system
@@ -363,7 +426,40 @@ type Query {
 }
 ```
 
+</template>
+
+<template #js-sdk>
+
+```js
+// const files = directus.items('directus_files');
+const files = directus.files;
+
+await files.readOne(
+	id, // A primary key
+	query // Optional: a query parameter
+);
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```txt
+GET /files/0fca80c4-d61c-4404-9fd7-6ba86b64154d
+```
+
+</template>
+
+<template #graphql>
 
 ```graphql
 query {
@@ -376,13 +472,23 @@ query {
 
 </template>
 
+<template #js-sdk>
+
+```js
+const files = directus.files;
+
+await files.readOne(15, { fields: ['title'] });
+```
+
+</template>
+
 </SnippetToggler>
 
 ## Upload a File
 
-Upload/create a new file.
+Uploads/creates a new file.
 
-To upload a file, use `multipart/form-data` as the encoding type. The file contents has to be provided in a part called
+To upload a file, use `multipart/form-data` as the encoding type. The file contents need to be provided in a part called
 `file`. All other properties of [the file object](#the-file-object) can be provided as parts as well, except
 `filename_disk` and `filename_download`.
 
@@ -391,12 +497,12 @@ in the storage. The `type` property will be required to specify the mimetype of 
 
 ::: tip Order Matters
 
-Make sure to define the non-file properties _first_. This ensures that the file metadata is associated with the correct
+Be sure to define the non-file properties _first_. This ensures that the file metadata is associated with the correct
 file.
 
 :::
 
-You can upload multiple files at a time by repeating the payload with different contents, for example:
+You can upload multiple files at a time by repeating the payload with different contents:
 
 ```
 --__X_BOUNDARY__
@@ -461,6 +567,85 @@ Content-Type: image/jpeg
 descü^cprt\wtpthbkpt|rXYZgXYZ¤bXYZ¸rTRCÌ@gTRCÌ@bTRCÌ@descc2textIXXYZ öÖÓ-XYZ 3¤XYZ o¢8õXYZ b·ÚXYZ $ ¶ÏcurvËÉckö?Q4!ñ)2;FQw]íkpz±|¬i¿}ÓÃé0ÿÿÿÛ
 ```
 
+### JS-SDK Browser
+
+To upload a file from a browser you will need to send a `multipart/form-data` as body:
+
+```js
+/* index.js */
+import { Directus } from 'https://unpkg.com/@directus/sdk@latest/dist/sdk.esm.min.js';
+
+const directus = new Directus('https://example.directus.app', {
+	auth: {
+		// You can use a static token for auth.
+		// You can also use email and password.
+		// For details, see the next comment
+		staticToken: 'STATIC_TOKEN',
+	},
+});
+
+// If you want to use email and password,
+// remove the staticToken above and use this
+// await directus.auth.login({ email, password })
+
+const form = document.querySelector('#upload-file');
+
+if (form && form instanceof HTMLFormElement) {
+	form.addEventListener('submit', async (event) => {
+		event.preventDefault();
+
+		const form = new FormData(event.target);
+		await directus.files.createOne(form);
+	});
+}
+```
+
+```html
+<!-- index.html -->
+<head></head>
+<body>
+	<form id="upload-file">
+		<input type="text" name="title" />
+		<input type="file" name="file" />
+    	<button>Send</button>
+	</form>
+	<script src="/index.js" type="module"></script>
+</body>
+</html>
+```
+
+### JS-SDK NodeJS
+
+From a NodeJS environment, you'll have to override the headers to ensure the correct boundary is set:
+
+```js
+import { Directus } from 'https://unpkg.com/@directus/sdk@latest/dist/sdk.esm.min.js';
+
+const directus = new Directus('https://example.directus.app', {
+	auth: {
+		// You can use a static token for auth.
+		// You can also use email and password.
+		// For details, see the next comment
+		staticToken: 'STATIC_TOKEN',
+	},
+});
+
+// If you want to use email and password,
+// remove the staticToken above and use this
+// await directus.auth.login({ email, password })
+
+const form = new FormData();
+form.append("file", fs.createReadStream("./to_upload.jpeg"));
+
+const fileId = await directus.files.createOne(form, {}, {
+  requestOptions: {
+    headers: {
+      ...form.getHeaders()
+    }
+  }
+);
+```
+
 ---
 
 ## Import a File
@@ -473,30 +658,70 @@ Supports all [global query parameters](/reference/query).
 
 ### Request Body
 
-`url` **Required**\
-The URL to download the file from.
+`url` **Required**
 
-`data`\
-Any of [the file object](#the-file-object)'s properties.
+- **Type** — `String`
+- **Description** — The URL to download the file from.
+
+`data` **Optional**
+
+- **Type** — `Object`
+- **Desctription** — Any of [the file object](#the-file-object)'s properties.
 
 ### Returns
 
 Returns the [file object](#the-file-object) for the imported file.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```txt
 POST /files/import
 ```
 
+</template>
+
+<template #graphql>
+
+```txt
+POST /graphql/system
+```
+
+```graphql
+type Mutation {
+	import_file(url: String!, data: create_directus_files_input!): directus_files
+}
+```
+
+</template>
+
+<template #js-sdk>
+
+```js
+await directus.files.import({
+	url: url_string, // Required: a string for the file path URL
+	data: custom_data, // Optional: An object containing custom data
+});
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // POST /files/import
@@ -510,22 +735,7 @@ POST /files/import
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```txt
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	import_file(url: String!, data: create_directus_files_input!): directus_files
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -533,6 +743,24 @@ mutation {
 		id
 	}
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// Example of importing a file from a URL
+await directus.files.import({
+	url: 'http://www.example.com/example-image.jpg',
+});
+
+// Example of importing file with custom data
+await directus.files.import({
+	url: 'http://www.example.com/example-image.jpg',
+	data: {
+		title: 'My Custom File',
+	},
+});
 ```
 
 </template>
@@ -559,20 +787,60 @@ information on the structure of this `multipart/form-data` request.
 
 Returns the [file object](#the-file-object) for the updated file.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```txt
 PATCH /files/:id
 ```
 
+</template>
+
+<template #graphql>
+
+```txt
+POST /graphql/system
+```
+
+```graphql
+type Mutation {
+	update_files_item(id: ID!, data: update_directus_files_input!): directus_files
+}
+```
+
+</template>
+
+<template #js-sdk>
+
+```js
+// const files = directus.items('directus_files');
+const files = directus.files;
+
+await files.updateOne(
+	primary_key, // The primary key
+	data, // An object { "field": "value"} to update items
+	query // Optional: a query parameter
+);
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // PATCH /files/0fca80c4-d61c-4404-9fd7-6ba86b64154d
@@ -586,20 +854,6 @@ PATCH /files/:id
 
 <template #graphql>
 
-### Syntax
-
-```txt
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	update_files_item(id: ID!, data: update_directus_files_input!): directus_files
-}
-```
-
-### Example
-
 ```graphql
 mutation {
 	update_files_item(id: "0fca80c4-d61c-4404-9fd7-6ba86b64154d", data: { title: "Example" }) {
@@ -607,6 +861,24 @@ mutation {
 		title
 	}
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// const files = directus.items('directus_files');
+const files = directus.files;
+
+await files.updateOne(
+	42,
+	{
+		title: 'An updated title',
+	},
+	{
+		fields: ['title'],
+	}
+);
 ```
 
 </template>
@@ -635,20 +907,60 @@ Any of [the file object](#the-file-object)'s properties.
 
 Returns the [file objects](#the-file-object) for the updated files.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```txt
 PATCH /files
 ```
 
+</template>
+
+<template #graphql>
+
+```txt
+POST /graphql/system
+```
+
+```graphql
+type Mutation {
+	update_files_items(ids: [ID!]!, data: update_directus_files!): [directus_files]
+}
+```
+
+</template>
+
+<template #js-sdk>
+
+```js
+// const files = directus.items('directus_files');
+const files = directus.files;
+
+await files.updateOne(
+	primary_key, // The primary key
+	data, // An object { "field": "value"} to update items
+	query // Optional: a query parameter
+);
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // PATCH /files
@@ -662,22 +974,7 @@ PATCH /files
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```txt
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	update_files_items(ids: [ID!]!, data: update_directus_files!): [directus_files]
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -686,6 +983,24 @@ mutation {
 		data: { tags: ["cities"] }
 	)
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// const files = directus.items('directus_files');
+const files = directus.files;
+
+await files.updateOne(
+	42,
+	{
+		title: 'An updated title',
+	},
+	{
+		fields: ['title'],
+	}
+);
 ```
 
 </template>
@@ -712,30 +1027,22 @@ Supports all [global query parameters](/reference/query).
 
 Empty response.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```txt
 DELETE /files/:id
 ```
 
-### Example
-
-```txt
-DELETE /files/0fca80c4-d61c-4404-9fd7-6ba86b64154d
-```
-
 </template>
 
 <template #graphql>
-
-### Syntax
 
 ```txt
 POST /graphql/system
@@ -747,12 +1054,55 @@ type Mutation {
 }
 ```
 
+</template>
+
+<template #js-sdk>
+
+```js
+// const files = directus.items('files');
+const files = directus.files;
+
+await files.deleteOne(primary_key);
+```
+
+</template>
+
+</SnippetToggler>
+
+### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```txt
+DELETE /files/0fca80c4-d61c-4404-9fd7-6ba86b64154d
+```
+
+</template>
+
+<template #graphql>
+
 ```graphql
 mutation {
 	delete_files_item(id: "0fca80c4-d61c-4404-9fd7-6ba86b64154d") {
 		id
 	}
 }
+```
+
+</template>
+
+<template #js-sdk>
+
+```js
+// const files = directus.items('files');
+const files = directus.files;
+
+await files.deleteOne('0fca80c4-d61c-4404-9fd7-6ba86b64154d');
 ```
 
 </template>
@@ -779,6 +1129,8 @@ Array of file primary keys
 
 Empty response.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -786,25 +1138,13 @@ Empty response.
 
 <template #rest>
 
-### Syntax
-
 ```txt
 DELETE /files
-```
-
-### Example
-
-```json
-// DELETE /files
-
-["d17c10aa-0bad-4864-9296-84f522c753e5", "b6123925-2fc0-4a30-9d86-863eafc0a6e7"]
 ```
 
 </template>
 
 <template #graphql>
-
-### Syntax
 
 ```txt
 POST /graphql/system
@@ -816,7 +1156,39 @@ type Mutation {
 }
 ```
 
+</template>
+
+<template #js-sdk>
+
+```js
+// const files = directus.items('directus_files');
+const files = directus.files;
+
+await files.deleteMany(ids_array);
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```json
+// DELETE /files
+
+["d17c10aa-0bad-4864-9296-84f522c753e5", "b6123925-2fc0-4a30-9d86-863eafc0a6e7"]
+```
+
+</template>
+
+<template #graphql>
 
 ```graphql
 mutation {
@@ -824,6 +1196,16 @@ mutation {
 		ids
 	}
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// const files = directus.items('directus_files');
+const files = directus.files;
+
+await files.deleteMany(['d17c10aa-0bad-4864-9296-84f522c753e5', 'b6123925-2fc0-4a30-9d86-863eafc0a6e7']);
 ```
 
 </template>

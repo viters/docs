@@ -67,7 +67,7 @@ The [Field Parameter](/reference/query#fields) is required to return nested rela
 
 :::
 
-If using REST, learn more about [SEARCH ->](/reference/introduction#search-http-method).
+If using REST, learn more about [SEARCH](/reference/introduction#search-http-method).
 
 ### Returns
 
@@ -233,7 +233,7 @@ type Query {
 ```js
 await articles.readOne(
 	id, // primary key
-	query_param // Optional: a query parameter
+	query // Optional: a query parameter
 );
 ```
 
