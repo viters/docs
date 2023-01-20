@@ -49,7 +49,7 @@ Choosing fields is a native feature of GraphQL. For more details, see the [Graph
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	:choices="['REST', 'GraphQL']"
 	label="API" >
 
 <template #rest>
@@ -68,16 +68,14 @@ Choosing fields is a native feature of GraphQL. For more details, see the [Graph
 ```
 
 </template>
-<template #js-sdk>
 
-</template>
 </SnippetToggler>
 
 ### Example
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	:choices="['REST', 'GraphQL']"
 	label="API" >
 
 <template #rest>
@@ -97,9 +95,7 @@ Choosing fields is a native feature of GraphQL. For more details, see the [Graph
 ```
 
 </template>
-<template #js-sdk>
 
-</template>
 </SnippetToggler>
 
 ### Wildcards
@@ -110,7 +106,7 @@ You can also use a wildcard `*` to include all fields at a specific depth.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	:choices="['REST', 'GraphQL']"
 	label="API" >
 
 <template #rest>
@@ -132,9 +128,7 @@ You can also use a wildcard `*` to include all fields at a specific depth.
 ```
 
 </template>
-<template #js-sdk>
 
-</template>
 </SnippetToggler>
 
 :::tip
@@ -160,7 +154,7 @@ You can use dot-notation to request nested relational fields.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	:choices="['REST', 'GraphQL']"
 	label="API" >
 
 <template #rest>
@@ -191,10 +185,6 @@ You can use dot-notation to request nested relational fields.
 
 </template>
 
-<template #js-sdk>
-
-</template>
-
 </SnippetToggler>
 
 ### Multiple Fields
@@ -205,7 +195,7 @@ You can use a comma `,` to get multiple fields. This can be combined with `.` to
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	:choices="['REST', 'GraphQL']"
 	label="API" >
 
 <template #rest>
@@ -239,10 +229,6 @@ fields=*,images.*
 # Multiple field selection is natively supported in GraphQL
 
 ```
-
-</template>
-
-<template #js-sdk>
 
 </template>
 
@@ -324,60 +310,10 @@ Let's say we have a collection `pages` with a many-to-any field called `sections
 
 ## Filter
 
-Used to search items in a collection that matches the filter's conditions. The filter param follows
-[the Filter Rules spec](/reference/filter-rules), which includes additional information on logical operators (AND/OR),
-nested relational filtering, and dynamic variables.
+Used to search items in a collection that matches the filter's conditions.
 
-### Examples
-
-Retrieve all items where `first_name` equals "Rijk"
-
-```json
-{
-	"first_name": {
-		"_eq": "Rijk"
-	}
-}
-```
-
-Retrieve all items in one of the following categories: "vegetables", "fruit"
-
-```json
-{
-	"categories": {
-		"_in": ["vegetables", "fruit"]
-	}
-}
-```
-
-Retrieve all items that are published between two dates
-
-```json
-{
-	"date_published": {
-		"_between": ["2021-01-24", "2021-02-23"]
-	}
-}
-```
-
-Retrieve all items where the author's "vip" flag is true
-
-```json
-{
-	"author": {
-		"vip": {
-			"_eq": true
-		}
-	}
-}
-```
-
-::: tip Nested Filters
-
-The above example will filter the _top level_ items based on a condition _in_ the related item. If you're looking to
-filter the related items themselves, take a look at [the `deep` parameter](#deep)!
-
-:::
+The filter param follows [the Filter Rules spec](/reference/filter-rules), which includes additional information on
+logical operators (AND/OR), nested relational filtering, and dynamic variables.
 
 ### Syntax
 
@@ -413,12 +349,63 @@ query {
 
 </SnippetToggler>
 
+### Examples
+
+Retrieve all items where `first_name` equals "Rijk"
+
+```json
+{
+	"first_name": {
+		"_eq": "Rijk"
+	}
+}
+```
+
+Retrieve all items in one of the following categories: "vegetables", "fruit"
+
+```json
+{
+	"categories": {
+		"_in": ["vegetables", "fruit"]
+	}
+}
+```
+
+Retrieve all items that are published between two dates
+
+```json
+{
+	"date_published": {
+		"_between": ["2021-01-24", "2021-02-23"]
+	}
+}
+```
+
+Retrieve all items where the author's "vip" field is true
+
+```json
+{
+	"author": {
+		"vip": {
+			"_eq": true
+		}
+	}
+}
+```
+
+::: tip Nested Filters
+
+The above example will filter the _top level_ items based on a condition _in_ the related item. If you're looking to
+filter the related items themselves, take a look at [the `deep` parameter](#deep).
+
+:::
+
 ---
 
-::: tip Filtering M2A fields
+::: tip Filtering M2A fields in GraphQL
 
 Because attribute names in GraphQL cannot contain the `:` character, you will need to replace it with a double
-underscore. For example, instead of using `sections.item:heading` in your filter, you will need to use
+underscore `__`. For example, instead of using `sections.item:heading` in your filter, you will need to use
 `sections.item__heading` (see the full example below).
 
 ```graphql
@@ -445,12 +432,36 @@ The search parameter allows you to perform a search on all string and text type 
 way to search for an item without creating complex field filters – though it is far less optimized. It only searches the
 root item's fields, related item fields are not included.
 
-### Example
-
-Find all items that mention Directus\
-`Directus`
-
 ### Syntax
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API" >
+
+<template #rest>
+
+```
+?search=<search_value>
+```
+
+</template>
+<template #graphql>
+
+```graphql
+# find all items that mention Directus
+query {
+	articles(search: "<search_value>") {
+		id
+	}
+}
+```
+
+</template>
+
+</SnippetToggler>
+
+### Example
 
 <SnippetToggler
 	v-model="pref"
@@ -461,6 +472,7 @@ Find all items that mention Directus\
 <template #rest>
 
 ```
+// find all items that mention Directus
 ?search=Directus
 ```
 
@@ -469,6 +481,7 @@ Find all items that mention Directus\
 <template #graphql>
 
 ```graphql
+# find all items that mention Directus
 query {
 	articles(search: "Directus") {
 		id
@@ -484,20 +497,9 @@ query {
 
 ## Sort
 
-What field(s) to sort by. Sorting defaults to ascending, but a minus sign (`-`) can be used to reverse this to
-descending order. Fields are prioritized by the order in the parameter. The dot-notation has to be used when sorting
-with values of nested fields.
-
-### Examples
-
-Sort by creation date descending\
-`-date_created`
-
-Sort by a "sort" field, followed by publish date descending\
-`sort, -publish_date`
-
-Sort by a "sort" field, followed by a nested author's name\
-`sort, -author.name`
+Defines field(s) to items sort by. Sort order defaults to ascending. A minus sign `-` switches to this descending order.
+Fields sort priority is determined by its order in the parameter. Dot-notation has to be used when sorting with values
+of nested fields.
 
 ### Syntax
 
@@ -510,6 +512,57 @@ Sort by a "sort" field, followed by a nested author's name\
 <template #rest>
 
 ```
+// Sort by:
+// field 1 ascending
+// then field2 descending
+// then field3.nested_field ascending
+
+?sort=<field1>,-<field2>,<field3.nested_field>
+
+// or
+
+?sort[]=<field1>
+&sort[]=<-field2>
+&sort[]=-<field3.nested_field>
+```
+
+</template>
+
+<template #graphql>
+
+```graphql
+# Sort by:
+# field 1 ascending
+# then field2 descending
+# then field3.nested_field ascending
+
+query {
+	articles(sort: ["<field1>", "-<field2>", "<field3.nested_field>"]) {
+		id
+	}
+}
+```
+
+</template>
+
+</SnippetToggler>
+
+### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
+
+```
+// Sort by:
+// a sort field ascending
+// then date_created descending
+// then author.name ascending
+
 ?sort=sort,-date_created,author.name
 
 // or
@@ -524,6 +577,11 @@ Sort by a "sort" field, followed by a nested author's name\
 <template #graphql>
 
 ```graphql
+# Sort by:
+# a sort field ascending
+# then date_created descending
+# then author.name ascending
+
 query {
 	articles(sort: ["sort", "-date_created", "author.name"]) {
 		id
@@ -541,21 +599,6 @@ query {
 
 Set the maximum number of items that will be returned. The default limit is set to `100`.
 
-### Examples
-
-Get the first 200 items\
-`200`
-
-Get all items\
-`-1`
-
-::: warning All Items
-
-Depending on the size of your collection, fetching unlimited data may result in degraded performance or timeouts, use
-with caution.
-
-:::
-
 ### Syntax
 
 <SnippetToggler
@@ -567,7 +610,7 @@ with caution.
 <template #rest>
 
 ```
-?limit=200
+?limit=<number>
 ```
 
 </template>
@@ -576,7 +619,7 @@ with caution.
 
 ```graphql
 query {
-	articles(limit: 200) {
+	articles(limit: <number>) {
 		id
 	}
 }
@@ -585,6 +628,55 @@ query {
 </template>
 
 </SnippetToggler>
+
+### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
+
+```
+// Get first 200 items
+?limit=200
+
+// Get all items
+limit?=-1
+```
+
+</template>
+
+<template #graphql>
+
+```graphql
+# Get first 200 items
+query {
+	articles(limit: 200) {
+		id
+	}
+}
+
+# Get all items
+query {
+	articles(limit: -1) {
+		id
+	}
+}
+```
+
+</template>
+
+</SnippetToggler>
+
+:::warning All Items
+
+Depending on the size of your collection, fetching unlimited data may result in degraded performance or timeouts, use
+with caution.
+
+:::
 
 ---
 
