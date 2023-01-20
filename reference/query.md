@@ -758,16 +758,14 @@ That's the default for every request. For details, see the [`limit` parameter](#
 
 ## Page
 
-An alternative to `offset`. Page is a way to set `offset` under the hood by calculating `limit * page`. Page is
-1-indexed.
+An alternative to `offset`, the `page` parameter is a way to set `offset` under the hood by calculating `limit * page`.
+Page is 1-indexed.
 
-### Examples
+:::tip
 
-Get items 1-100\
-`1`
+The default limit for requests is 100 items. For details, see the [`limit` parameter](#limit).
 
-Get items 101-200\
-`2`
+:::
 
 ### Syntax
 
@@ -780,7 +778,8 @@ Get items 101-200\
 <template #rest>
 
 ```
-?page=2
+// Get items <number> * limit
+?page=<number>
 ```
 
 </template>
@@ -788,8 +787,9 @@ Get items 101-200\
 <template #graphql>
 
 ```graphql
+# Get items <number> * limit
 query {
-	articles(page: 2) {
+	articles(page: <number>) {
 		id
 	}
 }
@@ -803,16 +803,39 @@ query {
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
 
 <template #rest>
 
-</template>
-<template #graphql>
+```
+// Get items 1-100
+?page=1
+
+// Get items 101-200
+?page=2
+```
 
 </template>
-<template #js-sdk>
+
+<template #graphql>
+
+```graphql
+# Get items 1-100
+query {
+	articles(page: 1) {
+		id
+	}
+}
+
+# Get items 101-200
+query {
+	articles(page: 2) {
+		id
+	}
+}
+```
 
 </template>
 
