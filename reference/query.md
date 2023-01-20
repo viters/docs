@@ -684,11 +684,6 @@ with caution.
 
 Skip the first `n` items in the response. Can be used for pagination.
 
-### Examples
-
-Get items 101—200\
-`100`
-
 ### Syntax
 
 <SnippetToggler
@@ -700,6 +695,39 @@ Get items 101—200\
 <template #rest>
 
 ```
+// Skip first <number> items in the response
+?offset=<number>
+```
+
+</template>
+
+<template #graphql>
+
+```graphql
+# Skip first <number> items in the response
+query {
+	articles(offset: <number>) {
+		id
+	}
+}
+```
+
+</template>
+
+</SnippetToggler>
+
+### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
+
+```
+// Get items 101-200
 ?offset=100
 ```
 
@@ -708,6 +736,7 @@ Get items 101—200\
 <template #graphql>
 
 ```graphql
+// Get items 101-200
 query {
 	articles(offset: 100) {
 		id
@@ -718,6 +747,12 @@ query {
 </template>
 
 </SnippetToggler>
+
+:::tip Why does this get just 100 items?
+
+That's the default for every request. For details, see the [`limit` parameter](#limit).
+
+:::
 
 ---
 
@@ -759,6 +794,25 @@ query {
 	}
 }
 ```
+
+</template>
+
+</SnippetToggler>
+
+### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+</template>
+<template #graphql>
+
+</template>
+<template #js-sdk>
 
 </template>
 
