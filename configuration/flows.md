@@ -222,7 +222,7 @@ The following is a highly generic example of a data chain.
 		// Every data chain has an $accountability key.
 	},
 	"$env": {
-		// Environment variables allowed in `FLOWS_EXEC_ALLOWED_ENV`.
+		// Environment variables allowed in `FLOWS_ENV_ALLOW_LIST`.
 		// This could include PUBLIC_URL, PORT, etc...
 		// Every data chain has an $env key.
 	},
