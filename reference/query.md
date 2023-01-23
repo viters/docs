@@ -522,8 +522,8 @@ of nested fields.
 # then field3.nested_field ascending
 
 query {
-	articles(sort: ["<field1>", "-<field2>", "<field3.nested_field>"]) {
-		id
+	collection(sort: ["<field1>", "-<field2>", "<field3.nested_field>"]) {
+		some_field
 	}
 }
 ```
@@ -1078,14 +1078,13 @@ This is only possible for top level fields. An alias for `field.nested_field` wo
 <template #graphql>
 
 ```graphql
-# A graphQL native feature
 query {
-	<collection> {
-		<alias1> : <field1> (<parameter>) {
+	collection {
+		alias1 : field1 (<parameter>) {
 			some_fields
 		}
 
-		<alias2> : <field1> {
+		alias2 : field1 {
 			some_fields
 		}
 	}
