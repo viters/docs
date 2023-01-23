@@ -33,6 +33,8 @@ This endpoint doesn't currently support any query parameters.
 
 An array of interface extension keys.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -40,35 +42,41 @@ An array of interface extension keys.
 
 <template #rest>
 
-### Syntax
-
 ```
 GET /extensions/:type
-```
-
-### Example
-
-```
-GET /extensions/interfaces
 ```
 
 </template>
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Query {
 	extensions: extensions
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /extensions/interfaces
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -77,6 +85,9 @@ query {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
