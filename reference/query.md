@@ -944,13 +944,12 @@ query {
 
 ## Deep
 
-Deep allows you to set any of the other query parameters on a nested relational dataset.
+Deep allows you to set any of the other query parameters on nested relational data.
 
-### Examples
-
-Limit the nested related articles to 3
+You can pass one simple parameter.
 
 ```json
+// Limit the nested related articles to 3:
 {
 	"related_articles": {
 		"_limit": 3
@@ -958,9 +957,10 @@ Limit the nested related articles to 3
 }
 ```
 
-Only get 3 related articles, with only the top rated comment nested
+Or you can pass multiple complex parameters.
 
 ```json
+// Only get 3 related articles, with only the top-rated comment nested:
 {
 	"related_articles": {
 		"_limit": 3,
@@ -971,6 +971,13 @@ Only get 3 related articles, with only the top rated comment nested
 	}
 }
 ```
+
+:::tip GraphQL Native
+
+Deep queries is a native feature of [GraphQL](https://graphql.org/). Just pass the desired parameter as you normally
+would at the proper depth.
+
+:::
 
 ### Syntax
 
@@ -983,9 +990,44 @@ Only get 3 related articles, with only the top rated comment nested
 <template #rest>
 
 ```
+?deep[<relational_field>][_<parameter>][<nested_field>]<parameter_option>
+
+// OR
+
+?deep={ "<relational_field>": { "_<parameter>": { "<nested_field>": { <parameter_option> }}}}
+
+```
+
+</template>
+
+<template #graphql>
+
+```graphql
+# Natively supported in GraphQL.
+# You can run a query parameter at any depth.
+# Therefore, syntax will vary depending on your parameter and depth.
+# Please refer to the query parameter you wish to use.
+```
+
+</template>
+
+</SnippetToggler>
+
+### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
+
+```
+// return nested items where translations.language_code is English
 ?deep[translations][_filter][languages_code][_eq]=en-US
 
-// or
+// OR
 
 ?deep={ "translations": { "_filter": { "languages_code": { "_eq": "en-US" }}}}
 ```
@@ -995,13 +1037,11 @@ Only get 3 related articles, with only the top rated comment nested
 <template #graphql>
 
 ```graphql
+# return nested items where translations.language_code is English
 query {
-	members {
-		favorite_games(filter: { name: { _eq: "Mariokart 8" } }) {
-			id
-			featured_image {
-				filename_disk
-			}
+	some_collection {
+		translations(filter: { languages_code: { _eq: "en-US" } }) {
+			some_fields
 		}
 	}
 }
