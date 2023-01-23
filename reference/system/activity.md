@@ -77,41 +77,56 @@ Returns a list of activity actions.
 
 Supports all [global query parameters](/reference/query).
 
+If using REST, learn more about using [SEARCH](/reference/introduction#search-http-method)
+
 ### Returns
 
 An array of up to [limit](/reference/query#limit) [activity objects](#the-activity-object). If no items are available,
 data will be an empty array.
 
+### Syntax
+
 <SnippetToggler v-model="pref" :choices="['REST', 'GraphQL']" label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```
 GET /activity
 SEARCH /activity
 ```
 
-[Learn more about SEARCH ->](/reference/introduction#search-http-method)
-
 </template>
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Query {
 	activity: [directus_activity]
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /activity
+SEARCH /activity
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -120,6 +135,9 @@ query {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
@@ -139,11 +157,11 @@ Supports all [global query parameters](/reference/query).
 
 Returns an [activity object](#the-activity-object) if a valid identifier was provided.
 
+### Syntax
+
 <SnippetToggler v-model="pref" :choices="['REST', 'GraphQL']" label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```
 GET /activity/:id
@@ -153,19 +171,33 @@ GET /activity/:id
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Query {
 	activity_by_id(id: ID!): directus_activity
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /activity/15
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -174,6 +206,9 @@ query {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
@@ -200,17 +235,40 @@ The comment content. Supports Markdown.
 
 Returns the [activity object](#the-activity-object) of the created comment.
 
+### Syntax
+
 <SnippetToggler v-model="pref" :choices="['REST', 'GraphQL']" label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```
 POST /activity/comment
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	create_comment(collection: String!, item: ID!, comment: String!): directus_activity
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // POST /activity/comment
@@ -223,22 +281,7 @@ POST /activity/comment
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	create_comment(collection: String!, item: ID!, comment: String!): directus_activity
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -249,6 +292,9 @@ mutation {
 	) { ... }
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
@@ -269,17 +315,40 @@ The updated comment content. Supports Markdown.
 
 Returns the [activity object](#the-activity-object) of the created comment.
 
+### Syntax
+
 <SnippetToggler v-model="pref" :choices="['REST', 'GraphQL']" label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```
 PATCH /activity/comment/:id
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	update_comment(id: ID!, comment: String!): directus_activity
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // PATCH /activity/comment/15
@@ -290,22 +359,7 @@ PATCH /activity/comment/:id
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	update_comment(id: ID!, comment: String!): directus_activity
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -317,6 +371,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
+
+</template>
 
 </SnippetToggler>
 
@@ -326,39 +383,47 @@ mutation {
 
 Deletes a comment.
 
+### Syntax
+
 <SnippetToggler v-model="pref" :choices="['REST', 'GraphQL']" label="API" >
 
 <template #rest>
 
-### Syntax
-
 ```
 DELETE /activity/comment/:id
-```
-
-### Example
-
-```
-DELETE /activity/comment/15
 ```
 
 </template>
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Mutation {
 	delete_comment(id: ID): delete_one
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+DELETE /activity/comment/15
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 mutation {
@@ -367,6 +432,9 @@ mutation {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
