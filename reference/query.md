@@ -18,21 +18,6 @@ const pref = ref('REST');
 > Most Directus API Endpoint operations can be manipulated with the following parameters. It is important to understand
 > them to get the most out of the platform.
 
-- [Fields](#fields)
-- [Filter](#filter)
-- [Search](#search)
-- [Sort](#sort)
-- [Limit](#limit)
-- [Offset](#offset) / [Page](#page)
-- [Aggregation & Grouping](#aggregation-grouping)
-- [Deep](#deep)
-- [Aliases](#aliases)
-- [Export](#export)
-- [Functions](#functions)
-- [Metadata](#metadata)
-  - [Total Count](#total-count)
-  - [Filter Count](#filter-count)
-
 ---
 
 ## Fields
@@ -1219,12 +1204,8 @@ Saves the API response to a file. Accepts one of `json`, `csv`, `xml`.
 
 ## Functions
 
-Functions allow for "live" modification of values stored in a field. Functions can be used in any query parameter you'd
-normally supply a field key, including fields, aggregation, and filter.
-
-Functions can be used by wrapping the field key in a JavaScript like syntax, for example:
-
-`timestamp` -> `year(timestamp)`
+Functions allow for "live" modification of values stored in a field. Functions can be used in any query parameter in
+which you'd normally supply a field key, including fields, aggregation, and filter.
 
 ### DateTime Functions
 
@@ -1247,10 +1228,9 @@ Functions can be used by wrapping the field key in a JavaScript like syntax, for
 
 ::: warning GraphQL
 
-Names aren't allowed to include any special characters in GraphQL, preventing the `()` syntax from being used.
-
-As an alternative, the above functions can be used by appending `_func` at the end of the field name, and using the
-function name as the nested field (see the example that follows).
+Names aren't allowed to include any special characters in GraphQL, preventing the `()` syntax from being used. As an
+alternative, the above functions can be used by appending `_func` at the end of the field name, and using the function
+name as the nested field.
 
 :::
 
@@ -1265,6 +1245,42 @@ function name as the nested field (see the example that follows).
 <template #rest>
 
 ```
+// Basic Syntax
+<function>(<field>)
+```
+
+</template>
+
+<template #graphql>
+
+```graphql
+query {
+	collection(filter: { field_func: { function: { _eq: 2021 } } }) {
+		some_fields
+		date_published_func {
+			weekday
+		}
+	}
+}
+```
+
+</template>
+
+</SnippetToggler>
+
+### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
+
+```
+// Use with other fields and other parameters.
+
 ?fields=id,title,weekday(date_published)
 &filter[year(date_published)][_eq]=2021
 ```
@@ -1293,18 +1309,49 @@ query {
 
 ## Metadata
 
-Metadata allows you to retrieve some additional information about the items in the collection you're fetching. `*` can
-be used as a wildcard to retrieve all metadata.
+`meta` allows you to retrieve some additional information about the items in the collection you're fetching. You have
+three options:
 
-### Total Count
+- `*` is the wildcard to retrieve all metadata.
+- `total_count` Returns the total item count of the collection you're querying.
+- `filter_count` Returns the item count of the collection you're querying, taking the current filter/search parameters
+  into account.
 
-Returns the total item count of the collection you're querying.
+:::tip
 
-### Filter Count
+[Aggregation & Grouping](#aggregation--grouping) are a more performant and flexible replacement to `metadata`.
 
-Returns the item count of the collection you're querying, taking the current filter/search parameters into account.
+:::
 
 ### Syntax
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
+
+```
+?meta=<option>
+```
+
+</template>
+
+<template #graphql>
+
+```graphql
+
+# n/a
+
+```
+
+</template>
+
+</SnippetToggler>
+
+### Example
 
 <SnippetToggler
 	v-model="pref"
@@ -1326,7 +1373,11 @@ Returns the item count of the collection you're querying, taking the current fil
 
 <template #graphql>
 
-n/a
+```graphql
+
+# n/a
+
+```
 
 </template>
 
