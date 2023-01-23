@@ -86,7 +86,7 @@ data will be an empty array.
 
 ### Syntax
 
-<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL']" label="API" >
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API" >
 
 <template #rest>
 
@@ -159,7 +159,7 @@ Returns an [activity object](#the-activity-object) if a valid identifier was pro
 
 ### Syntax
 
-<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL']" label="API" >
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API" >
 
 <template #rest>
 
@@ -178,6 +178,9 @@ type Query {
 	activity_by_id(id: ID!): directus_activity
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
@@ -237,7 +240,7 @@ Returns the [activity object](#the-activity-object) of the created comment.
 
 ### Syntax
 
-<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL']" label="API" >
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API" >
 
 <template #rest>
 
@@ -256,6 +259,9 @@ type Mutation {
 	create_comment(collection: String!, item: ID!, comment: String!): directus_activity
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
@@ -317,7 +323,7 @@ Returns the [activity object](#the-activity-object) of the created comment.
 
 ### Syntax
 
-<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL']" label="API" >
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API" >
 
 <template #rest>
 
@@ -336,6 +342,9 @@ type Mutation {
 	update_comment(id: ID!, comment: String!): directus_activity
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
@@ -385,7 +394,7 @@ Deletes a comment.
 
 ### Syntax
 
-<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL']" label="API" >
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API" >
 
 <template #rest>
 
@@ -404,6 +413,9 @@ type Mutation {
 	delete_comment(id: ID): delete_one
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
