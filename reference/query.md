@@ -1084,7 +1084,7 @@ This is only possible for top level fields. An alias for `field.nested_field` wo
 
 ```
 ?alias[<alias1>]=<field1>      		// A basic alias
-&alias[<alias2>]=<field1>     		// Add multiple Aliases
+&alias[<alias2>]=<field1>     		// Add multiple aliases
 &deep[<alias2>]<query_parameter>	// Use alias in other query params
 ```
 
