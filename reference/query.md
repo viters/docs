@@ -845,9 +845,8 @@ query {
 
 ## Aggregation & Grouping
 
-Aggregate functions allow you to perform calculations on a set of values, returning a single result.
-
-The following aggregation functions are available in Directus:
+Aggregate functions allow you to perform calculations on a set of values, returning a single result. The following
+aggregators are available in Directus:
 
 | Name            | Description                                                   |
 | --------------- | ------------------------------------------------------------- |
@@ -863,12 +862,11 @@ The following aggregation functions are available in Directus:
 
 ### Grouping
 
-By default, the above aggregation functions run on the whole dataset. To allow for more flexible reporting, you can
-combine the above aggregation with grouping. Grouping allows for running the aggregation functions based on a shared
-value. This allows for things like _"Average rating per month"_ or _"Total sales of items in the jeans category"_.
-
-The `groupBy` query allows for grouping on multiple fields simultaneously. Combined with the [Functions](#functions),
-this allows for aggregate reporting per year-month-date.
+By default, the above aggregators run on the whole dataset. To allow for more flexible reporting, you can add the
+`groupBy` parameter to aggregate based on a shared value. This allows you to find things like _"Average rating per
+month"_ or _"Total sales of items in the jeans category"_. The `groupBy` parameter allows for grouping on multiple
+fields simultaneously. You can also add [Functions](#functions), which enable for aggregate reporting per
+year-month-date.
 
 ### Syntax
 
@@ -881,7 +879,43 @@ this allows for aggregate reporting per year-month-date.
 <template #rest>
 
 ```
-?aggregate[avg]=cost
+?aggregate[<aggregation_function>]=<field>
+&groupBy[]=<field>
+&groupBy[]=<function>(<field>)
+```
+
+</template>
+
+<template #graphql>
+
+```graphql
+query {
+	articles_aggregated(groupBy: [ "<field>", "<function>(<field>)" ]) {
+		group
+		<aggregation_function> {
+			<field>
+		}
+	}
+}
+```
+
+</template>
+
+</SnippetToggler>
+
+### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
+
+```
+// Get the average revenue per author per publish_year
+?aggregate[avg]=revenue
 &groupBy[]=author
 &groupBy[]=year(publish_date)
 ```
@@ -891,10 +925,11 @@ this allows for aggregate reporting per year-month-date.
 <template #graphql>
 
 ```graphql
+# Get the average cost per author per publish_year
 query {
 	articles_aggregated(groupBy: ["author", "year(publish_date)"]) {
 		group
-		sum {
+		avg {
 			revenue
 		}
 	}
