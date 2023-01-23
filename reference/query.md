@@ -1168,6 +1168,34 @@ Saves the API response to a file. Accepts one of `json`, `csv`, `xml`.
 <template #rest>
 
 ```
+?export=<file_type>
+```
+
+</template>
+
+<template #graphql>
+
+```graphql
+
+# Not currently available in GraphQL.
+
+```
+
+</template>
+
+</SnippetToggler>
+
+### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
+
+```
 ?export=json
 ?export=csv
 ?export=xml
@@ -1177,7 +1205,11 @@ Saves the API response to a file. Accepts one of `json`, `csv`, `xml`.
 
 <template #graphql>
 
-N/A
+```graphql
+
+# Not currently available in GraphQL.
+
+```
 
 </template>
 
