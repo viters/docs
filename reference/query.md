@@ -1025,6 +1025,7 @@ would at the proper depth.
 
 ```
 // return nested items where translations.language_code is English
+
 ?deep[translations][_filter][languages_code][_eq]=en-US
 
 // OR
@@ -1055,16 +1056,62 @@ query {
 
 ## Aliases
 
-Aliases allow you rename fields on the fly, and request the same nested data set multiple times using different filters.
+Aliases allow you to rename fields on the fly as well as request the same nested data set multiple times using different
+filters.
+
+:::tip GraphQL Native
+
+Aliasing is a native feature of graphQL. For details, see the documentation on
+[GraphQL aliases](https://graphql.org/learn/queries/#aliases).
+
+:::
 
 ::: warning Nested fields
 
-It is only possible to alias same level fields.\
-Alias for nested fields, f.e. `field.nested`, will not work.
+This is only possible for top level fields. An alias for `field.nested_field` won't work.
 
 :::
 
 ### Syntax
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL']"
+	label="API"
+	>
+
+<template #rest>
+
+```
+?alias[<alias1>]=<field1>      		// A basic alias
+&alias[<alias2>]=<field1>     		// Add multiple Aliases
+&deep[<alias2>]<query_parameter>	// Use alias in other query params
+```
+
+</template>
+
+<template #graphql>
+
+```graphql
+# A graphQL native feature
+query {
+	<collection> {
+		<alias1> : <field1> (<parameter>) {
+			some_fields
+		}
+
+		<alias2> : <field1> {
+			some_fields
+		}
+	}
+}
+```
+
+</template>
+
+</SnippetToggler>
+
+### Example
 
 <SnippetToggler
 	v-model="pref"
