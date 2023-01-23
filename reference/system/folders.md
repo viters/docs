@@ -47,6 +47,8 @@ Parent folder. Many-to-one to folders (recursive).
 
 List all folders that exist in Directus.
 
+If using REST, learn more about using [SEARCH](/reference/introduction#search-http-method)
+
 ### Query Parameters
 
 Supports all [global query parameters](/reference/query).
@@ -56,6 +58,8 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [folder objects](#the-folder-object). If no items are available, data
 will be an empty array.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -63,32 +67,43 @@ will be an empty array.
 
 <template #rest>
 
-### Syntax
+```
+GET /folders
+SEARCH /folders
+```
+
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Query {
+	folders: directus_folders
+}
+```
+
+</template>
+
+</SnippetToggler>
+
+### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```
 GET /folders
 SEARCH /folders
 ```
 
-[Learn more about SEARCH ->](/reference/introduction#search-http-method)
-
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Query {
-	folders: directus_folders
-}
-```
-
-### Example
 
 ```graphql
 query {
@@ -97,6 +112,9 @@ query {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
@@ -116,6 +134,8 @@ Supports all [global query parameters](/reference/query).
 
 Returns a [folder object](#the-folder-object) if a valid primary key was provided.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -123,35 +143,41 @@ Returns a [folder object](#the-folder-object) if a valid primary key was provide
 
 <template #rest>
 
-### Syntax
-
 ```
 GET /folders/:id
-```
-
-### Example
-
-```
-GET /folders/fc02d733-95b8-4e27-bd4b-08a32cbe4e66
 ```
 
 </template>
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Query {
 	folders_by_id(id: ID!): directus_folders
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /folders/fc02d733-95b8-4e27-bd4b-08a32cbe4e66
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -160,6 +186,9 @@ query {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
@@ -183,6 +212,8 @@ A partial [folder object](#the-folder-object). `name` is required.
 
 Returns the [folder object](#the-folder-object) of the folder that was created.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -190,13 +221,34 @@ Returns the [folder object](#the-folder-object) of the folder that was created.
 
 <template #rest>
 
-### Syntax
-
 ```
 POST /folders
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	create_folders_item(data: create_directus_folders_input): directus_folders
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // POST /folders
@@ -207,22 +259,7 @@ POST /folders
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	create_folders_item(data: create_directus_folders_input): directus_folders
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -232,6 +269,9 @@ mutation {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
@@ -255,6 +295,8 @@ An array of partial [folder objects](#the-folder-object). `name` is required.
 
 Returns the [folder object](#the-folder-object) of the folder that was created.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -262,13 +304,34 @@ Returns the [folder object](#the-folder-object) of the folder that was created.
 
 <template #rest>
 
-### Syntax
-
 ```
 POST /folders
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	create_folders_items(data: [create_directus_folders_input]): [directus_folders]
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // POST /folders
@@ -284,22 +347,7 @@ POST /folders
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	create_folders_items(data: [create_directus_folders_input]): [directus_folders]
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -309,6 +357,9 @@ mutation {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
@@ -332,6 +383,8 @@ A partial [folder object](#the-folder-object).
 
 Returns the [folder object](#the-folder-object) of the folder that was updated.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -339,13 +392,34 @@ Returns the [folder object](#the-folder-object) of the folder that was updated.
 
 <template #rest>
 
-### Syntax
-
 ```
 PATCH /folders/:id
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	update_folders_item(id: ID!, data: update_directus_folders_input): directus_folders
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // PATCH /folders/fac21847-d5ce-4e4b-a288-9abafbdfbc87
@@ -356,22 +430,7 @@ PATCH /folders/:id
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	update_folders_item(id: ID!, data: update_directus_folders_input): directus_folders
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -384,6 +443,9 @@ mutation {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
@@ -411,6 +473,8 @@ Any of [the folder object](#the-folder-object)'s properties.
 
 Returns the [folder objects](#the-folder-object) of the folders that were updated.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -418,13 +482,34 @@ Returns the [folder objects](#the-folder-object) of the folders that were update
 
 <template #rest>
 
-### Syntax
-
 ```
 PATCH /folders
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	update_folders_items(ids: [ID!]!, data: update_directus_folders_input): [directus_folders]
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // PATCH /folders
@@ -438,22 +523,7 @@ PATCH /folders
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	update_folders_items(ids: [ID!]!, data: update_directus_folders_input): [directus_folders]
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -466,6 +536,9 @@ mutation {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
@@ -487,6 +560,8 @@ Any files in this folder will be moved to the root folder.
 
 Empty body.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -494,35 +569,41 @@ Empty body.
 
 <template #rest>
 
-### Syntax
-
 ```
 DELETE /folders/:id
-```
-
-### Example
-
-```
-// DELETE /folders/a5bdb793-dd85-4ac9-882a-b42862092983
 ```
 
 </template>
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Mutation {
 	delete_folders_item(id: ID!): delete_one
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+// DELETE /folders/a5bdb793-dd85-4ac9-882a-b42862092983
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 mutation {
@@ -531,6 +612,9 @@ mutation {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
@@ -556,6 +640,8 @@ An array of folder primary keys.
 
 Empty body.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -563,13 +649,34 @@ Empty body.
 
 <template #rest>
 
-### Syntax
-
 ```
 DELETE /folders
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	delete_folders_items(ids: [ID!]!): delete_many
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // DELETE /folders
@@ -578,22 +685,7 @@ DELETE /folders
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	delete_folders_items(ids: [ID!]!): delete_many
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -602,6 +694,9 @@ mutation {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
