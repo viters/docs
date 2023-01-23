@@ -140,6 +140,8 @@ The table comment.
 
 List the available collections.
 
+If using REST, learn more about using [SEARCH](/reference/introduction#search-http-method)
+
 ### Query Parameters
 
 This endpoint doesn't currently support any query parameters.
@@ -148,6 +150,8 @@ This endpoint doesn't currently support any query parameters.
 
 An array of [collection objects](#the-collection-object).
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -155,32 +159,43 @@ An array of [collection objects](#the-collection-object).
 
 <template #rest>
 
-### Syntax
+```
+GET /collections
+SEARCH /collections
+```
+
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Query {
+	collections: [directus_collections]
+}
+```
+
+</template>
+
+</SnippetToggler>
+
+### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```
 GET /collections
 SEARCH /collections
 ```
 
-[Learn more about SEARCH ->](/reference/introduction#search-http-method)
-
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Query {
-	collections: [directus_collections]
-}
-```
-
-### Example
 
 ```graphql
 query {
@@ -189,6 +204,9 @@ query {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
@@ -208,6 +226,8 @@ This endpoint doesn't currently support any query parameters.
 
 A [collection object](#the-collection-object).
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -215,35 +235,41 @@ A [collection object](#the-collection-object).
 
 <template #rest>
 
-### Syntax
-
 ```
 GET /collections/:collection
-```
-
-### Example
-
-```
-GET /collections/articles
 ```
 
 </template>
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Query {
 	collections_by_name(name: String!): directus_collections
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /collections/articles
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -252,6 +278,9 @@ query {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
@@ -287,6 +316,8 @@ entirely or use `schema: null` to create ["folder" collections](/configuration/d
 
 :::
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -294,13 +325,34 @@ entirely or use `schema: null` to create ["folder" collections](/configuration/d
 
 <template #rest>
 
-### Syntax
-
 ```
 POST /collections
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	create_collections_item(data: directus_collections): directus_collections
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // POST /collections
@@ -314,22 +366,7 @@ POST /collections
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	create_collections_item(data: directus_collections): directus_collections
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -343,6 +380,9 @@ mutation {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
@@ -367,6 +407,8 @@ is not supported at this time.
 
 The [collection object](#the-collection-object) for the updated collection in this request.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -374,13 +416,34 @@ The [collection object](#the-collection-object) for the updated collection in th
 
 <template #rest>
 
-### Syntax
-
 ```
 PATCH /collections/:collection
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	update_collections_item(collection: String!, data: update_directus_collections_input!): directus_collections
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // PATCH /collections/testimonials
@@ -393,22 +456,7 @@ PATCH /collections/:collection
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	update_collections_item(collection: String!, data: update_directus_collections_input!): directus_collections
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -417,6 +465,9 @@ mutation {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
@@ -434,6 +485,8 @@ Be aware, this will delete the table from the database, including all items in i
 
 :::
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -441,35 +494,41 @@ Be aware, this will delete the table from the database, including all items in i
 
 <template #rest>
 
-### Syntax
-
 ```
 DELETE /collections/:collection
-```
-
-### Example
-
-```
-DELETE /collections/articles
 ```
 
 </template>
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Mutation {
 	delete_collections_item(collection: String!): delete_collection
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+DELETE /collections/articles
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 mutation {
@@ -480,7 +539,8 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
-</SnippetToggler>
+</template>
 
----
+## </SnippetToggler>
