@@ -173,14 +173,14 @@ This endpoint doesn't currently support any query parameters.
 
 An array of [field objects](#the-field-object).
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```
 GET /fields
@@ -190,19 +190,32 @@ GET /fields
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Query {
 	fields: [directus_fields]
 }
 ```
 
+</template>
+<template #js-sdk>
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -212,6 +225,9 @@ query {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
@@ -231,42 +247,53 @@ This endpoint doesn't currently support any query parameters.
 
 An array of [field objects](#the-field-object).
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
 
-### Syntax
-
 ```
 GET /fields/:collection
-```
-
-### Example
-
-```
-GET /fields/articles
 ```
 
 </template>
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Query {
 	fields_in_collection(collection: String!): directus_fields
 }
 ```
 
+</template>
+<template #js-sdk>
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /fields/articles
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -276,6 +303,9 @@ query {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
@@ -295,42 +325,53 @@ This endpoint doesn't currently support any query parameters.
 
 A [field object](#the-field-object).
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
 
-### Syntax
-
 ```
 GET /fields/:collection/:field
-```
-
-### Example
-
-```
-GET /fields/articles/title
 ```
 
 </template>
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Query {
 	fields_by_name(collection: String!, field: String!): directus_fields
 }
 ```
 
+</template>
+<template #js-sdk>
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /fields/articles/title
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -340,6 +381,9 @@ query {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
@@ -374,20 +418,46 @@ Any of the optional schema values in the [field object](#the-field-object).
 
 The [field object](#the-field-object) for the created field.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```
 POST /fields/:collection
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	create_fields_item(collection: String!, data: create_directus_fields_input!): directus_fields
+}
+```
+
+</template>
+<template #js-sdk>
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // POST /fields/articles
@@ -405,22 +475,7 @@ POST /fields/:collection
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	create_fields_item(collection: String!, data: create_directus_fields_input!): directus_fields
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -433,6 +488,9 @@ mutation {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
@@ -472,20 +530,46 @@ Updating the field name is not supported at this time.
 
 The [field object](#the-field-object) for the updated field.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```
 PATCH /fields/:collection/:field
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	update_fields_item(collection: String!, field: String!, data: update_directus_fields_input!): directus_fields
+}
+```
+
+</template>
+<template #js-sdk>
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // PATCH /fields/articles/title
@@ -501,22 +585,7 @@ PATCH /fields/:collection/:field
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	update_fields_item(collection: String!, field: String!, data: update_directus_fields_input!): directus_fields
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -530,6 +599,9 @@ mutation {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
@@ -547,42 +619,53 @@ Be aware, this will delete the column from the database, including all data in i
 
 :::
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
 
-### Syntax
-
 ```
 DELETE /fields/:collection/:field
-```
-
-### Example
-
-```
-DELETE /fields/articles/title
 ```
 
 </template>
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Mutation {
 	delete_fields_item(collection: String!, field: String!): delete_field
 }
 ```
 
+</template>
+<template #js-sdk>
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+DELETE /fields/articles/title
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 mutation {
@@ -592,6 +675,9 @@ mutation {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
