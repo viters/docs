@@ -350,7 +350,8 @@ type Mutation {
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
+	label="API"
+	>
 
 <template #rest>
 
@@ -543,4 +544,4 @@ mutation {
 
 </template>
 
-## </SnippetToggler>
+</SnippetToggler>
