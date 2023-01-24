@@ -34,14 +34,14 @@ This OAS spec is based on the read permissions of the currently authenticated us
 
 Object conforming to [the OpenAPI Specification](https://swagger.io/specification)
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
 	label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```
 GET /server/specs/oas
@@ -51,19 +51,33 @@ GET /server/specs/oas
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Query {
 	server_specs_oas: String
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /server/specs/oas
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -72,7 +86,9 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -111,14 +127,14 @@ type articles {
 # etc
 ```
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
 	label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```
 GET /server/specs/graphql/
@@ -129,19 +145,34 @@ GET /server/specs/graphql/system
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Query {
 	server_specs_graphql(scope: graphql_sdl_scope): String
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /server/specs/graphql/
+GET /server/specs/graphql/system
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -150,7 +181,9 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -163,14 +196,14 @@ Ping... pong! 🏓
 
 Pong.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
 	label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```
 GET /server/ping
@@ -180,19 +213,33 @@ GET /server/ping
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Query {
 	server_ping: String
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /server/ping
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -201,7 +248,9 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -258,14 +307,14 @@ How long the operating system has been up.
 `os.totalmem` **string**\
 How much memory is available on the operating system.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
 	label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```
 GET /server/info
@@ -275,19 +324,33 @@ GET /server/info
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Query {
 	server_info: server_info
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /server/info
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -300,7 +363,9 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -319,7 +384,7 @@ This endpoint can be used to ensure a healthy system when running in a horizonta
 Google Cloud Platform or AWS Elastic Beanstalk.
 
 By default, the endpoint only returns a `status` of `ok`, `warn` or `error`. By authenticating as an admin, it will
-return more in-depth information about the current health status of the system.
+return the following object, with more in-depth information about the current health status of the system:
 
 ```json
 // Response
@@ -391,14 +456,14 @@ UUID of the current Directus instance.
 `checks` **array**\
 Array with the status of all individually connected services.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
 	label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```
 GET /server/health
@@ -408,19 +473,33 @@ GET /server/health
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Query {
 	server_health: JSON
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /server/health
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -429,7 +508,9 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
