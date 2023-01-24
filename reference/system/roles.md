@@ -69,6 +69,8 @@ The users in this role. One-to-many to [users](/reference/system/users).
 
 List all roles that exist in Directus.
 
+If using REST, learn more about using [SEARCH](/reference/introduction#search-http-method)
+
 ### Query Parameters
 
 Supports all [global query parameters](/reference/query).
@@ -78,36 +80,49 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) of [role objects](#the-role-object). If no items are available, data
 will be an empty array.
 
+### Syntax
+
 <SnippetToggler v-model="pref" :choices="['REST', 'GraphQL']" label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```
 GET /roles
 SEARCH /roles
 ```
 
-[Learn more about SEARCH ->](/reference/introduction#search-http-method)
-
 </template>
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Query {
 	roles: [directus_roles]
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /roles
+SEARCH /roles
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -122,7 +137,9 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -139,6 +156,8 @@ Supports all [global query parameters](/reference/query).
 
 Returns the requested [role object](#the-role-object).
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -146,16 +165,8 @@ Returns the requested [role object](#the-role-object).
 
 <template #rest>
 
-### Syntax
-
 ```
 GET /roles/:id
-```
-
-### Example
-
-```
-GET /roles/b4cb3b64-8580-4ad9-a099-eade6da24302
 ```
 
 </template>
@@ -164,17 +175,33 @@ GET /roles/b4cb3b64-8580-4ad9-a099-eade6da24302
 
 ### Syntax
 
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Query {
 	roles_by_id(id: ID!): directus_roles
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /roles/b4cb3b64-8580-4ad9-a099-eade6da24302
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -189,7 +216,9 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -210,6 +239,8 @@ A partial [role object](#the-role-object).
 
 Returns the [role object](#the-role-object) for the created role.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -217,13 +248,32 @@ Returns the [role object](#the-role-object) for the created role.
 
 <template #rest>
 
-### Syntax
-
 ```
 POST /roles
 ```
 
-### Example
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	create_roles_item(data: create_directus_roles_input!): directus_roles
+}
+```
+
+</template>
+
+</SnippetToggler>
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // POST /roles
@@ -238,22 +288,7 @@ POST /roles
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	create_roles_item(data: create_directus_roles_input!): directus_roles
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -270,7 +305,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -291,6 +328,8 @@ An array of partial [role objects](#the-role-object).
 
 Returns the [role objects](#the-role-object) for the created roles.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -298,13 +337,34 @@ Returns the [role objects](#the-role-object) for the created roles.
 
 <template #rest>
 
-### Syntax
-
 ```
 POST /roles
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	create_roles_items(data: [create_directus_roles_input!]!): [directus_roles]
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // POST /roles
@@ -328,22 +388,7 @@ POST /roles
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	create_roles_items(data: [create_directus_roles_input!]!): [directus_roles]
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -363,7 +408,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -384,6 +431,8 @@ A partial [role object](#the-role-object).
 
 Returns the [role object](#the-role-object) for the updated role.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -391,13 +440,34 @@ Returns the [role object](#the-role-object) for the updated role.
 
 <template #rest>
 
-### Syntax
-
 ```
 PATCH /roles/:id
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	update_roles_item(id: ID!, data: update_directus_roles_input): directus_roles
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // PATCH /roles/c86c2761-65d3-43c3-897f-6f74ad6a5bd7
@@ -408,22 +478,7 @@ PATCH /roles/:id
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	update_roles_item(id: ID!, data: update_directus_roles_input): directus_roles
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -438,7 +493,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -463,6 +520,8 @@ Any of [the role object](#the-role-object)'s properties.
 
 Returns the [role objects](#the-role-object) for the updated roles.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -470,13 +529,34 @@ Returns the [role objects](#the-role-object) for the updated roles.
 
 <template #rest>
 
-### Syntax
-
 ```
 PATCH /roles
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	update_roles_items(ids: [ID!]!, data: update_directus_roles_input): [directus_roles]
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // PATCH /roles
@@ -490,22 +570,7 @@ PATCH /roles
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	update_roles_items(ids: [ID!]!, data: update_directus_roles_input): [directus_roles]
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -523,7 +588,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -536,6 +603,8 @@ Delete an existing role.
 
 Empty body.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -543,35 +612,41 @@ Empty body.
 
 <template #rest>
 
-### Syntax
-
 ```
 DELETE /roles/:id
-```
-
-### Example
-
-```
-DELETE /roles/c86c2761-65d3-43c3-897f-6f74ad6a5bd7
 ```
 
 </template>
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Mutation {
 	delete_roles_item(id: ID!): delete_one
 }
 ```
 
-### Example
+</template>
+
+</SnippetToggler>
+
+### Syntax
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+DELETE /roles/c86c2761-65d3-43c3-897f-6f74ad6a5bd7
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 mutation {
@@ -582,7 +657,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -599,6 +676,8 @@ An array of role primary keys
 
 Empty body.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -606,13 +685,34 @@ Empty body.
 
 <template #rest>
 
-### Syntax
-
 ```
 DELETE /roles
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	delete_roles_items(ids: [ID!]!): delete_many
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // DELETE /roles
@@ -621,22 +721,7 @@ DELETE /roles
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	delete_roles_items(ids: [ID!]!): delete_many
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -647,7 +732,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
