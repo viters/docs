@@ -71,6 +71,8 @@ What fields the user is allowed to alter.
 
 List all permissions that exist in Directus.
 
+If using REST, learn more about using [SEARCH](/reference/introduction#search-http-method)
+
 ::: tip Permissions
 
 The data returned in this endpoint will be filtered based on the user's permissions. For example, permissions for a role
@@ -87,6 +89,8 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [permission objects](#the-permission-object). If no items are
 available, data will be an empty array.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -101,25 +105,38 @@ GET /permissions
 SEARCH /permissions
 ```
 
-[Learn more about SEARCH ->](/reference/introduction#search-http-method)
-
 </template>
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Query {
 	permissions: directus_permissions
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /permissions
+SEARCH /permissions
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -132,9 +149,10 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
-
 ---
 
 ## Retrieve a Permission
@@ -149,6 +167,8 @@ Supports all [global query parameters](/reference/query).
 
 Returns the requested [permission object](#the-permission-object).
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -156,13 +176,34 @@ Returns the requested [permission object](#the-permission-object).
 
 <template #rest>
 
-### Syntax
-
 ```
 GET /permissions/:id
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Query {
+	permissions_by_id(id: ID!): directus_permissions
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // GET /permissions/34
@@ -188,22 +229,7 @@ GET /permissions/:id
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Query {
-	permissions_by_id(id: ID!): directus_permissions
-}
-```
-
-### Example
 
 ```graphql
 query {
@@ -216,7 +242,9 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -237,6 +265,8 @@ A partial [permissions object](#the-permission-object). `action` and `collection
 
 Returns the [permission object](#the-permission-object) for the created permission.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -244,13 +274,34 @@ Returns the [permission object](#the-permission-object) for the created permissi
 
 <template #rest>
 
-### Syntax
-
 ```
 POST /permissions
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	create_permissions_item(data: create_directus_permissions_input!): directus_permissions
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // Request
@@ -264,22 +315,7 @@ POST /permissions
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	create_permissions_item(data: create_directus_permissions_input!): directus_permissions
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -294,7 +330,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -315,6 +353,8 @@ An array of partial [permissions objects](#the-permission-object). `action` and 
 
 Returns the [permission objects](#the-permission-object) for the created permissions.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -322,13 +362,34 @@ Returns the [permission objects](#the-permission-object) for the created permiss
 
 <template #rest>
 
-### Syntax
-
 ```
 POST /permissions
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	create_permissions_items(data: [create_directus_permissions_input!]!): [directus_permissions]
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // POST /permissions
@@ -350,22 +411,7 @@ POST /permissions
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	create_permissions_items(data: [create_directus_permissions_input!]!): [directus_permissions]
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -383,7 +429,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -404,6 +452,8 @@ A partial [permissions object](#the-permission-object).
 
 Returns the [permission object](#the-permission-object) for the updated permission.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -411,13 +461,34 @@ Returns the [permission object](#the-permission-object) for the updated permissi
 
 <template #rest>
 
-### Syntax
-
 ```
 PATCH /permissions/:id
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	update_permissions_item(id: ID!, data: update_directus_permissions_input!): directus_permissions
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // PATCH /permissions/34
@@ -428,22 +499,7 @@ PATCH /permissions/:id
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	update_permissions_item(id: ID!, data: update_directus_permissions_input!): directus_permissions
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -456,7 +512,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -483,6 +541,8 @@ Any of [the permission object](#the-permission-object)'s properties.
 
 Returns the [permission object](#the-permission-object) for the updated permissions.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -490,13 +550,34 @@ Returns the [permission object](#the-permission-object) for the updated permissi
 
 <template #rest>
 
-### Syntax
-
 ```
 PATCH /permissions
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	update_permissions_items(id: [ID!]!, data: update_directus_permissions_input!): [directus_permissions]
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // PATCH /permissions
@@ -510,22 +591,7 @@ PATCH /permissions
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	update_permissions_items(id: [ID!]!, data: update_directus_permissions_input!): [directus_permissions]
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -538,7 +604,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -551,6 +619,8 @@ Delete an existing permissions rule
 
 Empty body.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -558,35 +628,41 @@ Empty body.
 
 <template #rest>
 
-### Syntax
-
 ```
 DELETE /permissions/:id
-```
-
-### Example
-
-```
-DELETE /permissions/34
 ```
 
 </template>
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Mutation {
 	delete_permissions_item(id: ID!): delete_one
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+DELETE /permissions/34
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 mutation {
@@ -597,7 +673,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -614,6 +692,8 @@ An array of permission primary keys
 
 Empty body.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -621,13 +701,34 @@ Empty body.
 
 <template #rest>
 
-### Syntax
-
 ```
 DELETE /permissions
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	delete_permissions_items(ids: [ID!]!): delete_many
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // DELETE /permissions
@@ -636,22 +737,7 @@ DELETE /permissions
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	delete_permissions_items(ids: [ID!]!): delete_many
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -662,7 +748,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
