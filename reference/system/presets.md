@@ -88,6 +88,8 @@ The options used by the layout. This structure is based on the used layout.
 
 List all presets that exist in Directus.
 
+If using REST, learn more about using [SEARCH](/reference/introduction#search-http-method)
+
 ::: tip Permissions
 
 The data returned in this endpoint will be filtered based on the user's permissions. For example, presets for a role
@@ -104,6 +106,8 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [preset objects](#the-preset-object). If no items are available, data
 will be an empty array.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -111,32 +115,43 @@ will be an empty array.
 
 <template #rest>
 
-### Syntax
+```
+GET /presets
+SEARCH /presets
+```
+
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Query {
+	presets: [directus_presets]
+}
+```
+
+</template>
+
+</SnippetToggler>
+
+### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```
 GET /presets
 SEARCH /presets
 ```
 
-[Learn more about SEARCH ->](/reference/introduction#search-http-method)
-
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Query {
-	presets: [directus_presets]
-}
-```
-
-### Example
 
 ```graphql
 query {
@@ -148,7 +163,9 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -165,6 +182,8 @@ Supports all [global query parameters](/reference/query).
 
 Returns the requested [preset object](#the-preset-object).
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -172,35 +191,41 @@ Returns the requested [preset object](#the-preset-object).
 
 <template #rest>
 
-### Syntax
-
 ```
 GET /presets/:id
-```
-
-### Example
-
-```
-GET /presets/42
 ```
 
 </template>
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Query {
 	presets_by_id(id: ID!): directus_presets
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /presets/42
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -212,7 +237,9 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -233,6 +260,8 @@ A partial [preset object](#the-preset-object).
 
 Returns the [preset object](#the-preset-object) for the created preset.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -240,13 +269,34 @@ Returns the [preset object](#the-preset-object) for the created preset.
 
 <template #rest>
 
-### Syntax
-
 ```
 POST /presets
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	create_presets_item(data: create_directus_presets_input!): directus_presets
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // POST /presets
@@ -259,22 +309,7 @@ POST /presets
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	create_presets_item(data: create_directus_presets_input!): directus_presets
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -286,7 +321,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -307,6 +344,8 @@ An array of partial [preset objects](#the-preset-object).
 
 Returns the [preset object](#the-preset-object) for the created preset.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -314,13 +353,34 @@ Returns the [preset object](#the-preset-object) for the created preset.
 
 <template #rest>
 
-### Syntax
-
 ```
 POST /presets
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	create_presets_items(data: [create_directus_presets_input!]!): [directus_presets]
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // POST /presets
@@ -341,22 +401,7 @@ POST /presets
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	create_presets_items(data: [create_directus_presets_input!]!): [directus_presets]
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -378,7 +423,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -399,6 +446,8 @@ A partial [preset object](#the-preset-object).
 
 Returns the [preset object](#the-preset-object) for the updated preset.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -406,13 +455,34 @@ Returns the [preset object](#the-preset-object) for the updated preset.
 
 <template #rest>
 
-### Syntax
-
 ```
 PATCH /presets/:id
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	update_presets_item(id: ID!, data: update_directus_presets_input): directus_presets
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // PATCH /presets/34
@@ -423,22 +493,7 @@ PATCH /presets/:id
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	update_presets_item(id: ID!, data: update_directus_presets_input): directus_presets
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -450,7 +505,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -475,6 +532,8 @@ Any of [the preset object](#the-preset-object)'s properties.
 
 Returns the [preset objects](#the-preset-object) for the updated presets.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -482,13 +541,34 @@ Returns the [preset objects](#the-preset-object) for the updated presets.
 
 <template #rest>
 
-### Syntax
-
 ```
 PATCH /presets
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	update_presets_items(ids: [ID!]!, data: update_directus_presets_input): [directus_presets]
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // PATCH /presets
@@ -502,22 +582,7 @@ PATCH /presets
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	update_presets_items(ids: [ID!]!, data: update_directus_presets_input): [directus_presets]
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -529,7 +594,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -542,6 +609,8 @@ Delete an existing preset.
 
 Empty body.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -549,35 +618,41 @@ Empty body.
 
 <template #rest>
 
-### Syntax
-
 ```
 DELETE /presets/:id
-```
-
-### Example
-
-```
-DELETE /presets/34
 ```
 
 </template>
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Mutation {
 	delete_presets_item(id: ID!): delete_one
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+DELETE /presets/34
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 mutation {
@@ -588,7 +663,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -605,6 +682,8 @@ An array of preset primary keys
 
 Empty body.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -612,36 +691,43 @@ Empty body.
 
 <template #rest>
 
-### Syntax
-
 ```
 DELETE /presets
-```
-
-### Example
-
-```json
-// DELETE /presets
-[15, 251, 810]
 ```
 
 </template>
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Mutation {
 	delete_presets_items(ids: [ID!]!): delete_many
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```json
+// DELETE /presets
+
+[15, 251, 810]
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 mutation {
@@ -652,5 +738,7 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
