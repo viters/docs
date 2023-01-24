@@ -82,6 +82,8 @@ The flow containing this operation. Many-to-one to [flows](/reference/system/flo
 
 List all operations that exist in Directus.
 
+If using REST, learn more about using [SEARCH](/reference/introduction#search-http-method)
+
 ### Query Parameters
 
 Supports all [global query parameters](/reference/query).
@@ -91,6 +93,8 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [operation objects](#the-operation-object). If no items are available,
 data will be an empty array.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -98,32 +102,43 @@ data will be an empty array.
 
 <template #rest>
 
-### Syntax
+```
+GET /operations
+SEARCH /operations
+```
+
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Query {
+	operations: [directus_operations]
+}
+```
+
+</template>
+
+</SnippetToggler>
+
+### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```
 GET /operations
 SEARCH /operations
 ```
 
-[Learn more about SEARCH ->](/reference/introduction#search-http-method)
-
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Query {
-	operations: [directus_operations]
-}
-```
-
-### Example
 
 ```graphql
 query {
@@ -136,7 +151,9 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -153,6 +170,8 @@ Supports all [global query parameters](/reference/query).
 
 Returns the requested [operation object](#the-operation-object).
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -160,35 +179,41 @@ Returns the requested [operation object](#the-operation-object).
 
 <template #rest>
 
-### Syntax
-
 ```
 GET /operations/:id
-```
-
-### Example
-
-```
-GET /operations/3c636d1c-4eb2-49cd-8a6d-3ec571ab3390
 ```
 
 </template>
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Query {
 	operations_by_id(id: ID!): directus_operations
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /operations/3c636d1c-4eb2-49cd-8a6d-3ec571ab3390
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -201,7 +226,9 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -222,6 +249,8 @@ A partial [operation object](#the-operation-object).
 
 Returns the [operation object](#the-operation-object) for the created operation.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -229,13 +258,34 @@ Returns the [operation object](#the-operation-object) for the created operation.
 
 <template #rest>
 
-### Syntax
-
 ```
 POST /operations
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	create_operations_item(data: create_directus_operations_input!): directus_operations
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // POST /operations
@@ -248,22 +298,7 @@ POST /operations
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	create_operations_item(data: create_directus_operations_input!): directus_operations
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -276,9 +311,10 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
-
 ---
 
 ## Create Multiple Operations
@@ -297,6 +333,8 @@ An array of partial [operation objects](#the-operation-object).
 
 Returns the [operation object](#the-operation-object) for the created operation.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -304,13 +342,34 @@ Returns the [operation object](#the-operation-object) for the created operation.
 
 <template #rest>
 
-### Syntax
-
 ```
 POST /operations
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	create_operations_items(data: [create_directus_operations_input!]!): [directus_operations]
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // POST /operations
@@ -330,22 +389,7 @@ POST /operations
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	create_operations_items(data: [create_directus_operations_input!]!): [directus_operations]
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -371,7 +415,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -392,6 +438,8 @@ A partial [operation object](#the-operation-object).
 
 Returns the [operation object](#the-operation-object) for the updated operation.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -399,13 +447,34 @@ Returns the [operation object](#the-operation-object) for the updated operation.
 
 <template #rest>
 
-### Syntax
-
 ```
 PATCH /operation/:id
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	update_operations_item(id: ID!, data: update_directus_operations_input): directus_operations
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // PATCH /operation/7d62f1e9-a83f-407b-84f8-1c184f014501
@@ -416,22 +485,7 @@ PATCH /operation/:id
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	update_operations_item(id: ID!, data: update_directus_operations_input): directus_operations
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -443,7 +497,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -468,6 +524,8 @@ Any of [the operation object](#the-operation-object)'s properties.
 
 Returns the [operation objects](#the-operation-object) for the updated operations.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -475,13 +533,34 @@ Returns the [operation objects](#the-operation-object) for the updated operation
 
 <template #rest>
 
-### Syntax
-
 ```
 PATCH /operations
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	update_operations_items(ids: [ID!]!, data: update_directus_operations_input): [directus_operations]
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // PATCH /operations
@@ -495,22 +574,7 @@ PATCH /operations
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	update_operations_items(ids: [ID!]!, data: update_directus_operations_input): [directus_operations]
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -526,7 +590,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -539,6 +605,8 @@ Delete an existing operation.
 
 Empty body.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -546,35 +614,41 @@ Empty body.
 
 <template #rest>
 
-### Syntax
-
 ```
 DELETE /operations/:id
-```
-
-### Example
-
-```
-DELETE /operations/07ac467e-1900-4c62-9637-8dac2ab97f71
 ```
 
 </template>
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Mutation {
 	delete_operations_item(id: ID!): delete_one
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+DELETE /operations/07ac467e-1900-4c62-9637-8dac2ab97f71
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 mutation {
@@ -585,7 +659,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -602,6 +678,8 @@ An array of operations primary keys
 
 Empty body.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -609,13 +687,34 @@ Empty body.
 
 <template #rest>
 
-### Syntax
-
 ```
 DELETE /operations
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	delete_operations_items(ids: [ID!]!): delete_many
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // DELETE /operations
@@ -623,22 +722,7 @@ DELETE /operations
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	delete_operations_items(ids: [ID!]!): delete_many
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -655,10 +739,12 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
-## Triggering an Operation
+## Trigger an Operation
 
 Trigger an operation based on primary key.
 
@@ -672,13 +758,65 @@ Result of the operation, if any.
 
 ### Syntax
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
 ```
 POST /operations/trigger/:operation_uuid
 ```
 
+</template>
+<template #graphql>
+
+```graphql
+
+# Not currently available for GraphQL.
+
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// Not currently available for JS-SDK.
+```
+
+</template>
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // POST /flows/trigger/202a940b-a00b-47df-b832-369c53f13122
 // Payload here
 ```
+
+</template>
+<template #graphql>
+
+```graphql
+
+# Not currently available for GraphQL.
+
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// Not currently available for JS-SDK.
+```
+
+</template>
+</SnippetToggler>

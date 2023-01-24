@@ -68,6 +68,8 @@ Primary key of the item this notification references.
 
 List all notifications that exist in Directus.
 
+If using REST, learn more about using [SEARCH](/reference/introduction#search-http-method)
+
 ### Query Parameters
 
 Supports all [global query parameters](/reference/query).
@@ -77,6 +79,8 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [notification objects](#the-notification-object). If no items are
 available, data will be an empty array.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -84,32 +88,43 @@ available, data will be an empty array.
 
 <template #rest>
 
-### Syntax
+```
+GET /notifications
+SEARCH /notifications
+```
+
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Query {
+	notifications: [directus_notifications]
+}
+```
+
+</template>
+
+</SnippetToggler>
+
+### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```
 GET /notifications
 SEARCH /notifications
 ```
 
-[Learn more about SEARCH ->](/reference/introduction#search-http-method)
-
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Query {
-	notifications: [directus_notifications]
-}
-```
-
-### Example
 
 ```graphql
 query {
@@ -122,7 +137,9 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -139,6 +156,8 @@ Supports all [global query parameters](/reference/query).
 
 Returns the requested [notification object](#the-notification-object).
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -146,35 +165,41 @@ Returns the requested [notification object](#the-notification-object).
 
 <template #rest>
 
-### Syntax
-
 ```
 GET /notifications/:id
-```
-
-### Example
-
-```
-GET /notifications/42
 ```
 
 </template>
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Query {
 	notifications_by_id(id: ID!): directus_notifications
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /notifications/42
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -189,7 +214,9 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -210,6 +237,8 @@ A partial [notification object](#the-notification-object).
 
 Returns the [notification object](#the-notification-object) for the created notification.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -217,13 +246,34 @@ Returns the [notification object](#the-notification-object) for the created noti
 
 <template #rest>
 
-### Syntax
-
 ```
 POST /notifications
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	create_notifications_item(data: create_directus_notifications_input!): directus_notifications
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // POST /notifications
@@ -235,22 +285,7 @@ POST /notifications
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	create_notifications_item(data: create_directus_notifications_input!): directus_notifications
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -262,7 +297,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -283,6 +320,8 @@ An array of partial [notification objects](#the-notification-object).
 
 Returns the [notification object](#the-notification-object) for the created notification.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -290,13 +329,34 @@ Returns the [notification object](#the-notification-object) for the created noti
 
 <template #rest>
 
-### Syntax
-
 ```
 POST /notifications
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	create_notifications_items(data: [create_directus_notifications_input!]!): [directus_notifications]
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // POST /notifications
@@ -316,22 +376,7 @@ POST /notifications
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	create_notifications_items(data: [create_directus_notifications_input!]!): [directus_notifications]
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -356,7 +401,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -384,6 +431,8 @@ A partial [notification object](#the-notification-object).
 
 Returns the [notification object](#the-notification-object) for the updated notification.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -391,13 +440,34 @@ Returns the [notification object](#the-notification-object) for the updated noti
 
 <template #rest>
 
-### Syntax
-
 ```
 PATCH /notifications/:id
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	update_notifications_item(id: ID!, data: update_directus_notifications_input): directus_notifications
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // PATCH /notifications/34
@@ -408,22 +478,7 @@ PATCH /notifications/:id
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	update_notifications_item(id: ID!, data: update_directus_notifications_input): directus_notifications
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -435,7 +490,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -460,6 +517,8 @@ Any of [the notification object](#the-notification-object)'s properties.
 
 Returns the [notification objects](#the-notification-object) for the updated notifications.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -467,13 +526,34 @@ Returns the [notification objects](#the-notification-object) for the updated not
 
 <template #rest>
 
-### Syntax
-
 ```
 PATCH /notifications
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	update_notifications_items(ids: [ID!]!, data: update_directus_notifications_input): [directus_notifications]
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // PATCH /notifications
@@ -487,22 +567,7 @@ PATCH /notifications
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	update_notifications_items(ids: [ID!]!, data: update_directus_notifications_input): [directus_notifications]
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -514,7 +579,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -527,6 +594,8 @@ Delete an existing notification.
 
 Empty body.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -534,35 +603,41 @@ Empty body.
 
 <template #rest>
 
-### Syntax
-
 ```
 DELETE /notifications/:id
-```
-
-### Example
-
-```
-DELETE /notifications/34
 ```
 
 </template>
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Mutation {
 	delete_notifications_item(id: ID!): delete_one
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+DELETE /notifications/34
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 mutation {
@@ -573,7 +648,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -590,6 +667,8 @@ An array of notification primary keys
 
 Empty body.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -597,13 +676,34 @@ Empty body.
 
 <template #rest>
 
-### Syntax
-
 ```
 DELETE /notifications
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	delete_notifications_items(ids: [ID!]!): delete_many
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // DELETE /notifications
@@ -611,22 +711,7 @@ DELETE /notifications
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	delete_notifications_items(ids: [ID!]!): delete_many
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -637,5 +722,7 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
