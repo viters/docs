@@ -55,6 +55,7 @@ flow ends with a condition that executes with a `reject` path, it will cancel yo
 -->
 
 This operation lets you add a custom script using vanilla JavaScript or TypeScript.
+The script will be executed securely in an isolated sandbox. No interactions take place between the sandbox and the host except for sharing input and output values. This means, for example, that `console.log` statements have no effect.
 
 **Options**
 
