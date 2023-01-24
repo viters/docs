@@ -4,6 +4,15 @@ readTime: 5 min read
 pageClass: page-reference
 ---
 
+<script setup>
+import { ref } from 'vue';
+
+import { SnippetToggler } from '@directus/vue-snippet-toggler';
+import '@directus/vue-snippet-toggler/style.css';
+
+const pref = ref('REST');
+</script>
+
 # Panels
 
 > Panels are modular units of data visualization that exist within the Insights module. Each panel exists within a
@@ -86,6 +95,8 @@ User that created the panel. Many-to-one to [users](/reference/system/users).
 
 List all panels that exist in Directus.
 
+If using REST, learn more about using [SEARCH](/reference/introduction#search-http-method)
+
 ### Query Parameters
 
 Supports all [global query parameters](/reference/query).
@@ -95,28 +106,53 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [panel objects](#the-panel-object). If no items are available, data
 will be an empty array.
 
-### REST API
+### Syntax
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```
 GET /panels
 SEARCH /panels
 ```
 
-[Learn more about SEARCH ->](/reference/introduction#search-http-method)
-
-### GraphQL
-
-```
-POST /graphql/system
-```
+</template>
+<template #graphql>
 
 ```graphql
+# POST /graphql/system
+
 type Query {
 	panels: [directus_panels]
 }
 ```
 
-##### Example
+</template>
+<template #js-sdk>
+
+</template>
+</SnippetToggler>
+
+### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /panels
+SEARCH /panels
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -126,6 +162,12 @@ query {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
+
+</template>
+</SnippetToggler>
 
 ---
 
@@ -141,31 +183,51 @@ Supports all [global query parameters](/reference/query).
 
 Returns the requested [panel object](#the-panel-object).
 
-### REST API
+### Syntax
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```
 GET /panels/:id
 ```
 
-##### Example
-
-```
-GET /panels/2fc325fb-299b-4d20-a9e7-a34349dee8b2
-```
-
-### GraphQL
-
-```
-POST /graphql/system
-```
+</template>
+<template #graphql>
 
 ```graphql
+# POST /graphql/system
+
 type Query {
 	panels_by_id(id: ID!): directus_panels
 }
 ```
 
-##### Example
+</template>
+<template #js-sdk>
+
+</template>
+</SnippetToggler>
+
+### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /panels/2fc325fb-299b-4d20-a9e7-a34349dee8b2
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -175,6 +237,12 @@ query {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
+
+</template>
+</SnippetToggler>
 
 ---
 
@@ -194,13 +262,44 @@ A partial [panel object](#the-panel-object).
 
 Returns the [panel object](#the-panel-object) for the created panel.
 
-### REST API
+### Syntax
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```
 POST /panels
 ```
 
-##### Example
+</template>
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	create_panels_item(data: create_directus_panels_input!): directus_panels
+}
+```
+
+</template>
+<template #js-sdk>
+
+</template>
+</SnippetToggler>
+
+### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // POST /panels
@@ -211,19 +310,8 @@ POST /panels
 }
 ```
 
-### GraphQL
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	create_panels_item(data: create_directus_panels_input!): directus_panels
-}
-```
-
-##### Example
+</template>
+<template #graphql>
 
 ```graphql
 mutation {
@@ -233,6 +321,12 @@ mutation {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
+
+</template>
+</SnippetToggler>
 
 ---
 
@@ -252,13 +346,44 @@ An array of partial [panel objects](#the-panel-object).
 
 Returns the [panel object](#the-panel-object) for the created panel.
 
-### REST API
+### Syntax
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```
 POST /panels
 ```
 
-##### Example
+</template>
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	create_panels_items(data: [create_directus_panels_input!]!): [directus_panels]
+}
+```
+
+</template>
+<template #js-sdk>
+
+</template>
+</SnippetToggler>
+
+### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // POST /panels
@@ -275,19 +400,8 @@ POST /panels
 ]
 ```
 
-### GraphQL
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	create_panels_items(data: [create_directus_panels_input!]!): [directus_panels]
-}
-```
-
-##### Example
+</template>
+<template #graphql>
 
 ```graphql
 mutation {
@@ -309,6 +423,12 @@ mutation {
 }
 ```
 
+</template>
+<template #js-sdk>
+
+</template>
+</SnippetToggler>
+
 ---
 
 ## Update a Panel
@@ -327,13 +447,44 @@ A partial [panel object](#the-panel-object).
 
 Returns the [panel object](#the-panel-object) for the updated panel.
 
-### REST API
+### Syntax
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```
 PATCH /panels/:id
 ```
 
-##### Example
+</template>
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	update_panels_item(id: ID!, data: update_directus_panels_input): directus_panels
+}
+```
+
+</template>
+<template #js-sdk>
+
+</template>
+</SnippetToggler>
+
+### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // PATCH /panels/2fc325fb-299b-4d20-a9e7-a34349dee8b2
@@ -343,19 +494,8 @@ PATCH /panels/:id
 }
 ```
 
-### GraphQL
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	update_panels_item(id: ID!, data: update_directus_panels_input): directus_panels
-}
-```
-
-##### Example
+</template>
+<template #graphql>
 
 ```graphql
 mutation {
@@ -365,6 +505,12 @@ mutation {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
+
+</template>
+</SnippetToggler>
 
 ---
 
@@ -388,13 +534,44 @@ Any of [the panel](#the-panel-object)'s properties.
 
 Returns the [panel objects](#the-panel-object) for the updated panels.
 
-### REST API
+### Syntax
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```
 PATCH /panels
 ```
 
-##### Example
+</template>
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	update_panels_items(ids: [ID!]!, data: update_directus_panels_input): [directus_panels]
+}
+```
+
+</template>
+<template #js-sdk>
+
+</template>
+</SnippetToggler>
+
+### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // PATCH /panels
@@ -407,24 +584,16 @@ PATCH /panels
 }
 ```
 
-### GraphQL
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	update_panels_items(ids: [ID!]!, data: update_directus_panels_input): [directus_panels]
-}
-```
-
-##### Example
+</template>
+<template #graphql>
 
 ```graphql
 mutation {
 	update_panels_items(
-		ids: ["3f2facab-7f05-4ee8-a7a3-d8b9c634a1fc", "7259bfa8-3786-45c6-8c08-cc688e7ba229"]
+		ids: [
+			"3f2facab-7f05-4ee8-a7a3-d8b9c634a1fc",
+			"7259bfa8-3786-45c6-8c08-cc688e7ba229"
+			]
 		data: { "color": "#6644FF" }
 	) {
 		id
@@ -432,6 +601,12 @@ mutation {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
+
+</template>
+</SnippetToggler>
 
 ---
 
@@ -443,31 +618,51 @@ Delete an existing panel.
 
 Empty body.
 
-### REST API
+### Syntax
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```
 DELETE /panels/:id
 ```
 
-##### Example
-
-```
-DELETE /panels/12204ee2-2c82-4d9a-b044-2f4842a11dba
-```
-
-### GraphQL
-
-```
-POST /graphql/system
-```
+</template>
+<template #graphql>
 
 ```graphql
+# POST /graphql/system
+
 type Mutation {
 	delete_panels_item(id: ID!): delete_one
 }
 ```
 
-##### Example
+</template>
+<template #js-sdk>
+
+</template>
+</SnippetToggler>
+
+### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+DELETE /panels/12204ee2-2c82-4d9a-b044-2f4842a11dba
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 mutation {
@@ -476,6 +671,12 @@ mutation {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
+
+</template>
+</SnippetToggler>
 
 ---
 
@@ -491,32 +692,52 @@ An array of panels primary keys
 
 Empty body.
 
-### REST API
+### Syntax
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```
 DELETE /panels
 ```
 
-##### Example
+</template>
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	delete_panels_items(ids: [ID!]!): delete_many
+}
+```
+
+</template>
+<template #js-sdk>
+
+</template>
+</SnippetToggler>
+
+### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // DELETE /panels
 ["25821236-8c2a-4f89-8fdc-c7d01f35877d", "02b9486e-4273-4fd5-b94b-e18fd923d1ed", "7d62f1e9-a83f-407b-84f8-1c184f014501"]
 ```
 
-### GraphQL
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	delete_panels_items(ids: [ID!]!): delete_many
-}
-```
-
-##### Example
+</template>
+<template #graphql>
 
 ```graphql
 mutation {
@@ -531,3 +752,9 @@ mutation {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
+
+</template>
+</SnippetToggler>
