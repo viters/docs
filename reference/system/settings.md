@@ -144,13 +144,15 @@ Supports all [global query parameters](/reference/query).
 
 Returns the [settings object](#the-settings-object).
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
 	label="API"
-			> <template #rest>
+			>
 
-### Syntax
+<template #rest>
 
 ```
 GET /settings
@@ -159,19 +161,32 @@ GET /settings
 </template>
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Query {
 	settings: directus_settings
 }
 ```
 
+</template>
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /settings
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -180,6 +195,9 @@ query {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 </SnippetToggler>
@@ -200,6 +218,8 @@ A partial [settings object](#the-settings-object).
 
 Returns the [settings object](#the-setting-object).
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -208,13 +228,34 @@ Returns the [settings object](#the-setting-object).
 
 <template #rest>
 
-### Syntax
-
 ```
 PATCH /settings
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	update_settings(data: update_directus_settings_input!): directus_settings
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // PATCH /settings
@@ -225,22 +266,7 @@ PATCH /settings
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	update_settings(data: update_directus_settings_input!): directus_settings
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -252,5 +278,7 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
