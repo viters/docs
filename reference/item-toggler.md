@@ -12,7 +12,6 @@
 <template #js-sdk>
 
 </template>
-
 </SnippetToggler>
 
 If using REST, learn more about using [SEARCH](/reference/introduction#search-http-method)

@@ -79,6 +79,8 @@ UUID of the operation connected to the trigger in the flow.
 
 List all flows that exist in Directus.
 
+If using REST, learn more about using [SEARCH](/reference/introduction#search-http-method)
+
 ### Query Parameters
 
 Supports all [global query parameters](/reference/query).
@@ -88,6 +90,8 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [flow objects](#the-flow-object). If no items are available, data will
 be an empty array.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -95,32 +99,38 @@ be an empty array.
 
 <template #rest>
 
-### Syntax
-
 ```
 GET /flows
 SEARCH /flows
 ```
 
-[Learn more about SEARCH ->](/reference/introduction#search-http-method)
-
 </template>
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Query {
 	flows: [directus_flows]
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -131,6 +141,9 @@ query {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
@@ -150,43 +163,50 @@ Supports all [global query parameters](/reference/query).
 
 Returns the requested [flow object](#the-flow-object).
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
 	label="API" >
 
-
 <template #rest>
-
-### Syntax
 
 ```
 GET /flows/:id
-```
-
-### Example
-
-```
-GET /flows/2fc325fb-299b-4d20-a9e7-a34349dee8b2
 ```
 
 </template>
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Query {
 	flows_by_id(id: ID!): directus_flows
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /flows/2fc325fb-299b-4d20-a9e7-a34349dee8b2
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -197,6 +217,9 @@ query {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
@@ -220,6 +243,8 @@ A partial [flow object](#the-flow-object).
 
 Returns the [flow object](#the-flow-object) for the created flow.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -227,14 +252,34 @@ Returns the [flow object](#the-flow-object) for the created flow.
 
 <template #rest>
 
-
-### Syntax
-
 ```
 POST /flows
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	create_flows_item(data: create_directus_flows_input!): directus_flows
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // POST /flows
@@ -247,22 +292,7 @@ POST /flows
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	create_flows_item(data: create_directus_flows_input!): directus_flows
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -273,6 +303,9 @@ mutation {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
@@ -296,6 +329,8 @@ An array of partial [flow objects](#the-flow-object).
 
 Returns the [flow object](#the-flow-object) for the created flow.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -303,14 +338,32 @@ Returns the [flow object](#the-flow-object) for the created flow.
 
 <template #rest>
 
-
-### Syntax
-
 ```
 POST /flows
 ```
 
-### Example
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	create_flows_items(data: [create_directus_flows_input!]!): [directus_flows]
+}
+```
+
+</template>
+
+</SnippetToggler>
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // POST /flows
@@ -330,22 +383,7 @@ POST /flows
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	create_flows_items(data: [create_directus_flows_input!]!): [directus_flows]
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -371,6 +409,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
+
+</template>
 
 </SnippetToggler>
 
@@ -392,6 +433,8 @@ A partial [flow object](#the-flow-object).
 
 Returns the [flow object](#the-flow-object) for the updated flow.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -399,13 +442,32 @@ Returns the [flow object](#the-flow-object) for the updated flow.
 
 <template #rest>
 
-### Syntax
-
 ```
 PATCH /flows/:id
 ```
 
-### Example
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	update_flows_item(id: ID!, data: update_directus_flows_input): directus_flows
+}
+```
+
+</template>
+
+</SnippetToggler>
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // PATCH /flows/2fc325fb-299b-4d20-a9e7-a34349dee8b2
@@ -416,22 +478,7 @@ PATCH /flows/:id
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	update_flows_item(id: ID!, data: update_directus_flows_input): directus_flows
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -441,6 +488,9 @@ mutation {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
@@ -469,6 +519,8 @@ Any of [the flow object](#the-flow-object)'s properties.
 
 Returns the [flow objects](#the-flow-object) for the updated flows.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -476,13 +528,32 @@ Returns the [flow objects](#the-flow-object) for the updated flows.
 
 <template #rest>
 
-### Syntax
-
 ```
 PATCH /flows
 ```
 
-### Example
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	update_flows_items(ids: [ID!]!, data: update_directus_flows_input): [directus_flows]
+}
+```
+
+</template>
+
+</SnippetToggler>
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // PATCH /flows
@@ -496,22 +567,7 @@ PATCH /flows
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	update_flows_items(ids: [ID!]!, data: update_directus_flows_input): [directus_flows]
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -527,6 +583,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
+
+</template>
 
 </SnippetToggler>
 
@@ -540,6 +599,8 @@ Delete an existing flow.
 
 Empty body.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -547,35 +608,41 @@ Empty body.
 
 <template #rest>
 
-### Syntax
-
 ```
 DELETE /flows/:id
-```
-
-### Example
-
-```
-DELETE /flows/12204ee2-2c82-4d9a-b044-2f4842a11dba
 ```
 
 </template>
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Mutation {
 	delete_flows_item(id: ID!): delete_one
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+DELETE /flows/12204ee2-2c82-4d9a-b044-2f4842a11dba
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 mutation {
@@ -584,6 +651,9 @@ mutation {
 	}
 }
 ```
+
+</template>
+<template #js-sdk>
 
 </template>
 
@@ -603,6 +673,8 @@ An array of flows primary keys
 
 Empty body.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -610,36 +682,43 @@ Empty body.
 
 <template #rest>
 
-### Syntax
-
 ```
 DELETE /flows
-```
-
-### Example
-
-```json
-// DELETE /flows
-["25821236-8c2a-4f89-8fdc-c7d01f35877d", "02b9486e-4273-4fd5-b94b-e18fd923d1ed", "7d62f1e9-a83f-407b-84f8-1c184f014501"]
 ```
 
 </template>
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Mutation {
 	delete_flows_items(ids: [ID!]!): delete_many
 }
 ```
 
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```json
+// DELETE /flows
+
+["25821236-8c2a-4f89-8fdc-c7d01f35877d", "02b9486e-4273-4fd5-b94b-e18fd923d1ed", "7d62f1e9-a83f-407b-84f8-1c184f014501"]
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 mutation {
@@ -656,6 +735,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
+
+</template>
 
 </SnippetToggler>
 
@@ -669,16 +751,68 @@ Result of the flow, if any.
 
 ### Syntax
 
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
 ```
 GET /flows/trigger/:flow_uuid
 ```
 
+</template>
+<template #graphql>
+
+```graphql
+
+# Not currently available in graphql
+
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// Not currently available in JS-SDK
+```
+
+</template>
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // GET /flows/trigger/202a940b-a00b-47df-b832-369c53f13122
 // Payload here
 ```
+
+</template>
+<template #graphql>
+
+```graphql
+
+# Not currently available in graphql
+
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// Not currently available in JS-SDK
+```
+
+</template>
+</SnippetToggler>
 
 ## Flow with POST webhook trigger
 
@@ -692,15 +826,68 @@ Payload for the POST request.
 
 Result of the flow, if any.
 
-### Syntax
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```
 POST /flows/trigger/:flow_uuid
 ```
 
+</template>
+<template #graphql>
+
+```graphql
+
+# Not currently available in graphql
+
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// Not currently available in JS-SDK
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // POST /flows/trigger/202a940b-a00b-47df-b832-369c53f13122
+
 // Payload here
 ```
+
+</template>
+<template #graphql>
+
+```graphql
+
+# Not currently available in graphql
+
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// Not currently available in JS-SDK
+```
+
+</template>
+
+</SnippetToggler>

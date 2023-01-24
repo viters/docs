@@ -65,6 +65,8 @@ Parent revision that triggered this revision. Many-to-one to revisions (recursiv
 
 List all revisions that exist in Directus.
 
+If using REST, learn more about using [SEARCH](/reference/introduction#search-http-method).
+
 ::: tip Permissions
 
 The data returned in this endpoint will be filtered based on the user's permissions. For example, revisions that apply
@@ -81,39 +83,55 @@ Supports all [global query parameters](/reference/query).
 An array of up to [limit](/reference/query#limit) [revision objects](#the-revision-object). If no items are available,
 data will be an empty array.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```
 GET /revisions
 SEARCH /revisions
 ```
 
-[Learn more about SEARCH ->](/reference/introduction#search-http-method)
-
 </template>
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Query {
 	revisions: [directus_revisions]
 }
 ```
 
-### Examples
+</template>
+<template #js-sdk>
+
+</template>
+
+</SnippetToggler>
+
+### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /revisions
+SEARCH /revisions
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -126,7 +144,9 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -143,42 +163,53 @@ Supports all [global query parameters](/reference/query).
 
 Returns the requested [revision object](#the-revision-object).
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
 
-### Syntax
-
 ```
 GET /revisions/:id
-```
-
-### Example
-
-```
-GET /revisions/322
 ```
 
 </template>
 
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
+# POST /graphql/system
+
 type Query {
 	revisions_by_id(id: ID!): directus_revisions
 }
 ```
 
+</template>
+<template #js-sdk>
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+GET /revisions/322
+```
+
+</template>
+<template #graphql>
 
 ```graphql
 query {
@@ -191,5 +222,7 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
