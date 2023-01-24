@@ -32,6 +32,8 @@ String to hash.
 
 Hashed string.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -39,13 +41,34 @@ Hashed string.
 
 <template #rest>
 
-### Syntax
-
 ```
 POST /utils/hash/generate
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	utils_hash_generate(string: String!): String
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // POST /utils/hash/generate
@@ -56,22 +79,7 @@ POST /utils/hash/generate
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	utils_hash_generate(string: String!): String
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -80,7 +88,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -101,6 +111,8 @@ Hash you want to verify against.
 
 Boolean.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -108,13 +120,34 @@ Boolean.
 
 <template #rest>
 
-### Syntax
-
 ```
 POST /utils/hash/verify
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	utils_hash_verify(hash: String!, string: String!): Boolean
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // POST /utils/hash/verify
@@ -126,23 +159,20 @@ POST /utils/hash/verify
 ```
 
 </template>
-
 <template #graphql>
 
-### Syntax
-
-```
-POST /graphql/system
-```
-
 ```graphql
-type Mutation {
-	utils_hash_verify(hash: String!, string: String!): Boolean
+# POST /graphql/system
+
+mutation {
+	utils_hash_verify(hash: 'd41402abc4b2a76b9719d911017c592', string: 'hello')
 }
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -163,6 +193,8 @@ Primary key of the item you're moving the source item too.
 
 Empty body.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -170,13 +202,34 @@ Empty body.
 
 <template #rest>
 
-### Syntax
-
 ```
 POST /utils/sort/:collection
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+# POST /graphql/system
+
+type Mutation {
+	utils_sort(collection: String!, item: ID!, to: ID!): Boolean
+}
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
 // POST /utils/sort/articles
@@ -188,22 +241,7 @@ POST /utils/sort/:collection
 ```
 
 </template>
-
 <template #graphql>
-
-### Syntax
-
-```
-POST /graphql/system
-```
-
-```graphql
-type Mutation {
-	utils_sort(collection: String!, item: ID!, to: ID!): Boolean
-}
-```
-
-### Example
 
 ```graphql
 mutation {
@@ -212,7 +250,9 @@ mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -234,6 +274,8 @@ information.
 
 Empty body.
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -241,13 +283,32 @@ Empty body.
 
 <template #rest>
 
-### Syntax
-
 ```
 POST /utils/import/:collection
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+
+# Not currently available in GraphQL
+
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```
 POST /utils/import/articles
@@ -269,15 +330,18 @@ Content-Type: text/csv
 ```
 
 </template>
-
 <template #graphql>
 
-### Syntax
+```graphql
 
-n/a
+# Not currently available in GraphQL
+
+```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -305,6 +369,8 @@ Partial file object to tweak where / how the export file is saved.
 
 Empty body
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
@@ -312,19 +378,36 @@ Empty body
 
 <template #rest>
 
-### Syntax
-
 ```
 POST /utils/export/:collection
 ```
 
+</template>
+
+<template #graphql>
+
+```graphql
+
+# Not currently available in GraphQL
+
+```
+
+</template>
+
+</SnippetToggler>
+
 ### Example
 
-```
-POST /utils/export/articles
-```
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
 
 ```json
+// POST /utils/export/articles
+
 {
 	"query": {
 		"filter": {
@@ -340,15 +423,18 @@ POST /utils/export/articles
 ```
 
 </template>
-
 <template #graphql>
 
-### Syntax
+```graphql
 
-n/a
+# Not currently available in GraphQL
+
+```
 
 </template>
+<template #js-sdk>
 
+</template>
 </SnippetToggler>
 
 ---
@@ -365,14 +451,14 @@ n/a
 
 Empty body
 
+### Syntax
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL']"
 	label="API" >
 
 <template #rest>
-
-### Syntax
 
 ```
 POST /utils/cache/clear
@@ -382,8 +468,6 @@ POST /utils/cache/clear
 
 <template #graphql>
 
-### Example
-
 ```graphql
 mutation {
 	utils_cache_clear
@@ -392,4 +476,32 @@ mutation {
 
 </template>
 
+</SnippetToggler>
+
+### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+POST /utils/cache/clear
+```
+
+</template>
+<template #graphql>
+
+```graphql
+mutation {
+	utils_cache_clear
+}
+```
+
+</template>
+<template #js-sdk>
+
+</template>
 </SnippetToggler>
