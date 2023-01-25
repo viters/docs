@@ -490,7 +490,7 @@ Be aware, this will delete the table from the database, including all items in i
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>

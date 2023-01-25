@@ -69,7 +69,7 @@ Any changes that were made in this activity. One-to-many to [revisions](/referen
 
 ---
 
-## List Activity Actions
+## Get Activities
 
 Returns a list of activity actions.
 
@@ -109,6 +109,48 @@ type Query {
 
 </template>
 
+<template #js-sdj>
+
+```js
+// The JS-SDK provides two methods to GET items.
+
+const collection = directus.activity;
+
+// GET items by query
+await collection.readByQuery(
+	query // Required:  a query parameter object
+);
+
+// GET items by primary keys
+await articles.readMany(
+	ids_array, // Required: an array of primary keys
+	query,     // Optional: a query parameter object
+});
+```
+
+</template>
+
+<template #js-sdk>
+
+```js
+// The JS-SDK provides two methods to GET items.
+
+const activity = directus.activtiy;
+
+// GET items by query
+await activity.readByQuery(
+	query // Required:  a query parameter object
+);
+
+// GET items by primary keys
+await activity.readMany(
+	ids_array, // Required: an array of primary keys
+	query,     // Optional: a query parameter object
+});
+```
+
+</template>
+
 </SnippetToggler>
 
 ### Example
@@ -139,13 +181,36 @@ query {
 </template>
 <template #js-sdk>
 
+```js
+// READ BY QUERY
+await activity.readByQuery({
+	search: 'Looks Good',
+	filter: {
+		timestamp: {
+			_gte: '$NOW',
+		},
+	},
+});
+
+// READ ALL
+await activity.readByQuery({
+	// By default API limits results to 100.
+	// With -1, it will return all results, but it may lead to performance degradation
+	// for large result sets.
+	limit: -1,
+});
+
+// READ MULTIPLE
+await activity.readMany([15, 16, 17], { fields: ['comment'] });
+```
+
 </template>
 
 </SnippetToggler>
 
 ---
 
-## Retrieve Activity Action
+## Get Activity By ID
 
 Returns a single activity action by primary key.
 
@@ -182,6 +247,15 @@ type Query {
 </template>
 <template #js-sdk>
 
+```js
+const activity = directus.activity;
+
+await activity.readOne(
+	id, // primary key
+	query // Optional: a query parameter
+);
+```
+
 </template>
 
 </SnippetToggler>
@@ -212,6 +286,12 @@ query {
 
 </template>
 <template #js-sdk>
+
+```js
+const activity = directus.activity;
+
+await activity.readOne(15, { fields: ['title'] });
+```
 
 </template>
 
@@ -263,6 +343,16 @@ type Mutation {
 </template>
 <template #js-sdk>
 
+```js
+const activity = directus.activity;
+
+await activity.createOne({
+	item,
+	collection,
+	comment,
+});
+```
+
 </template>
 
 </SnippetToggler>
@@ -302,6 +392,16 @@ mutation {
 </template>
 <template #js-sdk>
 
+```js
+const activity = directus.activity;
+
+await activity.createOne({
+	item: 3,
+	collection: 'pages',
+	comment: 'Hello World',
+});
+```
+
 </template>
 
 </SnippetToggler>
@@ -314,8 +414,15 @@ Updates an existing comment by activity action primary key.
 
 ### Request Body
 
-`comment` **Required**\
-The updated comment content. Supports Markdown.
+`id` **Required**
+
+- **Type** — `String`
+- **Description** — An existing primary key.
+
+`comment` **Required**
+
+- **Type** — `Object`
+- **Description** — The updated comment content. Supports Markdown.
 
 ### Returns
 
@@ -345,6 +452,12 @@ type Mutation {
 
 </template>
 <template #js-sdk>
+
+```js
+const activity = directus.activity;
+
+await activity.updateOne(primary_key, comment);
+```
 
 </template>
 
@@ -382,6 +495,14 @@ mutation {
 </template>
 <template #js-sdk>
 
+```js
+const activity = directus.activity;
+
+await articles.updateOne(42, {
+	comment: 'Hello World!!',
+});
+```
+
 </template>
 
 </SnippetToggler>
@@ -391,6 +512,14 @@ mutation {
 ## Delete a Comment
 
 Deletes a comment.
+
+### Request Body
+
+The primary key of the item to delete.
+
+### Returns
+
+Empty Body.
 
 ### Syntax
 
@@ -416,6 +545,14 @@ type Mutation {
 
 </template>
 <template #js-sdk>
+
+```js
+// One
+const primary_key = 15;
+const activity = directus.activity;
+
+await activity.deleteOne(primary_key);
+```
 
 </template>
 
@@ -447,6 +584,12 @@ mutation {
 
 </template>
 <template #js-sdk>
+
+```js
+const activity = directus.activity;
+
+await activity.deleteOne(15);
+```
 
 </template>
 
