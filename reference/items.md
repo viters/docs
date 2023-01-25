@@ -187,7 +187,7 @@ await articles.readMany([15, 16, 17], { fields: ['title'] });
 
 ---
 
-## Get Item by ID
+## Get an Item by ID
 
 Get an item that exists in Directus.
 

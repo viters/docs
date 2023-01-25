@@ -546,14 +546,6 @@ const directus = new Directus('https://example.directus.app', {
 });
 ```
 
-## Activity
-
-```js
-directus.activity;
-```
-
-Same methods as `directus.items("directus_activity")`.
-
 ## Comments
 
 ```js
@@ -561,14 +553,6 @@ directus.comments;
 ```
 
 Same methods as `directus.items("directus_comments")`.
-
-## Collections
-
-```js
-directus.collections;
-```
-
-Same methods as `directus.items("directus_collections")`.
 
 ## Fields
 

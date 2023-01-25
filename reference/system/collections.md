@@ -136,7 +136,7 @@ The table comment.
 
 ---
 
-## List Collections
+## Get Collections
 
 List the available collections.
 
@@ -154,7 +154,7 @@ An array of [collection objects](#the-collection-object).
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -174,6 +174,27 @@ SEARCH /collections
 type Query {
 	collections: [directus_collections]
 }
+```
+
+</template>
+
+<template #js-sdk>
+
+```js
+// The JS-SDK provides two methods to GET items.
+
+const collections = directus.collections;
+
+// GET items by query
+await collections.readByQuery(
+	query // Required:  a query parameter object
+);
+
+// GET items by primary keys
+await collections.readMany(
+	ids_array, // Required: an array of primary keys
+	query,     // Optional: a query parameter object
+});
 ```
 
 </template>
@@ -208,19 +229,44 @@ query {
 </template>
 <template #js-sdk>
 
+```js
+const collections = directus.collections;
+
+// READ BY QUERY
+await collections.readByQuery({
+	search: 'transactions',
+	},
+});
+
+// READ ALL
+await collections.readByQuery({
+	// By default API limits results to 100.
+	// With -1, it will return all results, but it may lead to performance degradation
+	// for large result sets.
+	limit: -1,
+});
+
+// READ MULTIPLE
+await collections.readMany(['transactions', 'testimonials'], { fields: ['meta'] });
+```
+
 </template>
 
 </SnippetToggler>
 
 ---
 
-## Retrieve a Collection
+## Get a Collection by ID
 
 Retrieve a single collection by table name.
 
 ### Query Parameters
 
 This endpoint doesn't currently support any query parameters.
+
+### Request Body
+
+None
 
 ### Returns
 
@@ -230,7 +276,7 @@ A [collection object](#the-collection-object).
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -249,6 +295,16 @@ GET /collections/:collection
 type Query {
 	collections_by_name(name: String!): directus_collections
 }
+```
+
+</template>
+
+<template #js-sdk>
+
+```js
+const collections = directus.collections;
+
+await collections.readOne(collection_name);
 ```
 
 </template>
@@ -281,6 +337,12 @@ query {
 
 </template>
 <template #js-sdk>
+
+```js
+const collections = directus.collections;
+
+await collections.readOne('articles');
+```
 
 </template>
 
@@ -320,7 +382,7 @@ entirely or use `schema: null` to create ["folder" collections](/configuration/d
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -339,6 +401,16 @@ POST /collections
 type Mutation {
 	create_collections_item(data: directus_collections): directus_collections
 }
+```
+
+</template>
+
+<template #js-sdk>
+
+```js
+const collections = directus.collections;
+
+await collections.createOne(collections, meta);
 ```
 
 </template>
@@ -385,6 +457,16 @@ mutation {
 </template>
 <template #js-sdk>
 
+```js
+const collections = directus.collections;
+
+await articles.createOne('testimonials', {
+	meta: {
+		note: 'Short quotes from happy customers.',
+	},
+});
+```
+
 </template>
 
 </SnippetToggler>
@@ -395,14 +477,28 @@ mutation {
 
 Update the metadata for an existing collection.
 
+:::tip
+
+You can only update the `meta` values of the [collection object](#the-collection-object). Updating the collection name
+is not supported at this time.
+
+:::
+
 ### Query Parameters
 
 This endpoint doesn't currently support any query parameters.
 
 ### Request Body
 
-You can only update the `meta` values of the [collection object](#the-collection-object). Updating the collection name
-is not supported at this time.
+`collection` **Required**
+
+- **Type** — `String`
+- **Description** — The name of the collection.
+
+`meta` **Required**
+
+- **Type** — `Object`
+- **Description** — For details, see the [collection object](#the-collection-object).
 
 ### Returns
 
@@ -412,7 +508,7 @@ The [collection object](#the-collection-object) for the updated collection in th
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -431,6 +527,19 @@ PATCH /collections/:collection
 type Mutation {
 	update_collections_item(collection: String!, data: update_directus_collections_input!): directus_collections
 }
+```
+
+</template>
+
+<template #js-sdk>
+
+```js
+const collections = directus.collections;
+
+await collections.updateOne({
+	collection_name,
+	meta,
+});
 ```
 
 </template>
@@ -468,7 +577,21 @@ mutation {
 ```
 
 </template>
+
 <template #js-sdk>
+
+```js
+const collections = directus.collections;
+
+await articles.updateOne({
+	"testimonials",
+	{
+	"meta": {
+		"note": "Short quotes from happy customers."
+		}
+	}
+}
+```
 
 </template>
 
@@ -512,6 +635,16 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
+
+```js
+// One
+const collections = directus.collections;
+
+await collections.deleteOne(collection_name);
+```
+
+</template>
 
 </SnippetToggler>
 
@@ -541,6 +674,13 @@ mutation {
 
 </template>
 <template #js-sdk>
+
+```js
+// One
+const collections = directus.collections;
+
+await collections.deleteOne('transactions');
+```
 
 </template>
 
