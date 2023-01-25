@@ -355,15 +355,20 @@ will set a default maximum of 50 requests per second, tracked in memory. Once yo
 running under a load balancer, or your user base grows so much that memory is no longer a viable place to store the rate
 limiter information, you can use an external `memcache` or `redis` instance to store the rate limiter data.
 
-| Variable                             | Description                                                                      | Default Value |
-| ------------------------------------ | -------------------------------------------------------------------------------- | ------------- |
-| `RATE_LIMITER_ENABLED`               | Whether or not to enable rate limiting on the API.                               | `false`       |
-| `RATE_LIMITER_POINTS`                | The amount of allowed hits per duration.                                         | `50`          |
-| `RATE_LIMITER_DURATION`              | The time window in seconds in which the points are counted.                      | `1`           |
-| `RATE_LIMITER_STORE`                 | Where to store the rate limiter counts. One of `memory`, `redis`, or `memcache`. | `memory`      |
-| `RATE_LIMITER_HEALTHCHECK_THRESHOLD` | Healthcheck timeout threshold in ms.                                             | `150`         |
+| Variable                                    | Description                                                                      | Default Value |
+| ------------------------------------------- | -------------------------------------------------------------------------------- | ------------- |
+| `RATE_LIMITER_ENABLED`                      | Whether or not to enable rate limiting per IP on the API.                        | `false`       |
+| `RATE_LIMITER_POINTS`                       | The amount of allowed hits per duration.                                         | `50`          |
+| `RATE_LIMITER_DURATION`                     | The time window in seconds in which the points are counted.                      | `1`           |
+| `RATE_LIMITER_STORE`                        | Where to store the rate limiter counts. One of `memory`, `redis`, or `memcache`. | `memory`      |
+| `RATE_LIMITER_HEALTHCHECK_THRESHOLD`        | Healthcheck timeout threshold in ms.                                             | `150`         |
+| `RATE_LIMITER_GLOBAL_ENABLED`               | Whether or not to enable global rate limiting on the API.                        | `false`       |
+| `RATE_LIMITER_GLOBAL_POINTS`                | The total amount of allowed hits per duration.                                   | `250`         |
+| `RATE_LIMITER_GLOBAL_DURATION`              | The time window in seconds in which the points are counted.                      | `1`           |
+| `RATE_LIMITER_GLOBAL_STORE`                 | Where to store the rate limiter counts. One of `memory`, `redis`, or `memcache`. | `memory`      |
+| `RATE_LIMITER_GLOBAL_HEALTHCHECK_THRESHOLD` | Healthcheck timeout threshold in ms.                                             | `150`         |
 
-Based on the `RATE_LIMITER_STORE` used, you must also provide the following configurations:
+Based on the `RATE_LIMITER_STORE`/`RATE_LIMITER_GLOBAL_STORE` used, you must also provide the following configurations:
 
 ### Memory
 
@@ -371,31 +376,45 @@ No additional configuration required.
 
 ### Redis
 
-| Variable             | Description                                                             | Default Value |
-| -------------------- | ----------------------------------------------------------------------- | ------------- |
-| `RATE_LIMITER_REDIS` | Redis connection string, e.g., `redis://:authpassword@127.0.0.1:6380/4` | ---           |
+| Variable                    | Description                                                             | Default Value |
+| --------------------------- | ----------------------------------------------------------------------- | ------------- |
+| `RATE_LIMITER_REDIS`        | Redis connection string, e.g., `redis://:authpassword@127.0.0.1:6380/4` | ---           |
+| `RATE_LIMITER_GLOBAL_REDIS` | Redis connection string, e.g., `redis://:authpassword@127.0.0.1:6380/4` | ---           |
 
 Alternatively, you can provide the individual connection parameters:
 
-| Variable                      | Description                                                   | Default Value |
-| ----------------------------- | ------------------------------------------------------------- | ------------- |
-| `RATE_LIMITER_REDIS_HOST`     | Hostname of the Redis instance, e.g., `"127.0.0.1"`           | --            |
-| `RATE_LIMITER_REDIS_PORT`     | Port of the Redis instance, e.g., `6379`                      | --            |
-| `RATE_LIMITER_REDIS_USERNAME` | Username for your Redis instance, e.g., `"default"`           | --            |
-| `RATE_LIMITER_REDIS_PASSWORD` | Password for your Redis instance, e.g., `"yourRedisPassword"` | --            |
-| `RATE_LIMITER_REDIS_DB`       | Database of your Redis instance to connect, e.g., `1`         | --            |
+| Variable                             | Description                                                   | Default Value |
+| ------------------------------------ | ------------------------------------------------------------- | ------------- |
+| `RATE_LIMITER_REDIS_HOST`            | Hostname of the Redis instance, e.g., `"127.0.0.1"`           | --            |
+| `RATE_LIMITER_REDIS_PORT`            | Port of the Redis instance, e.g., `6379`                      | --            |
+| `RATE_LIMITER_REDIS_USERNAME`        | Username for your Redis instance, e.g., `"default"`           | --            |
+| `RATE_LIMITER_REDIS_PASSWORD`        | Password for your Redis instance, e.g., `"yourRedisPassword"` | --            |
+| `RATE_LIMITER_REDIS_DB`              | Database of your Redis instance to connect, e.g., `1`         | --            |
+| `RATE_LIMITER_REDIS_GLOBAL_HOST`     | Hostname of the Redis instance, e.g., `"127.0.0.1"`           | --            |
+| `RATE_LIMITER_REDIS_GLOBAL_PORT`     | Port of the Redis instance, e.g., `6379`                      | --            |
+| `RATE_LIMITER_REDIS_GLOBAL_USERNAME` | Username for your Redis instance, e.g., `"default"`           | --            |
+| `RATE_LIMITER_REDIS_GLOBAL_PASSWORD` | Password for your Redis instance, e.g., `"yourRedisPassword"` | --            |
+| `RATE_LIMITER_REDIS_GLOBAL_DB`       | Database of your Redis instance to connect, e.g., `1`         | --            |
 
 ### Memcache
 
-| Variable                | Description                                                                                                                                                             | Default Value |
-| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| `RATE_LIMITER_MEMCACHE` | Location of your memcache instance. You can use [`array:` syntax](#environment-syntax-prefix), e.g., `array:<instance-1>,<instance-2>` for multiple memcache instances. | ---           |
+| Variable                       | Description                                                                                                                                                             | Default Value |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| `RATE_LIMITER_MEMCACHE`        | Location of your memcache instance. You can use [`array:` syntax](#environment-syntax-prefix), e.g., `array:<instance-1>,<instance-2>` for multiple memcache instances. | ---           |
+| `RATE_LIMITER_GLOBAL_MEMCACHE` | Location of your memcache instance. You can use [`array:` syntax](#environment-syntax-prefix), e.g., `array:<instance-1>,<instance-2>` for multiple memcache instances. | ---           |
 
 ::: tip Additional Rate Limiter Variables
 
-All `RATE_LIMITER_*` variables are passed directly to a `rate-limiter-flexible` instance. Depending on your project's
-needs, you can extend the above environment variables to configure any of
+All `RATE_LIMITER_*`/`RATE_LIMITER_GLOBAL_*` variables are passed directly to a `rate-limiter-flexible` instance.
+Depending on your project's needs, you can extend the above environment variables to configure any of
 [the `rate-limiter-flexible` options](https://github.com/animir/node-rate-limiter-flexible/wiki/Options).
+
+:::
+
+::: warning Global Rate Limiter
+
+If the amount of requests exceeds the global limit the application is effectively unreachable for everyone until the
+timeout has passed!
 
 :::
 
