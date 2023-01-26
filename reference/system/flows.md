@@ -523,7 +523,7 @@ Returns the [flow objects](#the-flow-object) for the updated flows.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -542,6 +542,13 @@ PATCH /flows
 type Mutation {
 	update_flows_items(ids: [ID!]!, data: update_directus_flows_input): [directus_flows]
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this feature is coming soon.
 ```
 
 </template>
@@ -585,6 +592,10 @@ mutation {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 
 </SnippetToggler>
@@ -625,6 +636,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 
 </SnippetToggler>
 
@@ -655,6 +673,10 @@ mutation {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 
 </SnippetToggler>
@@ -677,7 +699,7 @@ Empty body.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL','JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -696,6 +718,13 @@ DELETE /flows
 type Mutation {
 	delete_flows_items(ids: [ID!]!): delete_many
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this feature is coming soon.
 ```
 
 </template>
@@ -737,6 +766,10 @@ mutation {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 
 </SnippetToggler>
@@ -775,7 +808,7 @@ GET /flows/trigger/:flow_uuid
 <template #js-sdk>
 
 ```js
-// Not currently available in JS-SDK
+// The JS-SDK documentation for this feature is coming soon.
 ```
 
 </template>
@@ -808,7 +841,7 @@ GET /flows/trigger/:flow_uuid
 <template #js-sdk>
 
 ```js
-// Not currently available in JS-SDK
+// The JS-SDK documentation for this feature is coming soon.
 ```
 
 </template>
@@ -850,7 +883,7 @@ POST /flows/trigger/:flow_uuid
 <template #js-sdk>
 
 ```js
-// Not currently available in JS-SDK
+// The JS-SDK documentation for this feature is coming soon.
 ```
 
 </template>
@@ -885,7 +918,7 @@ POST /flows/trigger/:flow_uuid
 <template #js-sdk>
 
 ```js
-// Not currently available in JS-SDK
+// The JS-SDK documentation for this feature is coming soon.
 ```
 
 </template>
