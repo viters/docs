@@ -418,6 +418,7 @@ function sidebar() {
 				{ text: 'Flows For Loops', link: '/cookbook/flows/flows-for-loop' },
 				{ text: 'Slugify Text with Run Script', link: '/cookbook/flows/slugify-text-with-run-script' },
 				{ text: 'Trigger a Static Site Build with Netlify', link: '/cookbook/flows/trigger-static-site-build-netlify' },
+				{ text: 'Trigger a Static Site Build with Vercel', link: '/cookbook/flows/trigger-static-site-build-vercel' },
 			],
 		},
 		{
