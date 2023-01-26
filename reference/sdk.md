@@ -546,54 +546,6 @@ const directus = new Directus('https://example.directus.app', {
 });
 ```
 
-## Permissions
-
-```js
-directus.permissions;
-```
-
-Same methods as `directus.items("directus_permissions")`.
-
-## Presets
-
-```js
-directus.presets;
-```
-
-Same methods as `directus.items("directus_presets")`.
-
-## Relations
-
-```js
-directus.relations;
-```
-
-Same methods as `directus.items("directus_relations")`.
-
-## Revisions
-
-```js
-directus.revisions;
-```
-
-Same methods as `directus.items("directus_revisions")`.
-
-## Roles
-
-```js
-directus.roles;
-```
-
-Same methods as `directus.items("directus_roles")`.
-
-## Settings
-
-```js
-directus.settings;
-```
-
-Same methods as `directus.items("directus_settings")`.
-
 ## Server
 
 ### Ping the Server
