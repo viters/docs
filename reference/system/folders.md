@@ -43,7 +43,7 @@ Parent folder. Many-to-one to folders (recursive).
 
 ---
 
-## List Folders
+## Get Folders
 
 List all folders that exist in Directus.
 
@@ -62,7 +62,7 @@ will be an empty array.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -82,6 +82,14 @@ SEARCH /folders
 type Query {
 	folders: directus_folders
 }
+```
+
+</template>
+
+<template #js-sdk>
+
+```js
+// Documentation for this JS-SDK method is coming soon.
 ```
 
 </template>
@@ -116,13 +124,17 @@ query {
 </template>
 <template #js-sdk>
 
+```js
+// Documentation for this JS-SDK method is coming soon.
+```
+
 </template>
 
 </SnippetToggler>
 
 ---
 
-## Retrieve a Folder
+## Get a Folder
 
 List all folders that exist in Directus.
 
@@ -138,7 +150,7 @@ Returns a [folder object](#the-folder-object) if a valid primary key was provide
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -157,6 +169,18 @@ GET /folders/:id
 type Query {
 	folders_by_id(id: ID!): directus_folders
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+const folders = directus.folders;
+
+await folders.readOne(
+	id, // Required: primary key
+	query // Optional: a query parameter
+);
 ```
 
 </template>
@@ -190,6 +214,12 @@ query {
 </template>
 <template #js-sdk>
 
+```js
+const folders = directus.folders;
+
+await folders.readOne('fc02d733-95b8-4e27-bd4b-08a32cbe4e66');
+```
+
 </template>
 
 </SnippetToggler>
@@ -216,7 +246,7 @@ Returns the [folder object](#the-folder-object) of the folder that was created.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -235,6 +265,13 @@ POST /folders
 type Mutation {
 	create_folders_item(data: create_directus_folders_input): directus_folders
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// Documentation for this JS-SDK method is coming soon.
 ```
 
 </template>
@@ -273,6 +310,10 @@ mutation {
 </template>
 <template #js-sdk>
 
+```js
+// Documentation for this JS-SDK method is coming soon.
+```
+
 </template>
 
 </SnippetToggler>
@@ -299,7 +340,7 @@ Returns the [folder object](#the-folder-object) of the folder that was created.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -318,6 +359,13 @@ POST /folders
 type Mutation {
 	create_folders_items(data: [create_directus_folders_input]): [directus_folders]
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// Documentation for this JS-SDK method is coming soon.
 ```
 
 </template>
@@ -361,6 +409,10 @@ mutation {
 </template>
 <template #js-sdk>
 
+```js
+// Documentation for this JS-SDK method is coming soon.
+```
+
 </template>
 
 </SnippetToggler>
@@ -387,7 +439,7 @@ Returns the [folder object](#the-folder-object) of the folder that was updated.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -406,6 +458,14 @@ PATCH /folders/:id
 type Mutation {
 	update_folders_item(id: ID!, data: update_directus_folders_input): directus_folders
 }
+```
+
+</template>
+
+<template #js-sdk>
+
+```js
+// Documentation for this JS-SDK method is coming soon.
 ```
 
 </template>
@@ -445,7 +505,12 @@ mutation {
 ```
 
 </template>
+
 <template #js-sdk>
+
+```js
+// Documentation for this JS-SDK method is coming soon.
+```
 
 </template>
 
@@ -477,7 +542,7 @@ Returns the [folder objects](#the-folder-object) of the folders that were update
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -496,6 +561,13 @@ PATCH /folders
 type Mutation {
 	update_folders_items(ids: [ID!]!, data: update_directus_folders_input): [directus_folders]
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// Documentation for this JS-SDK method is coming soon.
 ```
 
 </template>
@@ -540,6 +612,10 @@ mutation {
 </template>
 <template #js-sdk>
 
+```js
+// Documentation for this JS-SDK method is coming soon.
+```
+
 </template>
 
 </SnippetToggler>
@@ -564,7 +640,7 @@ Empty body.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -583,6 +659,17 @@ DELETE /folders/:id
 type Mutation {
 	delete_folders_item(id: ID!): delete_one
 }
+```
+
+</template>
+
+<template #js-sdk>
+
+```js
+// One
+const folders = directus.folders;
+
+await folders.deleteOne(id);
 ```
 
 </template>
@@ -616,6 +703,13 @@ mutation {
 </template>
 <template #js-sdk>
 
+```js
+// One
+const folders = directus.folders;
+
+await folders.deleteOne('fac21847-d5ce-4e4b-a288-9abafbdfbc87');
+```
+
 </template>
 
 </SnippetToggler>
@@ -644,7 +738,7 @@ Empty body.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -663,6 +757,15 @@ DELETE /folders
 type Mutation {
 	delete_folders_items(ids: [ID!]!): delete_many
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+const folders = directus.folders;
+
+await folders.deleteMany(ids_array);
 ```
 
 </template>
@@ -697,6 +800,12 @@ mutation {
 
 </template>
 <template #js-sdk>
+
+```js
+const folders = directus.folders;
+
+await folders.deleteMany(['fac21847-d5ce-4e4b-a288-9abafbdfbc87', 'a5bdb793-dd85-4ac9-882a-b42862092983']);
+```
 
 </template>
 

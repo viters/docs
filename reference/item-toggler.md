@@ -31,3 +31,7 @@ If using REST, learn more about using [SEARCH](/reference/introduction#search-ht
 // Not currently available in the REST API
 
 ```
+
+```js
+// Documentation for this JS-SDK method is coming soon.
+```

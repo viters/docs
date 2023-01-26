@@ -546,30 +546,6 @@ const directus = new Directus('https://example.directus.app', {
 });
 ```
 
-## Comments
-
-```js
-directus.comments;
-```
-
-Same methods as `directus.items("directus_comments")`.
-
-## Fields
-
-```js
-directus.fields;
-```
-
-Same methods as `directus.items("directus_fields")`.
-
-## Folders
-
-```js
-directus.folders;
-```
-
-Same methods as `directus.items("directus_folders")`.
-
 ## Permissions
 
 ```js

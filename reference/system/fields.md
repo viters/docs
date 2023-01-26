@@ -199,6 +199,7 @@ type Query {
 ```
 
 </template>
+
 <template #js-sdk>
 
 ```js
