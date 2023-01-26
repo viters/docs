@@ -38,7 +38,7 @@ Object conforming to [the OpenAPI Specification](https://swagger.io/specificatio
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -88,6 +88,10 @@ query {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 </SnippetToggler>
 
@@ -131,7 +135,7 @@ type articles {
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -183,6 +187,10 @@ query {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 </SnippetToggler>
 
@@ -200,7 +208,7 @@ Pong.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -249,6 +257,10 @@ query {
 
 </template>
 <template #js-sdk>
+
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
 
 </template>
 </SnippetToggler>
@@ -311,7 +323,7 @@ How much memory is available on the operating system.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -364,6 +376,10 @@ query {
 
 </template>
 <template #js-sdk>
+
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
 
 </template>
 </SnippetToggler>
@@ -460,7 +476,7 @@ Array with the status of all individually connected services.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -509,6 +525,10 @@ query {
 
 </template>
 <template #js-sdk>
+
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
 
 </template>
 </SnippetToggler>

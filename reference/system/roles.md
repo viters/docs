@@ -82,7 +82,7 @@ will be an empty array.
 
 ### Syntax
 
-<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL']" label="API" >
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API" >
 
 <template #rest>
 
@@ -139,6 +139,10 @@ query {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 </SnippetToggler>
 
@@ -160,7 +164,7 @@ Returns the requested [role object](#the-role-object).
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -218,6 +222,10 @@ query {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 </SnippetToggler>
 
@@ -243,7 +251,7 @@ Returns the [role object](#the-role-object) for the created role.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -307,6 +315,10 @@ mutation {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 </SnippetToggler>
 
@@ -332,7 +344,7 @@ Returns the [role objects](#the-role-object) for the created roles.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -410,6 +422,10 @@ mutation {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 </SnippetToggler>
 
@@ -435,7 +451,7 @@ Returns the [role object](#the-role-object) for the updated role.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -495,6 +511,10 @@ mutation {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 </SnippetToggler>
 
@@ -524,7 +544,7 @@ Returns the [role objects](#the-role-object) for the updated roles.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -590,6 +610,10 @@ mutation {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 </SnippetToggler>
 
@@ -607,7 +631,7 @@ Empty body.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -659,6 +683,10 @@ mutation {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 </SnippetToggler>
 
@@ -680,7 +708,7 @@ Empty body.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -733,6 +761,10 @@ mutation {
 
 </template>
 <template #js-sdk>
+
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
 
 </template>
 </SnippetToggler>

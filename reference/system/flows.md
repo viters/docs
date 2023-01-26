@@ -94,7 +94,7 @@ be an empty array.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -129,6 +129,11 @@ type Query {
 
 <template #rest>
 
+```
+GET /flows
+SEARCH /flows
+```
+
 </template>
 <template #graphql>
 
@@ -144,6 +149,10 @@ query {
 
 </template>
 <template #js-sdk>
+
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
 
 </template>
 
@@ -167,7 +176,7 @@ Returns the requested [flow object](#the-flow-object).
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -221,6 +230,10 @@ query {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 
 </SnippetToggler>
@@ -247,7 +260,7 @@ Returns the [flow object](#the-flow-object) for the created flow.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -307,6 +320,10 @@ mutation {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 
 </SnippetToggler>
@@ -333,7 +350,7 @@ Returns the [flow object](#the-flow-object) for the created flow.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -411,6 +428,10 @@ mutation {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 
 </SnippetToggler>
@@ -437,7 +458,7 @@ Returns the [flow object](#the-flow-object) for the updated flow.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -491,6 +512,10 @@ mutation {
 
 </template>
 <template #js-sdk>
+
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
 
 </template>
 
@@ -614,7 +639,7 @@ Empty body.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>

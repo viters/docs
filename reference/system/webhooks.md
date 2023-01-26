@@ -89,7 +89,7 @@ data will be an empty array.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -144,6 +144,10 @@ query {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 </SnippetToggler>
 
@@ -165,7 +169,7 @@ Returns the requested [webhook object](#the-webhook-object).
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -219,6 +223,10 @@ query {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 </SnippetToggler>
 
@@ -246,7 +254,7 @@ Returns the [webhook object](#the-webhook-object) for the created webhook.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -308,6 +316,10 @@ mutation {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 </SnippetToggler>
 
@@ -335,7 +347,7 @@ Returns the [webhook objects](#the-webhook-object) for the created webhooks.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -408,6 +420,10 @@ mutation {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 </SnippetToggler>
 
@@ -433,7 +449,7 @@ Returns the [webhook object](#the-webhook-object) for the updated webhook.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -489,6 +505,10 @@ mutation {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 </SnippetToggler>
 
@@ -518,7 +538,7 @@ Returns the [webhook objects](#the-webhook-object) for the updated webhooks.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -577,6 +597,10 @@ mutation {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 </SnippetToggler>
 
@@ -594,7 +618,7 @@ Empty body.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -646,6 +670,10 @@ mutation {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 </SnippetToggler>
 
@@ -667,7 +695,7 @@ Empty body.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -720,6 +748,10 @@ mutation {
 
 </template>
 <template #js-sdk>
+
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
 
 </template>
 </SnippetToggler>

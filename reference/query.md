@@ -34,7 +34,7 @@ Choosing fields is a native feature of GraphQL. For more details, see the [Graph
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -53,14 +53,20 @@ Choosing fields is a native feature of GraphQL. For more details, see the [Graph
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -80,7 +86,13 @@ Choosing fields is a native feature of GraphQL. For more details, see the [Graph
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Wildcards
@@ -91,7 +103,7 @@ You can also use a wildcard `*` to include all fields at a specific depth.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -113,7 +125,13 @@ You can also use a wildcard `*` to include all fields at a specific depth.
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 :::tip
@@ -139,7 +157,7 @@ You can use dot-notation to request nested relational fields.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -169,7 +187,13 @@ You can use dot-notation to request nested relational fields.
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Multiple Fields
@@ -180,7 +204,7 @@ You can use a comma `,` to get multiple fields. This can be combined with `.` to
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -216,7 +240,13 @@ fields=*,images.*
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Many-To-Any (Union Types)
@@ -230,7 +260,7 @@ type. In GraphQL, this can be achieved using [Union Types](https://graphql.org/l
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -249,7 +279,13 @@ type. In GraphQL, this can be achieved using [Union Types](https://graphql.org/l
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -259,7 +295,7 @@ Let's say we have a collection `pages` with a many-to-any field called `sections
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -288,7 +324,13 @@ Let's say we have a collection `pages` with a many-to-any field called `sections
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ---
@@ -304,7 +346,7 @@ logical operators (AND/OR), nested relational filtering, and dynamic variables.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
@@ -331,7 +373,13 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Examples
@@ -421,7 +469,7 @@ root item's fields, related item fields are not included.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API" >
 
 <template #rest>
@@ -443,14 +491,20 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
@@ -475,7 +529,13 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ---
@@ -490,7 +550,7 @@ of nested fields.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
@@ -529,14 +589,20 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
@@ -575,7 +641,13 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ---
@@ -588,7 +660,7 @@ Set the maximum number of items that will be returned. The default limit is set 
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
@@ -611,14 +683,20 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
@@ -653,7 +731,13 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 :::warning All Items
@@ -673,7 +757,7 @@ Skip the first `n` items in the response. Can be used for pagination.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
@@ -698,14 +782,20 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
@@ -730,7 +820,13 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 :::tip Why does this get just 100 items?
@@ -756,7 +852,7 @@ The default limit for requests is 100 items. For details, see the [`limit` param
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
@@ -781,14 +877,20 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
@@ -823,7 +925,13 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ---
@@ -857,7 +965,7 @@ year-month-date.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
@@ -885,14 +993,20 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
@@ -922,7 +1036,13 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ---
@@ -968,7 +1088,7 @@ would at the proper depth.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
@@ -995,14 +1115,20 @@ would at the proper depth.
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
@@ -1034,7 +1160,13 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ---
@@ -1061,7 +1193,7 @@ This is only possible for top level fields. An alias for `field.nested_field` wo
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
@@ -1092,14 +1224,20 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
@@ -1130,7 +1268,13 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ---
@@ -1145,7 +1289,7 @@ Saves the API response to a file. Accepts one of `json`, `csv`, `xml`.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
@@ -1166,14 +1310,20 @@ Saves the API response to a file. Accepts one of `json`, `csv`, `xml`.
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
@@ -1196,7 +1346,13 @@ Saves the API response to a file. Accepts one of `json`, `csv`, `xml`.
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ---
@@ -1237,7 +1393,7 @@ name as the nested field.
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
@@ -1264,14 +1420,20 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
@@ -1301,7 +1463,13 @@ query {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ---
@@ -1326,7 +1494,7 @@ three options:
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
@@ -1347,14 +1515,20 @@ three options:
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
 
 <SnippetToggler
 	v-model="pref"
-	:choices="['REST', 'GraphQL']"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
 	label="API"
 	>
 
@@ -1379,5 +1553,11 @@ three options:
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
+</template>
 </SnippetToggler>
