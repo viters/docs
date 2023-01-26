@@ -98,7 +98,9 @@ with them.
 
 You can learn more about Netlify Build Hooks on their documentation.
 
-[https://docs.netlify.com/configure-builds/build-hooks/](https://docs.netlify.com/configure-builds/build-hooks/) :::
+[https://docs.netlify.com/configure-builds/build-hooks/](https://docs.netlify.com/configure-builds/build-hooks/)
+
+:::
 
 4. Copy your Build Hook URL from Netlify
 
@@ -115,8 +117,6 @@ You can learn more about Netlify Build Hooks on their documentation.
    a. For the type of Operation, select **Webhook / Request URL**
 
    b. Change **Method** to POST
-
-   :::tip Check with your specific hosting platform to verify this is the correct method. :::
 
    c. Paste the Build Hook URL from Netlify into the **URL** field
 
