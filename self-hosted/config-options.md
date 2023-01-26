@@ -411,13 +411,6 @@ Depending on your project's needs, you can extend the above environment variable
 
 :::
 
-::: warning Global Rate Limiter
-
-If the amount of requests exceeds the global limit the application is effectively unreachable for everyone until the
-timeout has passed!
-
-:::
-
 ### Example: Basic
 
 ```
@@ -425,6 +418,10 @@ timeout has passed!
 
 RATE_LIMITER_POINTS="10"
 RATE_LIMITER_DURATION="5"
+
+// globally 100 requests per 5 seconds
+RATE_LIMITER_GLOBAL_POINTS="100"
+RATE_LIMITER_GLOBAL_DURATION="5"
 ```
 
 ### Example: Redis
