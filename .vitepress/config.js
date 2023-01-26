@@ -441,6 +441,10 @@ function sidebar() {
 					text: 'Filter Rules',
 				},
 				{
+					link: '/reference/nested-data',
+					text: 'Relational Data',
+				},
+				{
 					link: '/reference/items',
 					text: 'Items',
 				},
