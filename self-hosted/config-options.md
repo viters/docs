@@ -363,7 +363,7 @@ limiter information, you can use an external `memcache` or `redis` instance to s
 | `RATE_LIMITER_STORE`                        | Where to store the rate limiter counts. One of `memory`, `redis`, or `memcache`. | `memory`      |
 | `RATE_LIMITER_HEALTHCHECK_THRESHOLD`        | Healthcheck timeout threshold in ms.                                             | `150`         |
 | `RATE_LIMITER_GLOBAL_ENABLED`               | Whether or not to enable global rate limiting on the API.                        | `false`       |
-| `RATE_LIMITER_GLOBAL_POINTS`                | The total amount of allowed hits per duration.                                   | `250`         |
+| `RATE_LIMITER_GLOBAL_POINTS`                | The total amount of allowed hits per duration.                                   | `1000`        |
 | `RATE_LIMITER_GLOBAL_DURATION`              | The time window in seconds in which the points are counted.                      | `1`           |
 | `RATE_LIMITER_GLOBAL_STORE`                 | Where to store the rate limiter counts. One of `memory`, `redis`, or `memcache`. | `memory`      |
 | `RATE_LIMITER_GLOBAL_HEALTHCHECK_THRESHOLD` | Healthcheck timeout threshold in ms.                                             | `150`         |
