@@ -106,6 +106,10 @@ type Query {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 
 </SnippetToggler>
@@ -138,6 +142,10 @@ query {
 
 </template>
 <template #js-sdk>
+
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
 
 </template>
 
@@ -184,6 +192,10 @@ type Query {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 
 </SnippetToggler>
@@ -215,6 +227,10 @@ query {
 
 </template>
 <template #js-sdk>
+
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
 
 </template>
 
@@ -265,6 +281,10 @@ type Mutation {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 
 </SnippetToggler>
@@ -301,6 +321,10 @@ mutation {
 
 </template>
 <template #js-sdk>
+
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
 
 </template>
 
@@ -350,6 +374,10 @@ type Mutation {
 
 </template>
 <template #js-sdk>
+
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
 
 </template>
 
@@ -405,6 +433,10 @@ mutation {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 
 </SnippetToggler>
@@ -454,6 +486,10 @@ type Mutation {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 
 </SnippetToggler>
@@ -485,6 +521,10 @@ mutation {
 
 </template>
 <template #js-sdk>
+
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
 
 </template>
 
@@ -539,8 +579,11 @@ type Mutation {
 </template>
 <template #js-sdk>
 
-</template>
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
 
+</template>
 </SnippetToggler>
 
 ### Example
@@ -583,6 +626,10 @@ mutation {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 
 </SnippetToggler>
@@ -624,6 +671,10 @@ type Mutation {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 
 </SnippetToggler>
@@ -654,6 +705,10 @@ mutation {
 
 </template>
 <template #js-sdk>
+
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
 
 </template>
 
@@ -700,6 +755,10 @@ type Mutation {
 </template>
 <template #js-sdk>
 
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
+
 </template>
 
 </SnippetToggler>
@@ -738,6 +797,10 @@ mutation {
 
 </template>
 <template #js-sdk>
+
+```js
+// The JS-SDK documentation for this feature is coming soon.
+```
 
 </template>
 

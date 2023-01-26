@@ -33,5 +33,5 @@ If using REST, learn more about using [SEARCH](/reference/introduction#search-ht
 ```
 
 ```js
-// Documentation for this JS-SDK method is coming soon.
+// The JS-SDK documentation for this feature is coming soon.
 ```
