@@ -25,6 +25,8 @@ version: '3'
 services:
   directus:
     image: directus/directus:latest
+    ports:
+      - 8055:8055
     volumes:
       - ./uploads:/directus/uploads
       - ./database:/directus/database
