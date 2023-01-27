@@ -521,6 +521,10 @@ function sidebar() {
 					text: 'Settings',
 				},
 				{
+					link: '/reference/system/shares',
+					text: 'Shares',
+				},
+				{
 					link: '/reference/system/users',
 					text: 'Users',
 				},
