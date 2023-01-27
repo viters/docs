@@ -20,7 +20,7 @@ const pref = ref('REST');
 
 ---
 
-## Get OpenAPI Specification
+Get## Get OpenAPI Specification
 
 Retrieve the OpenAPI spec for the current project.
 
@@ -57,6 +57,13 @@ GET /server/specs/oas
 type Query {
 	server_specs_oas: String
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// Not currently available for the JS-SDK
 ```
 
 </template>
@@ -196,7 +203,7 @@ query {
 
 ---
 
-## Ping
+## Ping the Server
 
 Ping... pong! 🏓
 
@@ -230,6 +237,13 @@ type Query {
 ```
 
 </template>
+<template #js-sdk>
+
+```js
+await directus.server.ping();
+```
+
+</template>
 
 </SnippetToggler>
 
@@ -259,7 +273,7 @@ query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+await directus.server.ping();
 ```
 
 </template>
@@ -267,7 +281,7 @@ query {
 
 ---
 
-## Info
+## Get Server/Project Info
 
 Information about the current installation.
 
@@ -345,6 +359,13 @@ type Query {
 ```
 
 </template>
+<template #js-sdk>
+
+```js
+await directus.server.info();
+```
+
+</template>
 
 </SnippetToggler>
 
@@ -378,7 +399,7 @@ query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+await directus.server.info();
 ```
 
 </template>
@@ -495,6 +516,13 @@ GET /server/health
 type Query {
 	server_health: JSON
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this feature is coming soon.
 ```
 
 </template>

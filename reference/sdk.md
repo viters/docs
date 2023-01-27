@@ -546,20 +546,6 @@ const directus = new Directus('https://example.directus.app', {
 });
 ```
 
-## Server
-
-### Ping the Server
-
-```js
-await directus.server.ping();
-```
-
-### Get Server/Project Info
-
-```js
-await directus.server.info();
-```
-
 ## Users
 
 ```js
@@ -621,47 +607,5 @@ Supports optional query:
 ```js
 await directus.users.me.update({ first_name: 'Admin' }, { fields: ['last_access'] });
 ```
-
-## Utils
-
-### Get a Random String
-
-```js
-await directus.utils.random.string();
-```
-
-Supports an optional `length` (defaults to 32):
-
-```js
-await directus.utils.random.string(50);
-```
-
-### Generate a Hash for a Given Value
-
-```js
-await directus.utils.hash.generate('My String');
-```
-
-### Verify if a Hash is Valid
-
-```js
-await directus.utils.hash.verify('My String', '$argon2i$v=19$m=4096,t=3,p=1$A5uogJh');
-```
-
-### Sort Items in a Collection
-
-```js
-await directus.utils.sort('articles', 15, 42);
-```
-
-This will move item `15` to the position of item `42`, and move everything in between one "slot" up.
-
-### Revert to a Previous Revision
-
-```js
-await directus.utils.revert(451);
-```
-
-Note: The key passed is the primary key of the revision you'd like to apply.
 
 ---
