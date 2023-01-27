@@ -72,7 +72,7 @@ Choosing fields is a native feature of GraphQL. For more details, see the [Graph
 <template #rest>
 
 ```
-// returns the `id` field for each item:
+// returns the "id" field for each item:
 ?fields=id
 ```
 
@@ -357,7 +357,7 @@ logical operators (AND/OR), nested relational filtering, and dynamic variables.
 
 // or
 
-?filter={ "first_name": { "_eq": "Rijk" }}
+?filter={ "first_name": { "_eq": "Rijk" } }
 ```
 
 </template>
@@ -366,7 +366,7 @@ logical operators (AND/OR), nested relational filtering, and dynamic variables.
 
 ```graphql
 query {
-	users(filter: { first_name: { _eq: "Rijk" } }) {
+	collection(filter: { field: { _eq: "value" } }) {
 		id
 	}
 }
@@ -484,7 +484,7 @@ root item's fields, related item fields are not included.
 ```graphql
 # find all items that mention Directus
 query {
-	articles(search: "<search_value>") {
+	collection(search: "<search_value>") {
 		id
 	}
 }
@@ -676,7 +676,7 @@ Set the maximum number of items that will be returned. The default limit is set 
 
 ```graphql
 query {
-	articles(limit: <number>) {
+	collection(limit: <number>) {
 		id
 	}
 }
@@ -775,7 +775,7 @@ Skip the first `n` items in the response. Can be used for pagination.
 ```graphql
 # Skip first <number> items in the response
 query {
-	articles(offset: <number>) {
+	collection(offset: <number>) {
 		id
 	}
 }
@@ -811,7 +811,8 @@ query {
 <template #graphql>
 
 ```graphql
-// Get items 101-200
+# Get items 101-200
+
 query {
 	articles(offset: 100) {
 		id
@@ -870,7 +871,7 @@ The default limit for requests is 100 items. For details, see the [`limit` param
 ```graphql
 # Get items <number> * limit
 query {
-	articles(page: <number>) {
+	colection(page: <number>) {
 		id
 	}
 }
@@ -983,7 +984,7 @@ year-month-date.
 
 ```graphql
 query {
-	articles_aggregated(groupBy: [ "<field>", "<function>(<field>)" ]) {
+	collection(groupBy: [ "<field>", "<function>(<field>)" ]) {
 		group
 		<aggregation_function> {
 			<field>
@@ -1151,7 +1152,7 @@ would at the proper depth.
 ```graphql
 # return nested items where translations.language_code is English
 query {
-	some_collection {
+	collection {
 		translations(filter: { languages_code: { _eq: "en-US" } }) {
 			some_fields
 		}
@@ -1510,7 +1511,7 @@ three options:
 
 ```graphql
 
-# n/a
+# Not currently available in graphQL
 
 ```
 
@@ -1548,7 +1549,7 @@ three options:
 
 ```graphql
 
-# n/a
+# Not currently available in graphQL
 
 ```
 
