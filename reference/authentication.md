@@ -68,12 +68,18 @@ before the current token is returned.
 
 <template #rest>
 
-Not Currently Available for REST
+```
+// Not Currently Available for REST
+```
 
 </template>
 <template #graphql>
 
-Not Currently Available for GraphQL
+```graphql
+
+# Not Currently Available for GraphQL
+
+```
 
 </template>
 <template #js-sdk>
@@ -433,10 +439,7 @@ mutation {
 <template #js-sdk>
 
 ```js
-await directus.auth.password.request(
-	'admin@example.com', // Required
-	'https://myapp.com' // Optional: If added, the link will be https://myapp.com?access_token=.....
-);
+await directus.auth.password.request('admin@example.com', 'https://myapp.com');
 ```
 
 </template>
@@ -574,13 +577,19 @@ GET /auth
 
 <template #graphql>
 
-Not Currently Available for GraphQL
+```graphql
+
+# Not currently available for GraphQL
+
+```
 
 </template>
 
 <template #js-sdk>
 
-Not Currently Available for JS-SDK
+```js
+// Not Currently Available for JS-SDK
+```
 
 </template>
 
@@ -610,13 +619,19 @@ GET /auth/login/:provider
 
 <template #graphql>
 
-Not Currently Available for GraphQL
+```graphql
+
+# Not currently available for GraphQL
+
+```
 
 </template>
 
 <template #js-sdk>
 
-Not Currently Available for JS-SDK
+```js
+// Not Currently Available for JS-SDK
+```
 
 </template>
 
