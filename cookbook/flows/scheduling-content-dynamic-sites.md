@@ -29,8 +29,12 @@ This recipe explains how to schedule content to be published on a future date fo
 Scheduling content has fewer steps for a dynamic site. Since you are calling your Directus API at the time that a
 visitor requests a page from your site, all you need to do is add a filter to your query.
 
-:::info Note If your site is statically generated and your content fetched at build time, please
-[follow the recipe for static sites](/cookbook/flows/scheduling-content-static-sites). :::
+:::info Note
+
+If your site is statically generated and your content fetched at build time, please
+[follow the recipe for static sites](/cookbook/flows/scheduling-content-static-sites).
+
+:::
 
 <!-- ## Video -->
 <!-- Todo -->
@@ -77,9 +81,13 @@ field `status` that controls the published state.
 
 #### Examples
 
-:::tip In these examples, we're using an [AND logical operator](/reference/filter-rules#logical-operators) to only
-return records that match both conditions. This provides a little more control over your published content by ensuring
-only articles that have a publish date AND have the `published` state are displayed on your site. :::
+:::tip
+
+In these examples, we're using an [AND logical operator](/reference/filter-rules#logical-operators) to only return
+records that match both conditions. This provides a little more control over your published content by ensuring only
+articles that have a publish date AND have the `published` state are displayed on your site.
+
+:::
 
 Using the [Directus Javascript SDK](/reference/sdk) (preferred)
 

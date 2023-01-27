@@ -37,8 +37,12 @@ Lastly we'll kick off a new deployment of your static site at your hosting provi
 - [Triggering a static site build at Netlify](/cookbook/flows/trigger-static-site-build-netlify)
 - [Triggering a static site build at Vercel](/cookbook/flows/trigger-static-site-build-vercel)
 
-::: info Note If your site fetches content at runtime or at the time of a page request, please
-[follow the recipe for dynamic sites](/cookbook/flows/scheduling-content-dynamic-sites). :::
+::: info Note
+
+If your site fetches content at runtime or at the time of a page request, please
+[follow the recipe for dynamic sites](/cookbook/flows/scheduling-content-dynamic-sites).
+
+:::
 
 <!-- ## Video -->
 <!-- Todo -->
@@ -107,8 +111,12 @@ field `status` that controls the published state.
 
    d. Check **Emit Events**
 
-   :::warning Emit Events will trigger an `item.update` event in this flow. Be careful when using it in your Flows to
-   avoid creating infinite loops where Flows continuously trigger one another. :::
+   :::warning
+
+   Emit Events will trigger an `item.update` event in this flow. Be careful when using it in your Flows to avoid
+   creating infinite loops where Flows continuously trigger one another.
+
+   :::
 
    e. Set your **Payload**
 
