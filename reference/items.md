@@ -159,6 +159,8 @@ query {
 <template #js-sdk>
 
 ```js
+const articles = directus.items('articles');
+
 // READ BY QUERY
 await articles.readByQuery({
 	search: 'Directus',
@@ -231,7 +233,9 @@ type Query {
 <template #js-sdk>
 
 ```js
-await articles.readOne(
+const collection = directus.items(collection_name);
+
+await collection.readOne(
 	id, // primary key
 	query // Optional: a query parameter
 );
@@ -272,6 +276,8 @@ query {
 <template #js-sdk>
 
 ```js
+const articles = directus.items(articles);
+
 await articles.readOne(15, { fields: ['title'] });
 ```
 
@@ -446,10 +452,7 @@ type Mutation {
 ```js
 const collection = directus.items.(collection_name);
 
-await collection.createMany(
-	// Requried: An array of objects used to create the items
-	items_array
-);
+await collection.createMany(items_array);
 ```
 
 </template>
@@ -511,6 +514,8 @@ mutation {
 <template #js-sdk>
 
 ```js
+const articles = directus.items('articles');
+
 await articles.createMany([
 	{
 		title: 'My First Title',
@@ -630,6 +635,8 @@ mutation {
 <template #js-sdk>
 
 ```js
+const articles = directus.items('articles');
+
 await articles.updateOne(
 	42,
 	{
@@ -759,6 +766,8 @@ mutation {
 <template #js-sdk>
 
 ```js
+const articles = directus.items('articles');
+
 await articles.updateMany(
 	[15, 42],
 	{
@@ -816,8 +825,6 @@ type Mutation {
 <template #js-sdk>
 
 ```js
-// One
-const primary_key = 15;
 const collection = directus.items(collection_name);
 
 await collection.deleteOne(primary_key);
@@ -857,7 +864,6 @@ mutation {
 <template #js-sdk>
 
 ```js
-// One
 const articles = directus.items('articles');
 
 await articles.deleteOne(15);
@@ -912,7 +918,6 @@ type Mutation {
 <template #js-sdk>
 
 ```js
-const id_array = [15, 16, 21];
 const collection = directus.items(collection_name);
 
 await collection.deleteMany(id_array);
