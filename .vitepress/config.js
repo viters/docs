@@ -414,11 +414,29 @@ function sidebar() {
 			items: [
 				{ text: 'Personal Portfolio Using M2A', link: '/cookbook/data-models/personal-portfolio-using-m2a.md' },
 				{ text: 'Build a Content Hierarchy', link: '/cookbook/data-models/build-a-content-hierarchy' },
-				{ text: 'Basic Workflows', link: '/cookbook/permissions/basic-workflows' },
+				{ text: 'Content Approval Workflows', link: '/cookbook/permissions/basic-workflows' },
 				{ text: 'Flows For Loops', link: '/cookbook/flows/flows-for-loop' },
 				{ text: 'Slugify Text with Run Script', link: '/cookbook/flows/slugify-text-with-run-script' },
-				{ text: 'Trigger a Static Site Build with Netlify', link: '/cookbook/flows/trigger-static-site-build-netlify' },
-				{ text: 'Trigger a Static Site Build with Vercel', link: '/cookbook/flows/trigger-static-site-build-vercel' },
+				{
+					text: 'Trigger Static Site Builds',
+					items: [
+						{
+							text: 'Netlify',
+							link: '/cookbook/flows/trigger-static-site-build-netlify',
+						},
+						{
+							text: 'Vercel',
+							link: '/cookbook/flows/trigger-static-site-build-vercel',
+						},
+					],
+				},
+				{
+					text: 'Scheduling Content',
+					items: [
+						{ text: 'Static Sites', link: '/cookbook/flows/scheduling-content-static-sites' },
+						{ text: 'Dynamic Sites', link: '/cookbook/flows/scheduling-content-dynamic-sites' },
+					],
+				},
 			],
 		},
 		{
