@@ -656,7 +656,7 @@ Import a file from the web
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 `url` **Required**
 
@@ -777,7 +777,7 @@ Update an existing file, and/or replace it's file contents.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 You can either submit a JSON object consisting of a partial [file object](#the-file-object) to update the file meta, or
 send a multipart/form-data request to replace the file contents on disk. See [Upload a File](#upload-a-file) for more
@@ -895,7 +895,7 @@ Update multiple files at the same time.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 `keys` **Required**\
 Array of primary keys of the files you'd like to update.
@@ -1121,7 +1121,7 @@ This will also delete the files from disk.
 
 :::
 
-### Request Body
+### Request
 
 Array of file primary keys
 

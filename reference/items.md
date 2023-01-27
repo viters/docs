@@ -295,7 +295,7 @@ Create a new item in the given collection.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 An array of partial [item objects](#the-item-object).
 
@@ -410,7 +410,7 @@ Create new items in the given collection.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 An array of partial [item objects](#the-item-object).
 
@@ -542,7 +542,7 @@ Update an existing item.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 A partial [item object](#the-item-object).
 
@@ -668,7 +668,7 @@ If your collection is a Singleton, this endpoint will act the same as the [Updat
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 An array containing primary keys of the values to update, a data object containing the field name and values to update,
 and an optional query parameter.
@@ -879,7 +879,7 @@ await articles.deleteOne(15);
 
 Delete multiple existing items.
 
-### Request Body
+### Request
 
 Takes an array of primary keys. Defines items to delete from the collection.
 

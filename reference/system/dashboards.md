@@ -246,7 +246,7 @@ Create a new dashboard.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 A partial [dashboard object](#the-dashboard-object).
 
@@ -340,7 +340,7 @@ Create multiple new dashboards.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 An array of partial [dashboard objects](#the-dashboard-object).
 
@@ -451,7 +451,7 @@ Update an existing dashboard.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 A partial [dashboard object](#the-dashboard-object).
 
@@ -540,7 +540,7 @@ Update multiple existing dashboards.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 `keys` **Required**\
 Array of primary keys of the dashboards you'd like to update.
@@ -720,7 +720,7 @@ mutation {
 
 Delete multiple existing dashboards.
 
-### Request Body
+### Request
 
 An array of dashboards primary keys
 

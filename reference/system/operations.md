@@ -249,7 +249,7 @@ Create a new operation.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 A partial [operation object](#the-operation-object).
 
@@ -337,7 +337,7 @@ Create multiple new operations.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 An array of partial [operation objects](#the-operation-object).
 
@@ -446,7 +446,7 @@ Update an existing operation.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 A partial [operation object](#the-operation-object).
 
@@ -532,7 +532,7 @@ Update multiple existing operations.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 `keys` **Required**\
 Array of primary keys of the operations you'd like to update.
@@ -698,7 +698,7 @@ mutation {
 
 Delete multiple existing operations.
 
-### Request Body
+### Request
 
 An array of operations primary keys
 
@@ -780,7 +780,7 @@ mutation {
 
 Trigger an operation based on primary key.
 
-### Request Body
+### Request
 
 Payload for the operation, if needed.
 

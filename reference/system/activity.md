@@ -303,7 +303,7 @@ await activity.readOne(15, { fields: ['title'] });
 
 Creates a new comment on a given item.
 
-### Request Body
+### Request
 
 `collection` **Required**\
 Collection in which the item resides.
@@ -412,7 +412,7 @@ await activity.createOne({
 
 Updates an existing comment by activity action primary key.
 
-### Request Body
+### Request
 
 `id` **Required**
 
@@ -513,7 +513,7 @@ await articles.updateOne(42, {
 
 Deletes a comment.
 
-### Request Body
+### Request
 
 The primary key of the item to delete.
 

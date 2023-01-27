@@ -96,7 +96,7 @@ const token = await directus.auth.token;
 
 Retrieve a temporary access token and refresh token.
 
-### Request Body
+### Request
 
 `email` **Required**
 
@@ -214,7 +214,7 @@ await directus.auth.static('static_token');
 
 Retrieve a new access token using a refresh token.
 
-### Request Body
+### Request
 
 `refresh_token` **Required**
 
@@ -318,7 +318,7 @@ await directus.auth.refresh();
 
 Invalidate the refresh token thus destroying the user's session.
 
-### Request Body
+### Request
 
 `refresh_token`
 
@@ -379,7 +379,7 @@ await directus.auth.logout();
 Request a password reset email to be sent to the given user. Uses the
 [Reset a Password](/reference/authentication.md#reset-a-password) endpoint.
 
-### Request Body
+### Request
 
 `email` **Required**
 
@@ -453,7 +453,7 @@ await directus.auth.password.request('admin@example.com', 'https://myapp.com');
 The [request a password reset](/reference/authentication.md#request-password-reset) endpoint sends an email with a link
 to the admin app (or a custom route) which in turn uses this endpoint to allow the user to reset their password.
 
-### Request Body
+### Request
 
 `token` **Required**
 

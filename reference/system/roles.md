@@ -239,7 +239,7 @@ Create a new role.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 A partial [role object](#the-role-object).
 
@@ -332,7 +332,7 @@ Create multiple new roles.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 An array of partial [role objects](#the-role-object).
 
@@ -439,7 +439,7 @@ Update an existing role.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 A partial [role object](#the-role-object).
 
@@ -528,7 +528,7 @@ Update multiple existing roles.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 `keys` **Required**\
 Array of primary keys of the roles you'd like to update.
@@ -696,7 +696,7 @@ mutation {
 
 Delete multiple existing roles.
 
-### Request Body
+### Request
 
 An array of role primary keys
 

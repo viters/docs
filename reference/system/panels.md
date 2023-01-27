@@ -270,7 +270,7 @@ Create a new panel.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 A partial [panel object](#the-panel-object).
 
@@ -362,7 +362,7 @@ Create multiple new panels.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 An array of partial [panel objects](#the-panel-object).
 
@@ -471,7 +471,7 @@ Update an existing panel.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 A partial [panel object](#the-panel-object).
 
@@ -562,7 +562,7 @@ Update multiple existing panels.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 `keys` **Required**\
 Array of primary keys of the panels you'd like to update.
@@ -740,7 +740,7 @@ mutation {
 
 Delete multiple existing panels.
 
-### Request Body
+### Request
 
 An array of panels primary keys
 

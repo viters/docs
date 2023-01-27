@@ -240,7 +240,7 @@ Create a new webhook.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 A partial [webhook object](#the-webhook-object).
 
@@ -333,7 +333,7 @@ Create multiple new webhooks.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 An array of partial [webhook object](#the-webhook-object).
 
@@ -437,7 +437,7 @@ Update an existing webhook.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 A partial [webhook object](#the-webhook-object).
 
@@ -522,7 +522,7 @@ Update multiple existing webhooks.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 `keys` **Required**\
 Array of primary keys of the webhooks you'd like to update.
@@ -683,7 +683,7 @@ mutation {
 
 Delete multiple existing webhooks.
 
-### Request Body
+### Request
 
 An array of webhook primary keys
 

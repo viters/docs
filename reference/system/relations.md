@@ -380,7 +380,7 @@ Create a new relation.
 
 Doesn't support any query parameters.
 
-### Request Body
+### Request
 
 A partial [relation object](#the-relation-object).
 
@@ -471,7 +471,7 @@ Update an existing relation.
 
 Doesn't support any query parameters.
 
-### Request Body
+### Request
 
 A partial [relation object](#the-relation-object).
 

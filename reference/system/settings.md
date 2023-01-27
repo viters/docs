@@ -214,7 +214,7 @@ query {
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 A partial [settings object](#the-settings-object).
 

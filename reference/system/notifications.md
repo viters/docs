@@ -237,7 +237,7 @@ Create a new notification.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 A partial [notification object](#the-notification-object).
 
@@ -324,7 +324,7 @@ Create multiple new notifications.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 An array of partial [notification objects](#the-notification-object).
 
@@ -439,7 +439,7 @@ notification email to be sent.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 A partial [notification object](#the-notification-object).
 
@@ -525,7 +525,7 @@ Update multiple existing notifications.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 `keys` **Required**\
 Array of primary keys of the notifications you'd like to update.
@@ -687,7 +687,7 @@ mutation {
 
 Delete multiple existing notifications.
 
-### Request Body
+### Request
 
 An array of notification primary keys
 

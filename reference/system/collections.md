@@ -264,7 +264,7 @@ Retrieve a single collection by table name.
 
 This endpoint doesn't currently support any query parameters.
 
-### Request Body
+### Request
 
 None
 
@@ -358,7 +358,7 @@ Create a new Collection. This will create a new table in the database as well.
 
 This endpoint doesn't currently support any query parameters.
 
-### Request Body
+### Request
 
 The `collection` property is required, all other properties of the [collection object](#the-collection-object) are
 optional.
@@ -488,7 +488,7 @@ is not supported at this time.
 
 This endpoint doesn't currently support any query parameters.
 
-### Request Body
+### Request
 
 `collection` **Required**
 

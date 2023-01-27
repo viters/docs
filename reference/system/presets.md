@@ -260,7 +260,7 @@ Create a new preset.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 A partial [preset object](#the-preset-object).
 
@@ -348,7 +348,7 @@ Create multiple new presets.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 An array of partial [preset objects](#the-preset-object).
 
@@ -454,7 +454,7 @@ Update an existing preset.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 A partial [preset object](#the-preset-object).
 
@@ -540,7 +540,7 @@ Update multiple existing presets.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 `keys` **Required**\
 Array of primary keys of the presets you'd like to update.
@@ -702,7 +702,7 @@ mutation {
 
 Delete multiple existing presets.
 
-### Request Body
+### Request
 
 An array of preset primary keys
 

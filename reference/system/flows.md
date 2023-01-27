@@ -248,7 +248,7 @@ Create a new flow.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 A partial [flow object](#the-flow-object).
 
@@ -338,7 +338,7 @@ Create multiple new flows.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 An array of partial [flow objects](#the-flow-object).
 
@@ -446,7 +446,7 @@ Update an existing flow.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 A partial [flow object](#the-flow-object).
 
@@ -531,7 +531,7 @@ Update multiple existing flows.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 `keys` **Required**\
 Array of primary keys of the flows you'd like to update.
@@ -712,7 +712,7 @@ mutation {
 
 Delete multiple existing flows.
 
-### Request Body
+### Request
 
 An array of flows primary keys
 
@@ -876,7 +876,7 @@ GET /flows/trigger/:flow_uuid
 
 Start a flow with POST webhook trigger.
 
-### Request Body
+### Request
 
 Payload for the POST request.
 

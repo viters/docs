@@ -19,11 +19,103 @@ const pref = ref('REST');
 
 ---
 
-## Generate a Hash
+## Generate a Random String
 
-Generate a hash for a given string.
+Gets a random string.
 
-### Request Body
+### Request
+
+`length` **optional**
+
+- **Type** — `Integer`
+- **Description** — Sets length of the string generated.
+- **Default** — Defaults to 32.
+
+### Response
+
+Returns a random string.
+
+### Syntax
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+
+// Not currently available in REST
+
+```
+
+</template>
+<template #graphql>
+
+```graphql
+
+# Not currently available in GraphQL
+
+```
+
+</template>
+<template #js-sdk>
+
+```js
+await directus.utils.random.string();
+
+// OR
+
+await directus.utils.random.string(length);
+```
+
+</template>
+</SnippetToggler>
+
+### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+
+// Not currently available in REST
+
+```
+
+</template>
+<template #graphql>
+
+```graphql
+
+# Not currently available in GraphQL
+
+```
+
+</template>
+<template #js-sdk>
+
+```js
+await directus.utils.random.string();
+
+// OR
+
+await directus.utils.random.string(50);
+```
+
+</template>
+</SnippetToggler>
+
+## Generate a Hash from String
+
+Generates a hash for a given string.
+
+### Request
 
 `string` **Required**\
 String to hash.
@@ -55,6 +147,14 @@ POST /utils/hash/generate
 type Mutation {
 	utils_hash_generate(string: String!): String
 }
+```
+
+</template>
+
+<template #js-sdk>
+
+```js
+await directus.utils.hash.generate(string_value);
 ```
 
 </template>
@@ -91,10 +191,11 @@ mutation {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+await directus.utils.hash.generate('Hello World');
 ```
 
 </template>
+
 </SnippetToggler>
 
 ---
@@ -103,7 +204,7 @@ mutation {
 
 Verify a string with a hash.
 
-### Request Body
+### Request
 
 `string` **Required**\
 Source string.
@@ -138,6 +239,13 @@ POST /utils/hash/verify
 type Mutation {
 	utils_hash_verify(hash: String!, string: String!): Boolean
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+await directus.utils.hash.verify(string, hash);
 ```
 
 </template>
@@ -177,7 +285,7 @@ mutation {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+await directus.utils.hash.verify('My String', '$argon2i$v=19$m=4096,t=3,p=1$A5uogJh');
 ```
 
 </template>
@@ -189,13 +297,22 @@ mutation {
 
 If a collection has a sort field, this util can be used to move items in that manual order.
 
-### Request Body
+### Request
 
-`item` **Required**\
-Primary key of the item you're moving in the collection.
+`collection` **Required**
 
-`to` **Required**\
-Primary key of the item you're moving the source item too.
+- **Type** - **String**
+- **Description** - The name of the collection.
+
+`item` **Required**
+
+- **Type** — `String` or `Integer`
+- **Description** — Primary key of the item you're moving in the collection.
+
+`to` **Required**
+
+- **Type** — `String` or `Integer`
+- **Description** — Primary key of the item you're moving the source item too.
 
 ### Returns
 
@@ -224,6 +341,16 @@ POST /utils/sort/:collection
 type Mutation {
 	utils_sort(collection: String!, item: ID!, to: ID!): Boolean
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// This will move "item"  to the position of "to"
+// and move everything in between one position up
+
+await directus.utils.sort(collection, item, to);
 ```
 
 </template>
@@ -261,7 +388,10 @@ mutation {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// This will move item `15` to the position of item `42`
+// and move everything in between one "slot" up
+
+await directus.utils.sort('articles', 15, 42);
 ```
 
 </template>
@@ -277,7 +407,7 @@ just like regular file uploads. Check [Upload a File](/reference/files#upload-a-
 The import endpoint expects the file structure to match [the export query parameter](/reference/query#export). For JSON,
 this is an array of objects, where every object is an item. For CSV, the first line has to be the columns header.
 
-### Request Body
+### Request
 
 Send the file in a `multipart/form-data` request. See [Upload a File](/reference/files#upload-a-file) for more
 information.
@@ -307,6 +437,14 @@ POST /utils/import/:collection
 
 # Not currently available in GraphQL
 
+```
+
+</template>
+
+<template #js-sdk>
+
+```js
+// Not currently available in JS-SDK
 ```
 
 </template>
@@ -354,7 +492,7 @@ Content-Type: text/csv
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// Not currently available in JS-SDK
 ```
 
 </template>
@@ -370,7 +508,7 @@ Export a larger data set to a file in the File Library
 
 Doesn't use any query parameters.
 
-### Request Body
+### Request
 
 `format` **Required**\
 What file format to save the export to. One of `csv`, `xml`, `json`.
@@ -406,6 +544,13 @@ POST /utils/export/:collection
 
 # Not currently available in GraphQL
 
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// Not currently available in JS-SDK
 ```
 
 </template>
@@ -451,7 +596,7 @@ POST /utils/export/:collection
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// Not currently available in JS-SDK
 ```
 
 </template>
@@ -463,7 +608,7 @@ POST /utils/export/:collection
 
 Resets both the data and schema cache of Directus. This endpoint is only available to admin users.
 
-### Request Body
+### Request
 
 n/a
 
@@ -496,6 +641,14 @@ mutation {
 
 </template>
 
+<template #js-sdk>
+
+```js
+// Not currently available for the JS-SDK
+```
+
+</template>
+
 </SnippetToggler>
 
 ### Example
@@ -524,7 +677,90 @@ mutation {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// Not currently available for the JS-SDK
+```
+
+</template>
+</SnippetToggler>
+
+## Revert to a Previous Revision
+
+Reverts to a previous revision.
+
+:::tip
+
+For more details, please see the documentation on [revisions](/reference/system/revisions.md).
+
+:::
+
+### Request
+
+`primary_key` **Required**
+
+- **Type** — `Integer` or `String`
+- **Description** — The key passed is the primary key of the revision you'd like to apply.
+
+<!--
+### Response
+
+An Empty Body.
+-->
+
+### Syntax
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+// Not currently available in REST
+```
+
+</template>
+<template #graphql>
+
+```graphql
+# Not currently available in graphQL
+```
+
+</template>
+<template #js-sdk>
+
+```js
+await directus.utils.revert(primary_key);
+```
+
+</template>
+</SnippetToggler>
+
+### Example
+
+<SnippetToggler
+	v-model="pref"
+	:choices="['REST', 'GraphQL', 'JS-SDK']"
+	label="API" >
+
+<template #rest>
+
+```
+// Not currently available in REST
+```
+
+</template>
+<template #graphql>
+
+```graphql
+# Not currently available in graphQL
+```
+
+</template>
+<template #js-sdk>
+
+```js
+await directus.utils.revert(451);
 ```
 
 </template>

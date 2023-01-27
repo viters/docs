@@ -234,7 +234,7 @@ Create a new (virtual) folder.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 A partial [folder object](#the-folder-object). `name` is required.
 
@@ -328,7 +328,7 @@ Create multiple new (virtual) folders.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 An array of partial [folder objects](#the-folder-object). `name` is required.
 
@@ -427,7 +427,7 @@ Update an existing folder.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 A partial [folder object](#the-folder-object).
 
@@ -526,7 +526,7 @@ Update multiple existing folders.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 `keys` **Required**\
 Array of primary keys of the folders you'd like to update.
@@ -726,7 +726,7 @@ Any files in these folders will be moved to the root folder.
 
 :::
 
-### Request Body
+### Request
 
 An array of folder primary keys.
 

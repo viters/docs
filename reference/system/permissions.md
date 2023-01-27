@@ -265,7 +265,7 @@ Create a new permission rule
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 A partial [permissions object](#the-permission-object). `action` and `collection` are required.
 
@@ -357,7 +357,7 @@ Create multiple new permission rules
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 An array of partial [permissions objects](#the-permission-object). `action` and `collection` are required.
 
@@ -460,7 +460,7 @@ Update an existing permissions rule.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
 A partial [permissions object](#the-permission-object).
 
@@ -547,9 +547,9 @@ Update multiple existing permissions rules.
 
 Supports all [global query parameters](/reference/query).
 
-### Request Body
+### Request
 
-### Request Body
+### Request
 
 `keys` **Required**\
 Array of primary keys of the permissions you'd like to update.
@@ -712,7 +712,7 @@ mutation {
 
 Delete multiple existing permissions rules
 
-### Request Body
+### Request
 
 An array of permission primary keys
 

@@ -424,7 +424,7 @@ Create a new field in the given collection.
 
 This endpoint doesn't currently support any query parameters.
 
-### Request Body
+### Request
 
 `field` **Required**\
 Field key, also used as the column name.
@@ -539,7 +539,7 @@ Updates the given field in the given collection.
 
 This endpoint doesn't currently support any query parameters.
 
-### Request Body
+### Request
 
 `type`\
 The new type for the field.
