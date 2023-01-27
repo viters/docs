@@ -98,7 +98,9 @@ with them.
 
 You can learn more about Vercel Deploy Hooks on their documentation.
 
-[https://vercel.com/docs/concepts/git/deploy-hooks](https://vercel.com/docs/concepts/git/deploy-hooks) :::
+[https://vercel.com/docs/concepts/git/deploy-hooks](https://vercel.com/docs/concepts/git/deploy-hooks)
+
+:::
 
 4. Copy your Deploy Hook URL from Vercel
 
