@@ -124,7 +124,7 @@ finish and return whatever value is in **Response Body**. This slows the API, bu
 
 :::
 
-## Schedule
+## Schedule (CRON)
 
 ![Schedule a Cron Job](https://cdn.directus.io/docs/v9/configuration/flows/triggers/triggers-20220603A/cron-20220602A.webp)
 
@@ -132,6 +132,20 @@ This trigger enables you to create data at scheduled intervals, via
 [6-point cron job syntax](https://github.com/node-cron/node-cron#cron-syntax).
 
 - **Interval** — Set the cron job interval to schedule when the flow triggers.
+
+**Syntax Explanation**
+
+```
+ ┌────────────── second (0-59)
+ │ ┌──────────── minute (0-59)
+ │ │ ┌────────── hour (0-23)
+ │ │ │ ┌──────── day of month (1-31)
+ │ │ │ │ ┌────── month (1-12)
+ │ │ │ │ │ ┌──── day of week (0-7)
+ │ │ │ │ │ │
+ │ │ │ │ │ │
+ * * * * * *
+```
 
 ## Another Flow
 
