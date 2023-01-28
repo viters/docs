@@ -444,7 +444,7 @@ POST /utils/import/:collection
 <template #js-sdk>
 
 ```js
-// Not currently available in JS-SDK
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -492,7 +492,7 @@ Content-Type: text/csv
 <template #js-sdk>
 
 ```js
-// Not currently available in JS-SDK
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -550,7 +550,7 @@ POST /utils/export/:collection
 <template #js-sdk>
 
 ```js
-// Not currently available in JS-SDK
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -596,7 +596,7 @@ POST /utils/export/:collection
 <template #js-sdk>
 
 ```js
-// Not currently available in JS-SDK
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -644,7 +644,7 @@ mutation {
 <template #js-sdk>
 
 ```js
-// Not currently available for the JS-SDK
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -677,7 +677,7 @@ mutation {
 <template #js-sdk>
 
 ```js
-// Not currently available for the JS-SDK
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>

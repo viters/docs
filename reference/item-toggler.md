@@ -12,7 +12,7 @@
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -37,5 +37,10 @@ If using REST, learn more about using [SEARCH](/reference/introduction#search-ht
 ```
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
+
+`parameter` **status**
+
+- **Type** —
+- **Description** —

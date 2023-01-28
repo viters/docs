@@ -124,6 +124,10 @@ If using REST, learn more about using [SEARCH](/reference/introduction#search-ht
 
 Supports all [global query parameters](/reference/query).
 
+### Request
+
+No options available.
+
 ### Returns
 
 An array of up to [limit](/reference/query#limit) [user objects](#the-user-object). If no items are available, data will
@@ -153,6 +157,13 @@ SEARCH /users
 type Query {
 	users: [directus_users]
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -190,7 +201,7 @@ query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -236,6 +247,13 @@ type Query {
 ```
 
 </template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 
 </SnippetToggler>
 
@@ -269,7 +287,7 @@ query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -284,6 +302,12 @@ Retrieve the currently authenticated user.
 ### Query Parameters
 
 Supports all [global query parameters](/reference/query).
+
+<!--
+### Request
+
+No options available.
+-->
 
 ### Returns
 
@@ -312,6 +336,17 @@ GET /users/me
 type Query {
 	users_me: directus_users
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+await directus.users.me.read();
+
+// OR
+
+await directus.users.me.read(query);
 ```
 
 </template>
@@ -346,7 +381,13 @@ query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+await directus.users.me.read();
+
+// OR
+
+await directus.users.me.read({
+	fields: ['last_access'],
+});
 ```
 
 </template>
@@ -362,6 +403,13 @@ Update the authenticated user.
 
 Supports all [global query parameters](/reference/query).
 
+### Request
+
+`user_data` **Required**
+
+- **Type** — `Object`
+- **Description** — A partial [user object](#the-user-object) with the fields and values to be updated.
+
 ### Returns
 
 Returns the updated [user object](#the-user-object) for the authenticated user.
@@ -375,8 +423,6 @@ Returns the updated [user object](#the-user-object) for the authenticated user.
 
 <template #rest>
 
-### Syntax
-
 ```
 PATCH /users/me
 ```
@@ -389,8 +435,19 @@ PATCH /users/me
 # POST /graphql/system
 
 type Mutation {
-	update_users_me(data: update_directus_users_input!): directus_users
+	update_users_me(data: user_data!): directus_users
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+await directus.users.me.update(user_data);
+
+// Supports optional query:
+
+await directus.users.me.update(user_data, query);
 ```
 
 </template>
@@ -429,7 +486,11 @@ mutation {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+await directus.users.me.update({ first_name: 'Admin' });
+
+// Supports optional query:
+
+await directus.users.me.update({ first_name: 'Admin' }, { fields: ['last_access'] });
 ```
 
 </template>
@@ -447,9 +508,11 @@ Supports all [global query parameters](/reference/query).
 
 ### Request
 
-A partial [user object](#the-user-object).
+`user_data` **Required**
 
-`email` and `password` are required to authenticate with the default authentication provider.
+- **Type** — `Object`
+- **Description** — A partial [user object](#the-user-object). Note that `email` and `password` are required to
+  authenticate with the default authentication provider.
 
 ### Returns
 
@@ -476,8 +539,15 @@ POST /users
 # POST /graphql/system
 
 type Mutation {
-	create_users_item(data: create_directus_users_input!): directus_users
+	create_users_item(data: user_data!): directus_users
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -521,7 +591,7 @@ mutation {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -539,9 +609,11 @@ Supports all [global query parameters](/reference/query).
 
 ### Request
 
-An array of partial [user objects](#the-user-object).
+`directus_users` **Required**
 
-`email` and `password` are required.
+- **Type** — `Array`
+- **Description** — An array of partial [user object](#the-user-object). Note that `email` and `password` are required
+  to authenticate with the default authentication provider.
 
 ### Returns
 
@@ -568,8 +640,15 @@ POST /users
 # POST /graphql/system
 
 type Mutation {
-	create_users_items(data: [create_directus_users_input!]!): [directus_users]
+	create_users_items(data: [directus_users!]!): [directus_users]
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -623,7 +702,7 @@ mutation {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -641,7 +720,15 @@ Supports all [global query parameters](/reference/query).
 
 ### Request
 
-A partial [user object](#the-user-object).
+`id` **Required**
+
+- **Type** — `String`
+- **Description** — Primary key (a uuid) of the user to update.
+
+`user_data` **Required**
+
+- **Type** — `Object`
+- **Description** — A partial [user object](#the-user-object) with the fields and values to be updated.
 
 ### Returns
 
@@ -668,8 +755,15 @@ PATCH /users/:id
 # POST /graphql/system
 
 type Mutation {
-	update_users_item(id: ID!, data: update_directus_users_input!): directus_users
+	update_users_item(id: ID!, data: user_data!): directus_users
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -709,11 +803,13 @@ mutation {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
 </SnippetToggler>
+
+---
 
 ---
 
@@ -727,11 +823,15 @@ Supports all [global query parameters](/reference/query).
 
 ### Request
 
-`keys` **Required**\
-Array of primary keys of the users you'd like to update.
+`keys` **Required**
 
-`data` **Required**\
-Any of [the user object](#the-user-object)'s properties.
+- **Type** — `Array`
+- **Description** — Array of primary keys of the users you'd like to update.
+
+`data` **Required**
+
+- **Type** — `Object`
+- **Description** — Any of [the user object](#the-user-object)'s properties.
 
 ### Returns
 
@@ -760,6 +860,13 @@ PATCH /users
 type Mutation {
 	update_users_items(ids: [ID!]!, data: update_directus_users_input!): [directus_users]
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -805,7 +912,7 @@ mutation {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -847,7 +954,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -878,7 +991,7 @@ mutation {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -924,6 +1037,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 
 </SnippetToggler>
 
@@ -956,7 +1076,7 @@ mutation {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -964,22 +1084,28 @@ mutation {
 
 ---
 
-## Invite a new User
+## Invite a New User
 
 Invite a new user by email.
 
 ### Request
 
-`email` **Required**\
-User email to invite.
+`email` **Required**
 
-`role` **Required**\
-Role of the new user.
+- **Type** — `String`
+- **Description** — User email to invite.
 
-`invite_url`\
-Provide a custom invite url which the link in the email will lead to. The invite token will be passed as a parameter.\
-**Note**: You need to configure the
-[`USER_INVITE_URL_ALLOW_LIST` environment variable](/self-hosted/config-options#security) to enable this feature.
+`role` **Required**
+
+- **Type** — `String`
+- **Description** —Primary key of the Role assigned to the new user.
+
+`invite_url` **Optional**
+
+- **Type** — `String`
+- **Description** — Provide a custom invite url which the link in the email will lead to. The invite token will be
+  passed as a parameter. You need to configure the
+  [`USER_INVITE_URL_ALLOW_LIST` environment variable](/self-hosted/config-options#security) to enable this feature.
 
 ### Returns
 
@@ -1008,6 +1134,13 @@ POST /users/invite
 type Mutation {
 	users_invite(email: String!, role: String!, invite_url: String): Boolean
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+await directus.users.invites.send(email, role, invite_url);
 ```
 
 </template>
@@ -1045,7 +1178,7 @@ mutation {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+await directus.users.invites.send('admin@example.com', 'fe38136e-52f7-4622-8498-112b8a32a1e2');
 ```
 
 </template>
@@ -1055,17 +1188,21 @@ mutation {
 
 ## Accept User Invite
 
-Accept your invite. The [invite user endpoint](#invite-a-new-user) sends the email a link to the Admin App.
+Accept your invite. The [invite user endpoint](#invite-a-new-user) sends the email a link back to the Admin App.
 
 This link includes a token, which is then used to activate the invited user.
 
 ### Request
 
-`token` **Required**\
-Accept invite token.
+`token` **Required**
 
-`password` **Required**\
-Password for the user.
+- **Type** — `String`
+- **Description** — an "accept invite" token.
+
+`password` **Required**
+
+- **Type** — `String`
+- **Description** — A password for the user.
 
 ### Returns
 
@@ -1094,6 +1231,13 @@ POST /users/invite/accept
 type Mutation {
 	users_invite_accept(token: String!, password: String!): Boolean
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+await directus.users.invites.accept(token, password);
 ```
 
 </template>
@@ -1131,7 +1275,7 @@ mutation {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+await directus.users.invites.accept('<accept-token>', 'n3w-p455w0rd');
 ```
 
 </template>
@@ -1182,6 +1326,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 
 </SnippetToggler>
 
@@ -1218,7 +1369,7 @@ mutation {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -1268,6 +1419,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
+
+```js
+await directus.users.tfa.enable(otp, secret);
+```
+
+</template>
 
 </SnippetToggler>
 
@@ -1298,13 +1456,15 @@ mutation {
 ```
 
 </template>
+
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+await directus.users.tfa.enable('my-password');
 ```
 
 </template>
+
 </SnippetToggler>
 
 ---
@@ -1315,8 +1475,10 @@ Disables two-factor authentication by removing the OTP secret from the user.
 
 ### Request
 
-`otp` **Required**\
-One-time password generated by the authenticator app.
+`otp` **Required**
+
+- **Type** — `String`
+- **Description** — One-time password generated by the authenticator app.
 
 ### Returns
 
@@ -1348,7 +1510,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+await directus.users.tfa.disable(otp);
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -1381,8 +1549,9 @@ mutation {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+await directus.users.tfa.disable('591763');
 ```
 
 </template>
+
 </SnippetToggler>

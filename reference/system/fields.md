@@ -203,7 +203,7 @@ type Query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -235,7 +235,7 @@ query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -285,7 +285,7 @@ type Query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -321,7 +321,7 @@ query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -371,7 +371,7 @@ type Query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -407,7 +407,7 @@ query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -472,7 +472,7 @@ type Mutation {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -522,7 +522,7 @@ mutation {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -592,7 +592,7 @@ type Mutation {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -641,7 +641,7 @@ mutation {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -689,7 +689,7 @@ type Mutation {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -726,7 +726,7 @@ mutation {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>

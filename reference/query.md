@@ -56,7 +56,7 @@ Choosing fields is a native feature of GraphQL. For more details, see the [Graph
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -89,7 +89,7 @@ Choosing fields is a native feature of GraphQL. For more details, see the [Graph
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -128,7 +128,7 @@ You can also use a wildcard `*` to include all fields at a specific depth.
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -190,7 +190,7 @@ You can use dot-notation to request nested relational fields.
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -243,7 +243,7 @@ fields=*,images.*
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -282,7 +282,7 @@ type. In GraphQL, this can be achieved using [Union Types](https://graphql.org/l
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -327,7 +327,7 @@ Let's say we have a collection `pages` with a many-to-any field called `sections
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -376,7 +376,7 @@ query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -494,7 +494,7 @@ query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -532,7 +532,7 @@ query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -592,7 +592,7 @@ query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -644,7 +644,7 @@ query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -686,7 +686,7 @@ query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -734,7 +734,7 @@ query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -785,7 +785,7 @@ query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -824,7 +824,7 @@ query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -881,7 +881,7 @@ query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -929,7 +929,7 @@ query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -997,7 +997,7 @@ query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -1040,7 +1040,7 @@ query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -1119,7 +1119,7 @@ would at the proper depth.
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -1164,7 +1164,7 @@ query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -1228,7 +1228,7 @@ query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -1272,7 +1272,7 @@ query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -1314,7 +1314,7 @@ Saves the API response to a file. Accepts one of `json`, `csv`, `xml`.
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -1350,7 +1350,7 @@ Saves the API response to a file. Accepts one of `json`, `csv`, `xml`.
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -1424,7 +1424,7 @@ query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -1467,7 +1467,7 @@ query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -1519,7 +1519,7 @@ three options:
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -1557,7 +1557,7 @@ three options:
 <template #js-sdk>
 
 ```js
-// The JS-SDK documentation for this feature is coming soon.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
