@@ -661,7 +661,8 @@ Supports all [global query parameters](/reference/query).
 `file_object` **Required**
 
 - **Type** — `String`
-- **Description** — An object containing the file `url` **Required** and `data` **Optional** to add.
+- **Description** — An object containing the file `url` **Required** and `data` **Optional** to add. See the next two
+  options for details:
 
   `url` **Required**
 
