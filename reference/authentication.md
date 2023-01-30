@@ -60,6 +60,8 @@ before the current token is returned.
 
 :::
 
+### Example
+
 <SnippetToggler
 	v-model="pref"
 	:choices="['REST', 'GraphQL', 'JS-SDK']"
@@ -145,7 +147,7 @@ The token's expiration time can be configured via the `ACCESS_TOKEN_TTL`
 
 :::
 
-### Syntax
+### Example
 
 <SnippetToggler
 	v-model="pref"
@@ -154,10 +156,6 @@ The token's expiration time can be configured via the `ACCESS_TOKEN_TTL`
 	>
 
 <template #rest>
-
-```
-POST /auth/login
-```
 
 ```
 POST /auth/login/:provider
@@ -262,7 +260,7 @@ You can use a browser which does support this such as Firefox, or
 
 :::
 
-### Syntax
+### Example
 
 <SnippetToggler
 	v-model="pref"
@@ -326,7 +324,7 @@ Invalidate the refresh token thus destroying the user's session.
 - **Description** — The refresh token to invalidate. If you have the refresh token in a cookie through
   [`/auth/login`](#login), you don't have to submit it here.
 
-### Syntax
+### Example
 
 <SnippetToggler
 	v-model="pref"
@@ -400,7 +398,7 @@ email. You must configure the `PASSWORD_RESET_URL_ALLOW_LIST`
 
 :::
 
-### Syntax
+### Example
 
 <SnippetToggler
 	v-model="pref"
@@ -466,7 +464,7 @@ to the admin app (or a custom route) which in turn uses this endpoint to allow t
 - **Type** — `String`
 - **Description** — New password for the user.
 
-### Syntax
+### Example
 
 <SnippetToggler
 	v-model="pref"
@@ -537,7 +535,7 @@ To learn more about setting up auth providers, see
 - **Type** — `Boolean`
 - **Description** — Sets whether or not the default authentication provider is disabled.
 
-### Syntax
+### Example
 
 <SnippetToggler
 	v-model="pref"
@@ -601,7 +599,7 @@ GET /auth
 
 Will redirect to the configured SSO provider for the user to login.
 
-### Syntax
+### Example
 
 <SnippetToggler
 	v-model="pref"

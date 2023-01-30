@@ -107,9 +107,9 @@ type Query {
 <template #js-sdk>
 
 ```js
-// The JS-SDK provides two methods to GET items.
-
 const collection = directus.items(collection_name);
+
+// The JS-SDK provides two methods to GET items.
 
 // GET items by query
 await collection.readByQuery(

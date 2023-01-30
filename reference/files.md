@@ -13,7 +13,7 @@ import '@directus/vue-snippet-toggler/style.css';
 const pref = ref('REST');
 </script>
 
-# Accessing Files
+# Files
 
 > Every file managed by the platform is uploaded to the configured storage adapter, and its associated metadata is
 > tracked within the `directus_files` system collection. Any requested file transformations are handled on the fly, and
@@ -387,7 +387,7 @@ await files.readMany(['d17c10aa-0bad-4864-9296-84f522c753e5', 'b6123925-2fc0-4a3
 
 ---
 
-## Get File by ID
+## Get a File
 
 Retrieve a single file by primary key.
 
@@ -658,15 +658,20 @@ Supports all [global query parameters](/reference/query).
 
 ### Request
 
-`url` **Required**
+`file_object` **Required**
 
 - **Type** — `String`
-- **Description** — The URL to download the file from.
+- **Description** — An object containing the file `url` **Required** and `data` **Optional** to add.
 
-`data` **Optional**
+  `url` **Required**
 
-- **Type** — `Object`
-- **Desctription** — Any of [the file object](#the-file-object)'s properties.
+  - **Type** — `String`
+  - **Description** — The URL to download the file from.
+
+  `data` **Optional**
+
+  - **Type** — `Object`
+  - **Desctription** — Any of [the file object](#the-file-object)'s properties.
 
 ### Returns
 
@@ -706,7 +711,7 @@ type Mutation {
 ```js
 await directus.files.import({
 	url: url_string, // Required: a string for the file path URL
-	data: custom_data, // Optional: An object containing custom data
+	data: data_object, // Optional: An object containing custom data
 });
 ```
 
