@@ -124,29 +124,8 @@ await collection.readByQuery(
 // GET items by primary keys
 await articles.readMany(
 	ids_array, // Required: an array of primary keys
-	query,     // Optional: a query parameter object
-});
-```
-
-</template>
-
-<template #js-sdk>
-
-```js
-// The JS-SDK provides two methods to GET items.
-
-const activity = directus.activtiy;
-
-// GET items by query
-await activity.readByQuery(
-	query // Required:  a query parameter object
+	query // Optional: a query parameter object
 );
-
-// GET items by primary keys
-await activity.readMany(
-	ids_array, // Required: an array of primary keys
-	query,     // Optional: a query parameter object
-});
 ```
 
 </template>
