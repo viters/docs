@@ -117,6 +117,13 @@ type Query {
 ```
 
 </template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 
 </SnippetToggler>
 
@@ -195,6 +202,13 @@ GET /flows/:id
 type Query {
 	flows_by_id(id: ID!): directus_flows
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -279,6 +293,13 @@ POST /flows
 type Mutation {
 	create_flows_item(data: create_directus_flows_input!): directus_flows
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -369,6 +390,13 @@ POST /flows
 type Mutation {
 	create_flows_items(data: [create_directus_flows_input!]!): [directus_flows]
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -477,6 +505,13 @@ PATCH /flows/:id
 type Mutation {
 	update_flows_item(id: ID!, data: update_directus_flows_input): directus_flows
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>

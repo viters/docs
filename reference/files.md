@@ -1129,7 +1129,10 @@ This will also delete the files from disk.
 
 ### Request
 
-Array of file primary keys
+`ids` **Required**
+
+- **Type** — `Array`
+- **Description** — Array of file primary keys
 
 ### Returns
 
@@ -1170,7 +1173,7 @@ type Mutation {
 // const files = directus.items('directus_files');
 const files = directus.files;
 
-await files.deleteMany(ids_array);
+await files.deleteMany(ids);
 ```
 
 </template>

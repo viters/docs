@@ -219,6 +219,10 @@ type Query {
 
 <template #rest>
 
+```
+GET /fields
+```
+
 </template>
 <template #graphql>
 

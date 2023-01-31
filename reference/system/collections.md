@@ -256,7 +256,7 @@ await collections.readMany(['transactions', 'testimonials'], { fields: ['meta'] 
 
 ---
 
-## Get a Collection by ID
+## Get a Collection
 
 Retrieve a single collection by table name.
 
