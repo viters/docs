@@ -120,6 +120,13 @@ type Query {
 ```
 
 </template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 
 </SnippetToggler>
 
@@ -197,6 +204,13 @@ GET /operations/:id
 type Query {
 	operations_by_id(id: ID!): directus_operations
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -283,7 +297,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -368,6 +388,13 @@ POST /operations
 type Mutation {
 	create_operations_items(data: [create_directus_operations_input!]!): [directus_operations]
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -480,7 +507,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -570,7 +603,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -655,7 +694,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -732,7 +777,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -814,7 +865,7 @@ POST /operations/trigger/:operation_uuid
 <template #js-sdk>
 
 ```js
-// Not currently available for JS-SDK.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -847,7 +898,7 @@ POST /operations/trigger/:operation_uuid
 <template #js-sdk>
 
 ```js
-// Not currently available for JS-SDK.
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>

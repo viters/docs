@@ -106,6 +106,13 @@ type Query {
 ```
 
 </template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 
 </SnippetToggler>
 
@@ -183,6 +190,13 @@ GET /notifications/:id
 type Query {
 	notifications_by_id(id: ID!): directus_notifications
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -271,6 +285,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 
 </SnippetToggler>
 
@@ -355,6 +376,13 @@ POST /notifications
 type Mutation {
 	create_notifications_items(data: [create_directus_notifications_input!]!): [directus_notifications]
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
@@ -473,6 +501,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 
 </SnippetToggler>
 
@@ -563,6 +598,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 
 </SnippetToggler>
 
@@ -644,6 +686,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 
 </SnippetToggler>
 
@@ -718,6 +767,13 @@ DELETE /notifications
 type Mutation {
 	delete_notifications_items(ids: [ID!]!): delete_many
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>
