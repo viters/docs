@@ -20,7 +20,7 @@ const pref = ref('REST');
 
 ---
 
-Get## Get OpenAPI Specification
+## Get OpenAPI Specification
 
 Retrieve the OpenAPI spec for the current project.
 
@@ -165,7 +165,13 @@ type Query {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example

@@ -133,7 +133,13 @@ type Query {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -212,7 +218,13 @@ type Query {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -294,7 +306,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -382,7 +400,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -488,7 +512,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -578,7 +608,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -659,7 +695,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -733,6 +775,13 @@ DELETE /presets
 type Mutation {
 	delete_presets_items(ids: [ID!]!): delete_many
 }
+```
+
+</template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this is coming soon.
 ```
 
 </template>

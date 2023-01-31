@@ -112,7 +112,13 @@ type Query {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -191,7 +197,13 @@ type Query {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -204,7 +216,7 @@ type Query {
 <template #rest>
 
 ```
-GET /webhooks/:id
+GET /webhooks/15
 ```
 
 </template>
@@ -276,7 +288,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -325,7 +343,7 @@ mutation {
 
 ---
 
-## Create Multiple Webhook
+## Create Multiple Webhooks
 
 Create multiple new webhooks.
 
@@ -369,7 +387,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -471,7 +495,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -560,7 +590,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -640,7 +676,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -717,7 +759,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example

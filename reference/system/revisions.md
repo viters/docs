@@ -61,7 +61,7 @@ Parent revision that triggered this revision. Many-to-one to revisions (recursiv
 
 ---
 
-## List revisions
+## List Revisions
 
 List all revisions that exist in Directus.
 
@@ -159,7 +159,7 @@ query {
 
 ---
 
-## Retrieve a revision
+## Retrieve a Revision
 
 List an existing revision by primary key.
 

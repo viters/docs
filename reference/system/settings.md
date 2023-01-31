@@ -170,6 +170,13 @@ type Query {
 ```
 
 </template>
+<template #js-sdk>
+
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -249,7 +256,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example

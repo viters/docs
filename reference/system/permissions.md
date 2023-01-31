@@ -98,8 +98,6 @@ available, data will be an empty array.
 
 <template #rest>
 
-### Syntax
-
 ```
 GET /permissions
 SEARCH /permissions
@@ -118,7 +116,13 @@ type Query {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -157,6 +161,7 @@ query {
 
 </template>
 </SnippetToggler>
+
 ---
 
 ## Retrieve a Permission
@@ -197,7 +202,13 @@ type Query {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -209,27 +220,8 @@ type Query {
 
 <template #rest>
 
-```json
-// GET /permissions/34
-
-{
-	"data": {
-		"id": 34,
-		"role": "c86c2761-65d3-43c3-897f-6f74ad6a5bd7",
-		"collection": "pages",
-		"action": "create",
-		"permissions": null,
-		"validation": {
-			"title": {
-				"_contains": "Directus"
-			}
-		},
-		"presets": {
-			"published": false
-		},
-		"fields": ["title", "translations"]
-	}
-}
+```
+GET /permissions/34
 ```
 
 </template>
@@ -299,7 +291,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -391,7 +389,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -494,7 +498,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -587,7 +597,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -669,7 +685,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
@@ -746,7 +768,13 @@ type Mutation {
 ```
 
 </template>
+<template #js-sdk>
 
+```js
+// The JS-SDK documentation for this is coming soon.
+```
+
+</template>
 </SnippetToggler>
 
 ### Example
