@@ -57,6 +57,8 @@ field `status` that controls the published state.
 
 3. [Add a new field](/configuration/data-model/fields.html#create-a-field-standard) to your content Collection.
 
+   ![Scheduling Content - Data Model](/public/headlesscms/scheduling-content-publish-date.webp)
+
    a. Choose **Datetime** for the Type.
 
    b. For the Key, use something relevant like `date_published`.
@@ -66,6 +68,8 @@ field `status` that controls the published state.
 ### Add some content and set a publish date
 
 4. [Create or update an Item](/app/content/items) inside your Collection
+
+   ![Scheduling Content - Update Content](/public/headlesscms/scheduling-content-create-content-published.webp)
 
    a. Set the `status` field to `published`
 

@@ -57,16 +57,20 @@ with them.
 
 2. [Complete the Trigger Setup](/configuration/flows/triggers#triggers)
 
-   a. For **Type**, Select Action (Non-Blocking)
+   ![Directus Flows - Static Site Build - Trigger](/public/headlesscms/static-site-build-trigger.webp)
+
+   a. Choose **Event Hook** for the trigger.
+
+   b. For **Type**, Select Action (Non-Blocking).
 
    This will trigger this flow after the action (ie article updated) has already taken place.
 
-   b. For **Scope**, choose the following
+   c. For **Scope**, choose the following:
 
    - `items.create`
    - `items.update`
 
-   c. For **Collections**, choose any collections that should trigger this flow.
+   d. For **Collections**, choose any collections that should trigger this flow.
 
    In this case, we’ll use `Articles` and `Articles Translations`.
 
@@ -76,7 +80,9 @@ with them.
 
 3. [Create a new Operation](/configuration/flows/operations#operations)
 
-   a. Name your operation, ie `Check Status` or similar.
+   ![Directus Flows - Static Site Build - Condition](/public/headlesscms/static-site-build-condition.webp)
+
+   a. Name your operation, ie `Check Status`, `If Published`, or similar.
 
    b. Add your Condition Rules
 
@@ -113,6 +119,8 @@ You can learn more about Netlify Build Hooks on their documentation.
 ### Add Webhook Operation to your Flow
 
 5. Back inside your Directus Flow, create a new Operation.
+
+   ![Directus Flows - Static Site Build - Webhook](/public/headlesscms/static-site-build-webhook.webp)
 
    a. For the type of Operation, select **Webhook / Request URL**
 

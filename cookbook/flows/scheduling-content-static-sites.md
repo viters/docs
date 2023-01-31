@@ -28,11 +28,12 @@ This recipe explains how to schedule content to be published on a future date fo
 
 We'll be using [Flows](/configuration/flows) to publish articles when the current date matches the published date.
 
-First we'll schedule a flow to run at regular intervals. We'll check the timestamps of items with our content
-collection. And we'll update those the status of those items whenever the published date is less than or equal the
-current timestamp.
+First we'll schedule a flow to run at regular intervals.
 
-Lastly we'll kick off a new deployment of your static site at your hosting provider using one of the recipes below.
+Next we'll check the timestamps of items with our content collection. And we'll update those the status of those items
+whenever the published date is less than or equal the current timestamp.
+
+Last, we'll kick off a new deployment of your static site at your hosting provider using one of the recipes below.
 
 - [Triggering a static site build at Netlify](/cookbook/flows/trigger-static-site-build-netlify)
 - [Triggering a static site build at Vercel](/cookbook/flows/trigger-static-site-build-vercel)
@@ -65,6 +66,8 @@ field `status` that controls the published state.
 
 3. [Add a new field](/configuration/data-model/fields.html#create-a-field-standard) to your content Collection.
 
+   ![Scheduling Content - Data Model](/public/headlesscms/scheduling-content-publish-date.webp)
+
    a. Choose **Datetime** for the Type.
 
    b. For the Key, use something relevant like `date_published`.
@@ -74,6 +77,8 @@ field `status` that controls the published state.
 ### Add some content and set a publish date
 
 4. [Create or update an Item](/app/content/items) inside your Collection
+
+   ![Scheduling Content - Update Content](/public/headlesscms/scheduling-content-create-content-scheduled.webp)
 
    a. Set the `status` field to `scheduled`
 
@@ -85,9 +90,13 @@ field `status` that controls the published state.
 
 5. [Create a new Flow](/configuration/flows#create-a-flow)
 
+   ![Scheduling Content - Flow Setup](/public/headlesscms/scheduling-content-flow-setup.webp)
+
    Give it a memorable name and short description like `Publish Scheduled Articles`.
 
 6. [Complete the Trigger Setup](/configuration/flows/triggers#triggers)
+
+   ![Scheduling Content - Trigger Setup](/public/headlesscms/scheduling-content-trigger.webp)
 
    a. For **Type**, Select [Schedule (CRON)](/configuration/flows/triggers#schedule-cron). This will trigger this flow
    at regular intervals of time.
@@ -102,6 +111,8 @@ field `status` that controls the published state.
 ### Add an Operation to check the published date and update data
 
 7. [Create a new Operation](/configuration/flows/operations#operations)
+
+   ![Scheduling Content - Update Data Operation](/public/headlesscms/scheduling-content-update-articles.webp)
 
    a. For the type of Operation, select **Update Item**
 
