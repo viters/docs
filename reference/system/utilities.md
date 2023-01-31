@@ -224,7 +224,7 @@ Doesn't use any query parameters.
 ### Request Body
 
 `format` **Required**\
-What file format to save the export to. One of `csv`, `xml`, `json`.
+What file format to save the export to. One of `csv`, `json`, `xml`, `yaml`.
 
 `query` **Required**\
 The query object to use for the export. Supports the [global query parameters](/reference/query).
