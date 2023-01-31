@@ -117,7 +117,12 @@ composables
 config-options
 CORS
 CPUs?
+cron
+Cron
 CRON
+crowdin
+Crowdin
+CrowdIn
 Crowdin.
 Crowdin's
 CRUDS
@@ -132,6 +137,8 @@ DDoS
 devs
 DigitalOcean
 DigitalOcean's
+directus
+Directus
 directus_(.*)
 Directus.
 Dockerfile
@@ -146,6 +153,8 @@ EC2
 eCommerce
 ELB
 Elestio
+entrypoint
+Entrypoint
 env
 ENV
 ESM
@@ -162,6 +171,8 @@ gcloud
 GCP
 GDPR
 geo-coordinates
+geospatial
+Geospatial
 getter
 GHCR
 glibc
@@ -190,6 +201,7 @@ JS-SDK
 json
 JSON
 JWT
+kanban
 Kanban
 Keycloak
 Knex
@@ -251,17 +263,20 @@ performant
 phpMyAdmin
 Phusion
 Pinia
+pino
+Pino
 Plesk
 PNG
 pnpm
 Postgres
 Postgres13
 PR
-PR
 pre-configured
 pre-defined
 pre-existing
 pre-installed
+programmatically
+Programmatically
 ProgressEvent
 PRs
 pub/sub
@@ -281,6 +296,8 @@ repurpose
 S3
 saml
 SAML
+scalable
+Scalable
 SCSS
 SDK
 SDL
@@ -302,6 +319,8 @@ stylization
 subdirectory
 substring
 SuperAdmins?
+superset
+Superset
 SVG
 TablePlus
 tfa
