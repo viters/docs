@@ -1284,7 +1284,7 @@ query {
 
 Save the current API response to a file.
 
-Saves the API response to a file. Accepts one of `json`, `csv`, `xml`.
+Saves the API response to a file. Accepts one of `csv`, `json`, `xml`, `yaml`.
 
 ### Syntax
 
@@ -1331,9 +1331,10 @@ Saves the API response to a file. Accepts one of `json`, `csv`, `xml`.
 <template #rest>
 
 ```
-?export=json
 ?export=csv
+?export=json
 ?export=xml
+?export=yaml
 ```
 
 </template>

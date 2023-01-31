@@ -513,6 +513,10 @@ function sidebar() {
 					text: 'Roles',
 				},
 				{
+					link: '/reference/system/schema',
+					text: 'Schema',
+				},
+				{
 					link: '/reference/system/server',
 					text: 'Server',
 				},

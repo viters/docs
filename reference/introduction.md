@@ -6,7 +6,7 @@ pageClass: page-reference
 
 # API Reference
 
-> Directus offers both a RESTful and GraphQL API to manage the data in the database. The API has predictable
+> Directus offers both a REST and GraphQL API to manage the data in the database. The API has predictable
 > resource-oriented URLs, relies on standard HTTP status codes, and uses JSON for input and output.
 
 ## Dynamic API
