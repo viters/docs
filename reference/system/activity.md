@@ -109,7 +109,7 @@ type Query {
 
 </template>
 
-<template #js-sdj>
+<template #js-sdk>
 
 ```js
 // The JS-SDK provides two methods to GET items.

@@ -378,3 +378,6 @@ kanban
 graphql
 config-options
 params
+js-sdk
+JS-SDK
+graphQL

@@ -723,7 +723,7 @@ Supports all [global query parameters](/reference/query).
 `id` **Required**
 
 - **Type** — `String`
-- **Description** — Primary key (a uuid) of the user to update.
+- **Description** — Primary key (uuid) of the user to update.
 
 `user_data` **Required**
 
