@@ -390,11 +390,11 @@ Alternatively, you can provide the individual connection parameters:
 | `RATE_LIMITER_REDIS_USERNAME`        | Username for your Redis instance, e.g., `"default"`           | --            |
 | `RATE_LIMITER_REDIS_PASSWORD`        | Password for your Redis instance, e.g., `"yourRedisPassword"` | --            |
 | `RATE_LIMITER_REDIS_DB`              | Database of your Redis instance to connect, e.g., `1`         | --            |
-| `RATE_LIMITER_REDIS_GLOBAL_HOST`     | Hostname of the Redis instance, e.g., `"127.0.0.1"`           | --            |
-| `RATE_LIMITER_REDIS_GLOBAL_PORT`     | Port of the Redis instance, e.g., `6379`                      | --            |
-| `RATE_LIMITER_REDIS_GLOBAL_USERNAME` | Username for your Redis instance, e.g., `"default"`           | --            |
-| `RATE_LIMITER_REDIS_GLOBAL_PASSWORD` | Password for your Redis instance, e.g., `"yourRedisPassword"` | --            |
-| `RATE_LIMITER_REDIS_GLOBAL_DB`       | Database of your Redis instance to connect, e.g., `1`         | --            |
+| `RATE_LIMITER_GLOBAL_REDIS_HOST`     | Hostname of the Redis instance, e.g., `"127.0.0.1"`           | --            |
+| `RATE_LIMITER_GLOBAL_REDIS_PORT`     | Port of the Redis instance, e.g., `6379`                      | --            |
+| `RATE_LIMITER_GLOBAL_REDIS_USERNAME` | Username for your Redis instance, e.g., `"default"`           | --            |
+| `RATE_LIMITER_GLOBAL_REDIS_PASSWORD` | Password for your Redis instance, e.g., `"yourRedisPassword"` | --            |
+| `RATE_LIMITER_GLOBAL_REDIS_DB`       | Database of your Redis instance to connect, e.g., `1`         | --            |
 
 ### Memcache
 
