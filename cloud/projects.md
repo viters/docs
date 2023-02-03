@@ -190,8 +190,8 @@ On Community Projects, the only option available is to change the Project's Name
 
 ![Manage a Project](https://cdn.directus.io/docs/v9/cloud/projects/projects-20220322A/manage-a-project-20220322A.webp)
 
-On Standard Projects, it's possible to change the Project Name as well as reconfigure the
-[Node Type](/cloud/glossary#node-types) or number of [Reserved Nodes](/cloud/glossary#reserved-nodes).
+On Standard Projects, it's possible to change the Project Name as well as reconfigure the number of
+[Reserved Nodes](/cloud/glossary#reserved-nodes).
 
 1. Open the Team Menu in the Dashboard Header and click the desired Team.
 2. Click **"Projects"** to enter the Projects page.
