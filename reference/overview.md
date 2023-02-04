@@ -12,10 +12,11 @@ pageClass: page-reference
 
 ## REST vs GraphQL vs SDK
 
-**_There is no feature difference_ between the REST, GraphQL, and JS-SDK.**
-
-The functionality available is mapped to the same set of core services, meaning that you don't lose any performance or
-capabilities by choosing one or the other. Which one you choose is ultimately up to you.
+Each API is mapped to the same set of core services. However, at present, there are some feature parities (missing
+endpoints) between each API. These endpoint parities are under review for future development. To get around this, you
+can use multiple APIs in your project, [submit a PR request](/contributing/introduction.html) through GitHub, or
+[reach out to the team](https://directus.io/contact/) about sponsoring a feature. Please keep this in mind and choose
+accordingly, based on your project needs.
 
 ## Dynamic API Generation
 
