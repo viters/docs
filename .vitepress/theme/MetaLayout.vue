@@ -1,3 +1,5 @@
+<template><Layout /></template>
+
 <script setup>
 import getImageUrl from '@thumbsmith/url';
 import { useHead } from '@vueuse/head';
@@ -36,10 +38,11 @@ const meta = computed(() => {
 				}
 			}
 		}
+
 		return null;
 	};
 
-	const breadcrumb = walkTree(unref(theme).sidebar, []);
+	const breadcrumb = walkTree(unref(theme).sidebar['/'], []);
 
 	const imageUrl = getImageUrl({
 		account: 'directus',
@@ -72,5 +75,3 @@ const meta = computed(() => {
 
 useHead({ meta });
 </script>
-
-<template><Layout /></template>
