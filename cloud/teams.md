@@ -126,7 +126,7 @@ To handle billing, Directus Cloud uses Stripe, a secure, industry-leading, dynam
 
 Bills are invoiced on a calendar monthly basis, so each new billing period begins after exactly one month. When a
 Project is destroyed, the bill is processed immediately. As mentioned in the previous section, bills are invoiced
-per-Project; so if a Team has 4 Standard Projects, it will be charged 4 times each month.
+per-Project; so if a Team has four Standard Projects, it will be charged four times each month.
 
 ### How Bills Are Calculated
 
@@ -135,40 +135,34 @@ Once the [Node Type](/cloud/glossary#nodes) is selected, this applies to all Res
 
 :::tip Node Pricing
 
-**Lite:** $0.03424657534 / hour\
-**General Purpose Tier:** $0.06849315068 / hour
+**Standard Tier Nodes:** $0.068493 per hour with a two-node minimum ($0.136986/hr)
 
 :::
 
-This means the monthly prices given for Reserved Nodes, _$25/month for Lite and $50/month for General Purpose tier_, are
-actually estimates based on the cost per hour times the average length of a month (730 hours). So, the pricing shown for
-one Lite Node is `$0.03424657534 x 730hrs = $25`, however the actual bill will vary slightly each month, based on the
-actual hours in the month.
-
-Keep in mind that a Standard Project's Nodes can be reconfigured at any time. You can upgrade and downgrade Node Types,
-add and remove Nodes, or destroy your Project as you please. In the end, _you simply pay for the actual Node-hours used
-by your Project_.
-
-The following examples demonstrate this billing system:
+This means the monthly prices given for Reserved Nodes, _$100/month for two nodes_, is actually an estimate based on the
+cost per hour times the average length of a month (730 hours). So, the pricing shown for two nodes is
+`$0.136986 x 730hrs = $100`, however the actual bill will vary slightly each month, based on the actual hours in the
+month. Keep in mind that a Standard Project's nodes can be reconfigured at any time. In the end, _you simply pay for the
+actual node-hours used by your Project_. For example:
 
 **Hourly Pricing**\
-A Project is configured to use one Lite Node. The Project runs for 3 days and 3.5 hours (75.5 hours total, rounded to 76
-hours) and is then destroyed, costing `1 Node x $0.03424657534/hr x 76 hrs = $2.60`.
+A Project is configured to use two nodes. The Project runs for 3 days and 3.5 hours (75.5 hours total, rounded to 76 hours)
+and is then destroyed, costing `2 Nodes @ $0.136986/hr x 76 hrs = $10.41`.
 
-The bill will be `$2.60` plus Tax/VAT, charged at Project destruction.
+The bill will be ` $10.41` plus Tax/VAT, charged at Project destruction.
 
 **Monthly Node Rates**\
-A Project is configured to use two General Purpose Tier Nodes. The Project runs the full month (730 hours). For this billing
-cycle, the two Reserved Nodes will cost `2 Nodes x $0.06849315068/hr x 730 hrs = $100`.
+A Project is configured to use two nodes. The Project runs the full month (730 hours). For this billing cycle, the two Reserved
+Nodes will cost `2 Nodes @ $0.136986/hr x 730 hrs = $100`.
 
 The monthly bill will be `$100` plus Tax/VAT.
 
 **Pro-rated Changes**\
-A Project begins the billing cycle configured to use one Lite Node. A massive traffic spike is expected from marketing activities
-this month and 200 hours into the month, the Project is reconfigured to use five General Purpose Tier Nodes. The first 200
-hours run the bill to `(1 Lite Node x $0.03424657534/hr x 200hrs) = $6.85`. Then the other 530 hours add `(5 General Purpose Nodes x $0.06849315068/hr x 530hrs) = $181.51`.
+A Project begins the billing cycle configured to use two nodes. A massive traffic spike is expected from marketing activities
+this month and 200 hours into the month, the Project is reconfigured to use five nodes. The first 200 hours run the bill
+to `(2 Nodes @ $0.136986/hr x 200hrs) = $27.40`. Then the other 530 hours you run `(5 Nodes @ $0.342466/hr x 530hrs) = $181.51`.
 
-The monthly bill will be `$188.36` plus VAT/Tax.
+The monthly bill will be `$208.91` plus VAT/Tax.
 
 ### Optimize Node Configuration
 
