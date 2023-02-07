@@ -719,7 +719,7 @@ An Empty Body.
 <template #graphql>
 
 ```graphql
-# Not currently available in graphQL
+# Not currently available in GraphQL
 ```
 
 </template>
@@ -749,7 +749,7 @@ await directus.utils.revert(primary_key);
 <template #graphql>
 
 ```graphql
-# Not currently available in graphQL
+# Not currently available in GraphQL
 ```
 
 </template>

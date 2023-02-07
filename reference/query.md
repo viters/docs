@@ -1508,7 +1508,7 @@ three options:
 
 ```graphql
 
-# Not currently available in graphQL
+# Not currently available in GraphQL
 
 ```
 
@@ -1546,7 +1546,7 @@ three options:
 
 ```graphql
 
-# Not currently available in graphQL
+# Not currently available in GraphQL
 
 ```
 
