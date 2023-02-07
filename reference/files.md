@@ -26,7 +26,7 @@ const pref = ref('REST');
 The location of your actual file originals is based on the project's configuration, but you can consistently access them
 via the API using the following URL.
 
-```txt
+```
 example.com/assets/<file-id>
 example.com/assets/1ac73658-8b62-4dea-b6da-529fbc9d01a4
 ```
@@ -35,7 +35,7 @@ example.com/assets/1ac73658-8b62-4dea-b6da-529fbc9d01a4
 
 You can provide an optional filename after the UUID to optimize for SEO, for example:
 
-```txt
+```
 example.com/assets/<file-id>/<filename>
 example.com/assets/1ac73658-8b62-4dea-b6da-529fbc9d01a4/directus-logo.png
 ```
@@ -136,20 +136,20 @@ Below are four possible qualities (200x200 cover) to visually compare the balanc
 
 ### Preset
 
-```txt
+```
 example.com/assets/<file-id>?key=<key>
 ```
 
 ### Custom
 
-```txt
+```
 example.com/assets/<file-id>?fit=<fit>&width=<width>&height=<height>&quality=<quality>
 example.com/assets/1ac73658-8b62-4dea-b6da-529fbc9d01a4?fit=cover&width=200&height=200&quality=80
 ```
 
 ### Advanced
 
-```txt
+```
 ?transforms=[
 	["blur", 45],
 	["tint", "rgb(255, 0, 0)"],
@@ -287,7 +287,7 @@ SEARCH /files
 
 <template #graphql>
 
-```txt
+```
 POST /graphql/system
 ```
 
@@ -408,7 +408,7 @@ Returns a [file object](#the-file-object) if a valid primary key was provided.
 
 <template #rest>
 
-```txt
+```
 GET /files/:id
 ```
 
@@ -416,7 +416,7 @@ GET /files/:id
 
 <template #graphql>
 
-```txt
+```
 POST /graphql/system
 ```
 
@@ -549,7 +549,7 @@ Supports all [global query parameters](/reference/query).
 Returns the [file object](#the-file-object) for the uploaded file, or an array of [file objects](#the-file-object) if
 multiple files were uploaded at once.
 
-```txt
+```
 POST /files
 ```
 
@@ -687,7 +687,7 @@ Returns the [file object](#the-file-object) for the imported file.
 
 <template #rest>
 
-```txt
+```
 POST /files/import
 ```
 
@@ -802,7 +802,7 @@ Returns the [file object](#the-file-object) for the updated file.
 
 <template #rest>
 
-```txt
+```
 PATCH /files/:id
 ```
 
@@ -810,7 +810,7 @@ PATCH /files/:id
 
 <template #graphql>
 
-```txt
+```
 POST /graphql/system
 ```
 
@@ -922,7 +922,7 @@ Returns the [file objects](#the-file-object) for the updated files.
 
 <template #rest>
 
-```txt
+```
 PATCH /files
 ```
 
@@ -1042,7 +1042,7 @@ Empty response.
 
 <template #rest>
 
-```txt
+```
 DELETE /files/:id
 ```
 
@@ -1050,7 +1050,7 @@ DELETE /files/:id
 
 <template #graphql>
 
-```txt
+```
 POST /graphql/system
 ```
 
@@ -1147,7 +1147,7 @@ Empty response.
 
 <template #rest>
 
-```txt
+```
 DELETE /files
 ```
 
@@ -1155,7 +1155,7 @@ DELETE /files
 
 <template #graphql>
 
-```txt
+```
 POST /graphql/system
 ```
 
