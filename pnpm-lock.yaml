@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@thumbsmith/url': 0.1.3
+  '@vueuse/core': 9.12.0
   '@vueuse/head': 1.0.25
   lint-staged: 13.1.1
   prettier: 2.8.3
@@ -12,6 +13,7 @@ specifiers:
 
 devDependencies:
   '@thumbsmith/url': 0.1.3
+  '@vueuse/core': 9.12.0_vue@3.2.47
   '@vueuse/head': 1.0.25_vue@3.2.47
   lint-staged: 13.1.1
   prettier: 2.8.3

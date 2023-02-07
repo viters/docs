@@ -1,15 +1,3 @@
-<script lang="ts" setup>
-defineProps<{
-	choices: string[];
-	modelValue: string | undefined;
-	label?: string;
-}>();
-
-const emit = defineEmits(['update:modelValue']);
-
-const setPref = (event: Event) => emit('update:modelValue', (event?.target as HTMLSelectElement)?.value);
-</script>
-
 <template>
 	<div class="snippet-toggler">
 		<div class="snippet-toggler-header">
@@ -35,13 +23,25 @@ const setPref = (event: Event) => emit('update:modelValue', (event?.target as HT
 
 		<div class="content-area">
 			<template v-for="choice in choices">
-				<div v-show="choice === modelValue">
+				<div v-if="choice === modelValue">
 					<slot :name="choice.toLowerCase()"></slot>
 				</div>
 			</template>
 		</div>
 	</div>
 </template>
+
+<script lang="ts" setup>
+defineProps<{
+	choices: string[];
+	modelValue: string | undefined;
+	label?: string;
+}>();
+
+const emit = defineEmits(['update:model-value']);
+
+const setPref = (event: Event) => emit('update:model-value', (event?.target as HTMLSelectElement)?.value);
+</script>
 
 <style scoped>
 .snippet-toggler {

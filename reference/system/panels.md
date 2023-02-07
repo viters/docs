@@ -5,9 +5,8 @@ pageClass: page-reference
 ---
 
 <script setup>
-import { ref } from 'vue';
-
-const pref = ref('REST');
+import { useLocalStorage } from '@vueuse/core';
+const pref = useLocalStorage('pref', 'REST');
 </script>
 
 # Panels
