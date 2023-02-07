@@ -1175,7 +1175,7 @@ filters.
 
 :::tip GraphQL Native
 
-Aliasing is a native feature of graphQL. For details, see the documentation on
+Aliasing is a native feature of GraphQL. For details, see the documentation on
 [GraphQL aliases](https://graphql.org/learn/queries/#aliases).
 
 :::
