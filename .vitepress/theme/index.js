@@ -1,9 +1,10 @@
 import DefaultTheme from 'vitepress/theme';
 import { createHead } from '@vueuse/head';
+import SnippetToggler from './components/SnippetToggler.vue';
 
-import './vars.css';
-import './overrides.css';
-import './icons.css';
+import './styles/vars.css';
+import './styles/overrides.css';
+import './styles/icons.css';
 
 export default {
 	...DefaultTheme,
@@ -11,5 +12,6 @@ export default {
 		DefaultTheme.enhanceApp(ctx);
 		const head = createHead();
 		ctx.app.use(head);
+		ctx.app.component('SnippetToggler', SnippetToggler);
 	},
 };
