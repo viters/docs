@@ -453,7 +453,7 @@ await files.readOne(
 
 <template #rest>
 
-```txt
+```
 GET /files/0fca80c4-d61c-4404-9fd7-6ba86b64154d
 ```
 
@@ -695,7 +695,7 @@ POST /files/import
 
 <template #graphql>
 
-```txt
+```
 POST /graphql/system
 ```
 
@@ -930,7 +930,7 @@ PATCH /files
 
 <template #graphql>
 
-```txt
+```
 POST /graphql/system
 ```
 
@@ -1084,7 +1084,7 @@ await files.deleteOne(primary_key);
 
 <template #rest>
 
-```txt
+```
 DELETE /files/0fca80c4-d61c-4404-9fd7-6ba86b64154d
 ```
 
