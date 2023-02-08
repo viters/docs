@@ -38,11 +38,7 @@ query parameter is used.
 
 ### Syntax
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```
@@ -70,11 +66,7 @@ GET /schema/snapshot
 
 ### Example
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```
@@ -294,11 +286,7 @@ Returns the differences between the current instance's schema and the schema pas
 
 ### Syntax
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```
@@ -328,11 +316,7 @@ POST /schema/diff
 
 ### Example
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```
@@ -499,11 +483,7 @@ Empty body.
 
 ### Syntax
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```
@@ -533,11 +513,7 @@ POST /schema/apply
 
 ### Example
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```

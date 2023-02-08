@@ -104,11 +104,7 @@ will be an empty array.
 
 ### Syntax
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```
@@ -140,11 +136,7 @@ type Query {
 
 ### Example
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```
@@ -190,11 +182,7 @@ Returns the requested [preset object](#the-preset-object).
 
 ### Syntax
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```
@@ -225,11 +213,7 @@ type Query {
 
 ### Example
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```
@@ -278,11 +262,7 @@ Returns the [preset object](#the-preset-object) for the created preset.
 
 ### Syntax
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```
@@ -313,11 +293,7 @@ type Mutation {
 
 ### Example
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```json
@@ -372,11 +348,7 @@ Returns the [preset object](#the-preset-object) for the created preset.
 
 ### Syntax
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```
@@ -407,11 +379,7 @@ type Mutation {
 
 ### Example
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```json
@@ -484,11 +452,7 @@ Returns the [preset object](#the-preset-object) for the updated preset.
 
 ### Syntax
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```
@@ -519,11 +483,7 @@ type Mutation {
 
 ### Example
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```json
@@ -580,11 +540,7 @@ Returns the [preset objects](#the-preset-object) for the updated presets.
 
 ### Syntax
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```
@@ -615,11 +571,7 @@ type Mutation {
 
 ### Example
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```json
@@ -667,11 +619,7 @@ Empty body.
 
 ### Syntax
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```
@@ -702,11 +650,7 @@ type Mutation {
 
 ### Example
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```
@@ -750,11 +694,7 @@ Empty body.
 
 ### Syntax
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```
@@ -786,11 +726,7 @@ type Mutation {
 
 ### Example
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```json

@@ -56,11 +56,7 @@ will be an empty array.
 
 ### Syntax
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```
@@ -94,11 +90,7 @@ type Query {
 
 ### Example
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```
@@ -144,11 +136,7 @@ Returns a [folder object](#the-folder-object) if a valid primary key was provide
 
 ### Syntax
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```
@@ -185,11 +173,7 @@ await folders.readOne(
 
 ### Example
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```
@@ -240,11 +224,7 @@ Returns the [folder object](#the-folder-object) of the folder that was created.
 
 ### Syntax
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```
@@ -276,11 +256,7 @@ type Mutation {
 
 ### Example
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```json
@@ -334,11 +310,7 @@ Returns the [folder object](#the-folder-object) of the folder that was created.
 
 ### Syntax
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```
@@ -370,11 +342,7 @@ type Mutation {
 
 ### Example
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```json
@@ -433,11 +401,7 @@ Returns the [folder object](#the-folder-object) of the folder that was updated.
 
 ### Syntax
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```
@@ -470,11 +434,7 @@ type Mutation {
 
 ### Example
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```json
@@ -536,11 +496,7 @@ Returns the [folder objects](#the-folder-object) of the folders that were update
 
 ### Syntax
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```
@@ -572,11 +528,7 @@ type Mutation {
 
 ### Example
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```json
@@ -634,11 +586,7 @@ Empty body.
 
 ### Syntax
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```
@@ -674,11 +622,7 @@ await folders.deleteOne(id);
 
 ### Example
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```
@@ -732,11 +676,7 @@ Empty body.
 
 ### Syntax
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```
@@ -770,11 +710,7 @@ await folders.deleteMany(ids_array);
 
 ### Example
 
-<SnippetToggler
-	v-model="pref"
-	:choices="['REST', 'GraphQL', 'JS-SDK']"
-	label="API" >
-
+<SnippetToggler v-model="pref" :choices="['REST', 'GraphQL', 'JS-SDK']" label="API">
 <template #rest>
 
 ```json
