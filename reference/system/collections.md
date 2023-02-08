@@ -185,7 +185,7 @@ await collections.readByQuery(
 
 // GET items by primary keys
 await collections.readMany(
-	ids_array, // Required: an array of primary keys
+	primaryKeys, // Required: an array of primary keys
 	query,     // Optional: a query parameter object
 });
 ```

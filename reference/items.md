@@ -99,7 +99,7 @@ type Query {
 <template #js-sdk>
 
 ```js
-const collection = directus.items(collection_name);
+const collection = directus.items(collectionName);
 
 // The JS-SDK provides two methods to GET items.
 
@@ -110,8 +110,8 @@ await collection.readByQuery(
 
 // GET items by primary keys
 await articles.readMany(
-	ids_array, // Required: an array of primary keys
-	query,     // Optional: a query parameter object
+	primaryKeys, // Required: an array of primary keys
+	query,       // Optional: a query parameter object
 });
 ```
 
@@ -217,7 +217,7 @@ type Query {
 <template #js-sdk>
 
 ```js
-const collection = directus.items(collection_name);
+const collection = directus.items(collectionName);
 
 await collection.readOne(
 	id, // primary key
@@ -318,9 +318,9 @@ type Mutation {
 <template #js-sdk>
 
 ```js
-const collection = directus.items(collection_name);
+const collection = directus.items(collectionName);
 
-await collection.createOne(item_object);
+await collection.createOne(item);
 ```
 
 </template>
@@ -418,9 +418,9 @@ type Mutation {
 <template #js-sdk>
 
 ```js
-const collection = directus.items.(collection_name);
+const collection = directus.items(collectionName);
 
-await collection.createMany(items_array);
+await collection.createMany(itemsArray);
 ```
 
 </template>
@@ -545,10 +545,10 @@ type Mutation {
 <template #js-sdk>
 
 ```js
-const collection = directus.items(collection_name);
+const collection = directus.items(collectionName);
 
 await collection.updateOne(
-	primary_key, // The primary key
+	primaryKey, // The primary key
 	data, // An object { "field": "value"} to update items
 	query // Optional: a query parameter
 );
@@ -665,13 +665,13 @@ type Mutation {
 <template #js-sdk>
 
 ```js
-const collection = directus.items.(collection_name);
+const collection = directus.items(collectionName);
 
 await collection.updateMany(
-		primary_key, // An array of primary keys
-		data,		 // An object { "field": "value"} to update items
-		query		 // Optional: a query parameter
-	);
+	primaryKey, // An array of primary keys
+	data, // An object { "field": "value"} to update items
+	query // Optional: a query parameter
+);
 ```
 
 </template>
@@ -769,9 +769,9 @@ type Mutation {
 <template #js-sdk>
 
 ```js
-const collection = directus.items(collection_name);
+const collection = directus.items(collectionName);
 
-await collection.deleteOne(primary_key);
+await collection.deleteOne(primaryKey);
 ```
 
 </template>
@@ -854,9 +854,9 @@ type Mutation {
 <template #js-sdk>
 
 ```js
-const collection = directus.items(collection_name);
+const collection = directus.items(collectionName);
 
-await collection.deleteMany(id_array);
+await collection.deleteMany(primaryKeys);
 ```
 
 </template>

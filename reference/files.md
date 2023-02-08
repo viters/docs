@@ -307,7 +307,7 @@ await collection.readByQuery(
 
 // GET items by primary keys
 await articles.readMany(
-	ids_array, // Required: an array of primary keys
+	primaryKeys, // Required: an array of primary keys
 	query,     // Optional: a query parameter object
 });
 ```
@@ -797,7 +797,7 @@ type Mutation {
 const files = directus.files;
 
 await files.updateOne(
-	primary_key, // The primary key
+	primaryKey, // The primary key
 	data, // An object { "field": "value"} to update items
 	query // Optional: a query parameter
 );
@@ -909,7 +909,7 @@ type Mutation {
 const files = directus.files;
 
 await files.updateOne(
-	primary_key, // The primary key
+	primaryKey, // The primary key
 	data, // An object { "field": "value"} to update items
 	query // Optional: a query parameter
 );
@@ -1020,7 +1020,7 @@ type Mutation {
 // const files = directus.items('files');
 const files = directus.files;
 
-await files.deleteOne(primary_key);
+await files.deleteOne(primaryKey);
 ```
 
 </template>

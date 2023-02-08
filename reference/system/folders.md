@@ -701,7 +701,7 @@ type Mutation {
 ```js
 const folders = directus.folders;
 
-await folders.deleteMany(ids_array);
+await folders.deleteMany(primaryKeys);
 ```
 
 </template>

@@ -119,7 +119,7 @@ await collection.readByQuery(
 
 // GET items by primary keys
 await articles.readMany(
-	ids_array, // Required: an array of primary keys
+	primaryKeys, // Required: an array of primary keys
 	query // Optional: a query parameter object
 );
 ```
@@ -419,7 +419,7 @@ type Mutation {
 ```js
 const activity = directus.activity;
 
-await activity.updateOne(primary_key, comment);
+await activity.updateOne(primaryKey, comment);
 ```
 
 </template>
@@ -507,10 +507,10 @@ type Mutation {
 
 ```js
 // One
-const primary_key = 15;
+const primaryKey = 15;
 const activity = directus.activity;
 
-await activity.deleteOne(primary_key);
+await activity.deleteOne(primaryKey);
 ```
 
 </template>

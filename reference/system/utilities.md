@@ -635,7 +635,7 @@ For more details, please see the documentation on [revisions](/reference/system/
 
 ### Request
 
-`primary_key` **Required**
+`primaryKey` **Required**
 
 - **Type** — `Integer` or `String`
 - **Description** — The key passed is the primary key of the revision you'd like to apply.
@@ -666,7 +666,7 @@ An Empty Body.
 <template #js-sdk>
 
 ```js
-await directus.utils.revert(primary_key);
+await directus.utils.revert(primaryKey);
 ```
 
 </template>

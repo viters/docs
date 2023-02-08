@@ -214,7 +214,7 @@ Returns the differences between the current instance's schema and the schema pas
 								"numeric_scale": null,
 								"is_nullable": false,
 								"is_unique": false,
-								"is_primary_key": true,
+								"is_primaryKey": true,
 								"is_generated": false,
 								"generation_expression": null,
 								"has_auto_increment": true,
@@ -265,7 +265,7 @@ Returns the differences between the current instance's schema and the schema pas
 								"numeric_scale": null,
 								"is_nullable": true,
 								"is_unique": false,
-								"is_primary_key": false,
+								"is_primaryKey": false,
 								"is_generated": false,
 								"generation_expression": null,
 								"has_auto_increment": false,
@@ -388,7 +388,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
-      is_primary_key: true
+      is_primaryKey: true
       is_generated: false
       generation_expression: null
       has_auto_increment: true
@@ -426,7 +426,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
-      is_primary_key: false
+      is_primaryKey: false
       is_generated: false
       generation_expression: null
       has_auto_increment: false
@@ -599,7 +599,7 @@ POST /schema/apply
                 "numeric_scale": null,
                 "is_nullable": false,
                 "is_unique": false,
-                "is_primary_key": true,
+                "is_primaryKey": true,
                 "is_generated": false,
                 "generation_expression": null,
                 "has_auto_increment": true,
@@ -650,7 +650,7 @@ POST /schema/apply
                 "numeric_scale": null,
                 "is_nullable": true,
                 "is_unique": false,
-                "is_primary_key": false,
+                "is_primaryKey": false,
                 "is_generated": false,
                 "generation_expression": null,
                 "has_auto_increment": false,

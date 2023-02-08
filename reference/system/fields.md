@@ -104,7 +104,7 @@ Scale for integer/float/decimal type fields.
 `is_nullable` **boolean**\
 Whether or not the column is nullable. This is what is used as the "required" state in Directus.
 
-`is_primary_key` **boolean**\
+`is_primaryKey` **boolean**\
 Whether or not the field is the primary key of the table.
 
 `foreign_key_column` **string**\
@@ -146,7 +146,7 @@ Comment as stored in the database.
 		"numeric_precision": 32,
 		"numeric_scale": 0,
 		"is_nullable": false,
-		"is_primary_key": true,
+		"is_primaryKey": true,
 		"has_auto_increment": true,
 		"foreign_key_column": null,
 		"foreign_key_table": null,
