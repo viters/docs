@@ -4,7 +4,7 @@ export default {
 	title: 'Directus Docs',
 	description: 'Directus. An Instant App & API for your SQL Database.',
 	markdown: {
-		theme: 'material-palenight',
+		theme: 'material-theme-palenight',
 		toc: {
 			level: [2],
 		},
@@ -515,6 +515,10 @@ function sidebar() {
 				{
 					link: '/reference/system/roles',
 					text: 'Roles',
+				},
+				{
+					link: '/reference/system/schema',
+					text: 'Schema',
 				},
 				{
 					link: '/reference/system/server',

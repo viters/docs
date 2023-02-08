@@ -17,7 +17,7 @@ pageClass: page-reference
 The location of your actual file originals is based on the project's configuration, but you can consistently access them
 via the API using the following URL.
 
-```txt
+```
 example.com/assets/<file-id>
 example.com/assets/1ac73658-8b62-4dea-b6da-529fbc9d01a4
 ```
@@ -26,7 +26,7 @@ example.com/assets/1ac73658-8b62-4dea-b6da-529fbc9d01a4
 
 You can provide an optional filename after the UUID to optimize for SEO, for example:
 
-```txt
+```
 example.com/assets/<file-id>/<filename>
 example.com/assets/1ac73658-8b62-4dea-b6da-529fbc9d01a4/directus-logo.png
 ```
@@ -127,20 +127,20 @@ Below are four possible qualities (200x200 cover) to visually compare the balanc
 
 ### Preset
 
-```txt
+```
 example.com/assets/<file-id>?key=<key>
 ```
 
 ### Custom
 
-```txt
+```
 example.com/assets/<file-id>?fit=<fit>&width=<width>&height=<height>&quality=<quality>
 example.com/assets/1ac73658-8b62-4dea-b6da-529fbc9d01a4?fit=cover&width=200&height=200&quality=80
 ```
 
 ### Advanced
 
-```txt
+```
 ?transforms=[
 	["blur", 45],
 	["tint", "rgb(255, 0, 0)"],
@@ -269,7 +269,7 @@ SEARCH /files
 
 ### GraphQL
 
-```txt
+```
 POST /graphql/system
 ```
 
@@ -306,19 +306,19 @@ Returns a [file object](#the-file-object) if a valid primary key was provided.
 
 ### REST API
 
-```txt
+```
 GET /files/:id
 ```
 
 ##### Example
 
-```txt
+```
 GET /files/0fca80c4-d61c-4404-9fd7-6ba86b64154d
 ```
 
 ### GraphQL
 
-```txt
+```
 POST /graphql/system
 ```
 
@@ -404,7 +404,7 @@ Supports all [global query parameters](/reference/query).
 Returns the [file object](#the-file-object) for the uploaded file, or an array of [file objects](#the-file-object) if
 multiple files were uploaded at once.
 
-```txt
+```
 POST /files
 ```
 
@@ -446,7 +446,7 @@ Returns the [file object](#the-file-object) for the imported file.
 
 ### REST API
 
-```txt
+```
 POST /files/import
 ```
 
@@ -465,7 +465,7 @@ POST /files/import
 
 ### GraphQL
 
-```txt
+```
 POST /graphql/system
 ```
 
@@ -507,7 +507,7 @@ Returns the [file object](#the-file-object) for the updated file.
 
 ### REST API
 
-```txt
+```
 PATCH /files/:id
 ```
 
@@ -523,7 +523,7 @@ PATCH /files/:id
 
 ### GraphQL
 
-```txt
+```
 POST /graphql/system
 ```
 
@@ -568,7 +568,7 @@ Returns the [file objects](#the-file-object) for the updated files.
 
 ### REST API
 
-```txt
+```
 PATCH /files
 ```
 
@@ -587,7 +587,7 @@ PATCH /files
 
 ### GraphQL
 
-```txt
+```
 POST /graphql/system
 ```
 
@@ -630,19 +630,19 @@ Empty response.
 
 ### REST API
 
-```txt
+```
 DELETE /files/:id
 ```
 
 ##### Example
 
-```txt
+```
 DELETE /files/0fca80c4-d61c-4404-9fd7-6ba86b64154d
 ```
 
 ### GraphQL
 
-```txt
+```
 POST /graphql/system
 ```
 
@@ -682,7 +682,7 @@ Empty response.
 
 ### REST API
 
-```txt
+```
 DELETE /files
 ```
 
@@ -696,7 +696,7 @@ DELETE /files
 
 ### GraphQL
 
-```txt
+```
 POST /graphql/system
 ```
 
