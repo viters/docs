@@ -198,7 +198,7 @@ all three.
 
 ### View Nested Items
 
-To view the relational data instead of the foreign keys, use the [the `fields` parameter](/reference/query#fields).
+To view the relational data instead of the foreign keys, use the [`fields` parameter](/reference/query#fields).
 
 ```json
 {
