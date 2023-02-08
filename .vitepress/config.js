@@ -4,7 +4,7 @@ export default {
 	title: 'Directus Docs',
 	description: 'Directus. An Instant App & API for your SQL Database.',
 	markdown: {
-		theme: 'material-palenight',
+		theme: 'material-theme-palenight',
 		toc: {
 			level: [2],
 		},

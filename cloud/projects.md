@@ -47,7 +47,7 @@ Community Projects come with the following configurations:
 - **Project URL** — Random URL: `aa3i82.directus.app`. _This cannot be changed_.
 - [Datacenter Region](/cloud/glossary#datacenter-regions) — `United States, East`.
 - [Node Type](/cloud/glossary#node-types) — Community Node.
-- [Reserved Nodes](/cloud/glossary#nodes) — One Node.
+- [Reserved Nodes](/cloud/glossary#nodes) — One node.
 - **Starting Template** — Create an Empty Project or a Demo Project with dummy data.
 
 To create a Community Project:
@@ -76,7 +76,7 @@ Create a [Standard Project](#create-a-standard-project).
 
 ## Create a Standard Project
 
-![Create a Standard Project](https://cdn.directus.io/docs/v9/cloud/projects/projects-20220322A/create-a-project-20220228A.webp)
+![Create a Standard Project](https://cdn.directus.io/docs/v9/cloud/projects/projects-20230203A/create-a-project-20230203A.webp)
 
 The Standard tier is perfect for most production-ready use cases. Standard tier Projects come with custom URLs, daily
 [backups](/cloud/glossary#backups) and higher-powered Nodes. In addition, Node configuration can be scaled up and down
@@ -88,8 +88,7 @@ Standard Projects come with the following configuration options:
 - **Project URL** — Custom URL: `your-custom-url.directus.app`. _This cannot be changed_.
 - [Datacenter Region](/cloud/glossary#datacenter-regions) — `United States, East`, `Europe, Frankfurt` or
   `Asia Pacific, Singapore`.
-- [Node Type](/cloud/glossary#node-types) — Lite or General Purpose Tier Nodes.
-- [Infrastructure](/cloud/glossary#nodes) — 1-6 Reserved Nodes.
+- [Infrastructure](/cloud/glossary#nodes) — Choose 2-6 Reserved Nodes.
 
 To create a Standard Project:
 
@@ -158,14 +157,14 @@ may help inform your decisions around configuring Nodes.
   time to scale up.
 
 - **Horizontal Scaling**\
-  Number of Reserved Nodes activated to handle traffic to your instance.
+  Number of reserved Nodes activated to handle traffic to your instance.
 
 - **API Requests**\
   Number of API requests. This provides basic insight into traffic cycles, including overall volatility. If your Project
-  experiences higher volumes of traffic, it may be best to add more Reserved Nodes.
+  experiences higher volumes of traffic, it may be best to add more reserved Nodes.
 
 - **API Bandwidth**\
-  The read/write bandwidth of all requests. If bandwidth is higher, it may be best to vertically scale with General Purpose
+  The read/write bandwidth of all requests. If bandwidth is higher, it may be best to vertically scale with more Standard
   Tier or Enterprise Nodes.
 
 To access the Project Monitor Page:
@@ -191,8 +190,8 @@ On Community Projects, the only option available is to change the Project's Name
 
 ![Manage a Project](https://cdn.directus.io/docs/v9/cloud/projects/projects-20220322A/manage-a-project-20220322A.webp)
 
-On Standard Projects, it's possible to change the Project Name as well as reconfigure the
-[Node Type](/cloud/glossary#node-types) or number of [Reserved Nodes](/cloud/glossary#reserved-nodes).
+On Standard Projects, it's possible to change the Project Name as well as reconfigure the number of
+[Reserved Nodes](/cloud/glossary#reserved-nodes).
 
 1. Open the Team Menu in the Dashboard Header and click the desired Team.
 2. Click **"Projects"** to enter the Projects page.
@@ -216,7 +215,7 @@ tandem with the Directus Core Team.
 
 ![Resume Paused Project](https://cdn.directus.io/docs/v9/cloud/projects/projects-20221011A/resume-paused-project-20221011A.webp)
 
-After creation, your Community Project will run for 14 days. At that point, you can manually extend time by 14 more
+After creation, your Community Project will run for 14 days. At that point, you can manually extend time by seven more
 days, indefinitely. However, if you do not manually extend this time, the
 [Infrastructure](/cloud/glossary#infrastructure) gets paused. Projects that remain paused for 30 days will be
 automatically deleted (see details in [Cloud Policies](https://directus.io/cloud-policies#)). To avoid deletion, you

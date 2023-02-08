@@ -246,20 +246,16 @@ Directus Cloud, adding more Reserved Nodes will provide horizontal-scaling.
 
 ### Node Types
 
-Each Node Type provides a different level of processing power.
+Each offering provides a different level of node processing power.
 
 - **Community**\
   Community Projects come equipped with one Node, which can handle basic web traffic required for hobby projects, learning
   and demoing Directus Cloud, and other non-production use cases. Community Nodes are paused after a certain duration of
   runtime. However, you can [extend this period](/cloud/projects#resume-a-community-project) forever.
 
-- **Lite**\
-  Lite Nodes are the basic Node Type offered on Standard Projects. These Nodes are the right choice for most small- to medium-
-  scale, production-ready use cases.
-
-- **General Purpose Tier**\
-  General Purpose Tier Nodes provide better performance under certain conditions, such as for handling Image transformations
-  as well as fetching deeply nested or complex relationships via the API.
+- **Standard**\
+  Standard Projects provide better performance, such as for handling image transformations as well as fetching deeply nested
+  or complex relationships via the API.
 
 - **Enterprise**\
   Configuration options are flexible and customizable, tailored to your Project's needs.
@@ -281,17 +277,16 @@ see [Cloud Policies](https://directus.io/cloud-policies).
 Rate limiting refers to technical limitations within Directus Cloud as well as Cloud Projects. You will encounter the
 following API request limits at each node tier.
 
-| Tier                       | Limit                                               |
-| -------------------------- | --------------------------------------------------- |
-| Community                  | 10 requests per second per IP _(50 per second max)_ |
-| Standard (Lite)            | 25 requests per second per node per IP              |
-| Standard (General Purpose) | 50 requests per second per node per IP              |
-| Enterprise                 | 100 requests per second per node per IP             |
+| Tier       | Limit                                               |
+| ---------- | --------------------------------------------------- |
+| Community  | 10 requests per second per IP _(50 per second max)_ |
+| Standard   | 50 requests per second per node per IP              |
+| Enterprise | 100 requests per second per node per IP             |
 
 :::tip
 
-These limits are additive and load balanced. For example, a Standard Project with two General Purpose nodes would get
-100 requests per second per IP `50 requests * 2 nodes = 100`.
+These limits are additive and load balanced. For example, a Standard Project with two Standard Tier nodes would get 100
+requests per second per IP `50 requests * 2 nodes = 100`.
 
 :::
 
