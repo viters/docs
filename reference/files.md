@@ -834,7 +834,6 @@ mutation {
 <template #js-sdk>
 
 ```js
-// const files = directus.items('directus_files');
 const files = directus.files;
 
 await files.updateOne(
@@ -902,7 +901,6 @@ type Mutation {
 <template #js-sdk>
 
 ```js
-// const files = directus.items('directus_files');
 const files = directus.files;
 
 await files.updateOne(
@@ -948,7 +946,6 @@ mutation {
 <template #js-sdk>
 
 ```js
-// const files = directus.items('directus_files');
 const files = directus.files;
 
 await files.updateOne(
@@ -1014,7 +1011,6 @@ type Mutation {
 <template #js-sdk>
 
 ```js
-// const files = directus.items('files');
 const files = directus.files;
 
 await files.deleteOne(primaryKey);
@@ -1050,7 +1046,6 @@ mutation {
 <template #js-sdk>
 
 ```js
-// const files = directus.items('files');
 const files = directus.files;
 
 await files.deleteOne('0fca80c4-d61c-4404-9fd7-6ba86b64154d');
@@ -1111,7 +1106,6 @@ type Mutation {
 <template #js-sdk>
 
 ```js
-// const files = directus.items('directus_files');
 const files = directus.files;
 
 await files.deleteMany(ids);
@@ -1148,7 +1142,6 @@ mutation {
 <template #js-sdk>
 
 ```js
-// const files = directus.items('directus_files');
 const files = directus.files;
 
 await files.deleteMany(['d17c10aa-0bad-4864-9296-84f522c753e5', 'b6123925-2fc0-4a30-9d86-863eafc0a6e7']);
