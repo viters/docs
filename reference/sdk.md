@@ -107,15 +107,7 @@ const articles = directus.items('articles');
 await articles.readOne(1);
 ```
 
-This syntax works for all collections, including system collections. For example:
-
-```js
-const directus = new Directus('https://example.directus.app');
-const users = directus.("directus_users");
-// Now you can invoke methods on users
-```
-
-However, system collections also come with their own method:
+The system collections each come with their own method:
 
 ```js
 const directus = new Directus('https://example.directus.app');
@@ -123,7 +115,7 @@ const users = directus.users;
 // Now you can invoke methods on users
 ```
 
-For more details, please see the documentation for the desired collection endpoint.
+For more details, please see the documentation for the relevant system collection.
 
 :::tip Before You Begin
 
