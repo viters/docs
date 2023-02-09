@@ -112,7 +112,7 @@ type Query {
 
 const collection = directus.activity;
 
-// GET items by query
+// GET activity items by query
 await collection.readByQuery(
 	query // Required:  a query parameter object
 );

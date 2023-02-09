@@ -282,7 +282,7 @@ type Mutation {
 <template #rest>
 
 ```json
-// Request
+// POST /permissions
 
 {
 	"collection": "pages",
