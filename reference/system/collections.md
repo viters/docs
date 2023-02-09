@@ -178,12 +178,12 @@ type Query {
 
 const collections = directus.collections;
 
-// GET items by query
+// GET collections by query
 await collections.readByQuery(
 	query 		// Required:  a query parameter object
 );
 
-// GET items by primary keys
+// GET collections by primary keys
 await collections.readMany(
 	primaryKeys, // Required: an array of primary keys
 	query,       // Optional: a query parameter object

@@ -117,7 +117,7 @@ await collection.readByQuery(
 	query // Required:  a query parameter object
 );
 
-// GET items by primary keys
+// GET activity items by primary keys
 await articles.readMany(
 	primaryKeys, // Required: an array of primary keys
 	query // Optional: a query parameter object

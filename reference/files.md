@@ -298,12 +298,12 @@ const files = directus.files;
 
 // The JS-SDK provides two methods to GET items.
 
-// GET items by query
+// GET files by query
 await files.readByQuery(
 	query // Required:  a query parameter object
 );
 
-// GET items by primary keys
+// GET files by primary keys
 await files.readMany(
 	primaryKeys, // Required: an array of primary keys
 	query,     // Optional: a query parameter object
