@@ -294,19 +294,17 @@ type Query {
 <template #js-sdk>
 
 ```js
-
-// const collection = directus.items('directus_files');
-const collection = directus.files;
+const files = directus.files;
 
 // The JS-SDK provides two methods to GET items.
 
 // GET items by query
-await collection.readByQuery(
+await files.readByQuery(
 	query // Required:  a query parameter object
 );
 
 // GET items by primary keys
-await articles.readMany(
+await files.readMany(
 	primaryKeys, // Required: an array of primary keys
 	query,     // Optional: a query parameter object
 });
@@ -415,7 +413,6 @@ type Query {
 <template #js-sdk>
 
 ```js
-// const files = directus.items('directus_files');
 const files = directus.files;
 
 await files.readOne(
@@ -687,8 +684,8 @@ type Mutation {
 
 ```js
 await directus.files.import({
-	url: url_string, // Required: a string for the file path URL
-	data: data_object, // Optional: An object containing custom data
+	url: urlString, // Required: a string for the file path URL
+	data: dataObject, // Optional: An object containing custom data
 });
 ```
 
