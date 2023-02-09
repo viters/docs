@@ -457,7 +457,7 @@ mutation {
 ```js
 const activity = directus.activity;
 
-await articles.updateOne(42, {
+await activity.updateOne(42, {
 	comment: 'Hello World!!',
 });
 ```
@@ -506,8 +506,6 @@ type Mutation {
 <template #js-sdk>
 
 ```js
-// One
-const primaryKey = 15;
 const activity = directus.activity;
 
 await activity.deleteOne(primaryKey);

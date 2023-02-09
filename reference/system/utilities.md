@@ -138,7 +138,7 @@ type Mutation {
 <template #js-sdk>
 
 ```js
-await directus.utils.hash.generate(string_value);
+await directus.utils.hash.generate(stringValue);
 ```
 
 </template>

@@ -256,7 +256,7 @@ query {
 <template #js-sdk>
 
 ```js
-const articles = directus.items(articles);
+const articles = directus.items('articles');
 
 await articles.readOne(15, { fields: ['title'] });
 ```

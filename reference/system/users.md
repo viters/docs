@@ -411,11 +411,11 @@ type Mutation {
 <template #js-sdk>
 
 ```js
-await directus.users.me.update(user_data);
+await directus.users.me.update(userData);
 
 // Supports optional query:
 
-await directus.users.me.update(user_data, query);
+await directus.users.me.update(userData, query);
 ```
 
 </template>
@@ -450,11 +450,11 @@ mutation {
 <template #js-sdk>
 
 ```js
-await directus.users.me.update({ first_name: 'Admin' });
+await directus.users.me.update({ firstName: 'Admin' });
 
 // Supports optional query:
 
-await directus.users.me.update({ first_name: 'Admin' }, { fields: ['last_access'] });
+await directus.users.me.update({ firstName: 'Admin' }, { fields: ['last_access'] });
 ```
 
 </template>
@@ -1052,7 +1052,7 @@ type Mutation {
 <template #js-sdk>
 
 ```js
-await directus.users.invites.send(email, role, invite_url);
+await directus.users.invites.send(email, role, inviteUrl);
 ```
 
 </template>
@@ -1175,7 +1175,7 @@ mutation {
 <template #js-sdk>
 
 ```js
-await directus.users.invites.accept('<accept-token>', 'n3w-p455w0rd');
+await directus.users.invites.accept('eyJh...KmUk', 'n3w-p455w0rd');
 ```
 
 </template>
@@ -1344,7 +1344,7 @@ mutation {
 <template #js-sdk>
 
 ```js
-await directus.users.tfa.enable('my-password');
+await directus.users.tfa.enable('123456', '3CtiutsNBmY3szHE');
 ```
 
 </template>

@@ -610,7 +610,6 @@ type Mutation {
 <template #js-sdk>
 
 ```js
-// One
 const folders = directus.folders;
 
 await folders.deleteOne(id);

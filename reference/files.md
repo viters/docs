@@ -790,7 +790,6 @@ type Mutation {
 <template #js-sdk>
 
 ```js
-// const files = directus.items('directus_files');
 const files = directus.files;
 
 await files.updateOne(

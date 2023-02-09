@@ -180,13 +180,13 @@ const collections = directus.collections;
 
 // GET items by query
 await collections.readByQuery(
-	query // Required:  a query parameter object
+	query 		// Required:  a query parameter object
 );
 
 // GET items by primary keys
 await collections.readMany(
 	primaryKeys, // Required: an array of primary keys
-	query,     // Optional: a query parameter object
+	query,       // Optional: a query parameter object
 });
 ```
 
@@ -289,7 +289,7 @@ type Query {
 ```js
 const collections = directus.collections;
 
-await collections.readOne(collection_name);
+await collections.readOne(collectionName);
 ```
 
 </template>
@@ -437,7 +437,7 @@ mutation {
 ```js
 const collections = directus.collections;
 
-await articles.createOne('testimonials', {
+await collections.createOne('testimonials', {
 	meta: {
 		note: 'Short quotes from happy customers.',
 	},
@@ -606,7 +606,7 @@ type Mutation {
 // One
 const collections = directus.collections;
 
-await collections.deleteOne(collection_name);
+await collections.deleteOne(collectionName);
 ```
 
 </template>
