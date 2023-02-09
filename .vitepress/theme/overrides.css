@@ -1,11 +1,4 @@
 /**
- * Horizontal top nav bar
- * -------------------------------------------------------------------------- */
-.dark .VPNavBar.has-sidebar .content {
-	background: rgba(22, 27, 34, 0.7) !important;
-}
-
-/**
  * Border thickness to 2px where appropriate
  * -------------------------------------------------------------------------- */
 .vp-doc h2,
