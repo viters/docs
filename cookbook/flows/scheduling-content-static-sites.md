@@ -66,7 +66,7 @@ field `status` that controls the published state.
 
 3. [Add a new field](/configuration/data-model/fields.html#create-a-field-standard) to your content Collection.
 
-   ![Scheduling Content - Data Model](/public/headlesscms/scheduling-content-publish-date.webp)
+   ![Scheduling Content - Data Model](/headlesscms/scheduling-content-publish-date.webp)
 
    a. Choose **Datetime** for the Type.
 
@@ -78,7 +78,7 @@ field `status` that controls the published state.
 
 4. [Create or update an Item](/app/content/items) inside your Collection
 
-   ![Scheduling Content - Update Content](/public/headlesscms/scheduling-content-create-content-scheduled.webp)
+   ![Scheduling Content - Update Content](/headlesscms/scheduling-content-create-content-scheduled.webp)
 
    a. Set the `status` field to `scheduled`
 
@@ -90,13 +90,13 @@ field `status` that controls the published state.
 
 5. [Create a new Flow](/configuration/flows#create-a-flow)
 
-   ![Scheduling Content - Flow Setup](/public/headlesscms/scheduling-content-flow-setup.webp)
+   ![Scheduling Content - Flow Setup](/headlesscms/scheduling-content-flow-setup.webp)
 
    Give it a memorable name and short description like `Publish Scheduled Articles`.
 
 6. [Complete the Trigger Setup](/configuration/flows/triggers#triggers)
 
-   ![Scheduling Content - Trigger Setup](/public/headlesscms/scheduling-content-trigger.webp)
+   ![Scheduling Content - Trigger Setup](/headlesscms/scheduling-content-trigger.webp)
 
    a. For **Type**, Select [Schedule (CRON)](/configuration/flows/triggers#schedule-cron). This will trigger this flow
    at regular intervals of time.
@@ -112,7 +112,7 @@ field `status` that controls the published state.
 
 7. [Create a new Operation](/configuration/flows/operations#operations)
 
-   ![Scheduling Content - Update Data Operation](/public/headlesscms/scheduling-content-update-articles.webp)
+   ![Scheduling Content - Update Data Operation](/headlesscms/scheduling-content-update-articles.webp)
 
    a. For the type of Operation, select **Update Item**
 

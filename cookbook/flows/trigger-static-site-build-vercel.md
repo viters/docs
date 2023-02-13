@@ -57,7 +57,7 @@ with them.
 
 2. [Complete the Trigger Setup](/configuration/flows/triggers#triggers)
 
-   ![Directus Flows - Static Site Build - Trigger](/public/headlesscms/static-site-build-trigger.webp)
+   ![Directus Flows - Static Site Build - Trigger](/headlesscms/static-site-build-trigger.webp)
 
    a. Choose **Event Hook** for the trigger.
 
@@ -80,7 +80,7 @@ with them.
 
 3. [Create a new Operation](/configuration/flows/operations#operations)
 
-   ![Directus Flows - Static Site Build - Condition](/public/headlesscms/static-site-build-condition.webp)
+   ![Directus Flows - Static Site Build - Condition](/headlesscms/static-site-build-condition.webp)
 
    a. Name your operation, ie `Check Status`, `If Published`, or similar.
 
@@ -120,7 +120,7 @@ You can learn more about Vercel Deploy Hooks on their documentation.
 
 5. Back inside your Directus Flow, create a new Operation.
 
-   ![Directus Flows - Static Site Build - Webhook](/public/headlesscms/static-site-build-webhook.webp)
+   ![Directus Flows - Static Site Build - Webhook](/headlesscms/static-site-build-webhook.webp)
 
    a. For the type of Operation, select **Webhook / Request URL**
 
