@@ -412,6 +412,10 @@ function sidebar() {
 			collapsible: true,
 			collapsed: true,
 			items: [
+				{
+					text: 'Create Re-Usable Page Components',
+					link: '/cookbook/data-models/create-reusable-page-components-using-m2a.md',
+				},
 				{ text: 'Personal Portfolio Using M2A', link: '/cookbook/data-models/personal-portfolio-using-m2a.md' },
 				{ text: 'Build a Content Hierarchy', link: '/cookbook/data-models/build-a-content-hierarchy' },
 				{ text: 'Content Approval Workflows', link: '/cookbook/permissions/basic-workflows' },
