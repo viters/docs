@@ -186,6 +186,7 @@ iss
 iteratively
 JPG
 JS
+JS-SDK
 json
 JSON
 JWT
@@ -290,6 +291,7 @@ SCSS
 SDK
 SDL
 semver
+SemVer
 SendGrid
 SEO
 serverless
