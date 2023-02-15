@@ -48,7 +48,6 @@
 (T|t)ooltips?
 (T|t)riage
 (T|t)riaging
-(T|t)triage
 (U|u)narchive
 (U|u)narchived
 (U|u)narchiving
@@ -168,7 +167,6 @@ GHCR
 glibc
 Gmail
 granularly
-graphql
 GraphQL
 greenlight
 GUIs?
@@ -295,6 +293,7 @@ SCSS
 SDK
 SDL
 semver
+SemVer
 SendGrid
 SEO
 serverless
