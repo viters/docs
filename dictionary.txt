@@ -5,6 +5,7 @@
 (B|b)ackend
 (B|b)alancer
 (B|b)asemap
+(B|b)ugfixes
 (C|)ancelling
 (C|c)ancelled
 (C|c)harset
@@ -295,6 +296,7 @@ SDK
 SDL
 semver
 SemVer
+SemVer-like
 SendGrid
 SEO
 serverless
