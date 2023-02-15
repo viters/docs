@@ -167,6 +167,7 @@ GHCR
 glibc
 Gmail
 granularly
+graphql
 GraphQL
 greenlight
 GUIs?
