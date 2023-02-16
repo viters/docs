@@ -203,6 +203,7 @@ prefixing the value with `{type}:`. The following types are available:
 | `ROOT_REDIRECT`            | Where to redirect to when navigating to `/`. Accepts a relative path, absolute URL, or `false` to disable. | `./admin`                    |
 | `SERVE_APP`                | Whether or not to serve the Admin App under `/admin`.                                                      | `true`                       |
 | `GRAPHQL_INTROSPECTION`    | Whether or not to enable GraphQL Introspection                                                             | `true`                       |
+| `MAX_BATCH_MUTATION`       | The maximum number of items for batch mutations when creating, updating and deleting.                      | `Infinity`                   |
 | `MAX_RELATIONAL_DEPTH`     | The maximum depth when filtering / querying relational fields, with a minimum value of `2`.                | `10`                         |
 | `ROBOTS_TXT`               | What the `/robots.txt` endpoint should return                                                              | `User-agent: *\nDisallow: /` |
 
@@ -890,8 +891,8 @@ const publicUrl = process.env.PUBLIC_URL;
 <sup>[1]</sup> The `EXTENSIONS_CACHE_TTL` environment variable controls for how long custom app extensions (e.t.,
 interface, display, layout, module, panel) are cached by browsers. Caching can speed-up the loading of the app as the
 code for the extensions doesn't need to be re-fetched from the server on each app reload. On the other hand, this means
-that code changes to app extensions won't be taken into account by the browser until `EXTENSIONS_CACHE_TTL` has expired. By
-default, extensions are not cached. The input data type for this environment variable is the same as
+that code changes to app extensions won't be taken into account by the browser until `EXTENSIONS_CACHE_TTL` has expired.
+By default, extensions are not cached. The input data type for this environment variable is the same as
 [`CACHE_TTL`](#cache).
 
 ## Messenger
