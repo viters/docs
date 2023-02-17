@@ -8,7 +8,7 @@ author_override:
 author: Bryant Gillespie
 ---
 
-# Scheduling content for static sites
+# Scheduling Content for Static Sites
 
 > {{ $frontmatter.description }}
 
@@ -58,7 +58,7 @@ field `status` that controls the published state.
 
 :::
 
-### Add a field to control publish date and time
+### Add a Field to Control Publish Date and Time
 
 1. Under Settings, go to Data Model.
 
@@ -74,7 +74,7 @@ field `status` that controls the published state.
 
    c. Save the Field and your Collection.
 
-### Add some content and set a publish date
+### Add Some Content and Set a Publish Date
 
 4. [Create or update an Item](/app/content/items) inside your Collection
 
@@ -86,7 +86,7 @@ field `status` that controls the published state.
 
    c. Add the content for other fields and save the Item
 
-### Create and configure your Flow
+### Create and Configure Your Flow
 
 5. [Create a new Flow](/configuration/flows#create-a-flow)
 
@@ -108,7 +108,7 @@ field `status` that controls the published state.
    - `* 1 * * * *` - Would trigger this flow every minute
    - `* 15 * * * *` – Would trigger this flow every 15 minutes
 
-### Add an Operation to check the published date and update data
+### Add an Operation to Check The Published Date and Update Data
 
 7. [Create a new Operation](/configuration/flows/operations#operations)
 
@@ -162,7 +162,7 @@ field `status` that controls the published state.
 
    h. Save your Flow
 
-### Trigger a new build for your static site
+### Trigger a New Build for Your Static Site
 
 In this recipe, we'll terminate the flow here because we'll use a separate flow to trigger the build or deployment
 process for your site. This approach helps keep everything modular and easier to maintain.
@@ -172,7 +172,7 @@ If you haven't already, you'll want to configure one of the recipes below.
 - [Triggering a static site build at Netlify](/cookbook/flows/trigger-static-site-build-netlify)
 - [Triggering a static site build at Vercel](/cookbook/flows/trigger-static-site-build-vercel)
 
-We checked Emit Events in the Operation during Step 7. This will emit an `item.update` event which is a trigger for the
+You checked Emit Events in the Operation during Step 7. This will emit an `item.update` event which is a trigger for the
 Flows in the recipes above.
 
 ## Final Tips

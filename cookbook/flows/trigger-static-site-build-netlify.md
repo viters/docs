@@ -9,7 +9,7 @@ author_override:
 author: Bryant Gillespie
 ---
 
-# Triggering static site builds with Netlify
+# Triggering Static Site Builds with Netlify
 
 > {{ $frontmatter.description }}
 
@@ -49,7 +49,7 @@ with them.
 
 :::
 
-### Create and configure your Flow
+### Create and Configure Your Flow
 
 1. [Create a new Flow](/configuration/flows#create-a-flow)
 
@@ -74,7 +74,7 @@ with them.
 
    In this case, we’ll use `Articles` and `Articles Translations`.
 
-### Add an Operation to check status field
+### Add an Operation to Check Status Field
 
 > This step is optional but it is recommended to add a Condition operation to prevent un-necessary builds.
 
@@ -116,7 +116,7 @@ You can learn more about Netlify Build Hooks on their documentation.
 
    c. **Create a new build hook and copy the unique URL.**
 
-### Add Webhook Operation to your Flow
+### Add Webhook Operation to Your Flow
 
 5. Back inside your Directus Flow, create a new Operation.
 
@@ -132,7 +132,7 @@ You can learn more about Netlify Build Hooks on their documentation.
 
    e. Save your Flow
 
-### Publish your Flow
+### Publish Your Flow
 
 Great job! Now whenever you update an item in the `articles` collection and the `status` is equal to `published` , your
 hosting platform will automatically re-build your site.

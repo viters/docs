@@ -8,7 +8,7 @@ author_override:
 author: Bryant Gillespie
 ---
 
-# Scheduling content for dynamic sites
+# Scheduling Content for Dynamic Sites
 
 > {{ $frontmatter.description }}
 
@@ -49,7 +49,7 @@ field `status` that controls the published state.
 
 :::
 
-### Add a field to control publish date and time
+### Add a Field To Control Publish Date and Time
 
 1. Under Settings, go to Data Model.
 
@@ -65,7 +65,7 @@ field `status` that controls the published state.
 
    c. Save the Field and your Collection.
 
-### Add some content and set a publish date
+### Add Some Content and Set a Publish Date
 
 4. [Create or update an Item](/app/content/items) inside your Collection
 
@@ -77,7 +77,7 @@ field `status` that controls the published state.
 
    c. Add the content for other fields and save the Item
 
-### Check the published date when calling the Directus API
+### Check the Published Date When Calling the Directus API
 
 - When calling the API, add a [filter rule](/reference/filter-rules) that checks the `date_published` field.
 - Use the `_lte` operator to filter for dates that are less than or equal the current date/time.

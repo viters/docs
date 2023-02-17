@@ -7,7 +7,7 @@ author_override:
 author: Bryant Gillespie
 ---
 
-# Create re-usable page components
+# Create Re-Usable Page Components
 
 > {{ $frontmatter.description }}
 
@@ -50,7 +50,7 @@ running.
 
 :::
 
-### Map out your data model
+### Map Out Your Data Model
 
 Before you starting creating Collections inside Directus, it’s helpful to map out your data model (schema) outside of
 Directus first.
@@ -65,7 +65,7 @@ There are three main “blocks” that could be broken down into separate compon
 2. A block of cards that could link out to blog posts or other content.
 3. A block of rich text or HTML content.
 
-Let’s break down our data model for each section.
+Let’s break down the data model for each section.
 
 ---
 
@@ -109,7 +109,7 @@ To keep things organized, we recommend that you namespace each collection with a
 
 :::
 
-### Create the Rich Text block
+### Create the Rich Text Block
 
 1. [Create a new Collection](/configuration/data-model/collections.html#create-a-collection) named `block_richtext` and
    add the following fields.
@@ -122,7 +122,7 @@ To keep things organized, we recommend that you namespace each collection with a
    - content (Type: Text, Interface: WYSIWYG)
    ```
 
-### Create the Hero block
+### Create the Hero Block
 
 2. [Create a new Collection](/configuration/data-model/collections.html#create-a-collection) named `block_hero` and add
    the following fields.
@@ -140,7 +140,7 @@ To keep things organized, we recommend that you namespace each collection with a
    - image (Type: uuid / single file, Interface: Image)
    ```
 
-### Create the Card Group block
+### Create the Card Group Block
 
 3. [Create a new Collection](/configuration/data-model/collections.html#create-a-collection) named `block_cardgroup` and
    add the following fields.
@@ -156,7 +156,7 @@ To keep things organized, we recommend that you namespace each collection with a
    - cards (Type: M2O, Conditions: group_type === 'custom')
    ```
 
-### Create your Pages collection
+### Create the Pages Collection
 
 4. Create a new Collection named `pages` and add the following fields.
 
@@ -168,7 +168,7 @@ To keep things organized, we recommend that you namespace each collection with a
    - slug (Type: String, Interface: Input, URL Safe: true)
    ```
 
-### Configure a Many-To-Any (M2A) relationship inside the `pages` collection.
+### Configure a Many-To-Any (M2A) Relationship Inside the `pages` Collection.
 
 5. Create a new Builder (M2A) field inside the `pages` data model.
 
@@ -192,7 +192,7 @@ Mode option.
 
 :::
 
-### Create your page content
+### Create Your Page Content
 
 6. [Create a new item](/app/content/items.html#create-an-item) in the `pages` collection
 
@@ -206,7 +206,7 @@ Mode option.
    Existing to re-use existing blocks from other pages. Use the drag handle on the left side of each item to re-order
    blocks.
 
-### Fetching page data from the APIs
+### Fetching Page Data From the APIs
 
 Next, you'll want to access these with the API. If you try to use `/items/pages` then `page_content` returns an array of
 IDs. Instead, you'll want to add a [field parameter](/reference/query.md#many-to-any-union-types) to get nested
@@ -302,7 +302,7 @@ const page = response.data[0];
 }
 ```
 
-### Structuring your front end
+### Structuring Your Front End
 
 We have [integration guides](https://directus.io/guides/) for many popular front-end frameworks. But there are far too
 many to cover in this recipe.
@@ -328,7 +328,7 @@ data.
 
 This recipe has quite a few steps and involves several different collections. Here are some helpful tips to consider.
 
-### Spend some time studying the responses from your API.
+### Study the API Response
 
 To prevent frustration when building your front-end, it’s important you understand the structure of the JSON data that
 Directus returns for Many To Any (M2A) relationships.
@@ -337,24 +337,24 @@ Directus returns for Many To Any (M2A) relationships.
 - Add some content.
 - Test your API calls.
 
-### Check your permissions.
+### Check Your Permissions
 
 If you notice you aren't receiving the data that you expect,
 [check the Permissions settings](/configuration/users-roles-permissions/permissions.html#permissions) for your Public or
 chosen role. You'll have to enable Read access for each collection using in the Pages > Blocks Many-To-Any field.
 
-### Use Typescript to help prevent runtime errors.
+### Use Typescript
 
 We recommend adding types for each of your different collections to your frontend framework.
 
-### Use folders to organize your data model.
+### Organize Your Data Model with Folders
 
 Consider using [data model folders](/configuration/data-model/collections.html#create-a-folder) to keep things nicely
 organized and your collections easy to find.
 
 ![Data Model Folders](/headlesscms/reusable-page-components-folders.png)
 
-### Use translations to make collection names friendlier.
+### Use Translations for Collection Names
 
 When [setting up Collections](/configuration/data-model/collections.html#collection-setup) within your data model, use
 the Collection Naming Translations to create names that easier for the Data Studio users to understand.
