@@ -205,6 +205,10 @@ prefixing the value with `{type}:`. The following types are available:
 | `GRAPHQL_INTROSPECTION`    | Whether or not to enable GraphQL Introspection                                                             | `true`                       |
 | `MAX_RELATIONAL_DEPTH`     | The maximum depth when filtering / querying relational fields, with a minimum value of `2`.                | `10`                         |
 | `ROBOTS_TXT`               | What the `/robots.txt` endpoint should return                                                              | `User-agent: *\nDisallow: /` |
+| `REDIS_HOST`               | Set a global Redis host for the cache, rate limiter and messenger.                                         |                              |
+| `REDIS_PORT`               | Set a global Redis port for the cache, rate limiter and messenger.                                         |                              |
+| `REDIS_USERNAME`           | Set a global Redis username for the cache, rate limiter and messenger.                                     |                              |
+| `REDIS_PASSWORD`           | Set a global Redis password for the cache, rate limiter and messenger.                                     |                              |
 
 <sup>[1]</sup> The PUBLIC_URL value is used for things like OAuth redirects, forgot-password emails, and logos that
 needs to be publicly available on the internet.
