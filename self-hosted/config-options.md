@@ -460,7 +460,7 @@ than you would cache database content. To learn more, see [Assets](#assets).
 | `CACHE_TTL`<sup>[1]</sup>         | How long the data cache is persisted.                                                                                   | `5m`             |
 | `CACHE_CONTROL_S_MAXAGE`          | Whether to not to add the `s-maxage` expiration flag. Set to a number for a custom value.                               | `0`              |
 | `CACHE_AUTO_PURGE`<sup>[2]</sup>  | Automatically purge the data cache on `create`, `update`, and `delete` actions.                                         | `false`          |
-| `CACHE_SYSTEM_TTL`<sup>[3]</sup>  | How long `CACHE_SCHEMA` and `CACHE_PERMISSIONS` are persisted.                                                          | `10m`            |
+| `CACHE_SYSTEM_TTL`<sup>[3]</sup>  | How long `CACHE_SCHEMA` and `CACHE_PERMISSIONS` are persisted.                                                          | --               |
 | `CACHE_SCHEMA`<sup>[3]</sup>      | Whether or not the database schema is cached. One of `false`, `true`                                                    | `true`           |
 | `CACHE_PERMISSIONS`<sup>[3]</sup> | Whether or not the user permissions are cached. One of `false`, `true`                                                  | `true`           |
 | `CACHE_NAMESPACE`                 | How to scope the cache data.                                                                                            | `directus-cache` |
@@ -890,8 +890,8 @@ const publicUrl = process.env.PUBLIC_URL;
 <sup>[1]</sup> The `EXTENSIONS_CACHE_TTL` environment variable controls for how long custom app extensions (e.t.,
 interface, display, layout, module, panel) are cached by browsers. Caching can speed-up the loading of the app as the
 code for the extensions doesn't need to be re-fetched from the server on each app reload. On the other hand, this means
-that code changes to app extensions won't be taken into account by the browser until `EXTENSIONS_CACHE_TTL` has expired. By
-default, extensions are not cached. The input data type for this environment variable is the same as
+that code changes to app extensions won't be taken into account by the browser until `EXTENSIONS_CACHE_TTL` has expired.
+By default, extensions are not cached. The input data type for this environment variable is the same as
 [`CACHE_TTL`](#cache).
 
 ## Messenger
