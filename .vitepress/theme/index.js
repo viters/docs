@@ -1,5 +1,4 @@
 import DefaultTheme from 'vitepress/theme';
-import Layout from './Layout.vue';
 import { createHead } from '@vueuse/head';
 
 import './vars.css';
@@ -8,10 +7,9 @@ import './icons.css';
 
 export default {
 	...DefaultTheme,
-	Layout,
-	enhanceApp({ app }) {
-		// DefaultTheme.enhanceApp(ctx);
+	enhanceApp(ctx) {
+		DefaultTheme.enhanceApp(ctx);
 		const head = createHead();
-		app.use(head);
+		ctx.app.use(head);
 	},
 };

@@ -5,6 +5,7 @@
 (B|b)ackend
 (B|b)alancer
 (B|b)asemap
+(B|b)ugfixes
 (C|)ancelling
 (C|c)ancelled
 (C|c)harset
@@ -186,6 +187,7 @@ iss
 iteratively
 JPG
 JS
+JS-SDK
 json
 JSON
 JWT
@@ -238,7 +240,6 @@ OAuth
 Okta
 omnichannel
 on-prem
-on-prem
 OpenAPI
 OpenID
 OracleDB
@@ -281,7 +282,6 @@ REKT
 relationally
 relationally-linked
 repo
-repo
 repurpose
 S3
 saml
@@ -292,6 +292,8 @@ SCSS
 SDK
 SDL
 semver
+SemVer
+SemVer-like
 SendGrid
 SEO
 serverless

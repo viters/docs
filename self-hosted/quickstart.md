@@ -25,6 +25,8 @@ version: '3'
 services:
   directus:
     image: directus/directus:latest
+    ports:
+      - 8055:8055
     volumes:
       - ./uploads:/directus/uploads
       - ./database:/directus/database
@@ -33,7 +35,7 @@ services:
       SECRET: '6116487b-cda1-52c2-b5b5-c8022c45e263'
 
       DB_CLIENT: 'sqlite3'
-      DB_FILENAME: './data.db'
+      DB_FILENAME: './database/data.db'
 
       ADMIN_EMAIL: 'admin@example.com'
       ADMIN_PASSWORD: 'd1r3ctu5'

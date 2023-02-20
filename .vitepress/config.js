@@ -1,10 +1,12 @@
-export default {
+import { defineConfig } from 'vitepress'
+
+export default defineConfig({
 	base: '/',
 	lang: 'en-US',
 	title: 'Directus Docs',
 	description: 'Directus. An Instant App & API for your SQL Database.',
 	markdown: {
-		theme: 'material-palenight',
+		theme: 'material-theme-palenight',
 		toc: {
 			level: [2],
 		},
@@ -143,7 +145,7 @@ gtag('config', 'UA-24637628-7');
 			text: 'Edit this page on GitHub',
 		},
 	},
-};
+});
 
 // function sidebarCookbooks() {
 // 	return [
@@ -535,6 +537,10 @@ function sidebar() {
 				{
 					link: '/reference/system/roles',
 					text: 'Roles',
+				},
+				{
+					link: '/reference/system/schema',
+					text: 'Schema',
 				},
 				{
 					link: '/reference/system/server',

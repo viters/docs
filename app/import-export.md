@@ -73,7 +73,7 @@ Fields are exported, how they are exported, and where they are exported. To expo
    Note: the User Directory and File Library are each composed of one Collection.
 2. Click **"Import / Export"** in the Sidebar.
 3. Click **"Export Items"** and the [Export Items Menu](#export-items-menu) will appear.
-4. Choose the desired format: CSV, JSON or XML.
+4. Choose the desired format: CSV, JSON, XML, or YAML.
 5. **Optional:** Configure any other export details as desired.
 6. Click <span mi btn>download</span> to download the file.
 
@@ -108,7 +108,7 @@ permissions for the related Collection and a firm understanding of the relationa
 This menu provides granular control over exactly which Items and Fields are exported, how they are exported, and where
 they are exported.
 
-- **Format** — Choose to export Items as CSV, JSON, or XML.
+- **Format** — Choose to export Items as CSV, JSON, XML, or YAML.
 - **Limit** — Set the maximum number of Items to be exported.
 - **Export Location** — Download the export file directly to your machine or to the File Library.
 - **Folder** — Choose the Folder to download to _(if export location is the Folder Library)_.

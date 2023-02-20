@@ -191,19 +191,20 @@ prefixing the value with `{type}:`. The following types are available:
 
 ## General
 
-| Variable                   | Description                                                                                                | Default Value |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------- | ------------- |
-| `CONFIG_PATH`              | Where your config file is located. See [Configuration Files](#configuration-files)                         | `.env`        |
-| `HOST`                     | IP or host the API listens on.                                                                             | `0.0.0.0`     |
-| `PORT`                     | What port to run the API under.                                                                            | `8055`        |
-| `PUBLIC_URL`<sup>[1]</sup> | URL where your API can be reached on the web.                                                              | `/`           |
-| `LOG_LEVEL`                | What level of detail to log. One of `fatal`, `error`, `warn`, `info`, `debug`, `trace` or `silent`.        | `info`        |
-| `LOG_STYLE`                | Render the logs human readable (pretty) or as JSON. One of `pretty`, `raw`.                                | `pretty`      |
-| `MAX_PAYLOAD_SIZE`         | Controls the maximum request body size. Accepts number of bytes, or human readable string.                 | `1mb`         |
-| `ROOT_REDIRECT`            | Where to redirect to when navigating to `/`. Accepts a relative path, absolute URL, or `false` to disable. | `./admin`     |
-| `SERVE_APP`                | Whether or not to serve the Admin App under `/admin`.                                                      | `true`        |
-| `GRAPHQL_INTROSPECTION`    | Whether or not to enable GraphQL Introspection                                                             | `true`        |
-| `MAX_RELATIONAL_DEPTH`     | The maximum depth when filtering / querying relational fields, with a minimum value of `2`.                | `10`          |
+| Variable                   | Description                                                                                                | Default Value                |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------- |
+| `CONFIG_PATH`              | Where your config file is located. See [Configuration Files](#configuration-files)                         | `.env`                       |
+| `HOST`                     | IP or host the API listens on.                                                                             | `0.0.0.0`                    |
+| `PORT`                     | What port to run the API under.                                                                            | `8055`                       |
+| `PUBLIC_URL`<sup>[1]</sup> | URL where your API can be reached on the web.                                                              | `/`                          |
+| `LOG_LEVEL`                | What level of detail to log. One of `fatal`, `error`, `warn`, `info`, `debug`, `trace` or `silent`.        | `info`                       |
+| `LOG_STYLE`                | Render the logs human readable (pretty) or as JSON. One of `pretty`, `raw`.                                | `pretty`                     |
+| `MAX_PAYLOAD_SIZE`         | Controls the maximum request body size. Accepts number of bytes, or human readable string.                 | `1mb`                        |
+| `ROOT_REDIRECT`            | Where to redirect to when navigating to `/`. Accepts a relative path, absolute URL, or `false` to disable. | `./admin`                    |
+| `SERVE_APP`                | Whether or not to serve the Admin App under `/admin`.                                                      | `true`                       |
+| `GRAPHQL_INTROSPECTION`    | Whether or not to enable GraphQL Introspection                                                             | `true`                       |
+| `MAX_RELATIONAL_DEPTH`     | The maximum depth when filtering / querying relational fields, with a minimum value of `2`.                | `10`                         |
+| `ROBOTS_TXT`               | What the `/robots.txt` endpoint should return                                                              | `User-agent: *\nDisallow: /` |
 
 <sup>[1]</sup> The PUBLIC_URL value is used for things like OAuth redirects, forgot-password emails, and logos that
 needs to be publicly available on the internet.
@@ -273,27 +274,27 @@ All the `DB_POOL__` prefixed options are passed to [`tarn.js`](https://github.co
 
 ## Security
 
-| Variable                         | Description                                                                                                                                                      | Default Value            |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
-| `KEY`                            | Unique identifier for the project.                                                                                                                               | --                       |
-| `SECRET`                         | Secret string for the project.                                                                                                                                   | --                       |
-| `ACCESS_TOKEN_TTL`               | The duration that the access token is valid.                                                                                                                     | `15m`                    |
-| `REFRESH_TOKEN_TTL`              | The duration that the refresh token is valid, and also how long users stay logged-in to the App.                                                                 | `7d`                     |
-| `REFRESH_TOKEN_COOKIE_DOMAIN`    | Which domain to use for the refresh cookie. Useful for development mode.                                                                                         | --                       |
-| `REFRESH_TOKEN_COOKIE_SECURE`    | Whether or not to use a secure cookie for the refresh token in cookie mode.                                                                                      | `false`                  |
-| `REFRESH_TOKEN_COOKIE_SAME_SITE` | Value for `sameSite` in the refresh token cookie when in cookie mode.                                                                                            | `lax`                    |
-| `REFRESH_TOKEN_COOKIE_NAME`      | Name of refresh token cookie .                                                                                                                                   | `directus_refresh_token` |
-| `LOGIN_STALL_TIME`               | The duration in milliseconds that a login request will be stalled for, and it should be greater than the time taken for a login request with an invalid password | `500`                    |
-| `PASSWORD_RESET_URL_ALLOW_LIST`  | List of URLs that can be used [as `reset_url` in /password/request](/reference/authentication#request-password-reset)                                            | --                       |
-| `USER_INVITE_URL_ALLOW_LIST`     | List of URLs that can be used [as `invite_url` in /users/invite](/reference/system/users#invite-a-new-user)                                                      | --                       |
-| `IP_TRUST_PROXY`                 | Settings for [express' trust proxy setting](https://expressjs.com/en/guide/behind-proxies.html)                                                                  | true                     |
-| `IP_CUSTOM_HEADER`               | What custom request header to use for the IP address                                                                                                             | false                    |
-| `ASSETS_CONTENT_SECURITY_POLICY` | Custom overrides for the Content-Security-Policy header for the /assets endpoint. See [helmet's documentation](https://helmetjs.github.io) for more information. | --                       |
-| `IMPORT_IP_DENY_LIST`            | Deny importing files from these IP addresses. Use `0.0.0.0` for any local IP address                                                                             | `0.0.0.0`                |
-| `CONTENT_SECURITY_POLICY_*`      | Custom overrides for the Content-Security-Policy header. See [helmet's documentation](https://helmetjs.github.io) for more information.                          | --                       |
-| `HSTS_ENABLED`                   | Enable the Strict-Transport-Security policy header.                                                                                                              | `false`                  |
-| `HSTS_*`                         | Custom overrides for the Strict-Transport-Security header. See [helmet's documentation](https://helmetjs.github.io) for more information.                        | --                       |
-| `FLOWS_EXEC_ALLOWED_MODULES`     | CSV allowlist of node modules that are allowed to be used in the _run script_ operation in flows                                                                 | --                       |
+| Variable                         | Description                                                                                                                                                                                          | Default Value            |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
+| `KEY`                            | Unique identifier for the project.                                                                                                                                                                   | --                       |
+| `SECRET`                         | Secret string for the project.                                                                                                                                                                       | --                       |
+| `ACCESS_TOKEN_TTL`               | The duration that the access token is valid.                                                                                                                                                         | `15m`                    |
+| `REFRESH_TOKEN_TTL`              | The duration that the refresh token is valid, and also how long users stay logged-in to the App.                                                                                                     | `7d`                     |
+| `REFRESH_TOKEN_COOKIE_DOMAIN`    | Which domain to use for the refresh cookie. Useful for development mode.                                                                                                                             | --                       |
+| `REFRESH_TOKEN_COOKIE_SECURE`    | Whether or not to use a secure cookie for the refresh token in cookie mode.                                                                                                                          | `false`                  |
+| `REFRESH_TOKEN_COOKIE_SAME_SITE` | Value for `sameSite` in the refresh token cookie when in cookie mode.                                                                                                                                | `lax`                    |
+| `REFRESH_TOKEN_COOKIE_NAME`      | Name of refresh token cookie .                                                                                                                                                                       | `directus_refresh_token` |
+| `LOGIN_STALL_TIME`               | The duration in milliseconds that a login request will be stalled for, and it should be greater than the time taken for a login request with an invalid password                                     | `500`                    |
+| `PASSWORD_RESET_URL_ALLOW_LIST`  | List of URLs that can be used [as `reset_url` in /password/request](/reference/authentication#request-password-reset)                                                                                | --                       |
+| `USER_INVITE_URL_ALLOW_LIST`     | List of URLs that can be used [as `invite_url` in /users/invite](/reference/system/users#invite-a-new-user)                                                                                          | --                       |
+| `IP_TRUST_PROXY`                 | Settings for [express' trust proxy setting](https://expressjs.com/en/guide/behind-proxies.html)                                                                                                      | true                     |
+| `IP_CUSTOM_HEADER`               | What custom request header to use for the IP address                                                                                                                                                 | false                    |
+| `ASSETS_CONTENT_SECURITY_POLICY` | Custom overrides for the Content-Security-Policy header for the /assets endpoint. See [helmet's documentation on `helmet.contentSecurityPolicy()`](https://helmetjs.github.io) for more information. | --                       |
+| `IMPORT_IP_DENY_LIST`            | Deny importing files from these IP addresses. Use `0.0.0.0` for any local IP address                                                                                                                 | `0.0.0.0`                |
+| `CONTENT_SECURITY_POLICY_*`      | Custom overrides for the Content-Security-Policy header. See [helmet's documentation on `helmet.contentSecurityPolicy()`](https://helmetjs.github.io) for more information.                          | --                       |
+| `HSTS_ENABLED`                   | Enable the Strict-Transport-Security policy header.                                                                                                                                                  | `false`                  |
+| `HSTS_*`                         | Custom overrides for the Strict-Transport-Security header. See [helmet's documentation](https://helmetjs.github.io) for more information.                                                            | --                       |
+| `FLOWS_EXEC_ALLOWED_MODULES`     | CSV allowlist of node modules that are allowed to be used in the _run script_ operation in flows                                                                                                     | --                       |
 
 ::: tip Cookie Strictness
 
@@ -459,7 +460,7 @@ than you would cache database content. To learn more, see [Assets](#assets).
 | `CACHE_TTL`<sup>[1]</sup>         | How long the data cache is persisted.                                                                                   | `5m`             |
 | `CACHE_CONTROL_S_MAXAGE`          | Whether to not to add the `s-maxage` expiration flag. Set to a number for a custom value.                               | `0`              |
 | `CACHE_AUTO_PURGE`<sup>[2]</sup>  | Automatically purge the data cache on `create`, `update`, and `delete` actions.                                         | `false`          |
-| `CACHE_SYSTEM_TTL`<sup>[3]</sup>  | How long `CACHE_SCHEMA` and `CACHE_PERMISSIONS` are persisted.                                                          | `10m`            |
+| `CACHE_SYSTEM_TTL`<sup>[3]</sup>  | How long `CACHE_SCHEMA` and `CACHE_PERMISSIONS` are persisted.                                                          | --               |
 | `CACHE_SCHEMA`<sup>[3]</sup>      | Whether or not the database schema is cached. One of `false`, `true`                                                    | `true`           |
 | `CACHE_PERMISSIONS`<sup>[3]</sup> | Whether or not the user permissions are cached. One of `false`, `true`                                                  | `true`           |
 | `CACHE_NAMESPACE`                 | How to scope the cache data.                                                                                            | `directus-cache` |
@@ -578,6 +579,7 @@ Based on your configured driver, you must also provide the following configurati
 | `STORAGE_<LOCATION>_ENDPOINT`               | S3 Endpoint               | `s3.amazonaws.com` |
 | `STORAGE_<LOCATION>_ACL`                    | S3 ACL                    | --                 |
 | `STORAGE_<LOCATION>_SERVER_SIDE_ENCRYPTION` | S3 Server Side Encryption | --                 |
+| `STORAGE_<LOCATION>_FORCE_PATH_STYLE`       | S3 Force Path Style       | false              |
 
 ### Azure (`azure`)
 
@@ -640,14 +642,13 @@ purposes, collection of additional metadata must be configured:
 
 ## Assets
 
-| Variable                                 | Description                                                                                                                             | Default Value |
-| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| `ASSETS_CACHE_TTL`                       | How long assets will be cached for in the browser. Sets the `max-age` value of the `Cache-Control` header.                              | `30d`         |
-| `ASSETS_TRANSFORM_MAX_CONCURRENT`        | How many file transformations can be done simultaneously                                                                                | `4`           |
-| `ASSETS_TRANSFORM_IMAGE_MAX_DIMENSION`   | The max pixel dimensions size (width/height) that is allowed to be transformed                                                          | `6000`        |
-| `ASSETS_TRANSFORM_MAX_OPERATIONS`        | The max number of transform operations that is allowed to be processed (excludes saved presets)                                         | `5`           |
-| `ASSETS_CONTENT_SECURITY_POLICY`         | Custom overrides for the Content-Security-Policy header. See [helmet's documentation](https://helmetjs.github.io) for more information. | --            |
-| `ASSETS_INVALID_IMAGE_SENSITIVITY_LEVEL` | Level of sensitivity to invalid images. See the [`sharp.failOn`](https://sharp.pixelplumbing.com/api-constructor#parameters) option     | `warning`     |
+| Variable                                 | Description                                                                                                                         | Default Value |
+| ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| `ASSETS_CACHE_TTL`                       | How long assets will be cached for in the browser. Sets the `max-age` value of the `Cache-Control` header.                          | `30d`         |
+| `ASSETS_TRANSFORM_MAX_CONCURRENT`        | How many file transformations can be done simultaneously                                                                            | `4`           |
+| `ASSETS_TRANSFORM_IMAGE_MAX_DIMENSION`   | The max pixel dimensions size (width/height) that is allowed to be transformed                                                      | `6000`        |
+| `ASSETS_TRANSFORM_MAX_OPERATIONS`        | The max number of transform operations that is allowed to be processed (excludes saved presets)                                     | `5`           |
+| `ASSETS_INVALID_IMAGE_SENSITIVITY_LEVEL` | Level of sensitivity to invalid images. See the [`sharp.failOn`](https://sharp.pixelplumbing.com/api-constructor#parameters) option | `warning`     |
 
 Image transformations can be fairly heavy on memory usage. If you're using a system with 1GB or less available memory,
 we recommend lowering the allowed concurrent transformations to prevent you from overflowing your server.
@@ -880,10 +881,18 @@ const publicUrl = process.env.PUBLIC_URL;
 
 ## Extensions
 
-| Variable                 | Description                                             | Default Value  |
-| ------------------------ | ------------------------------------------------------- | -------------- |
-| `EXTENSIONS_PATH`        | Path to your local extensions folder.                   | `./extensions` |
-| `EXTENSIONS_AUTO_RELOAD` | Automatically reload extensions when they have changed. | `false`        |
+| Variable                             | Description                                             | Default Value  |
+| ------------------------------------ | ------------------------------------------------------- | -------------- |
+| `EXTENSIONS_PATH`                    | Path to your local extensions folder.                   | `./extensions` |
+| `EXTENSIONS_AUTO_RELOAD`             | Automatically reload extensions when they have changed. | `false`        |
+| `EXTENSIONS_CACHE_TTL`<sup>[1]</sup> | How long custom app Extensions get cached by browsers.  | --             |
+
+<sup>[1]</sup> The `EXTENSIONS_CACHE_TTL` environment variable controls for how long custom app extensions (e.t.,
+interface, display, layout, module, panel) are cached by browsers. Caching can speed-up the loading of the app as the
+code for the extensions doesn't need to be re-fetched from the server on each app reload. On the other hand, this means
+that code changes to app extensions won't be taken into account by the browser until `EXTENSIONS_CACHE_TTL` has expired.
+By default, extensions are not cached. The input data type for this environment variable is the same as
+[`CACHE_TTL`](#cache).
 
 ## Messenger
 
