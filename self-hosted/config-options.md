@@ -374,7 +374,7 @@ No additional configuration required.
 
 | Variable             | Description                                                             | Default Value |
 | -------------------- | ----------------------------------------------------------------------- | ------------- |
-| `RATE_LIMITER_REDIS` | Redis connection string, e.g., `redis://:authpassword@127.0.0.1:6380/4` | ---           |
+| `RATE_LIMITER_REDIS` | Redis connection string, e.g., `redis://user:password@127.0.0.1:6380/4` | ---           |
 
 Alternatively, you can provide the individual connection parameters:
 
@@ -460,7 +460,7 @@ than you would cache database content. To learn more, see [Assets](#assets).
 | `CACHE_TTL`<sup>[1]</sup>         | How long the data cache is persisted.                                                                                   | `5m`             |
 | `CACHE_CONTROL_S_MAXAGE`          | Whether to not to add the `s-maxage` expiration flag. Set to a number for a custom value.                               | `0`              |
 | `CACHE_AUTO_PURGE`<sup>[2]</sup>  | Automatically purge the data cache on `create`, `update`, and `delete` actions.                                         | `false`          |
-| `CACHE_SYSTEM_TTL`<sup>[3]</sup>  | How long `CACHE_SCHEMA` and `CACHE_PERMISSIONS` are persisted.                                                          | `10m`            |
+| `CACHE_SYSTEM_TTL`<sup>[3]</sup>  | How long `CACHE_SCHEMA` and `CACHE_PERMISSIONS` are persisted.                                                          | --               |
 | `CACHE_SCHEMA`<sup>[3]</sup>      | Whether or not the database schema is cached. One of `false`, `true`                                                    | `true`           |
 | `CACHE_PERMISSIONS`<sup>[3]</sup> | Whether or not the user permissions are cached. One of `false`, `true`                                                  | `true`           |
 | `CACHE_NAMESPACE`                 | How to scope the cache data.                                                                                            | `directus-cache` |
@@ -492,7 +492,7 @@ No additional configuration required.
 
 | Variable      | Description                                                             | Default Value |
 | ------------- | ----------------------------------------------------------------------- | ------------- |
-| `CACHE_REDIS` | Redis connection string, e.g., `redis://:authpassword@127.0.0.1:6380/4` | ---           |
+| `CACHE_REDIS` | Redis connection string, e.g., `redis://user:password@127.0.0.1:6380/4` | ---           |
 
 Alternatively, you can provide the individual connection parameters:
 
@@ -896,11 +896,21 @@ By default, extensions are not cached. The input data type for this environment 
 
 ## Messenger
 
-| Variable              | Description                                        | Default Value |
-| --------------------- | -------------------------------------------------- | ------------- |
-| `MESSENGER_STORE`     | One of `memory`, `redis`<sup>[1]</sup>             | `memory`      |
-| `MESSENGER_NAMESPACE` | How to scope the channels in Redis                 | `directus`    |
-| `MESSENGER_REDIS_*`   | The Redis configuration for the pub/sub connection | --            |
+| Variable              | Description                                                             | Default Value |
+| --------------------- | ----------------------------------------------------------------------- | ------------- |
+| `MESSENGER_STORE`     | One of `memory`, `redis`<sup>[1]</sup>                                  | `memory`      |
+| `MESSENGER_NAMESPACE` | How to scope the channels in Redis                                      | `directus`    |
+| `MESSENGER_REDIS`     | Redis connection string, e.g., `redis://user:password@127.0.0.1:6380/4` | ---           |
+
+Alternatively, you can provide the individual connection parameters:
+
+| Variable                   | Description                                                   | Default Value |
+| -------------------------- | ------------------------------------------------------------- | ------------- |
+| `MESSENGER_REDIS_HOST`     | Hostname of the Redis instance, e.g., `"127.0.0.1"`           | --            |
+| `MESSENGER_REDIS_PORT`     | Port of the Redis instance, e.g., `6379`                      | --            |
+| `MESSENGER_REDIS_USERNAME` | Username for your Redis instance, e.g., `"default"`           | --            |
+| `MESSENGER_REDIS_PASSWORD` | Password for your Redis instance, e.g., `"yourRedisPassword"` | --            |
+| `MESSENGER_REDIS_DB`       | Database of your Redis instance to connect, e.g., `1`         | --            |
 
 <sup>[1]</sup> `redis` should be used in load-balanced installations of Directus
 
