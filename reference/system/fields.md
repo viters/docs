@@ -409,10 +409,10 @@ Required. Field key, also used as the column name.
 Required. One of the Directus types. This in turn controls what datatype is used for the column in the database. Setting
 the type to `alias` prevents a column from being created in the database.
 
-`meta`\
+`meta` **object**\
 Optional. Any of the optional meta values in the [field object](#the-field-object).
 
-`schema`\
+`schema` **object**\
 Optional. Any of the optional schema values in the [field object](#the-field-object).
 
 ### Returns
@@ -509,7 +509,7 @@ This endpoint doesn't currently support any query parameters.
 
 ### Request
 
-`type`\
+`type` **string**\
 The new type for the field.
 
 ::: warning Changing Type
@@ -519,10 +519,10 @@ existing field with content.
 
 :::
 
-`meta`\
+`meta` **object**\
 Any of the optional meta values in the [field object](#the-field-object).
 
-`schema`\
+`schema` **object**\
 Any of the optional schema values in the [field object](#the-field-object).
 
 Updating the field name is not supported at this time.

@@ -524,10 +524,10 @@ Supports all [global query parameters](/reference/query).
 
 ### Request
 
-`keys`\
+`keys` **array**\
 Required. Array of primary keys of the flows you'd like to update.
 
-`data`\
+`data` **object**\
 Required. Any of [the flow object](#the-flow-object)'s properties.
 
 ### Returns

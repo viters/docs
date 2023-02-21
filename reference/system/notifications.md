@@ -518,10 +518,10 @@ Supports all [global query parameters](/reference/query).
 
 ### Request
 
-`keys`\
+`keys` **array**\
 Required. Array of primary keys of the notifications you'd like to update.
 
-`data`\
+`data` **object**\
 Required. Any of [the notification object](#the-notification-object)'s properties.
 
 ### Returns

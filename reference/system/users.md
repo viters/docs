@@ -986,7 +986,8 @@ Invite a new user by email.
 
 ### Request
 
-`email` **string** Required. User email to invite.
+`email` **string**\
+Required. User email to invite.
 
 `role` **string**\
 Required. Primary key of the Role assigned to the new user.
