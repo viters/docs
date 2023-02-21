@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig } from 'vitepress';
 
 export default defineConfig({
 	base: '/',
@@ -334,12 +334,34 @@ function sidebar() {
 							text: 'Collections',
 						},
 						{
-							link: '/configuration/data-model/fields',
-							text: 'Fields',
-						},
-						{
 							link: '/configuration/data-model/relationships',
 							text: 'Relationships',
+						},
+						{
+							link: '/configuration/data-model/fields',
+							text: 'Fields',
+							items: [
+								{
+									link: '/configuration/data-model/fields/field',
+									text: 'Field Templates',
+								},
+								{
+									link: '/configuration/data-model/fields/string',
+									text: 'String',
+								},
+								{
+									link: '/configuration/data-model/fields/text',
+									text: 'Text',
+								},
+								{
+									link: '/configuration/data-model/fields/boolean',
+									text: 'Boolean',
+								},
+								{
+									link: '/configuration/data-model/fields/integer',
+									text: 'Integer',
+								},
+							],
 						},
 					],
 				},
