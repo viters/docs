@@ -283,12 +283,6 @@ Retrieve the currently authenticated user.
 
 Supports all [global query parameters](/reference/query).
 
-<!--
-### Request
-
-No options available.
--->
-
 ### Returns
 
 Returns the [user object](#the-user-object) for the currently authenticated user.
@@ -377,10 +371,8 @@ Supports all [global query parameters](/reference/query).
 
 ### Request
 
-`user_data` **Required**
-
-- **Type** — `Object`
-- **Description** — A partial [user object](#the-user-object) with the fields and values to be updated.
+`user_data` **object**\
+Required. A partial [user object](#the-user-object) with the fields and values to be updated.
 
 ### Returns
 
@@ -472,11 +464,9 @@ Supports all [global query parameters](/reference/query).
 
 ### Request
 
-`user_data` **Required**
-
-- **Type** — `Object`
-- **Description** — A partial [user object](#the-user-object). Note that `email` and `password` are required to
-  authenticate with the default authentication provider.
+`user_data` **object**\
+Required. A partial [user object](#the-user-object). Note that `email` and `password` are required to authenticate with the
+default authentication provider.
 
 ### Returns
 
@@ -565,11 +555,9 @@ Supports all [global query parameters](/reference/query).
 
 ### Request
 
-`directus_users` **Required**
-
-- **Type** — `Array`
-- **Description** — An array of partial [user object](#the-user-object). Note that `email` and `password` are required
-  to authenticate with the default authentication provider.
+`directus_users` **array**\
+Required. An array of partial [user object](#the-user-object). Note that `email` and `password` are required to authenticate
+with the default authentication provider.
 
 ### Returns
 
@@ -668,15 +656,11 @@ Supports all [global query parameters](/reference/query).
 
 ### Request
 
-`id` **Required**
+`id` **string**\
+Required. Primary key (uuid) of the user to update.
 
-- **Type** — `String`
-- **Description** — Primary key (uuid) of the user to update.
-
-`user_data` **Required**
-
-- **Type** — `Object`
-- **Description** — A partial [user object](#the-user-object) with the fields and values to be updated.
+`user_data` **object**\
+Required. A partial [user object](#the-user-object) with the fields and values to be updated.
 
 ### Returns
 
@@ -763,15 +747,11 @@ Supports all [global query parameters](/reference/query).
 
 ### Request
 
-`keys` **Required**
+`keys` **array**\
+Required. Array of primary keys of the users you'd like to update.
 
-- **Type** — `Array`
-- **Description** — Array of primary keys of the users you'd like to update.
-
-`data` **Required**
-
-- **Type** — `Object`
-- **Description** — Any of [the user object](#the-user-object)'s properties.
+`data` **object**\
+Required. Any of [the user object](#the-user-object)'s properties.
 
 ### Returns
 
@@ -1006,22 +986,15 @@ Invite a new user by email.
 
 ### Request
 
-`email` **Required**
+`email` **string** Required. User email to invite.
 
-- **Type** — `String`
-- **Description** — User email to invite.
+`role` **string**\
+Required. Primary key of the Role assigned to the new user.
 
-`role` **Required**
-
-- **Type** — `String`
-- **Description** —Primary key of the Role assigned to the new user.
-
-`invite_url` **Optional**
-
-- **Type** — `String`
-- **Description** — Provide a custom invite url which the link in the email will lead to. The invite token will be
-  passed as a parameter. You need to configure the
-  [`USER_INVITE_URL_ALLOW_LIST` environment variable](/self-hosted/config-options#security) to enable this feature.
+`invite_url` **string**\
+Optional. Provide a custom invite url which the link in the email will lead to. The invite token will be passed as a parameter.
+You need to configure the [`USER_INVITE_URL_ALLOW_LIST` environment variable](/self-hosted/config-options#security) to enable
+this feature.
 
 ### Returns
 
@@ -1102,15 +1075,11 @@ This link includes a token, which is then used to activate the invited user.
 
 ### Request
 
-`token` **Required**
+`token` **string**\
+Required. An "accept invite" token.
 
-- **Type** — `String`
-- **Description** — an "accept invite" token.
-
-`password` **Required**
-
-- **Type** — `String`
-- **Description** — A password for the user.
+`password` **string**\
+Required. A password for the user.
 
 ### Returns
 
@@ -1189,8 +1158,8 @@ Generates a secret and returns the URL to be used in an authenticator app.
 
 ### Request
 
-`password` **Required**\
-The user's password.
+`password` **string**\
+Required. The user's password.
 
 ### Returns
 
@@ -1275,11 +1244,11 @@ Adds a TFA secret to the user account.
 
 ### Request
 
-`secret` **Required**\
-The TFA secret from tfa/generate.
+`secret` **string**\
+Required. The TFA secret from tfa/generate.
 
-`otp` **Required**\
-OTP generated with the secret, to recheck if the user has a correct TFA setup
+`otp` **string**\
+Required. OTP generated with the secret, to recheck if the user has a correct TFA setup
 
 ### Returns
 
@@ -1359,10 +1328,8 @@ Disables two-factor authentication by removing the OTP secret from the user.
 
 ### Request
 
-`otp` **Required**
-
-- **Type** — `String`
-- **Description** — One-time password generated by the authenticator app.
+`otp` **string**\
+Required. One-time password generated by the authenticator app.
 
 ### Returns
 

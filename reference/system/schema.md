@@ -118,7 +118,7 @@ unintentional diffs from being generated. You can opt in to bypass these checks 
 `force` **boolean**\
 Bypass version and database vendor restrictions.
 
-### Request Body
+### Request
 
 JSON object containing [collections](/reference/system/collections#the-collection-object),
 [fields](/reference/system/fields#the-field-object), and [relations](/reference/system/relations#the-relation-object) to

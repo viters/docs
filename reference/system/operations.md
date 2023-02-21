@@ -522,11 +522,11 @@ Supports all [global query parameters](/reference/query).
 
 ### Request
 
-`keys` **Required**\
-Array of primary keys of the operations you'd like to update.
+`keys` **array**\
+Required. Array of primary keys of the operations you'd like to update.
 
-`data` **Required**\
-Any of [the operation object](#the-operation-object)'s properties.
+`data` **object**\
+Required. Any of [the operation object](#the-operation-object)'s properties.
 
 ### Returns
 

@@ -520,11 +520,11 @@ Supports all [global query parameters](/reference/query).
 
 ### Request
 
-`keys` **Required**\
-Array of primary keys of the panels you'd like to update.
+`keys` **array**\
+Required. Array of primary keys of the panels you'd like to update.
 
-`data` **Required**\
-Any of [the panel](#the-panel-object)'s properties.
+`data` **object**\
+Required. Any of [the panel](#the-panel-object)'s properties.
 
 ### Returns
 

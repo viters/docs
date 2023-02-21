@@ -635,21 +635,14 @@ Supports all [global query parameters](/reference/query).
 
 ### Request
 
-`file_object` **Required**
+`file_object` **string**\
+Required. An object containing the file `url` and `data` to add.
 
-- **Type** — `String`
-- **Description** — An object containing the file `url` **Required** and `data` **Optional** to add. See the next two
-  options for details:
+- `url` **string**\
+  Required. The URL to download the file from.
 
-  `url` **Required**
-
-  - **Type** — `String`
-  - **Description** — The URL to download the file from.
-
-  `data` **Optional**
-
-  - **Type** — `Object`
-  - **Desctription** — Any of [the file object](#the-file-object)'s properties.
+- `data` **object**\
+  Optional. Any of [the file object](#the-file-object)'s properties.
 
 ### Returns
 
@@ -1068,10 +1061,8 @@ This will also delete the files from disk.
 
 ### Request
 
-`ids` **Required**
-
-- **Type** — `Array`
-- **Description** — Array of file primary keys
+`ids` **array**\
+Required. Array of file primary keys.
 
 ### Returns
 

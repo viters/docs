@@ -377,15 +377,11 @@ Updates an existing comment by activity action primary key.
 
 ### Request
 
-`id` **Required**
+`id` **string**\
+Required. An existing primary key.
 
-- **Type** — `String`
-- **Description** — An existing primary key.
-
-`comment` **Required**
-
-- **Type** — `Object`
-- **Description** — The updated comment content. Supports Markdown.
+`comment` **object**\
+Required. The updated comment content. Supports Markdown.
 
 ### Returns
 

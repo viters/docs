@@ -96,45 +96,30 @@ Retrieve a temporary access token and refresh token.
 
 ### Request
 
-`email` **Required**
+`email` **string**\
+ Required. Email address of the user you're retrieving the access token for.
 
-- **Type** — `String`
-- **Description** — Email address of the user you're retrieving the access token for.
+`password` **string**\
+Required. Password of the user.
 
-`password` **Required**
+`otp` **string**\
+Optional. The user's one-time-password (if MFA is enabled).
 
-- **Type** — `String`
-- **Description** — Password of the user.
+`mode` **string**\
+Optional. Whether to retrieve the refresh token in the JSON response, or in a `httpOnly` `secure` cookie. One of `json`,
+`cookie`. Defaults to `json`.
 
-`otp` **Optional**
+### Returns
 
-- **Type** — `String`
-- **Description** — The user's one-time-password (if MFA is enabled).
+`access_token` **string**\
+Temporary access token to be used in follow-up requests.
 
-`mode` **Optional**
+`expires` **integer**\
+How long before the access token will expire. Value is in milliseconds.
 
-- **Type** — `String`
-- **Description** — Whether to retrieve the refresh token in the JSON response, or in a `httpOnly` `secure` cookie. One
-  of `json`, `cookie`.
-- **Default** — Defaults to `json`.
-
-### Response Attributes
-
-`access_token`
-
-- **Type** — `String`
-- **Description** — Temporary access token to be used in follow-up requests.
-
-`expires`
-
-- **Type** — `Integer`
-- **Description** — How long before the access token will expire. Value is in milliseconds.
-
-`refresh_token`
-
-- **Type** — `String`
-- **Descritpion** — The token that can be used to retrieve a new access token through [`/auth/refresh`](#refresh). Note:
-  if you used `cookie` as the mode in the request, the refresh token won't be returned in the JSON.
+`refresh_token` **string**\
+The token that can be used to retrieve a new access token through [`/auth/refresh`](#refresh). Note: if you used `cookie`
+as the mode in the request, the refresh token won't be returned in the JSON.
 
 ::: tip Expiry Time
 
@@ -210,35 +195,25 @@ Retrieve a new access token using a refresh token.
 
 ### Request
 
-`refresh_token` **Required**
+`refresh_token` **string**\
+Required. The refresh token to use. If you have the refresh token in a cookie through [`/auth/login`](#login), you don't
+have to submit it here.
 
-- **Type** — `String`
-- **Description** — The refresh token to use. If you have the refresh token in a cookie through [`/auth/login`](#login),
-  you don't have to submit it here.
+`mode` **string**\
+Required. Whether to retrieve the refresh token in the JSON response, or in a `httpOnly` `secure` cookie. One of `json`,
+`cookie`.
 
-`mode` **Required**
+### Returns
 
-- **Type** — `String`
-- **Description** — Whether to retrieve the refresh token in the JSON response, or in a `httpOnly` `secure` cookie. One
-  of `json`, `cookie`.
+`access_token` **string**\
+Temporary access token to be used in follow-up requests.
 
-### Response Attributes
+`expires` **integer**\
+How long before the access token will expire. Value is in milliseconds.
 
-`access_token`
-
-- **Type** — `String`
-- **Description** — Temporary access token to be used in follow-up requests.
-
-`expires`
-
-- **Type** — `Integer`
-- **Description** — How long before the access token will expire. Value is in milliseconds.
-
-`refresh_token`
-
-- **Type** — `String`
-- **Description** — The token that can be used to retrieve a new access token through [`/auth/refresh`](#refresh). Note:
-  if you used `cookie` as the mode in the request, the refresh token won't be returned in the JSON.
+`refresh_token` **string**\
+The token that can be used to retrieve a new access token through [`/auth/refresh`](#refresh). Note: if you used `cookie`
+as the mode in the request, the refresh token won't be returned in the JSON.
 
 :::tip SDK Refresh Tokens
 
@@ -314,11 +289,9 @@ Invalidate the refresh token thus destroying the user's session.
 
 ### Request
 
-`refresh_token`
-
-- **Type** — `String`
-- **Description** — The refresh token to invalidate. If you have the refresh token in a cookie through
-  [`/auth/login`](#login), you don't have to submit it here.
+`refresh_token` **string**\
+Required. The refresh token to invalidate. If you have the refresh token in a cookie through [`/auth/login`](#login), you
+don't have to submit it here.
 
 ### Example
 
@@ -375,16 +348,12 @@ Request a password reset email to be sent to the given user. Uses the
 
 ### Request
 
-`email` **Required**
+`email` **string**\
+Required. Email address of the user you're requesting a password reset for.
 
-- **Type** — `String`
-- **Description** — Email address of the user you're requesting a password reset for.
-
-`reset_url` **Optional**
-
-- **Type** — `String`
-- **Description** — The `reset_url` option provides a custom reset url which the link in the email will lead to. The
-  reset token will be passed as a parameter.
+`reset_url` **string**\
+Optional. The `reset_url` option provides a custom reset url which the link in the email will lead to. The reset token will
+be passed as a parameter.
 
 :::tip
 
@@ -449,16 +418,11 @@ to the admin app (or a custom route) which in turn uses this endpoint to allow t
 
 ### Request
 
-`token` **Required**
+`token` **string**\
+Required. The password reset token. The token passed in this parameter gets sent in an email to the user when using [request a password reset](/reference/authentication.md#request-password-reset).
 
-- **Type** — `String`
-- **Description** — The password reset token. The token passed in this parameter gets sent in an email to the user when
-  using [request a password reset](/reference/authentication.md#request-password-reset).
-
-`password` **Required**
-
-- **Type** — `String`
-- **Description** — New password for the user.
+`password` **string**\
+Required. New password for the user.
 
 ### Example
 
@@ -519,17 +483,13 @@ To learn more about setting up auth providers, see
 
 :::
 
-### Response Attributes
+### Returns
 
-`data` **Required**
+`data` **array**\
+An array of configured auth providers.
 
-- **Type** — `Array`
-- **Description** — An array of configured auth providers.
-
-`disableDefault` **Optional**
-
-- **Type** — `Boolean`
-- **Description** — Sets whether or not the default authentication provider is disabled.
+`disableDefault` **boolean**\
+Sets whether or not the default authentication provider is disabled.
 
 ### Example
 

@@ -467,15 +467,10 @@ This endpoint doesn't currently support any query parameters.
 
 ### Request
 
-`collection` **Required**
+`collection` **string**\
+Required. The name of the collection.
 
-- **Type** — `String`
-- **Description** — The name of the collection.
-
-`meta` **Required**
-
-- **Type** — `Object`
-- **Description** — For details, see the [collection object](#the-collection-object).
+`meta` **object** Required. For details, see the [collection object](#the-collection-object).
 
 ### Returns
 

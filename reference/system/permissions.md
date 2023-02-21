@@ -515,13 +515,11 @@ Supports all [global query parameters](/reference/query).
 
 ### Request
 
-### Request
+`keys` **array**\
+Required. Array of primary keys of the permissions you'd like to update.
 
-`keys` **Required**\
-Array of primary keys of the permissions you'd like to update.
-
-`data` **Required**\
-Any of [the permission object](#the-permission-object)'s properties.
+`data` **object**\
+Required. Any of [the permission object](#the-permission-object)'s properties.
 
 ### Returns
 

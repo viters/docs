@@ -402,18 +402,18 @@ This endpoint doesn't currently support any query parameters.
 
 ### Request
 
-`field` **Required**\
-Field key, also used as the column name.
+`field` **string**\
+Required. Field key, also used as the column name.
 
-`type` **Required**\
-One of the Directus types. This in turn controls what datatype is used for the column in the database. Setting the type to
-`alias` prevents a column from being created in the database.
+`type` **string**\
+Required. One of the Directus types. This in turn controls what datatype is used for the column in the database. Setting
+the type to `alias` prevents a column from being created in the database.
 
 `meta`\
-Any of the optional meta values in the [field object](#the-field-object).
+Optional. Any of the optional meta values in the [field object](#the-field-object).
 
 `schema`\
-Any of the optional schema values in the [field object](#the-field-object).
+Optional. Any of the optional schema values in the [field object](#the-field-object).
 
 ### Returns
 

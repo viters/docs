@@ -484,11 +484,11 @@ Supports all [global query parameters](/reference/query).
 
 ### Request
 
-`keys` **Required**\
-Array of primary keys of the folders you'd like to update.
+`keys`\
+Required. Array of primary keys of the folders you'd like to update.
 
-`data` **Required**\
-Any of [the folder object](#the-folder-object)'s properties.
+`data`\
+Required. Any of [the folder object](#the-folder-object)'s properties.
 
 ### Returns
 

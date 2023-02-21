@@ -499,11 +499,11 @@ Supports all [global query parameters](/reference/query).
 
 ### Request
 
-`keys` **Required**\
-Array of primary keys of the dashboards you'd like to update.
+`keys` **array**\
+Required. An array of primary keys of the dashboards you'd like to update.
 
-`data` **Required**\
-Any of [the dashboard](#the-dashboard-object)'s properties.
+`data` **object**\
+Required. Any of [the dashboard](#the-dashboard-object)'s properties.
 
 ### Returns
 

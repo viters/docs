@@ -21,13 +21,10 @@ Gets a random string.
 
 ### Request
 
-`length` **optional**
+`length` **integer**\
+Optional. Sets length of the string generated. Defaults to 32.
 
-- **Type** — `Integer`
-- **Description** — Sets length of the string generated.
-- **Default** — Defaults to 32.
-
-### Response
+### Returns
 
 Returns a random string.
 
@@ -105,8 +102,8 @@ Generates a hash for a given string.
 
 ### Request
 
-`string` **Required**\
-String to hash.
+`string` **string**\
+Required. A string value to hash.
 
 ### Returns
 
@@ -186,11 +183,11 @@ Verify a string with a hash.
 
 ### Request
 
-`string` **Required**\
-Source string.
+`string` **string**\
+Required. The source string.
 
-`hash` **Required**\
-Hash you want to verify against.
+`hash` **string**\
+Required. Hash value you want to verify against.
 
 ### Returns
 
@@ -271,20 +268,14 @@ If a collection has a sort field, this util can be used to move items in that ma
 
 ### Request
 
-`collection` **Required**
+`collection` **string**\
+Required. The name of the collection.
 
-- **Type** - **String**
-- **Description** - The name of the collection.
+`item` **string** or **integer**\
+Required. Primary key of the item you're moving in the collection.
 
-`item` **Required**
-
-- **Type** — `String` or `Integer`
-- **Description** — Primary key of the item you're moving in the collection.
-
-`to` **Required**
-
-- **Type** — `String` or `Integer`
-- **Description** — Primary key of the item you're moving the source item too.
+`to` **string** or **integer**\
+Required. Primary key of the item you're moving the source item too.
 
 ### Returns
 
@@ -466,11 +457,11 @@ Doesn't use any query parameters.
 
 ### Request
 
-`format` **Required**\
-What file format to save the export to. One of `csv`, `json`, `xml`, `yaml`.
+`format` **string**\
+Required. The file format to save the export to. One of `csv`, `json`, `xml`, `yaml`.
 
-`query` **Required**\
-The query object to use for the export. Supports the [global query parameters](/reference/query).
+`query` **object**\
+Required. The query object to use for the export. Supports the [global query parameters](/reference/query).
 
 `file` **File Object**\
 Partial file object to tweak where / how the export file is saved.
@@ -558,11 +549,11 @@ Resets both the data and schema cache of Directus. This endpoint is only availab
 
 ### Request
 
-n/a
+No options available.
 
 ### Returns
 
-Empty body
+Empty body.
 
 ### Syntax
 
@@ -635,16 +626,12 @@ For more details, please see the documentation on [revisions](/reference/system/
 
 ### Request
 
-`primaryKey` **Required**
+`primaryKey` **integer** or **string**\
+Required. The key passed is the primary key of the revision you'd like to apply.
 
-- **Type** — `Integer` or `String`
-- **Description** — The key passed is the primary key of the revision you'd like to apply.
-
-<!--
-### Response
+### Returns
 
 An Empty Body.
--->
 
 ### Syntax
 

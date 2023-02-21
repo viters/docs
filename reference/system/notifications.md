@@ -518,11 +518,11 @@ Supports all [global query parameters](/reference/query).
 
 ### Request
 
-`keys` **Required**\
-Array of primary keys of the notifications you'd like to update.
+`keys`\
+Required. Array of primary keys of the notifications you'd like to update.
 
-`data` **Required**\
-Any of [the notification object](#the-notification-object)'s properties.
+`data`\
+Required. Any of [the notification object](#the-notification-object)'s properties.
 
 ### Returns
 
@@ -678,7 +678,7 @@ Delete multiple existing notifications.
 
 ### Request
 
-An array of notification primary keys
+An array of notification primary keys.
 
 ### Returns
 
