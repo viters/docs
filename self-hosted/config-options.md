@@ -374,7 +374,7 @@ No additional configuration required.
 
 | Variable             | Description                                                             | Default Value |
 | -------------------- | ----------------------------------------------------------------------- | ------------- |
-| `RATE_LIMITER_REDIS` | Redis connection string, e.g., `redis://:authpassword@127.0.0.1:6380/4` | ---           |
+| `RATE_LIMITER_REDIS` | Redis connection string, e.g., `redis://user:password@127.0.0.1:6380/4` | ---           |
 
 Alternatively, you can provide the individual connection parameters:
 
@@ -492,7 +492,7 @@ No additional configuration required.
 
 | Variable      | Description                                                             | Default Value |
 | ------------- | ----------------------------------------------------------------------- | ------------- |
-| `CACHE_REDIS` | Redis connection string, e.g., `redis://:authpassword@127.0.0.1:6380/4` | ---           |
+| `CACHE_REDIS` | Redis connection string, e.g., `redis://user:password@127.0.0.1:6380/4` | ---           |
 
 Alternatively, you can provide the individual connection parameters:
 
