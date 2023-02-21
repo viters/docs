@@ -896,11 +896,21 @@ By default, extensions are not cached. The input data type for this environment 
 
 ## Messenger
 
-| Variable              | Description                                        | Default Value |
-| --------------------- | -------------------------------------------------- | ------------- |
-| `MESSENGER_STORE`     | One of `memory`, `redis`<sup>[1]</sup>             | `memory`      |
-| `MESSENGER_NAMESPACE` | How to scope the channels in Redis                 | `directus`    |
-| `MESSENGER_REDIS_*`   | The Redis configuration for the pub/sub connection | --            |
+| Variable              | Description                                                             | Default Value |
+| --------------------- | ----------------------------------------------------------------------- | ------------- |
+| `MESSENGER_STORE`     | One of `memory`, `redis`<sup>[1]</sup>                                  | `memory`      |
+| `MESSENGER_NAMESPACE` | How to scope the channels in Redis                                      | `directus`    |
+| `MESSENGER_REDIS`     | Redis connection string, e.g., `redis://user:password@127.0.0.1:6380/4` | ---           |
+
+Alternatively, you can provide the individual connection parameters:
+
+| Variable                   | Description                                                   | Default Value |
+| -------------------------- | ------------------------------------------------------------- | ------------- |
+| `MESSENGER_REDIS_HOST`     | Hostname of the Redis instance, e.g., `"127.0.0.1"`           | --            |
+| `MESSENGER_REDIS_PORT`     | Port of the Redis instance, e.g., `6379`                      | --            |
+| `MESSENGER_REDIS_USERNAME` | Username for your Redis instance, e.g., `"default"`           | --            |
+| `MESSENGER_REDIS_PASSWORD` | Password for your Redis instance, e.g., `"yourRedisPassword"` | --            |
+| `MESSENGER_REDIS_DB`       | Database of your Redis instance to connect, e.g., `1`         | --            |
 
 <sup>[1]</sup> `redis` should be used in load-balanced installations of Directus
 
