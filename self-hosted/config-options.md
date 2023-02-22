@@ -920,7 +920,7 @@ Alternatively, you can provide the individual connection parameters:
 | Variable             | Description                                                                          | Default Value          |
 | -------------------- | ------------------------------------------------------------------------------------ | ---------------------- |
 | `EMAIL_VERIFY_SETUP` | Check if email setup is properly configured.                                         | `true`                 |
-| `EMAIL_FROM`         | Email address from which emails are sent.                                            | `no-reply@directus.io` |
+| `EMAIL_FROM`         | Email address from which emails are sent.                                            | `no-reply@example.com` |
 | `EMAIL_TRANSPORT`    | What to use to send emails. One of `sendmail`, `smtp`, `mailgun`, `sendgrid`, `ses`. | `sendmail`             |
 
 Based on the `EMAIL_TRANSPORT` used, you must also provide the following configurations:
